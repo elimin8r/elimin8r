@@ -118,11 +118,9 @@ gulp.task('minify-css',function() {
 
 // Watch for changes
 gulp.task('watch', function(callback) {
-  gulp.watch(srcDir + '/scss/**/*.scss', gulp.series('sass'));
-  gulp.watch(srcDir + '/js/*.js', gulp.series('terser'));
-  gulp.watch(srcDir + '/images/**/*', gulp.series('images'));
-
-  runSequence('clean:dist', ['sass', 'terser', 'images'], 'minify-css', 'cachebust', callback);
+  gulp.watch(srcDir + '/scss/**/*.scss', gulp.series('build'));
+  gulp.watch(srcDir + '/js/*.js', gulp.series('build'));
+  gulp.watch(srcDir + '/images/**/*', gulp.series('build'));
 });
 
 // Delete destination folder

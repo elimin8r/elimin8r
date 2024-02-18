@@ -17,6 +17,7 @@ If you are a web developer looking to tweak the code of the `White Label` theme,
 To start using all the tools that come with `White Label` you need to install the necessary dependencies:
 
 `$  composer  install`
+
 `$  npm  install`
 
 ###  CLI commands

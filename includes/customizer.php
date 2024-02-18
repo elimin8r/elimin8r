@@ -1,5 +1,11 @@
 <?php
 
+// Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+function whitelabel_customize_preview_js() {
+	wp_enqueue_script( 'whitelabel-customizer', get_template_directory_uri() . '/includes/js/customizer.js', array( 'customize-preview' ), '', true );
+}
+add_action( 'customize_preview_init', 'whitelabel_customize_preview_js' );
+
 // Add postMessage support for site title and description for the Theme Customizer.
 function whitelabel_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
@@ -35,8 +41,42 @@ function whitelabel_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
-// Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
-function whitelabel_customize_preview_js() {
-	wp_enqueue_script( 'whitelabel-customizer', get_template_directory_uri() . '/includes/js/customizer.js', array( 'customize-preview' ), '', true );
+function whitelabel_header_customize_register( $wp_customize ) {
+	// Add the section
+	$wp_customize->add_section( 'whitelable_header_options' , array(
+		'title'      => __( 'Header', 'mytheme' ),
+		'priority'   => 30,
+	) );
+
+	// Add the setting
+	$wp_customize->add_setting( 'header_position' , array(
+		'default'   => 'top',
+		'transport' => 'refresh',
+	) );
+
+	// Add the control
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_position', array(
+		'label'      => __( 'Header Position', 'mytheme' ),
+		'section'    => 'whitelable_header_options',
+		'settings'   => 'header_position',
+		'type'       => 'select',
+		'choices'    => array(
+			'top' => 'Top',
+			'side' => 'Side',
+		),
+	) ) );
+
+    // Add the setting for color picker
+    $wp_customize->add_setting( 'header_color' , array(
+        'default'     => '#ffffff',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the color control
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
+        'label'        => __( 'Header Color', 'mytheme' ),
+        'section'      => 'whitelable_header_options',
+        'settings'     => 'header_color',
+    ) ) );
 }
-add_action( 'customize_preview_init', 'whitelabel_customize_preview_js' );
+add_action( 'customize_register', 'whitelabel_header_customize_register' );

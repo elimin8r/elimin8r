@@ -1,6 +1,6 @@
 /*!
 Theme Name: White Label
-Theme URI: https: //www.sketchingpixels.co.uk
+Theme URI: https://www.sketchingpixels.co.uk
 Author: Ryan Andrews
 Author URI: https://www.sketchingpixels.co.uk
 Description: A starter theme for WordPress
@@ -12,3 +12,5 @@ License URI: LICENSE
 Text Domain: whitelabel
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
+
+/* Please note that this is not the main stylesheet for the theme. Place styles in the .scss files located in the assets/scss/ directory */

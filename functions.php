@@ -14,6 +14,9 @@ function whitelabel_setup() {
 	// Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
 
+	// Disable the theme / plugin text editor
+	define( 'DISALLOW_FILE_EDIT', true );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(

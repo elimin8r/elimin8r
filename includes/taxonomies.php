@@ -82,7 +82,9 @@ function taxonomy_post_type_callback() {
     $post_types = get_post_types( array( 'public' => true ), 'names' );
     ?>
     <select name="taxonomy_post_type" class="regular-text">
+        <option value="">Select a post type</option>
         <?php foreach ( $post_types as $post_type ) : ?>
+            <?php if ( $post_type === 'attachment' ) { continue; } ?>
             <option value="<?php echo esc_attr( $post_type ); ?>"><?php echo esc_html( $post_type ); ?></option>
         <?php endforeach; ?>
     </select>

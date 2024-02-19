@@ -114,6 +114,7 @@ function taxonomies_callback() {
 
     ?>
     <select name="taxonomies[]" class="regular-text">
+        <option value="">Select a taxonomy</option>
         <?php if ( !empty( $taxonomies ) ) : ?>
             <?php foreach ( $taxonomies as $taxonomy ) : ?>
                 <?php if ( in_array( $taxonomy, $exclude_taxonomies ) ) continue; ?>

@@ -164,6 +164,16 @@ function handle_post_type_registration() {
 add_action( 'admin_init', 'handle_form_submission' );
 function handle_form_submission() {
     if ( isset( $_POST['plural_label'] ) && isset( $_POST['singular_label'] ) && isset( $_POST['post_type_slug'] ) && !empty( $_POST['plural_label'] ) && !empty( $_POST['singular_label'] ) && !empty( $_POST['post_type_slug'] ) ) {
+        // Check if the post type already exists
+        $registered_post_types = get_post_types( array(), 'objects' );
+        foreach ( $registered_post_types as $registered_post_type ) {
+            if ( $registered_post_type->name === $_POST['post_type_slug'] ) {
+                // Add an error message
+                add_settings_error( 'post_types_settings', 'post_type_exists', 'The post type you\'re trying to create already exists', 'error' );
+                return;
+            }
+        }
+
         $post_types = get_option( 'whitelabel_custom_post_types', array() );
 
         // Add the new post type to the array

@@ -57,14 +57,14 @@ function register_post_types_settings() {
     add_settings_field( 'plural_label', 'Plural Label', 'plural_label_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'singular_label', 'Singular Label', 'singular_label_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'post_type_slug', 'Post Type Slug', 'post_type_slug_callback', 'post_types_settings', 'post_types_section' );
-    // add_settings_field( 'taxonomies', 'Taxonomies', 'taxonomies_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'taxonomies', 'Taxonomies', 'taxonomies_callback', 'post_types_settings', 'post_types_section' );
 
     // Register the settings
     register_setting( 'post_types_settings', 'plural_label' );
     register_setting( 'post_types_settings', 'singular_label' );
     register_setting( 'post_types_settings', 'post_type_slug' );
     register_setting( 'post_types_settings', 'post_type_delete' );
-    // register_setting( 'post_types_settings', 'taxonomies' );
+    register_setting( 'post_types_settings', 'taxonomies' );
 }
 
 // Callback functions for the input fields
@@ -103,7 +103,7 @@ function post_type_delete_callback() {
 }
 
 function taxonomies_callback() {
-    $taxonomies = get_taxonomies();
+    $taxonomies = get_taxonomies(array('public' => true), 'names');
     $selected_taxonomies = get_option( 'taxonomies' );
 
     // Check if $selected_taxonomies is an array, if not convert it to an array
@@ -111,14 +111,16 @@ function taxonomies_callback() {
         $selected_taxonomies = explode( ',', $selected_taxonomies ); // assuming it's a comma-separated string
     }
 
-    echo '<select name="taxonomies[]" multiple>';
-    if ( !empty( $taxonomies ) ) {
-        foreach ( $taxonomies as $taxonomy ) {
-            $selected = in_array( $taxonomy, $selected_taxonomies ) ? 'selected' : '';
-            echo '<option value="' . esc_attr( $taxonomy ) . '" ' . $selected . '>' . esc_html( $taxonomy ) . '</option>';
-        }
-    }
-    echo '</select>';
+    ?>
+    <select name="taxonomies[]" class="regular-text">
+        <?php if ( !empty( $taxonomies ) ) : ?>
+            <?php foreach ( $taxonomies as $taxonomy ) : ?>
+                <?php $selected = in_array( $taxonomy, $selected_taxonomies ) ? 'selected' : ''; ?>
+                    <option value="<?php echo esc_attr( $taxonomy ) ?>" <?php echo $selected ?>><?php echo esc_html( $taxonomy ) ?></option>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </select>
+    <?php
 }
 
 // Handle post type registration
@@ -148,6 +150,7 @@ function handle_post_type_registration() {
                 ),
                 'public' => true,
                 'has_archive' => true,
+                'taxonomies' => isset( $post_type['taxonomies'] ) ? $post_type['taxonomies'] : array(),
                 'rewrite' => array('slug' => $post_type['post_type_slug']),
             );
             register_post_type( $post_type['post_type_slug'], $args );

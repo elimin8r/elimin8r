@@ -126,6 +126,16 @@ function handle_taxonomy_registration() {
 add_action( 'admin_init', 'handle_taxonomy_form_submission' );
 function handle_taxonomy_form_submission() {
     if ( isset( $_POST['taxonomy_label'] ) && isset( $_POST['taxonomy_slug'] ) && isset( $_POST['taxonomy_post_type'] ) && !empty( $_POST['taxonomy_label'] ) && !empty( $_POST['taxonomy_slug'] ) && !empty( $_POST['taxonomy_post_type'] ) ) {
+        // Check if taxonomy already exists
+        $registered_taxonomies = get_taxonomies( array(), 'objects' );
+        foreach ( $registered_taxonomies as $registered_taxonomy ) {
+            if ( $registered_taxonomy->name === $_POST['taxonomy_slug'] ) {
+                // Add an error message
+                add_settings_error( 'taxonomy_settings', 'taxonomy_exists', 'The taxonomy you\'re trying to create already exists', 'error' );
+                return;
+            }
+        }
+        
         $taxonomies = get_option( 'whitelabel_custom_taxonomies', array() );
 
         // Add the new taxonomy to the array

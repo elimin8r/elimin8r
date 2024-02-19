@@ -105,6 +105,7 @@ function post_type_delete_callback() {
 function taxonomies_callback() {
     $taxonomies = get_taxonomies(array('public' => true), 'names');
     $selected_taxonomies = get_option( 'taxonomies' );
+    $exclude_taxonomies = array('post_tag', 'post_format');
 
     // Check if $selected_taxonomies is an array, if not convert it to an array
     if (!is_array( $selected_taxonomies ) ) {
@@ -115,6 +116,7 @@ function taxonomies_callback() {
     <select name="taxonomies[]" class="regular-text">
         <?php if ( !empty( $taxonomies ) ) : ?>
             <?php foreach ( $taxonomies as $taxonomy ) : ?>
+                <?php if ( in_array( $taxonomy, $exclude_taxonomies ) ) continue; ?>
                 <?php $selected = in_array( $taxonomy, $selected_taxonomies ) ? 'selected' : ''; ?>
                     <option value="<?php echo esc_attr( $taxonomy ) ?>" <?php echo $selected ?>><?php echo esc_html( $taxonomy ) ?></option>
             <?php endforeach; ?>

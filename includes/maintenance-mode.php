@@ -16,7 +16,7 @@ function add_maintenance_mode_meta_box() {
 }
 
 function maintenance_mode_meta_box_callback() {
-    echo '<p>WordPress is currently in maintenance mode.</p>';
+    echo '<p><span class="dashicons dashicons-hammer"></span> WordPress is currently in maintenance mode.</p>';
 }
 add_action( 'wp_dashboard_setup', 'add_maintenance_mode_meta_box' );
 

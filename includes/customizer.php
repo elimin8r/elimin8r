@@ -44,7 +44,7 @@ function whitelabel_customize_partial_blogdescription() {
 function whitelabel_header_customize_register( $wp_customize ) {
 	// Add the section
 	$wp_customize->add_section( 'whitelable_header_options' , array(
-		'title'      => __( 'Header', 'mytheme' ),
+		'title'      => __( 'Header', 'whitelabel' ),
 		'priority'   => 30,
 	) );
 
@@ -56,7 +56,7 @@ function whitelabel_header_customize_register( $wp_customize ) {
 
 	// Add the control
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_position', array(
-		'label'      => __( 'Header Position', 'mytheme' ),
+		'label'      => __( 'Header Position', 'whitelabel' ),
 		'section'    => 'whitelable_header_options',
 		'settings'   => 'header_position',
 		'type'       => 'select',
@@ -74,9 +74,45 @@ function whitelabel_header_customize_register( $wp_customize ) {
 
     // Add the color control
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
-        'label'        => __( 'Header Color', 'mytheme' ),
+        'label'        => __( 'Header Color', 'whitelabel' ),
         'section'      => 'whitelable_header_options',
         'settings'     => 'header_color',
     ) ) );
 }
 add_action( 'customize_register', 'whitelabel_header_customize_register' );
+
+function whitelabel_footer_customize_register( $wp_customize ) {
+	// Add the section
+	$wp_customize->add_section( 'whitelable_footer_options' , array(
+		'title'      => __( 'Footer', 'whitelabel' ),
+		'priority'   => 30,
+	) );
+
+	// Add the setting
+	$wp_customize->add_setting( 'footer_text' , array(
+		'default'   => '',
+		'transport' => 'refresh',
+	) );
+
+	// Add the control
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer_text', array(
+		'label'      => __( 'Footer Text', 'whitelabel' ),
+		'section'    => 'whitelable_footer_options',
+		'settings'   => 'footer_text',
+		'type'       => 'textarea',
+	) ) );
+
+    // Add the setting for color picker
+    $wp_customize->add_setting( 'footer_color' , array(
+        'default'     => '#ffffff',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the color control
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
+        'label'        => __( 'Header Color', 'whitelabel' ),
+        'section'      => 'whitelable_footer_options',
+        'settings'     => 'footer_color',
+    ) ) );
+}
+add_action( 'customize_register', 'whitelabel_footer_customize_register' );

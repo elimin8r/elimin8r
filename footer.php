@@ -1,18 +1,8 @@
 </div><!-- #page -->
 
-<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer" style="<?php echo get_theme_mod( 'footer_color', '#ffffff' ); ?>">
 	<div class="site-info">
-		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'whitelabel' ) ); ?>">
-			<?php
-			/* translators: %s: CMS name, i.e. WordPress. */
-			printf( esc_html__( 'Proudly powered by %s', 'whitelabel' ), 'WordPress' );
-			?>
-		</a>
-		<span class="sep"> | </span>
-			<?php
-			/* translators: 1: Theme name, 2: Theme author. */
-			printf( esc_html__( 'Theme: %1$s by %2$s.', 'whitelabel' ), 'whitelabel', '<a href="https://www.sketchingpixels.co.uk">Ryan Andrews</a>' );
-			?>
+		<?php echo get_theme_mod( 'footer_text', '' ); ?>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
 

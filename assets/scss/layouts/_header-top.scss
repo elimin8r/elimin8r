@@ -1,0 +1,5 @@
+.page:has(.header-top) {
+    .site-main {
+        @include content-width;
+    }
+}

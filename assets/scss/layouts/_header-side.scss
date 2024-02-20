@@ -5,4 +5,8 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: calc(100vh - 60px);
+
+    .site-main {
+        @include content-width;
+    }
 }

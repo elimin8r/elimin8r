@@ -74,7 +74,7 @@ function whitelabel_header_customize_register( $wp_customize ) {
 
     // Add the color control
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
-        'label'        => __( 'Header Color', 'whitelabel' ),
+        'label'        => __( 'Header Colour', 'whitelabel' ),
         'section'      => 'colors',
         'settings'     => 'header_color',
     ) ) );
@@ -110,7 +110,7 @@ function whitelabel_footer_customize_register( $wp_customize ) {
 
     // Add the color control
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-        'label'        => __( 'Footer Color', 'whitelabel' ),
+        'label'        => __( 'Footer Colour', 'whitelabel' ),
         'section'      => 'colors',
         'settings'     => 'footer_color',
     ) ) );
@@ -126,7 +126,7 @@ function whitelabel_color_customize_register( $wp_customize ) {
 
 	// Add the color control. This will display the color picker.
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'whitelabel_color_control', array(
-		'label'    => __( 'Content background color', 'whitelabel' ),
+		'label'    => __( 'Content Background Colour', 'whitelabel' ),
 		'section'  => 'colors',
 		'settings' => 'content_color',
 	) ) );

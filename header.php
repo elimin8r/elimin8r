@@ -15,17 +15,18 @@
 
 	<header id="masthead" class="site-header header-<?php echo get_theme_mod( 'header_position', 'top' ); ?>" style="background: <?php echo get_theme_mod( 'header_color', '#ffffff' ); ?>">
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
+			<?php the_custom_logo(); ?>
+
+			<?php if ( is_front_page() || is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title <?php echo has_custom_logo() ? 'title-hidden' : ''; ?>"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
+
 			$whitelabel_description = get_bloginfo( 'description', 'display' );
 			if ( $whitelabel_description || is_customize_preview() ) :
 				?>

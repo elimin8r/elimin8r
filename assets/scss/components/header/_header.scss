@@ -6,21 +6,26 @@ body:has(.header-side) {
 
 body:has(.header-top) {
     .site-header {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-        grid-template-rows: repeat(1, 1fr);
-        grid-column-gap: 30px;
-        grid-row-gap: 0px;
+        .header-content {
+            @include content-width;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: repeat(1, 1fr);
+            grid-column-gap: 30px;
+            grid-row-gap: 0px;
+            padding: 0 30px;
 
-        h1 {
-            margin-bottom: 0;
+            h1 {
+                margin-bottom: 0;
+            }
+    
+            .site-branding,
+            .main-navigation {
+                align-items: center;
+                display: flex;
+            }
         }
 
-        .site-branding,
-        .main-navigation {
-            align-items: center;
-            display: flex;
-        }
     }
 }
 

@@ -1,9 +1,33 @@
 body:has(.header-side) {
     .site-header {
         padding: 30px;
+    }
+}
+
+body:has(.header-top) {
+    .site-header {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: repeat(1, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 0px;
 
         h1 {
-            margin-top: 0;
+            margin-bottom: 0;
         }
+
+        .site-branding,
+        .main-navigation {
+            align-items: center;
+            display: flex;
+        }
+    }
+}
+
+.site-header {
+    padding: 30px;
+
+    h1 {
+        margin-top: 0;
     }
 }

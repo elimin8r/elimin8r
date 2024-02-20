@@ -75,7 +75,7 @@ function whitelabel_header_customize_register( $wp_customize ) {
     // Add the color control
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
         'label'        => __( 'Header Color', 'whitelabel' ),
-        'section'      => 'whitelable_header_options',
+        'section'      => 'colors',
         'settings'     => 'header_color',
     ) ) );
 }
@@ -110,8 +110,8 @@ function whitelabel_footer_customize_register( $wp_customize ) {
 
     // Add the color control
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-        'label'        => __( 'Header Color', 'whitelabel' ),
-        'section'      => 'whitelable_footer_options',
+        'label'        => __( 'Footer Color', 'whitelabel' ),
+        'section'      => 'colors',
         'settings'     => 'footer_color',
     ) ) );
 }

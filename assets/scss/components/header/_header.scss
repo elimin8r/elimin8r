@@ -1,0 +1,9 @@
+body:has(.header-side) {
+    .site-header {
+        padding: 30px;
+
+        h1 {
+            margin-top: 0;
+        }
+    }
+}

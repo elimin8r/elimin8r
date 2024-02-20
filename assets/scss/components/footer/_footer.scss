@@ -5,5 +5,19 @@ body:has(.header-side) {
         padding: 0 30px 30px 30px;
         position: fixed;
         width: 300px;
+
+        .site-info {
+            padding: 0;
+            width: 100%;
+        }
+    }
+}
+
+.site-footer {
+    width: 100%;
+
+    .site-info {
+        @include content-width;
+        padding: 30px;
     }
 }

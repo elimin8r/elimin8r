@@ -1,4 +1,4 @@
-.page:has(.header-top) {
+.site-page:has(.header-top) {
     .site-main {
         @include content-width;
     }

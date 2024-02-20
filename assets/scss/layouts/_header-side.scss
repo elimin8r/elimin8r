@@ -1,4 +1,4 @@
-.page:has(.header-side) {
+.site-page:has(.header-side) {
     display: grid;
     grid-template-columns: 300px 1fr;
     grid-template-rows: repeat(1, 1fr);

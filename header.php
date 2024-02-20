@@ -10,7 +10,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div class="page">
+<div class="site-page">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'whitelabel' ); ?></a>
 
 	<header id="masthead" class="site-header header-<?php echo get_theme_mod( 'header_position', 'top' ); ?>" style="background: <?php echo get_theme_mod( 'header_color', '#ffffff' ); ?>">

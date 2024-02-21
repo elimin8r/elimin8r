@@ -64,6 +64,7 @@ function register_post_types_settings() {
     register_setting( 'post_types_settings', 'singular_label' );
     register_setting( 'post_types_settings', 'post_type_slug' );
     register_setting( 'post_types_settings', 'post_type_delete' );
+    register_setting( 'post_types_settings', 'post_type_migrate' );
     register_setting( 'post_types_settings', 'taxonomies' );
 }
 
@@ -98,6 +99,21 @@ function post_type_delete_callback() {
             <option value="<?php echo esc_attr( $post_type['post_type_slug'] ) ?>"><?php echo esc_html( $post_type['plural_label'] ) ?></option>
         <?php endforeach; ?>
     </select>
+
+    <p>Choose what happens to posts from the deleted post type:</p>
+
+    <?php
+        $registered_post_types = get_post_types( array( 'public' => true ), 'object' );
+        unset( $registered_post_types['attachment'] );
+        unset( $registered_post_types['page'] );
+    ?>
+    <select type="text" name="post_type_migrate" value="" class="regular-text">
+       <option value="">Delete posts</option>
+        <?php foreach ( $registered_post_types as $registered_post_type ) : ?>
+            <option value="<?php echo esc_attr( $registered_post_type->name ) ?>">Migrate to: <?php echo esc_html( $registered_post_type->label ) ?></option>
+        <?php endforeach; ?>
+    </select>
+
     <p><strong>Warning:</strong> This cannot be undone.</p>
     <?php
 }
@@ -189,6 +205,23 @@ function handle_form_submission() {
 
     if ( isset( $_POST['post_type_delete'] ) && !empty( $_POST['post_type_delete'] ) ) {
         $post_types = get_option( 'whitelabel_custom_post_types', array() );
+
+        // if isset( $_POST['post_type_migrate'] ) then migrate the posts to the selected post type
+        if ( isset( $_POST['post_type_migrate'] ) && !empty( $_POST['post_type_migrate'] ) ) {
+            $migrate_to = $_POST['post_type_migrate'];
+            $posts = get_posts( array( 'post_type' => $_POST['post_type_delete'], 'numberposts' => -1 ) );
+
+            foreach ( $posts as $post ) {
+                wp_update_post( array( 'ID' => $post->ID, 'post_type' => $migrate_to ) );
+            }
+        } else {
+            // Delete the posts
+            $posts = get_posts( array( 'post_type' => $_POST['post_type_delete'], 'numberposts' => -1 ) );
+
+            foreach ( $posts as $post ) {
+                wp_delete_post( $post->ID, true );
+            }
+        }
 
         // Loop through the post types and remove the one that was selected for deletion
         foreach ( $post_types as $key => $post_type ) {

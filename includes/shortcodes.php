@@ -113,6 +113,14 @@ add_action( 'admin_init', 'handle_shortcode_form_submission' );
 function handle_shortcode_form_submission() {
     if ( isset( $_POST['shortcode_name'] ) && isset( $_POST['shortcode_content'] ) && !empty( $_POST['shortcode_name'] ) && !empty( $_POST['shortcode_content'] ) ) {
         $shortcodes = get_option( 'whitelabel_custom_shortcodes', array() );
+        // Check if the shortcode already exists
+        foreach ( $shortcodes as $shortcode ) {
+            if ( $shortcode['shortcode_name'] === $_POST['shortcode_name'] ) {
+                // Add an error message
+                add_settings_error( 'shortcode_settings', 'shortcode_exists', 'The shortcode you\'re trying to create already exists', 'error' );
+                return;
+            }
+        }
 
         // Add the new shortcode to the array
         $shortcodes[] = array(

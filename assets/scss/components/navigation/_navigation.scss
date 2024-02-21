@@ -52,6 +52,24 @@
 	li {
 		position: relative;
 
+		&.menu-item-has-children {
+			>a:after {
+				background: url(/wp-content/themes/whitelabel/dist/images/chevron.svg) no-repeat center center;
+				content: "";
+				display: inline-block;
+				height: 10px;
+				margin-left: 5px;
+				transition: 0.3s ease-in-out;
+				width: 10px;
+			}
+	
+			&:hover {
+				>a:after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
 		&:hover > a,
 		&.focus > a {
 		}
@@ -138,9 +156,11 @@
 						transition: max-height 2s ease-in-out;
 					}
 					
-					&:hover > ul.sub-menu {
-						max-height: 1000px;
-						left: 30px;
+					&:hover {
+						> ul.sub-menu {
+							max-height: 1000px;
+							left: 30px;
+						}
 					}
 				}
 			}

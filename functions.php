@@ -108,6 +108,14 @@ function whitelabel_admin_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'whitelabel_admin_scripts' );
 
+// Add critical CSS to the head
+function whitelabel_critical_css() {
+	$manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
+	$css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['critical.min.css'] );
+	echo '<style id="whitelabel-critical-style">' . $css . '</style>';
+}
+add_action( 'wp_head', 'whitelabel_critical_css' );
+
 // Add a pingback url auto-discovery header for single posts, pages, or attachments.
 function whitelabel_pingback_header() {
 	if ( is_singular() && pings_open() ) {

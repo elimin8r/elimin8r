@@ -4,7 +4,7 @@
     grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    height: calc(100vh - 60px);
+    height: 100vh;
 
     .site-main {
         @include content-width;

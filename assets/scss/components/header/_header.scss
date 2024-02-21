@@ -26,11 +26,13 @@ body:has(.header-top) {
     
             .site-branding,
             .main-navigation {
-                align-items: center;
                 display: flex;
             }
-        }
 
+            .main-navigation {
+                align-items: center;
+            }
+        }
     }
 }
 

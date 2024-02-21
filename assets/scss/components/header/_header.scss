@@ -1,6 +1,11 @@
 body:has(.header-side) {
     .site-header {
         padding: 30px;
+
+        .header-content {
+            position: sticky;
+            top: 30px;
+        }
     }
 }
 

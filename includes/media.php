@@ -5,7 +5,7 @@ function whitelabel_post_thumbnail() {
     ?>
     <figure class="post-thumbnail">
         <?php
-            if ( ! has_post_thumbnail() ) {
+            if ( ! has_post_thumbnail() && ! is_singular() ) {
                 echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' );
             } else {
                 the_post_thumbnail();

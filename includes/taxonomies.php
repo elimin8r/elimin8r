@@ -68,20 +68,20 @@ function register_taxonomy_settings() {
 // Callback functions for the input fields
 function taxonomy_label_callback() {
     ?>
-    <input type="text" name="taxonomy_label" value="" class="regular-text" placeholder="E.g. Genres"/>
+    <input type="text" name="taxonomy_label" value="" class="regular-text" placeholder="E.g. Genres" require/>
     <?php
 }
 
 function taxonomy_slug_callback() {
     ?>
-    <input type="text" name="taxonomy_slug" value="" class="regular-text" placeholder="E.g. genres"/>
+    <input type="text" name="taxonomy_slug" value="" class="regular-text" placeholder="E.g. genres" required/>
     <?php
 }
 
 function taxonomy_post_type_callback() {
     $post_types = get_post_types( array( 'public' => true ), 'names' );
     ?>
-    <select name="taxonomy_post_type" class="regular-text">
+    <select name="taxonomy_post_type" class="regular-text" required>
         <option value="">Select a post type</option>
         <?php foreach ( $post_types as $post_type ) : ?>
             <?php if ( $post_type === 'attachment' ) { continue; } ?>

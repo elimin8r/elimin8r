@@ -66,14 +66,14 @@ function register_shortcode_settings() {
 // Callback functions for the input fields
 function shortcode_name_callback() {
     ?>
-    <input type="text" name="shortcode_name" value="" class="regular-text" placeholder="E.g. my_shortcode"/>
+    <input type="text" name="shortcode_name" value="" class="regular-text" placeholder="E.g. my_shortcode" required/>
     <p class="description">Use the shortcode by adding <code>[my_shortcode]</code> to posts and pages.</p>
     <?php
 }
 
 function shortcode_content_callback() {
     ?>
-    <textarea name="shortcode_content" class="large-text" rows="10"></textarea>
+    <textarea name="shortcode_content" class="large-text" rows="10" required></textarea>
     <?php
 }
 

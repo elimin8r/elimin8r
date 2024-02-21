@@ -71,19 +71,19 @@ function register_post_types_settings() {
 // Callback functions for the input fields
 function plural_label_callback() {
     ?>
-    <input type="text" name="plural_label" value="" class="regular-text" placeholder="E.g. Games"/>
+    <input type="text" name="plural_label" value="" class="regular-text" placeholder="E.g. Games" required/>
     <?php
 }
 
 function singular_label_callback() {
     ?>
-    <input type="text" name="singular_label" value="" class="regular-text" placeholder="E.g. Game"/>
+    <input type="text" name="singular_label" value="" class="regular-text" placeholder="E.g. Game" required/>
     <?php
 }
 
 function post_type_slug_callback() {
     ?>
-    <input type="text" name="post_type_slug" value="" class="regular-text" placeholder="E.g. games"/>
+    <input type="text" name="post_type_slug" value="" class="regular-text" placeholder="E.g. games" required/>
     <?php
 }
 
@@ -107,8 +107,8 @@ function post_type_delete_callback() {
         unset( $registered_post_types['attachment'] );
         unset( $registered_post_types['page'] );
     ?>
-    <select type="text" name="post_type_migrate" value="" class="regular-text">
-       <option value="">Delete posts</option>
+    <select type="text" name="post_type_migrate" value="" class="regular-text" required>
+       <option value="delete_posts" selected>Delete posts</option>
         <?php foreach ( $registered_post_types as $registered_post_type ) : ?>
             <option value="<?php echo esc_attr( $registered_post_type->name ) ?>">Migrate to: <?php echo esc_html( $registered_post_type->label ) ?></option>
         <?php endforeach; ?>

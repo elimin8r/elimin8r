@@ -1,0 +1,108 @@
+.site-search {
+    position: relative;
+
+    .search-toggle {
+        align-items: center;
+        background: #ffffff;
+        border: none;
+        border-radius: 50%;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: flex;
+        height: 35px;
+        padding: 5px;
+        position: relative;
+        margin: 0;
+        width: 35px;
+        z-index: 1;
+    }
+
+    form.search-form {
+        position: absolute;
+
+        .search-field {
+            border: none;
+            border-radius: 25px;
+            height: 35px;
+            min-width: 35px;
+            padding: 5px;
+            transition: width 0.3s ease-in-out;
+            width: 0;
+        }
+
+        input.search-submit {
+            display: none;
+        }
+    }
+}
+
+body:has(.header-top) {
+    .site-search {
+        align-items: center;
+        display: flex;
+
+        .search-toggle {
+            right: 5px;
+
+            &:focus-within ~ form {
+                .search-field {
+                    max-width: 300px;
+                    width: 300px;
+                }
+            }
+        }
+
+        .search-field {
+            text-indent: 5px;
+
+            &:focus-within {
+                max-width: 300px;
+                width: 300px;
+            }
+        }
+
+        form.search-form {
+            right: 0;
+
+            &.search-active {
+                display: block;
+            }
+        }
+    }
+}
+
+body:has(.header-side) {
+    .site-search {
+        align-items: center;
+        display: flex;
+        margin-top: 30px;
+
+        .search-toggle {
+            left: 0;
+
+            &:focus-within ~ form {
+                .search-field {
+                    max-width: 240px;
+                    width: 240px;
+                }
+            }
+        }
+
+        .search-field {
+            text-indent: 35px;
+
+            &:focus-within {
+                max-width: 240px;
+                width: 240px;
+            }
+        }
+
+        form.search-form {
+            left: 0;
+
+            &.search-active {
+                display: block;
+            }
+        }
+    }
+}

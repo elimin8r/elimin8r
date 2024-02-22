@@ -124,11 +124,13 @@ gulp.task('watch', function(callback) {
 });
 
 // Delete destination folder
-gulp.task('clean:dist', async function() {
-  return await deleteAsync(destDir);
+gulp.task('clean:dist', function() {
+  return deleteAsync(destDir);
 });
 
-// Build assets
+// Build assets for production
 gulp.task('build', function(callback) {
-  runSequence('clean:dist', ['sass', 'terser', 'images'], 'minify-css', 'cachebust', callback);
+  runSequence('clean:dist', ['sass', 'terser', 'images'], 'minify-css', function() {
+    runSequence('cachebust', callback);
+  });
 });

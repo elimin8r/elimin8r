@@ -42,19 +42,19 @@ function whitelabel_customize_partial_blogdescription() {
 }
 
 function whitelabel_header_customize_register( $wp_customize ) {
-	// Add the section
+	// Add the header section
 	$wp_customize->add_section( 'whitelable_header_options' , array(
 		'title'      => __( 'Header', 'whitelabel' ),
 		'priority'   => 30,
 	) );
 
-	// Add the setting
+	// Add the setting for the header position
 	$wp_customize->add_setting( 'header_position' , array(
 		'default'   => 'top',
 		'transport' => 'refresh',
 	) );
 
-	// Add the control
+	// Add the control for the header position
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_position', array(
 		'label'      => __( 'Header Position', 'whitelabel' ),
 		'section'    => 'whitelable_header_options',
@@ -66,13 +66,27 @@ function whitelabel_header_customize_register( $wp_customize ) {
 		),
 	) ) );
 
-    // Add the setting for color picker
+	// Add the setting for enabling search
+	$wp_customize->add_setting( 'enable_search' , array(
+		'default'   => true,
+		'transport' => 'refresh',
+	) );
+
+	// Add the control for enabling search
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'enable_search', array(
+		'label'      => __( 'Enable Search', 'whitelabel' ),
+		'section'    => 'whitelable_header_options',
+		'settings'   => 'enable_search',
+		'type'       => 'checkbox',
+	) ) );
+
+    // Add the setting for the header color picker
     $wp_customize->add_setting( 'header_color' , array(
         'default'     => '#ffffff',
         'transport'   => 'refresh',
     ) );
 
-    // Add the color control
+    // Add the control for the header color picker
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
         'label'        => __( 'Header Colour', 'whitelabel' ),
         'section'      => 'colors',
@@ -82,19 +96,19 @@ function whitelabel_header_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'whitelabel_header_customize_register' );
 
 function whitelabel_footer_customize_register( $wp_customize ) {
-	// Add the section
+	// Add the footer section
 	$wp_customize->add_section( 'whitelable_footer_options' , array(
 		'title'      => __( 'Footer', 'whitelabel' ),
 		'priority'   => 30,
 	) );
 
-	// Add the setting
+	// Add the setting for the footer text
 	$wp_customize->add_setting( 'footer_text' , array(
 		'default'   => '',
 		'transport' => 'refresh',
 	) );
 
-	// Add the control
+	// Add the control for the footer text
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer_text', array(
 		'label'      => __( 'Footer Text', 'whitelabel' ),
 		'section'    => 'whitelable_footer_options',
@@ -102,13 +116,13 @@ function whitelabel_footer_customize_register( $wp_customize ) {
 		'type'       => 'textarea',
 	) ) );
 
-    // Add the setting for color picker
+    // Add the setting for the footer color picker
     $wp_customize->add_setting( 'footer_color' , array(
         'default'     => '#ffffff',
         'transport'   => 'refresh',
     ) );
 
-    // Add the color control
+    // Add the control for the footer color picker
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
         'label'        => __( 'Footer Colour', 'whitelabel' ),
         'section'      => 'colors',

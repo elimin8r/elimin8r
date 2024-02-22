@@ -44,5 +44,15 @@
 				);
 				?>
 			</nav><!-- #site-navigation -->
+
+			<?php if ( get_theme_mod( 'enable_search', true ) ) : ?>
+				<div class="site-search">
+					<button class="search-toggle">
+						<?php echo file_get_contents( get_template_directory_uri() . '/dist/images/search.svg' ); ?>
+					</button>
+
+					<?php get_search_form(); ?>
+				</div>
+			<?php endif; ?>
 		</div>
 	</header><!-- #masthead -->

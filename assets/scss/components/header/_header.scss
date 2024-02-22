@@ -1,7 +1,5 @@
 body:has(.header-side) {
     .site-header {
-        padding: 30px;
-
         .header-content {
             padding: 0;
             top: 30px;
@@ -40,9 +38,10 @@ body:has(.header-top) {
 }
 
 .site-header {
-    padding: 30px;
+    padding: 15px;
 
     @include media-tablet {
+        padding: 30px;
         position: relative;
     }
 
@@ -50,7 +49,7 @@ body:has(.header-top) {
         @include content-width;
         display: grid;
         grid-template-areas: "last first second";
-        grid-template-columns: 30px 1fr 30px;
+        grid-template-columns: 30px 1fr 40px;
         grid-template-rows: repeat(1, 1fr);
         grid-column-gap: 30px;
         grid-row-gap: 0px;

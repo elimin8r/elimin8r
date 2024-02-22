@@ -1,7 +1,8 @@
-body .site-page .site-header .site-search {
+.site-search {
     display: flex;
     margin-top: 0;
     position: relative;
+    z-index: 30;
 
     @include media-tablet {
         margin-top: 30px;
@@ -15,12 +16,24 @@ body .site-page .site-header .site-search {
         box-sizing: border-box;
         cursor: pointer;
         display: flex;
-        height: 35px;
+        height: 40px;
         padding: 5px;
         position: relative;
         margin: 0;
-        width: 35px;
+        width: 40px;
         z-index: 1;
+
+        @include media-tablet {
+            height: 35px;
+            width: 35px;
+        }
+
+        &:focus-within~form {
+            .search-field {
+                max-width: calc(100vw - 30px);
+                width: calc(100vw - 30px);
+            }
+        }
     }
 
     form.search-form {
@@ -29,11 +42,23 @@ body .site-page .site-header .site-search {
         .search-field {
             border: none;
             border-radius: 25px;
-            height: 35px;
-            min-width: 35px;
+            height: 40px;
+            min-width: 40px;
             padding: 5px;
+            text-indent: 35px;
             transition: width 0.3s ease-in-out;
             width: 0;
+            z-index: 30;
+
+            @include media-tablet {
+                height: 35px;
+                min-width: 35px;
+            }
+
+            &:focus-within {
+                max-width: calc(100vw - 30px);
+                width: calc(100vw - 30px);
+            }
         }
 
         input.search-submit {
@@ -42,73 +67,83 @@ body .site-page .site-header .site-search {
     }
 }
 
-body:has(.header-top) {
+body:has(.main-navigation.toggled) {
     .site-search {
-        align-items: center;
-        display: flex;
-        margin-top: 0 !important;
+        z-index: 0;
+    }
+}
 
-        .search-toggle {
-            right: 5px;
+@include media-tablet {
+    body:has(.header-top) {
+        .site-search {
+            align-items: center;
+            display: flex;
+            margin-top: 0 !important;
 
-            &:focus-within ~ form {
-                .search-field {
+            .search-toggle {
+                right: 5px;
+
+                &:focus-within ~ form {
+                    .search-field {
+                        max-width: 300px;
+                        width: 300px;
+                    }
+                }
+            }
+
+            .search-field {
+                text-indent: 5px;
+
+                &:focus-within {
                     max-width: 300px;
                     width: 300px;
                 }
             }
-        }
 
-        .search-field {
-            text-indent: 5px;
+            form.search-form {
+                right: 0;
 
-            &:focus-within {
-                max-width: 300px;
-                width: 300px;
-            }
-        }
-
-        form.search-form {
-            right: 0;
-
-            &.search-active {
-                display: block;
+                &.search-active {
+                    display: block;
+                }
             }
         }
     }
 }
 
-body:has(.header-side) {
-    .site-search {
-        align-items: center;
-        display: flex;
-        margin-top: 30px;
+@include media-tablet {
+    body:has(.header-side) {
+        .site-search {
+            align-items: center;
+            display: flex;
+            margin-top: 30px;
 
-        .search-toggle {
-            left: 0;
+            .search-toggle {
+                left: 0;
 
-            &:focus-within ~ form {
-                .search-field {
+                &:focus-within ~ form {
+                    .search-field {
+                        max-width: 240px;
+                        width: 240px;
+                    }
+                }
+            }
+
+            .search-field {
+                text-indent: 35px;
+
+                &:focus-within {
                     max-width: 240px;
                     width: 240px;
                 }
             }
-        }
 
-        .search-field {
-            text-indent: 35px;
+            form.search-form {
+                left: 0;
 
-            &:focus-within {
-                max-width: 240px;
-                width: 240px;
-            }
-        }
-
-        form.search-form {
-            left: 0;
-
-            &.search-active {
-                display: block;
+                &.search-active {
+                    display: block;
+                }
             }
         }
     }

@@ -1,28 +1,38 @@
 <?php
-// Template part for displaying results in search pages
+// Template part for displaying search results in a compact layout
+
+global $current_template;
+$current_template = 'blog-compact';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+		<?php whitelabel_post_thumbnail( 'medium' ); ?>
+	</a>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
+	<div class="article-content">
+		<header class="entry-header">
+			<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+	
+			<div class="entry-meta">
+				<?php
+					whitelabel_posted_on();
+					whitelabel_posted_by();
+				?>
+			</div><!-- .entry-meta -->
+		</header><!-- .entry-header -->
+	
+		<div class="entry-content">
 			<?php
-			whitelabel_posted_on();
-			whitelabel_posted_by();
+				the_excerpt();
+	
+				wp_link_pages(
+					array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'whitelabel' ),
+						'after'  => '</div>',
+					)
+				);
 			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php whitelabel_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php whitelabel_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+		</div><!-- .entry-content -->
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -7,7 +7,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php whitelabel_post_thumbnail(); ?>
+	<?php whitelabel_post_thumbnail( 'large' ); ?>
 
 	<div class="entry-content">
 		<?php

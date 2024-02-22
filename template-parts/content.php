@@ -22,7 +22,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php whitelabel_post_thumbnail(); ?>
+	<?php whitelabel_post_thumbnail( 'large' ); ?>
 
 	<div class="entry-content">
 		<?php

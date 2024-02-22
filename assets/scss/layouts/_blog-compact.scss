@@ -1,0 +1,11 @@
+.blog-compact {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
+
+    .post-thumbnail {
+        margin-top: 11px;
+    }
+}

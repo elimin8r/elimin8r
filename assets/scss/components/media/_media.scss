@@ -11,3 +11,10 @@
 .custom-logo-link {
 	display: inline-block;
 }
+
+.post-thumbnail img,
+.post-thumbnail svg {
+	aspect-ratio: 16/9;
+	height: auto;
+	width: 100%;
+}

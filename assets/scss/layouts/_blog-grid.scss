@@ -1,0 +1,49 @@
+.site-main:has(.blog-grid) {
+    display: grid;
+    grid-template-columns: repeat(3, 4fr);
+    grid-template-rows: repeat(3, 4fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+
+    .post {
+        position: relative;
+
+        > a {
+            display: block;
+        }
+        
+        .post-thumbnail {
+            margin: 0;
+
+            img,
+            svg {
+                aspect-ratio: 1 / 1;
+                display: block;
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        .article-content {
+            background: rgba(#000000, 0.4);
+            box-sizing: border-box;
+            inset: 0;
+            padding: 15px;
+            position: absolute;
+
+            h2,
+            a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            h2,
+            p,
+            span {
+                color: #ffffff;
+            }
+        }
+    }
+
+}

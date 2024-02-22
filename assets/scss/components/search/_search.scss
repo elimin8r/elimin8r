@@ -3,6 +3,10 @@ body .site-page .site-header .site-search {
     margin-top: 0;
     position: relative;
 
+    @include media-tablet {
+        margin-top: 30px;
+    }
+
     .search-toggle {
         align-items: center;
         background: #ffffff;
@@ -42,6 +46,7 @@ body:has(.header-top) {
     .site-search {
         align-items: center;
         display: flex;
+        margin-top: 0 !important;
 
         .search-toggle {
             right: 5px;

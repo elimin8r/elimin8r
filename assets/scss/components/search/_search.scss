@@ -1,4 +1,6 @@
-.site-search {
+body .site-page .site-header .site-search {
+    display: flex;
+    margin-top: 0;
     position: relative;
 
     .search-toggle {

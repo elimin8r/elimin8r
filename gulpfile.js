@@ -41,25 +41,31 @@ gulp.task('cachebust', () => {
     }))
     .on('end', () => {
       let manifest = {};
-      ['css', 'js'].forEach(type => {
-        fs.readdir(destDir + '/' + type, (err, files) => {
+      let promises = ['css', 'js'].map(type => {
+        return new Promise((resolve, reject) => {
+          fs.readdir(destDir + '/' + type, (err, files) => {
+            if (err) reject(err);
+
+            files.forEach(file => {
+              // Only include .css and .js files
+              const regex = /^[a-z]+\.[a-z]+\.[a-z0-9]+\.(css|js)$/;
+              if (file.match(regex)) {
+                // Remove the hash from the filename
+                let originalFile = file.replace(/\.[a-z0-9]+\.(css|js)$/, '.$1');
+                // Add to the manifest
+                manifest[originalFile] = file;
+              }
+            });
+
+            resolve();
+          });
+        });
+      });
+
+      Promise.all(promises).then(() => {
+        // Write the manifest to the file
+        fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), (err) => {
           if (err) throw err;
-
-          files.forEach(file => {
-            // Only include .css and .js files
-            const regex = /^[a-z]+\.[a-z]+\.[a-z0-9]+\.(css|js)$/;
-            if (file.match(regex)) {
-              // Remove the hash from the filename
-              let originalFile = file.replace(/\.[a-z0-9]+\.(css|js)$/, '.$1');
-              // Add to the manifest
-              manifest[originalFile] = file;
-            }
-          });
-
-          // Write the manifest to the file
-          fs.writeFile(manifestPath, JSON.stringify(manifest, null, 2), (err) => {
-            if (err) throw err;
-          });
         });
       });
     });

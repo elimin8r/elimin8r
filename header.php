@@ -34,7 +34,13 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'whitelabel' ); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<svg width="40px" height="40px" viewBox="0 0 40 40">
+						<rect id="menu-bottom" x="0" y="30" width="40" height="2" fill="#000000"/>
+						<rect id="menu-middle" x="0" y="18" width="40" height="2" fill="#000000"/>
+						<rect id="menu-top" x="0" y="6" width="40" height="2" fill="#000000"/>
+					</svg>
+				</button>
 				<?php
 				wp_nav_menu(
 					array(

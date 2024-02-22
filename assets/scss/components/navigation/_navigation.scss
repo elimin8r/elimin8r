@@ -1,6 +1,24 @@
 .main-navigation {
-	display: block;
+	display: flex;
 	width: 100%;
+
+	.menu-main-container {
+		background: #ffffff;
+		left: -100%;
+		transition: left 0.3s ease-in-out;
+		width: 100%;
+		z-index: 10;
+
+		@include media-tablet {
+			background: none;
+			height: auto;
+			left: 0;
+			padding: 0;
+			position: relative;
+			transition: unset;
+			z-index: 0;
+		}
+	}
 
 	ul {
 		display: none;
@@ -9,12 +27,15 @@
 		padding-left: 0;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
 			top: 100%;
-			left: -999em;
-			z-index: 99999;
+
+			@include media-tablet {
+				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+				position: absolute;
+				top: calc(100% + 3px);
+				left: -999em;
+				z-index: 99999;
+			}
 
 			ul {
 				left: -999em;
@@ -31,7 +52,11 @@
 			}
 
 			a {
-				width: 200px;
+				width: 100%;
+
+				@include media-tablet {
+					width: 200px;
+				}
 			}
 
 			:hover > a,
@@ -50,22 +75,70 @@
 	}
 
 	li {
+		font-size: 1.5rem;
 		position: relative;
+		margin-bottom: 10px;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		@include media-tablet {
+			font-size: 1rem;
+			margin-bottom: 0;
+		}
 
 		&.menu-item-has-children {
 			>a:after {
 				background: url(/wp-content/themes/whitelabel/dist/images/chevron.svg) no-repeat center center;
+				background-size: 40px;
 				content: "";
 				display: inline-block;
-				height: 10px;
+				height: 15px;
 				margin-left: 5px;
 				transition: 0.3s ease-in-out;
-				width: 10px;
+				width: 20px;
+
+				@include media-tablet {
+					background-size: unset;
+					height: 10px;
+					width: 10px;
+				}
 			}
-	
-			&:hover {
+
+			.sub-menu {
+				max-height: 0;
+				overflow: hidden;
+				position: relative;
+				left: 30px;
+
+				@include media-tablet {
+					left: 0;
+					overflow: visible;
+					position: absolute;
+				}
+			}
+			
+			&.focus {
+				>ul.sub-menu {
+					margin-top: 10px;
+					max-height: 1000px !important;
+
+					@include media-tablet {
+						margin-top: 0;
+					}
+				}
+
 				>a:after {
 					transform: rotate(180deg);
+				}
+			}
+
+			@include media-tablet {
+				&:hover {
+					>a:after {
+						transform: rotate(180deg);
+					}
 				}
 			}
 		}
@@ -87,14 +160,47 @@
 	}
 }
 
-/* Small menu. */
+.menu-toggle {
+	background: none;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+	position: relative;
+	z-index: 20;
+}
+
+.main-navigation.toggled {
+	#menu-bottom {
+		transform: translate(-36%, 11px) rotate(-45deg);
+		transition: 0.3s;
+	}
+	
+	#menu-middle {
+		transform: translateX(100px);
+		transition: 0.3s;
+	}
+	
+	#menu-top {
+		transform: translate(31%, 0) rotate(45deg);
+		transition: 0.3s;
+	}
+
+	.menu-main-container {
+		bottom: 0;
+		height: 100vh;
+		left: 0;
+		padding: 35px;
+		position: absolute;
+		top: 0;
+	}
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
-
+@include media-tablet {
 	.menu-toggle {
 		display: none;
 	}
@@ -126,40 +232,42 @@
 	}
 }
 
-.site-page:has(.header-side) {
-	.main-navigation {
-		margin-top: 30px;
+@include media-tablet {
+	.site-page:has(.header-side) {
+		.main-navigation {
+			margin-top: 30px;
 
-		ul.menu {
-			flex-direction: column;
+			ul.menu {
+				flex-direction: column;
 
-			li.menu-item {
-				margin-bottom: 10px;
+				li.menu-item {
+					margin-bottom: 10px;
 
-				&.menu-item-has-children {
-					display: flex;
-					flex-direction: column;
-					margin-bottom: 0px;
-
-					ul.sub-menu {
-						box-shadow: none;
+					&.menu-item-has-children {
+						display: flex;
 						flex-direction: column;
-						left: 30px;
-						margin-top: 10px;
-						max-height: 0;
-						overflow: hidden;
-						position: relative;
-						-webkit-transition: max-height 2s ease-in-out;
-						-moz-transition: max-height 2s ease-in-out;
-						-ms-transition: max-height 2s ease-in-out;
-						-o-transition: max-height 2s ease-in-out;
-						transition: max-height 2s ease-in-out;
-					}
-					
-					&:hover {
-						> ul.sub-menu {
-							max-height: 1000px;
+						margin-bottom: 0px;
+
+						ul.sub-menu {
+							box-shadow: none;
+							flex-direction: column;
 							left: 30px;
+							margin-top: 10px;
+							max-height: 0;
+							overflow: hidden;
+							position: relative;
+							-webkit-transition: max-height 2s ease-in-out;
+							-moz-transition: max-height 2s ease-in-out;
+							-ms-transition: max-height 2s ease-in-out;
+							-o-transition: max-height 2s ease-in-out;
+							transition: max-height 2s ease-in-out;
+						}
+						
+						&:hover {
+							> ul.sub-menu {
+								max-height: 1000px;
+								left: 30px;
+							}
 						}
 					}
 				}
@@ -168,50 +276,56 @@
 	}
 }
 
-.site-page:has(.header-top) {
-	.main-navigation {
-		ul.menu {
-			li.menu-item {
-				margin-right: 20px;
+@include media-tablet {
+	.site-page:has(.header-top) {
+		.main-navigation {
+			ul.menu {
+				li.menu-item {
+					margin-right: 0;
 
-				&.menu-item-has-children {
-					display: flex;
-					flex-direction: column;
-
-					ul.sub-menu {
-						background: #fff;
-						box-sizing: border-box;
-						flex-direction: column;
-						max-height: 0;
-						overflow-y: hidden;
-						-webkit-transition: max-height 2s ease-in-out;
-						-moz-transition: max-height 2s ease-in-out;
-						-ms-transition: max-height 2s ease-in-out;
-						-o-transition: max-height 2s ease-in-out;
-						transition: max-height 2s ease-in-out;
-
-						li {
-							padding: 0 15px 10px 15px;
-
-							&:first-of-type {
-								padding-top: 15px;
-							}
-
-							&:last-of-type {
-								padding-bottom: 15px;
-							}
-						}
-
-						ul.sub-menu {
-							box-shadow: none;
-							padding-left: 30px;
-							position: relative;
-						}
+					@include media-tablet {
+						margin-right: 20px;
 					}
 
-					&:hover {
-						> ul.sub-menu {
-							max-height: 1000px;
+					&.menu-item-has-children {
+						display: flex;
+						flex-direction: column;
+
+						ul.sub-menu {
+							background: #fff;
+							box-sizing: border-box;
+							flex-direction: column;
+							max-height: 0;
+							overflow-y: hidden;
+							-webkit-transition: max-height 2s ease-in-out;
+							-moz-transition: max-height 2s ease-in-out;
+							-ms-transition: max-height 2s ease-in-out;
+							-o-transition: max-height 2s ease-in-out;
+							transition: max-height 2s ease-in-out;
+
+							li {
+								padding: 0 15px 10px 15px;
+
+								&:first-of-type {
+									padding-top: 10px;
+								}
+
+								&:last-of-type {
+									padding-bottom: 15px;
+								}
+							}
+
+							ul.sub-menu {
+								box-shadow: none;
+								padding-left: 15px;
+								position: relative;
+							}
+						}
+
+						&:hover {
+							> ul.sub-menu {
+								max-height: 1000px;
+							}
 						}
 					}
 				}

@@ -93,7 +93,7 @@ function whitelabel_scripts() {
 	$manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
 	wp_enqueue_style( 'whitelabel-style', get_template_directory_uri() . '/dist/css/' . $manifest['style.min.css'], array(), '' );
 
-	wp_enqueue_script( 'whitelabel-navigation', get_template_directory_uri() . '/dist/css/' . $manifest['script.min.js'], '', true );
+	wp_enqueue_script( 'whitelabel-script', get_template_directory_uri() . '/dist/js/' . $manifest['script.min.js'], array(), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -15,6 +15,7 @@ get_header();
 				<?php
 			endif;
 
+			?> <div class="blog-content"> <?php
 			while ( have_posts() ) :
 				the_post();
 
@@ -30,7 +31,10 @@ get_header();
 
 			endwhile;
 
-			whitelabel_pagination();
+			whitelabel_pagination(); ?>
+			</div>
+
+			<?php
 
 		else :
 

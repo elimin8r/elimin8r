@@ -1,4 +1,4 @@
-.site-main:has(.blog-grid) {
+.blog-content:has(.blog-grid) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -12,7 +12,7 @@
         grid-row-gap: 30px;
     }
 
-    .post {
+    .blog-grid {
         position: relative;
 
         > a {
@@ -52,5 +52,4 @@
             }
         }
     }
-
 }

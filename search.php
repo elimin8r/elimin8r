@@ -14,16 +14,19 @@ get_header();
 				</h1>
 			</header><!-- .page-header -->
 
+			<div class="blog-content">
+				<?php
+				while ( have_posts() ) :
+					the_post();
+
+					get_template_part( 'template-parts/content', 'search' );
+
+				endwhile;
+
+				whitelabel_pagination(); ?>
+			</div>
+
 			<?php
-			while ( have_posts() ) :
-				the_post();
-
-				get_template_part( 'template-parts/content', 'search' );
-
-			endwhile;
-
-			the_posts_navigation();
-
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );

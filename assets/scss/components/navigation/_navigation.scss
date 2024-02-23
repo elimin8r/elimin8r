@@ -2,26 +2,47 @@
 	display: flex;
 	width: 100%;
 
+	#menu-bottom {
+		transform: translate(0, 0) rotate(0);
+		transition: 0.3s;
+	}
+
+	#menu-middle {
+		transform: translateX(0);
+		transition: 0.3s;
+	}
+
+	#menu-top {
+		transform: translate(0, 0) rotate(0);
+		transition: 0.3s;
+	}
+
 	.menu-main-container {
 		background: #ffffff;
+		bottom: 0;
+		height: 100vh;
 		left: -100%;
+		padding: 35px;
+		position: fixed;
+		top: 0;
 		transition: left 0.3s ease-in-out;
 		width: 100%;
 		z-index: 1;
 
 		@include media-tablet {
 			background: none;
+			bottom: auto;
 			height: auto;
 			left: 0;
 			padding: 0;
 			position: relative;
+			top: auto;
 			transition: unset;
 			z-index: 0;
 		}
 	}
 
 	ul {
-		display: none;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
@@ -190,7 +211,7 @@
 		height: 100vh;
 		left: 0;
 		padding: 35px;
-		position: absolute;
+		position: fixed;
 		top: 0;
 	}
 }

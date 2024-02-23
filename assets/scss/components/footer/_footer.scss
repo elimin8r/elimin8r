@@ -1,14 +1,16 @@
 body:has(.header-side) {
     .site-footer {
-        background: transparent !important;
-        bottom: 0;
-        padding: 0 30px 30px 30px;
-        position: fixed;
-        width: 300px;
+        @include media-tablet {
+            background: transparent !important;
+            bottom: 0;
+            padding: 0 30px 30px 30px;
+            position: fixed;
+            width: 300px;
 
-        .site-info {
-            padding: 0;
-            width: 100%;
+            .site-info {
+                padding: 0;
+                width: 100%;
+            }
         }
     }
 }

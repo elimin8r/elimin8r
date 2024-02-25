@@ -23,7 +23,7 @@ function whitelabel_blog_compact_class( $classes ) {
 add_filter( 'post_class', 'whitelabel_blog_compact_class' );
 
 // Change excerpt length based on blog template
-function custom_excerpt_length( $length ) {
+function whitelabel_excerpt_length( $length ) {
     global $current_template;
 
     if ( $current_template === 'blog-compact' ) {
@@ -36,4 +36,4 @@ function custom_excerpt_length( $length ) {
 
     return $length;
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'whitelabel_excerpt_length', 999 );

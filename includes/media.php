@@ -27,3 +27,21 @@ function cc_mime_types( $mimes ) {
     return $mimes;
 }
 add_filter( 'upload_mimes', 'cc_mime_types' );
+
+// Add preload for featured images
+function whitelabel_preload_image() {
+    if ( is_singular() && has_post_thumbnail() ) {
+        // Get the featured image
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+
+        // Get the srcset
+        $srcset = wp_get_attachment_image_srcset( get_post_thumbnail_id(), 'full' );
+
+        // Get the sizes
+        $sizes = wp_get_attachment_image_sizes( get_post_thumbnail_id(), 'full' );
+
+        // Output the preload tag
+        echo '<link rel="preload" href="' . esc_url( $image[0] ) . '" as="image" imagesrcset="' . esc_attr( $srcset ) . '" imagesizes="' . esc_attr( $sizes ) . '">';
+    }
+}
+add_action( 'wp_head', 'whitelabel_preload_image', 0 );

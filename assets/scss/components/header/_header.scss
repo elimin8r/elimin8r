@@ -3,6 +3,7 @@ body:has(.header-side) {
         .header-content {
             padding: 0;
             top: 30px;
+            width: 100%;
 
             @include media-tablet {
                 display: block;

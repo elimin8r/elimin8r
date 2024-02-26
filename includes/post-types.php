@@ -175,7 +175,7 @@ function handle_post_type_registration() {
                 'show_in_rest' => true,
                 'supports' => array( 'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats', 'excerpt', 'comments' ),
                 'taxonomies' => isset( $post_type['taxonomies'] ) ? $post_type['taxonomies'] : array(),
-                'rewrite' => array('slug' => $post_type['post_type_slug']),
+                'rewrite' => array( 'slug' => $post_type['post_type_slug'] ),
             );
             register_post_type( $post_type['post_type_slug'], $args );
         }

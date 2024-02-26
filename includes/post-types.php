@@ -119,9 +119,9 @@ function post_type_delete_callback() {
 }
 
 function taxonomies_callback() {
-    $taxonomies = get_taxonomies(array('public' => true), 'names');
+    $taxonomies = get_taxonomies( array('public' => true ), 'names' );
     $selected_taxonomies = get_option( 'taxonomies' );
-    $exclude_taxonomies = array('post_tag', 'post_format');
+    $exclude_taxonomies = array( 'post_tag', 'post_format' );
 
     // Check if $selected_taxonomies is an array, if not convert it to an array
     if (!is_array( $selected_taxonomies ) ) {
@@ -149,28 +149,31 @@ function handle_post_type_registration() {
 
     foreach ( $post_types as $post_type ) {
         if ( isset( $post_type['plural_label'] ) && isset( $post_type['singular_label'] ) && isset( $post_type['post_type_slug'] ) ) {
+            $plural = $post_type['plural_label'];
+            $singular = $post_type['singular_label'];
+            $labels = array(
+                'name' => _x( $plural, 'Post type general name', 'whitelabel' ),
+                'singular_name' => _x( $singular, 'Post type singular name', 'whitelabel' ),
+                'menu_name' => _x( $plural, 'Admin Menu text', 'whitelabel' ),
+                'name_admin_bar' => _x( $singular, 'Add New on Toolbar', 'whitelabel' ),
+                'add_new' => __( 'Add New', 'whitelabel' ),
+                'add_new_item' => __( 'Add New ' . $singular, 'whitelabel' ),
+                'new_item' => __( 'New ' . $singular, 'whitelabel' ),
+                'edit_item' => __( 'Edit ' . $singular, 'whitelabel' ),
+                'view_item' => __( 'View ' . $singular, 'whitelabel' ),
+                'all_items' => __( 'All ' . $plural, 'whitelabel' ),
+                'search_items' => __( 'Search ' . $plural, 'whitelabel' ),
+                'parent_item_colon' => __( 'Parent ' . $plural . ': ', 'whitelabel' ),
+                'not_found' => __( 'No ' . $plural . ' found.', 'whitelabel' ),
+                'not_found_in_trash' => __( 'No ' . $plural . ' found in Trash.', 'whitelabel' )
+            );
             $args = array(
-                'label' => $post_type['plural_label'],
-                'labels' => array(
-                    'name'                  => _x( $post_type['plural_label'], 'Post type general name', 'textdomain' ),
-                    'singular_name'         => _x( $post_type['singular_label'], 'Post type singular name', 'textdomain' ),
-                    'menu_name'             => _x( $post_type['plural_label'], 'Admin Menu text', 'textdomain' ),
-                    'name_admin_bar'        => _x( $post_type['singular_label'], 'Add New on Toolbar', 'textdomain' ),
-                    'add_new'               => __( 'Add New', 'textdomain' ),
-                    'add_new_item'          => __( 'Add New ' . $post_type['singular_label'], 'textdomain' ),
-                    'new_item'              => __( 'New ' . $post_type['singular_label'], 'textdomain' ),
-                    'edit_item'             => __( 'Edit ' . $post_type['singular_label'], 'textdomain' ),
-                    'view_item'             => __( 'View ' . $post_type['singular_label'], 'textdomain' ),
-                    'all_items'             => __( 'All ' . $post_type['plural_label'], 'textdomain' ),
-                    'search_items'          => __( 'Search ' . $post_type['plural_label'], 'textdomain' ),
-                    'parent_item_colon'     => __( 'Parent ' . $post_type['plural_label'] . ':', 'textdomain' ),
-                    'not_found'             => __( 'No ' . $post_type['plural_label'] . ' found.', 'textdomain' ),
-                    'not_found_in_trash'    => __( 'No ' . $post_type['plural_label'] . ' found in Trash.', 'textdomain' ),
-                ),
+                'label' => $plural,
+                'labels' => $labels,
                 'public' => true,
                 'has_archive' => true,
                 'show_in_rest' => true,
-                'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+                'supports' => array( 'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats', 'excerpt', 'comments' ),
                 'taxonomies' => isset( $post_type['taxonomies'] ) ? $post_type['taxonomies'] : array(),
                 'rewrite' => array('slug' => $post_type['post_type_slug']),
             );

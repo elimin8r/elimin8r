@@ -1,5 +1,7 @@
 body:has(.header-side) {
     .site-footer {
+        z-index: 3;
+        
         @include media-tablet {
             background: transparent !important;
             bottom: 0;

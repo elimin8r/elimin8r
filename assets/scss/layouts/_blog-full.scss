@@ -1,9 +1,11 @@
-article.blog-full {
-    border-bottom: 1px solid #e5e5e5;
-    margin-bottom: 30px;
-    padding-bottom: 30px;
+body.blog {
+    article.blog-full {
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
 
-    .post-thumbnail {
-        margin-top: 11px;
+        .post-thumbnail {
+            margin-top: 11px;
+        }
     }
 }

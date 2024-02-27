@@ -148,6 +148,9 @@ function handle_taxonomy_form_submission() {
         );
 
         update_option( 'whitelabel_custom_taxonomies', $taxonomies );
+
+        // Refresh the page
+        wp_redirect( admin_url( 'options-general.php?page=taxonomy_settings' ) );
     }
 
     if ( isset( $_POST['taxonomy_delete'] ) && !empty( $_POST['taxonomy_delete'] ) ) {
@@ -161,5 +164,8 @@ function handle_taxonomy_form_submission() {
         }
 
         update_option( 'whitelabel_custom_taxonomies', $taxonomies );
+
+        // Refresh the page
+        wp_redirect( admin_url( 'options-general.php?page=taxonomy_settings' ) );
     }
 }

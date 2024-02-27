@@ -206,6 +206,10 @@ function handle_form_submission() {
         );
 
         update_option( 'whitelabel_custom_post_types', $post_types );
+
+        // Refresh the page
+        flush_rewrite_rules();
+        wp_redirect( admin_url( 'options-general.php?page=post_types_settings' ) );
     }
 
     if ( isset( $_POST['post_type_delete'] ) && !empty( $_POST['post_type_delete'] ) ) {
@@ -236,5 +240,8 @@ function handle_form_submission() {
         }
 
         update_option( 'whitelabel_custom_post_types', $post_types );
+
+        // Refresh the page
+        wp_redirect( admin_url( 'options-general.php?page=post_types_settings' ) );
     }
 }

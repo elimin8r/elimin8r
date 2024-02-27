@@ -325,23 +325,27 @@
 							transition: max-height 1s ease-in-out;
 
 							li {
-								padding: 0 15px 10px 15px;
+								margin-right: 0;
+								border-top: 1px solid #ccc;
 
-								&:first-of-type {
-									padding-top: 10px;
+								a {
+									align-items: center;
+									display: flex;
+									height: 35px;
+									padding: 0 15px;
 								}
+	
+								ul.sub-menu {
+									box-shadow: none;
+									position: relative;
 
-								&:last-of-type {
-									padding-bottom: 15px;
+									li {
+										padding-left: 20px;
+									}
 								}
-							}
-
-							ul.sub-menu {
-								box-shadow: none;
-								padding-left: 15px;
-								position: relative;
 							}
 						}
+
 
 						&:hover {
 							> ul.sub-menu {

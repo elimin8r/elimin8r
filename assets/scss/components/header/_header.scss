@@ -40,6 +40,7 @@ body:has(.header-top) {
 
 .site-header {
     padding: 15px;
+    z-index: 2;
 
     @include media-tablet {
         padding: 30px;

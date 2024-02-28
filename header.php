@@ -13,7 +13,7 @@
 <div class="site-page">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'whitelabel' ); ?></a>
 
-	<header id="masthead" class="site-header header-<?php echo get_theme_mod( 'header_position', 'top' ); ?>" style="background: <?php echo whitelabel_hex_opacity( get_theme_mod( 'header_color', '#ffffff' ), get_theme_mod( 'header_transparency', '0' ) ); ?>">
+	<header id="masthead" class="site-header header-<?php echo get_theme_mod( 'header_position', 'top' ); ?>">
 		<div class="header-content">
 			<div class="site-branding">
 				<?php the_custom_logo(); ?>

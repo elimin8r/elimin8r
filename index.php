@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main" style="background: <?php echo whitelabel_hex_opacity( get_theme_mod( 'content_color', '#ffffff' ), get_theme_mod( 'content_transparency', '0' ) ); ?>">
+	<main id="primary" class="site-main">
 
 		<?php
 		if ( have_posts() ) :

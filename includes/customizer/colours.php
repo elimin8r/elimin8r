@@ -13,5 +13,18 @@ function whitelabel_color_customize_register( $wp_customize ) {
 		'section'  => 'colors',
 		'settings' => 'content_color',
 	) ) );
+
+    // Add the setting for the header color picker
+    $wp_customize->add_setting( 'header_color' , array(
+        'default'     => '#ffffff',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the control for the header color picker
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
+        'label'        => __( 'Header Colour', 'whitelabel' ),
+        'section'      => 'colors',
+        'settings'     => 'header_color',
+    ) ) );
 }
 add_action( 'customize_register', 'whitelabel_color_customize_register' );

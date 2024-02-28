@@ -20,18 +20,5 @@ function whitelabel_footer_customize_register( $wp_customize ) {
 		'settings'   => 'footer_text',
 		'type'       => 'textarea',
 	) ) );
-
-    // Add the setting for the footer color picker
-    $wp_customize->add_setting( 'footer_color' , array(
-        'default'     => '#ffffff',
-        'transport'   => 'refresh',
-    ) );
-
-    // Add the control for the footer color picker
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-        'label'        => __( 'Footer Colour', 'whitelabel' ),
-        'section'      => 'colors',
-        'settings'     => 'footer_color',
-    ) ) );
 }
 add_action( 'customize_register', 'whitelabel_footer_customize_register' );

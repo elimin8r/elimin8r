@@ -25,5 +25,19 @@ function whitelabel_layout_customize_register( $wp_customize ) {
 			'grid' => 'Grid',
 		),
 	) ) );
+
+	// Add the setting for enabling the sidebar
+	$wp_customize->add_setting( 'enable_sidebar' , array(
+		'default'   => false,
+		'transport' => 'refresh',
+	) );
+
+	// Add the control for enabling the sidebar
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'enable_sidebar', array(
+		'label'      => __( 'Enable Sidebar', 'whitelabel' ),
+		'section'    => 'whitelable_layout_options',
+		'settings'   => 'enable_sidebar',
+		'type'       => 'checkbox',
+	) ) );
 }
 add_action( 'customize_register', 'whitelabel_layout_customize_register' );

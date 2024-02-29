@@ -83,5 +83,44 @@ function whitelabel_header_customize_register( $wp_customize ) {
         'section'      => 'whitelabel_header_options',
         'settings'     => 'header_text_color',
     ) ) );
+
+    // Add the setting for the sub menu color picker
+    $wp_customize->add_setting( 'submenu_color' , array(
+        'default'     => '#ffffff',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the control for the sub menu color picker
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'submenu_color', array(
+        'label'        => __( 'Submenu Colour', 'whitelabel' ),
+        'section'      => 'whitelabel_header_options',
+        'settings'     => 'submenu_color',
+    ) ) );
+
+    // Add the setting for the sub menu text color picker
+    $wp_customize->add_setting( 'submenu_text_color' , array(
+        'default'     => '#ffffff',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the control for the sub menu text color picker
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'submenu_text_color', array(
+        'label'        => __( 'Submenu Text Colour', 'whitelabel' ),
+        'section'      => 'whitelabel_header_options',
+        'settings'     => 'submenu_text_color',
+    ) ) );
+
+    // Add the setting for the sub menu text color picker
+    $wp_customize->add_setting( 'hamburger_color' , array(
+        'default'     => '#ffffff',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the control for the hamburger color picker
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'hamburger_color', array(
+        'label'        => __( 'Hamburger Colour', 'whitelabel' ),
+        'section'      => 'whitelabel_header_options',
+        'settings'     => 'hamburger_color',
+    ) ) );
 }
 add_action( 'customize_register', 'whitelabel_header_customize_register' );

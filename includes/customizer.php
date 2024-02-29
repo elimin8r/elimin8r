@@ -18,6 +18,7 @@ function whitelabel_hex_opacity( $color, $opacity ) {
 
 // Output customizer CSS
 function whitelabel_customizer_css() {
+	$background_tint = get_theme_mod( 'background_tint', 'false' );
 	$content_color = get_theme_mod( 'content_color', '#ffffff' );
 	$content_text_color = get_theme_mod( 'content_text_color', '#000000' );
 	$content_link_color = get_theme_mod( 'content_link_color', '#4169e1' );
@@ -30,6 +31,8 @@ function whitelabel_customizer_css() {
 	$footer_transparency = get_theme_mod( 'footer_transparency', '0' );
 
 	$css = '
+		body.custom-background { background-blend-mode: ' . ( $background_tint ? 'overlay' : 'initial' ) . ';}
+	
 		body .site-main { background-color: ' . whitelabel_hex_opacity( $content_color, $content_transparency ) . '; }
 		
 		body .site-main,

@@ -2,7 +2,7 @@
 
 function whitelabel_header_customize_register( $wp_customize ) {
 	// Add the header section
-	$wp_customize->add_section( 'whitelable_header_options' , array(
+	$wp_customize->add_section( 'whitelabel_header_options' , array(
 		'title'      => __( 'Header', 'whitelabel' ),
 		'priority'   => 30,
 	) );
@@ -16,7 +16,7 @@ function whitelabel_header_customize_register( $wp_customize ) {
 	// Add the control for the header position
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_position', array(
 		'label'      => __( 'Header Position', 'whitelabel' ),
-		'section'    => 'whitelable_header_options',
+		'section'    => 'whitelabel_header_options',
 		'settings'   => 'header_position',
 		'type'       => 'select',
 		'choices'    => array(
@@ -34,9 +34,54 @@ function whitelabel_header_customize_register( $wp_customize ) {
 	// Add the control for enabling search
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'enable_search', array(
 		'label'      => __( 'Enable Search', 'whitelabel' ),
-		'section'    => 'whitelable_header_options',
+		'section'    => 'whitelabel_header_options',
 		'settings'   => 'enable_search',
 		'type'       => 'checkbox',
 	) ) );
+
+	// Add the setting for header transparency
+	$wp_customize->add_setting( 'header_transparency' , array(
+		'default'   => '0',
+		'transport' => 'refresh',
+	) );
+
+	// Add the control for header transparency
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_transparency', array(
+		'label'      => __( 'Header Transparency', 'whitelabel' ),
+		'section'    => 'whitelabel_header_options',
+		'settings'   => 'header_transparency',
+		'type'       => 'range',
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 100,
+			'step' => 1,
+		),
+	) ) );
+
+    // Add the setting for the header color picker
+    $wp_customize->add_setting( 'header_color' , array(
+        'default'     => '#ffffff',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the control for the header color picker
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
+        'label'        => __( 'Header Colour', 'whitelabel' ),
+        'section'      => 'whitelabel_header_options',
+        'settings'     => 'header_color',
+    ) ) );
+
+    // Add the setting for the header text color picker
+    $wp_customize->add_setting( 'header_text_color' , array(
+        'default'     => '#000000',
+        'transport'   => 'refresh',
+    ) );
+
+    // Add the control for the header text color picker
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_text_color', array(
+        'label'        => __( 'Header Text Colour', 'whitelabel' ),
+        'section'      => 'whitelabel_header_options',
+        'settings'     => 'header_text_color',
+    ) ) );
 }
 add_action( 'customize_register', 'whitelabel_header_customize_register' );

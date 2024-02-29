@@ -28,6 +28,18 @@ function whitelabel_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+    // Change the section of the background color setting
+    $background_color = $wp_customize->get_control( 'background_color' );
+    if ( ! empty( $background_color ) ) {
+        $background_color->section = 'background_image';
+    }
+
+    // Change the title of the background image section
+    $background_image_section = $wp_customize->get_section( 'background_image' );
+    if ( ! empty( $background_image_section ) ) {
+        $background_image_section->title = 'Background';
+    }
 }
 add_action( 'customize_register', 'whitelabel_customize_register' );
 

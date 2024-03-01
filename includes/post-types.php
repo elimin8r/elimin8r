@@ -258,3 +258,12 @@ function my_flush_rewrite_rules() {
     }
 }
 add_action('wp_loaded', 'my_flush_rewrite_rules');
+
+// Remove Archives: prefix from archive titles
+add_filter( 'get_the_archive_title', function ( $title ) {
+    if ( strpos( $title, 'Archives:' ) !== false ) {
+        $title = str_replace( 'Archives: ', '', $title );
+    }
+
+    return $title;
+});

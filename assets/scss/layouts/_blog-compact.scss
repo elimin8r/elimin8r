@@ -1,4 +1,5 @@
-body.blog {
+body.blog,
+body.archive {
     .blog-compact {
         display: grid;
         grid-template-columns: 1fr;

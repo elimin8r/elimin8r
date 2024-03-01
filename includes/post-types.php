@@ -207,8 +207,10 @@ function handle_form_submission() {
 
         update_option( 'whitelabel_custom_post_types', $post_types );
 
+        // Set a transient to indicate that the rewrite rules need to be flushed
+        set_transient( 'flush_rewrite_rules', true );
+
         // Refresh the page
-        flush_rewrite_rules();
         wp_redirect( admin_url( 'options-general.php?page=post_types_settings' ) );
     }
 
@@ -245,3 +247,14 @@ function handle_form_submission() {
         wp_redirect( admin_url( 'options-general.php?page=post_types_settings' ) );
     }
 }
+
+function my_flush_rewrite_rules() {
+    // If the 'flush_rewrite_rules' transient is set flush the rewrite rules
+    if ( get_transient( 'flush_rewrite_rules' ) ) {
+        flush_rewrite_rules();
+
+        // Delete the transient
+        delete_transient( 'flush_rewrite_rules' );
+    }
+}
+add_action('wp_loaded', 'my_flush_rewrite_rules');

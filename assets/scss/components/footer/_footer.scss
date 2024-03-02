@@ -22,6 +22,6 @@ body:has(.header-side) {
 
     .site-info {
         @include content-width;
-        padding: 30px;
+        padding: 30px !important;
     }
 }

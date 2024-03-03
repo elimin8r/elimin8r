@@ -24,6 +24,9 @@
 
 --------------------------------------------------------------*/
 
+// Import core block styles
+@import "/wp-includes/css/dist/block-library/style.css";
+
 // Import variables and mixins.
 @import "abstracts/abstracts";
 
@@ -47,8 +50,6 @@
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-// @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
-// @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
 
 /*--------------------------------------------------------------
 # Components

@@ -119,6 +119,13 @@ function whitelabel_critical_css() {
 }
 add_action( 'wp_head', 'whitelabel_critical_css' );
 
+// Dequeue scripts and styles.
+function whitelabel_dequeue_scripts() {
+	wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+}
+add_action( 'wp_enqueue_scripts', 'whitelabel_dequeue_scripts', 100 );
+
 // Add a pingback url auto-discovery header for single posts, pages, or attachments.
 function whitelabel_pingback_header() {
 	if ( is_singular() && pings_open() ) {
@@ -133,6 +140,8 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+// define( 'WHITELABEL_STYLES', false );
 
 // Include all files in the /includes directory
 foreach ( glob( __DIR__ . '/includes/*.php' ) as $file ) {

@@ -20,6 +20,17 @@ function whitelabel_hex_opacity( $color, $opacity ) {
 	return "rgba({$r}, {$g}, {$b}, {$opacity})";
 }
 
+function minify_css($css) {
+    // Remove comments
+    $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+    // Remove space after colons
+    $css = str_replace(': ', ':', $css);
+    // Remove whitespace
+    $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $css);
+    
+	return $css;
+}
+
 // Output customizer CSS
 function whitelabel_customizer_css() {
 	$background_tint = get_theme_mod( 'background_tint', 'false' );
@@ -79,7 +90,7 @@ function whitelabel_customizer_css() {
 
 	// Output the styles
 	if ( ! empty( $css ) ) {
-		echo '<style>' . $css . '</style>';
+		echo '<style>' . minify_css( $css ) . '</style>' . PHP_EOL;
 	}
 }
 add_action( 'wp_head', 'whitelabel_customizer_css' );

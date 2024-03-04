@@ -115,7 +115,7 @@ add_action( 'admin_enqueue_scripts', 'whitelabel_admin_scripts' );
 function whitelabel_critical_css() {
 	$manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
 	$css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['critical.min.css'] );
-	echo '<style id="whitelabel-critical-style">' . $css . '</style>';
+	echo '<style id="whitelabel-critical-style">' . $css . '</style>' . PHP_EOL;
 }
 add_action( 'wp_head', 'whitelabel_critical_css' );
 

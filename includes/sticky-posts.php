@@ -3,7 +3,6 @@
 function get_sticky_posts( $post_type ) {
     $sticky_posts = get_option( 'sticky_posts' );
 
-    // If there are no sticky posts, return an empty array
     if ( ! $sticky_posts ) {
         return false;
     }

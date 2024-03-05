@@ -2,6 +2,11 @@
 
 function get_sticky_posts( $post_type ) {
     $sticky_posts = get_option( 'sticky_posts' );
+
+    // If there are no sticky posts, return an empty array
+    if ( ! $sticky_posts ) {
+        return false;
+    }
     
     $args = array(
         'post_type' => $post_type,
@@ -21,11 +26,9 @@ function get_sticky_posts( $post_type ) {
             // Add the ID to the array
             array_push( $post_ids, $post_id );
         }
-
-        return $post_ids;
     }
     
     wp_reset_postdata();
 
-    return false;
+    return $post_ids;
 }

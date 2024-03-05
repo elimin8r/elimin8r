@@ -22,6 +22,11 @@ get_header();
 			while ( have_posts() ) :
 				the_post();
 
+				// Exlude sticky posts from the main loop
+				if ( is_sticky() ) {
+					continue;
+				}
+
 				$theme = get_theme_mod( 'blog_layout', '' );
 
 				if ( $theme == 'grid' ) {

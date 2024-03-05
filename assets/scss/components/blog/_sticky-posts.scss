@@ -1,0 +1,39 @@
+.sticky-posts {
+    display: none;
+
+    @include media-tablet {
+        display: block;
+    }
+
+    .sticky-post {
+        margin-bottom: 15px;
+        position: relative;
+
+        .sticky-post-thumbnail {
+            img {
+                width: 100%;
+
+                @include media-tablet {
+                    filter: brightness(0.5);
+                }
+            }
+        }
+
+        .sticky-post-content {
+            position: relative;
+
+            @include media-tablet {
+                inset: 50% 0 0 0;
+                padding: 30px;
+                pointer-events: none;
+                position: absolute;
+    
+                h2,
+                p,
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

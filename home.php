@@ -16,6 +16,9 @@ get_header();
 			endif;
 
 			?> <div class="blog-content"> <?php
+			
+			get_template_part( 'template-parts/blog', 'sticky' );
+
 			while ( have_posts() ) :
 				the_post();
 

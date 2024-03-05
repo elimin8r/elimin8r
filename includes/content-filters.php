@@ -30,8 +30,10 @@ function whitelabel_excerpt_length( $length ) {
         $length = 20;
     } elseif ( $current_template === 'blog-grid' ) {
         $length = 0;
-    } else {
+    } elseif ( $current_template === 'blog-full' ) {
         $length = 100;
+    } else {
+        $length = 55;
     }
 
     return $length;

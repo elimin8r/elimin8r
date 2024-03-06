@@ -1,11 +1,5 @@
 <?php
 
-// Add link to end of excerpt
-function whitelabel_excerpt_more( $more ) {
-    return ' <a href="' . get_permalink() . '">' . __('Continue reading', 'whitelabel') . '</a>';
-}
-add_filter('excerpt_more', 'whitelabel_excerpt_more');
-
 // Add blog-* class to the post_class for each blog template
 function whitelabel_blog_compact_class( $classes ) {
     global $current_template;
@@ -21,6 +15,12 @@ function whitelabel_blog_compact_class( $classes ) {
     return $classes;
 }	
 add_filter( 'post_class', 'whitelabel_blog_compact_class' );
+
+// Add link to end of excerpt
+function whitelabel_excerpt_more( $more ) {
+    return ' <a href="' . get_permalink() . '">' . __('Continue reading', 'whitelabel') . '</a>';
+}
+add_filter('excerpt_more', 'whitelabel_excerpt_more');
 
 // Change excerpt length based on blog template
 function whitelabel_excerpt_length( $length ) {

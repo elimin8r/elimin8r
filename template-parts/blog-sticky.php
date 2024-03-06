@@ -9,32 +9,35 @@ $count = 0;
 ?>
 
 <?php if ( $sticky_posts) :?>
-    <?php foreach ( $sticky_posts as $post_id ) : ?>
-        <?php
-            // Only display the first 3 sticky posts
-            $count++;
-            if ( $count > 1 ) {
-                break;
-            }
+    <section class="sticky-posts">
+        <?php foreach ( $sticky_posts as $post_id ) : ?>
+            <?php
+                // Only display the first 3 sticky posts
+                $count++;
 
-            $post = get_post( $post_id );
-            setup_postdata( $post );
-        ?>
+                if ( $count > 3 ) {
+                    break;
+                }
 
-        <article class="sticky-post">
-            <a href="<?php the_permalink(); ?>">
-                <div class="sticky-post-thumbnail">
-                    <?php the_post_thumbnail( 'large' ); ?>
-                </div>
-            </a>
-            
-            <div class="sticky-post-content">
+                $post = get_post( $post_id );
+                setup_postdata( $post );
+            ?>
+
+            <article class="sticky-post sticky-post-<?php echo $count; ?>">
                 <a href="<?php the_permalink(); ?>">
-                    <h2><?php the_title(); ?></h2>
+                    <div class="sticky-post-thumbnail">
+                        <?php the_post_thumbnail( 'large' ); ?>
+                    </div>
                 </a>
+                
+                <div class="sticky-post-content">
+                    <a href="<?php the_permalink(); ?>">
+                        <h2><?php the_title(); ?></h2>
+                    </a>
 
-                <p><?php the_excerpt(); ?></p>
-            </div><!-- .sticky-post-content -->
-        </article><!-- .sticky-post -->
-    <?php endforeach; ?>
+                    <p><?php the_excerpt(); ?></p>
+                </div><!-- .sticky-post-content -->
+            </article><!-- .sticky-post -->
+        <?php endforeach; ?>
+    </section><!-- .sticky-posts -->
 <?php endif; ?>

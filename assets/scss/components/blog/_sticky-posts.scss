@@ -1,37 +1,72 @@
-.sticky-post {
-    display: none;
-    margin-bottom: 15px;
-    position: relative;
+.sticky-posts {
+    .sticky-post {
+        display: none;
+        margin-bottom: 15px;
+        position: relative;
 
-    @include media-tablet {
-        display: block;
-    }
+        @include media-tablet {
+            display: block;
+        }
 
-    .sticky-post-thumbnail {
-        img {
-            width: 100%;
+        .sticky-post-thumbnail {
+            img {
+                aspect-ratio: 16 / 9;
+                width: 100%;
+
+                @include media-tablet {
+                    filter: brightness(0.5);
+                }
+            }
+        }
+
+        .sticky-post-content {
+            position: relative;
 
             @include media-tablet {
-                filter: brightness(0.5);
+                bottom: 0;
+                left: 0;
+                padding: 30px;
+                pointer-events: none;
+                position: absolute;
+                right: 0;
+
+                h2,
+                p,
+                a {
+                    color: #fff;
+                }
             }
         }
     }
 
-    .sticky-post-content {
-        position: relative;
+    &:has(.sticky-post-2) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 30px;
 
-        @include media-tablet {
-            bottom: 0;
-            left: 0;
-            padding: 30px;
-            pointer-events: none;
-            position: absolute;
-            right: 0;
+        .sticky-post-content {
+            h2 {
+                margin-bottom: 0;
+            }
 
-            h2,
-            p,
-            a {
-                color: #fff;
+            p {
+                display: none;
+            }
+        }       
+    }
+
+    &:has(.sticky-post-3) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 30px;
+
+        .sticky-post-content {
+            h2 {
+                margin-bottom: 0;
+            }
+
+            p {
+                display: none;
             }
         }
     }

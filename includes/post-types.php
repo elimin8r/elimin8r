@@ -173,7 +173,7 @@ function handle_post_type_registration() {
                 'public' => true,
                 'has_archive' => true,
                 'show_in_rest' => true,
-                'supports' => array( 'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats', 'excerpt', 'comments' ),
+                'supports' => array( 'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats' ),
                 'taxonomies' => isset( $post_type['taxonomies'] ) ? $post_type['taxonomies'] : array(),
                 'rewrite' => array( 'slug' => $post_type['post_type_slug'] ),
             );

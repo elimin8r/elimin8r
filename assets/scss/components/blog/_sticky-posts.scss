@@ -43,3 +43,13 @@
         margin-bottom: -6px;
     }
 }
+
+.blog-content:has(.sticky-post) {
+    article.sticky {
+        display: block;
+    
+        @include media-tablet {
+            display: none;
+        }
+    }
+}

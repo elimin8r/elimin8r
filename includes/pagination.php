@@ -1,6 +1,10 @@
 <?php
 
 function whitelabel_pagination() {
+    if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
+        return;
+    }
+
     global $wp_query;
 
     $big = 999999999; // need an unlikely integer

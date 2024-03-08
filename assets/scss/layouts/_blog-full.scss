@@ -4,6 +4,10 @@ body.blog {
         margin-bottom: 30px;
         padding-bottom: 30px;
 
+        &.ifs-post {
+            padding-bottom: 0;
+        }
+
         .post-thumbnail {
             margin-top: 11px;
         }

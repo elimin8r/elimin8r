@@ -39,6 +39,10 @@
             position: absolute;
             z-index: 1;
 
+            .entry-title {
+                margin-bottom: 0;
+            }
+
             h2,
             a {
                 color: #ffffff;

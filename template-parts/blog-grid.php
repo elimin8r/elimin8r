@@ -10,15 +10,6 @@ $current_template = 'blog-grid';
 		<div class="article-content">
 			<header class="entry-header">
 				<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
-
-				<?php if ( 'post' === get_post_type() ) : ?>
-					<div class="entry-meta">
-						<?php
-						whitelabel_posted_on();
-						whitelabel_posted_by();
-						?>
-					</div><!-- .entry-meta -->
-				<?php endif; ?>
 			</header><!-- .entry-header -->
 		</div>
 

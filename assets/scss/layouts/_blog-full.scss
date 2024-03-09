@@ -2,14 +2,14 @@ body.blog {
     article.blog-full {
         border-bottom: 1px solid #e5e5e5;
         margin-bottom: 30px;
-        padding-bottom: 30px;
-
-        &.ifs-post {
-            padding-bottom: 0;
-        }
+        padding-bottom: 0;
 
         .post-thumbnail {
             margin-top: 11px;
+        }
+
+        .entry-content {
+            margin-top: 10px;
         }
     }
 }

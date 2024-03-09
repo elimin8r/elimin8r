@@ -14,6 +14,7 @@
 
 .post-thumbnail img,
 .post-thumbnail svg {
+	display: block;
 	aspect-ratio: 16/9;
 	height: auto;
 	width: 100%;

@@ -5,7 +5,11 @@ body.archive {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(1, 1fr);
         grid-column-gap: 15px;
-        grid-row-gap: 0px;
+        margin-bottom: 30px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
 
         @include media-tablet {
             grid-template-columns: 300px 1fr;
@@ -13,7 +17,18 @@ body.archive {
         }
 
         .post-thumbnail {
-            margin-top: 11px;
+            margin: 0px;
         }
+
+        .article-content {
+            margin-top: -11px;
+
+            .entry-content {
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
     }
 }

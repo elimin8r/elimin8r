@@ -56,4 +56,9 @@
             }
         }
     }
+    
+    .pagination {
+        grid-column: span 3;
+        margin-top: 0;
+    }
 }

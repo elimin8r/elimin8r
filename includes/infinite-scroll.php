@@ -59,6 +59,11 @@ function enable_infinite_scroll() {
                     return;
                 }
 
+                const postsContainer = document.querySelector(".blog-content");
+                const loadingSpinner = document.createElement("div");
+                loadingSpinner.classList.add("loading-spinner");
+                postsContainer.appendChild(loadingSpinner);
+
                 displayNextPage(data);
             }
 
@@ -66,8 +71,6 @@ function enable_infinite_scroll() {
                 const posts = data;
                 const postsContainer = document.querySelector(".blog-content");
                 const article = postsContainer.querySelector(".post");
-
-                console.log(data);
 
                 let postClass = "";
                 if (article) {
@@ -78,6 +81,11 @@ function enable_infinite_scroll() {
                     } else if (article.classList.contains("blog-grid")) {
                         postClass = "blog-grid";
                     }
+                }
+
+                const loadingSpinner = postsContainer.querySelector(".loading-spinner");
+                if (loadingSpinner) {
+                    loadingSpinner.remove();
                 }
 
                 posts.forEach(post => {

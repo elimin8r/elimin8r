@@ -21,7 +21,11 @@ body.archive {
         }
 
         .article-content {
-            margin-top: -11px;
+            margin-top: 10px;
+
+            @include media-tablet {
+                margin-top: -11px;
+            }
 
             .entry-content {
                 p {

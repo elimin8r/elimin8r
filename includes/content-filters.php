@@ -27,7 +27,7 @@ function whitelabel_excerpt_length( $length ) {
     global $current_template;
 
     if ( $current_template === 'blog-compact' ) {
-        $length = 40;
+        $length = 35;
     } elseif ( $current_template === 'blog-grid' ) {
         $length = 0;
     } elseif ( $current_template === 'blog-full' ) {

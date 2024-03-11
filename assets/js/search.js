@@ -1,6 +1,11 @@
-const search_icon = document.querySelector('.site-header .search-submit');
+const search_icon = document.querySelector('.site-header .search-toggle');
 const search_bar = document.querySelector('.site-header .search-field');
 const search_field = document.querySelector('.site-header .search-field');
+
+// Focus on the search bar when search icon is clicked
+search_icon.onclick = () => {
+    search_field.focus();
+}
 
 // Hide results if clicked outside of element
 document.body.onclick = (evt) => {

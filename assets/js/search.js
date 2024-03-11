@@ -7,6 +7,11 @@ search_icon.onclick = () => {
     search_field.focus();
 }
 
+// On page load clear the search bar
+window.onload = () => {
+    search_field.value = '';
+}
+
 // Hide results if clicked outside of element
 document.body.onclick = (evt) => {
     if (evt.target.classList[0] !== 'search-field') {

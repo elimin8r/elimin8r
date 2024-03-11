@@ -19,7 +19,15 @@ get_header();
 				while ( have_posts() ) :
 					the_post();
 
-					get_template_part( 'template-parts/content', 'search' );
+					$theme = get_theme_mod( 'blog_layout', '' );
+
+					if ( $theme == 'grid' ) {
+						get_template_part( 'template-parts/blog', 'grid' );
+					} elseif ( $theme == 'compact' ) {
+						get_template_part( 'template-parts/blog', 'compact' );
+					} else {
+						get_template_part( 'template-parts/blog', 'full' );
+					}
 
 				endwhile;
 

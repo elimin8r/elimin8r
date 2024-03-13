@@ -6,45 +6,29 @@ get_header();
 
 		<section class="error-404 not-found">
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'whitelabel' ); ?></h1>
+				<span>404</span>
+				
+				<h1 class="page-title"><?php esc_html_e( 'Whoops! That page can&rsquo;t be found.', 'whitelabel' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'whitelabel' ); ?></p>
+				<p><?php esc_html_e( 'Perhaps the search below will help you find what you\'re looking for?', 'whitelabel' ); ?></p>
 
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'whitelabel' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$whitelabel_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'whitelabel' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$whitelabel_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
+				<?php get_search_form(); ?>
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
+
+		<?php $pages = get_pages(); ?>
+			<?php if ( $pages ) : ?>
+				<section class="page-links">
+					<p><?php esc_html_e( 'Below are some of our other pages that may be useful?', 'whitelabel' ); ?></p>
+					<ul>
+						<?php foreach ( $pages as $page ) :	?>
+							<li><a href="<?php echo esc_url( get_page_link( $page->ID ) ); ?>"><?php echo esc_html( $page->post_title ); ?></a></li>
+						<?php endforeach; ?>
+					</ul>
+				</section><!-- .page-links -->
+			<?php endif; ?>
 
 	</main><!-- #main -->
 

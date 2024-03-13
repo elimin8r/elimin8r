@@ -185,3 +185,20 @@ body:has(.main-navigation.toggled) {
         }
     }
 }
+
+.error404 .site-main .search-form {
+    display: flex;
+
+    label {
+        margin-right: 10px;
+
+        input {
+            height: 40px;
+            width: 240px;
+            
+            @include media-tablet {
+                width: 300px;
+            }
+        }
+    }
+}

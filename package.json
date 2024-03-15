@@ -5,6 +5,7 @@
   "description": "Build tool for the White Label WordPress theme.",
   "main": "gulpfile.js",
   "scripts": {
+    "watch": "gulp watch",
     "build": "gulp build"
   },
   "author": "Ryan Andrews",

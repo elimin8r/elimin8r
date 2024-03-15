@@ -7,8 +7,9 @@
 
 ###  Dependencies
 
-If you are a web developer looking to tweak the code of the `White Label` theme, you will require the following dependencies:
+If you are a web developer looking to tweak the code of the `White Label` theme, you will require the following tools:
 
+- [Node.js](https://nodejs.org/)
 - [Gulp.js](https://gulpjs.com/)
 - [Composer](https://getcomposer.org/)
 

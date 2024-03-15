@@ -1,20 +1,20 @@
 <?php
 
 // Add Enable infinite scroll checkbox to Reading settings
-function add_enable_infinite_scroll_checkbox() {
-    add_settings_field( 'enable_infinite_scroll_checkbox', 'Enable infinite scroll', 'enable_infinite_scroll_checkbox_callback', 'reading', 'default' );
+function whitelabel_add_enable_infinite_scroll_checkbox() {
+    add_settings_field( 'enable_infinite_scroll_checkbox', 'Enable infinite scroll', 'whitelabel_enable_infinite_scroll_checkbox_callback', 'reading', 'default' );
     register_setting( 'reading', 'enable_infinite_scroll_checkbox' );
 }
 
 // Enable infinite scroll checkbox callback
-function enable_infinite_scroll_checkbox_callback() {
+function whitelabel_enable_infinite_scroll_checkbox_callback() {
     $emojis = get_option( 'enable_infinite_scroll_checkbox' );
     echo '<input type="checkbox" name="enable_infinite_scroll_checkbox" value="1" ' . checked( 1, $emojis, false ) . ' />';
 }
-add_action( 'admin_init', 'add_enable_infinite_scroll_checkbox' );
+add_action( 'admin_init', 'whitelabel_add_enable_infinite_scroll_checkbox' );
 
 // Enable infinite scroll
-function enable_infinite_scroll() {
+function whitelabel_enable_infinite_scroll() {
     if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
         // Get the post type
         $post_type = get_post_type();
@@ -121,4 +121,4 @@ function enable_infinite_scroll() {
         </script>';
     }
 }
-add_action( 'wp_footer', 'enable_infinite_scroll' );
+add_action( 'wp_footer', 'whitelabel_enable_infinite_scroll' );

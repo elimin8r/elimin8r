@@ -1,6 +1,6 @@
 <?php
 
-function get_sticky_posts( $post_type ) {
+function whitelabel_get_sticky_posts( $post_type ) {
     $sticky_posts = get_option( 'sticky_posts' );
 
     if ( ! $sticky_posts ) {

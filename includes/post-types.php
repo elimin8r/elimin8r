@@ -1,18 +1,18 @@
 <?php
 
 // Add a menu item under the "Settings" menu
-add_action( 'admin_menu', 'register_post_types_settings_menu' );
-function register_post_types_settings_menu() {
+add_action( 'admin_menu', 'whitelabel_register_post_types_settings_menu' );
+function whitelabel_register_post_types_settings_menu() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    add_options_page( 'Post Types', 'Post Types', 'manage_options', 'post_types_settings', 'post_types_settings_page' );
+    add_options_page( 'Post Types', 'Post Types', 'manage_options', 'post_types_settings', 'whitelabel_post_types_settings_page' );
 }
 
 // Render the settings page
-function post_types_settings_page() {
+function whitelabel_post_types_settings_page() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
@@ -31,7 +31,7 @@ function post_types_settings_page() {
 
         <form method="post">
             <?php
-            post_type_delete_callback();
+            whitelabel_post_type_delete_callback();
             submit_button( 'Delete', 'delete', 'delete', true, array( 'id' => 'delete-button' ) );
             ?>
         </form>
@@ -48,16 +48,16 @@ function post_types_settings_page() {
 }
 
 // Register the settings and fields
-add_action( 'admin_init', 'register_post_types_settings' );
-function register_post_types_settings() {
+add_action( 'admin_init', 'whitelabel_register_post_types_settings' );
+function whitelabel_register_post_types_settings() {
     // Register the settings section
     add_settings_section( 'post_types_section', 'Add a new post type', '', 'post_types_settings' );
 
     // Register the input fields
-    add_settings_field( 'plural_label', 'Plural Label', 'plural_label_callback', 'post_types_settings', 'post_types_section' );
-    add_settings_field( 'singular_label', 'Singular Label', 'singular_label_callback', 'post_types_settings', 'post_types_section' );
-    add_settings_field( 'post_type_slug', 'Post Type Slug', 'post_type_slug_callback', 'post_types_settings', 'post_types_section' );
-    add_settings_field( 'taxonomies', 'Taxonomies', 'taxonomies_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'plural_label', 'Plural Label', 'whitelabel_plural_label_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'singular_label', 'Singular Label', 'whitelabel_singular_label_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'post_type_slug', 'Post Type Slug', 'whitelabel_post_type_slug_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'taxonomies', 'Taxonomies', 'whitelabel_taxonomies_callback', 'post_types_settings', 'post_types_section' );
 
     // Register the settings
     register_setting( 'post_types_settings', 'plural_label' );
@@ -69,25 +69,25 @@ function register_post_types_settings() {
 }
 
 // Callback functions for the input fields
-function plural_label_callback() {
+function whitelabel_plural_label_callback() {
     ?>
     <input type="text" name="plural_label" value="" class="regular-text" placeholder="E.g. Games" required/>
     <?php
 }
 
-function singular_label_callback() {
+function whitelabel_singular_label_callback() {
     ?>
     <input type="text" name="singular_label" value="" class="regular-text" placeholder="E.g. Game" required/>
     <?php
 }
 
-function post_type_slug_callback() {
+function whitelabel_post_type_slug_callback() {
     ?>
     <input type="text" name="post_type_slug" value="" class="regular-text" placeholder="E.g. games" required/>
     <?php
 }
 
-function post_type_delete_callback() {
+function whitelabel_post_type_delete_callback() {
     $post_types = get_option( 'whitelabel_custom_post_types', array() );
     
     ?>
@@ -118,7 +118,7 @@ function post_type_delete_callback() {
     <?php
 }
 
-function taxonomies_callback() {
+function whitelabel_taxonomies_callback() {
     $taxonomies = get_taxonomies( array('public' => true ), 'names' );
     $selected_taxonomies = get_option( 'taxonomies' );
     $exclude_taxonomies = array( 'post_tag', 'post_format' );
@@ -143,8 +143,8 @@ function taxonomies_callback() {
 }
 
 // Handle post type registration
-add_action('init', 'handle_post_type_registration');
-function handle_post_type_registration() {
+add_action('init', 'whitelabel_handle_post_type_registration');
+function whitelabel_handle_post_type_registration() {
     $post_types = get_option( 'whitelabel_custom_post_types', array() );
 
     foreach ( $post_types as $post_type ) {
@@ -183,8 +183,8 @@ function handle_post_type_registration() {
 }
 
 // Handle form submission
-add_action( 'admin_init', 'handle_form_submission' );
-function handle_form_submission() {
+add_action( 'admin_init', 'whitelabel_handle_form_submission' );
+function whitelabel_handle_form_submission() {
     if ( isset( $_POST['plural_label'] ) && isset( $_POST['singular_label'] ) && isset( $_POST['post_type_slug'] ) && !empty( $_POST['plural_label'] ) && !empty( $_POST['singular_label'] ) && !empty( $_POST['post_type_slug'] ) ) {
         // Check if the post type already exists
         $registered_post_types = get_post_types( array(), 'objects' );
@@ -248,7 +248,7 @@ function handle_form_submission() {
     }
 }
 
-function my_flush_rewrite_rules() {
+function whitelabel_my_flush_rewrite_rules() {
     // If the 'flush_rewrite_rules' transient is set flush the rewrite rules
     if ( get_transient( 'flush_rewrite_rules' ) ) {
         flush_rewrite_rules();
@@ -257,7 +257,7 @@ function my_flush_rewrite_rules() {
         delete_transient( 'flush_rewrite_rules' );
     }
 }
-add_action('wp_loaded', 'my_flush_rewrite_rules');
+add_action('wp_loaded', 'whitelabel_my_flush_rewrite_rules');
 
 // Remove Archives: prefix from archive titles
 add_filter( 'get_the_archive_title', function ( $title ) {

@@ -3,7 +3,7 @@
 
 // Get the sticky posts
 $post_type = get_post_type();
-$sticky_posts = get_sticky_posts( $post_type );
+$sticky_posts = whitelabel_get_sticky_posts( $post_type );
 
 $count = 0;
 ?>

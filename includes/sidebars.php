@@ -1,18 +1,18 @@
 <?php
 
 // Add a menu item under the "Settings" menu
-add_action( 'admin_menu', 'register_sidebar_settings_menu' );
-function register_sidebar_settings_menu() {
+add_action( 'admin_menu', 'whitelabel_register_sidebar_settings_menu' );
+function whitelabel_register_sidebar_settings_menu() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    add_options_page( 'Sidebars', 'Sidebars', 'manage_options', 'sidebar_settings', 'sidebar_settings_page' );
+    add_options_page( 'Sidebars', 'Sidebars', 'manage_options', 'sidebar_settings', 'whitelabel_sidebar_settings_page' );
 }
 
 // Render the settings page
-function sidebar_settings_page() {
+function whitelabel_sidebar_settings_page() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
@@ -31,7 +31,7 @@ function sidebar_settings_page() {
 
         <form method="post">
             <?php
-            sidebar_delete_callback();
+            whitelabel_sidebar_delete_callback();
             submit_button( 'Delete', 'delete', 'delete', true, array( 'id' => 'delete-button' ) );
             ?>
         </form>
@@ -48,14 +48,14 @@ function sidebar_settings_page() {
 }
 
 // Register the settings and fields
-add_action( 'admin_init', 'register_sidebar_settings' );
-function register_sidebar_settings() {
+add_action( 'admin_init', 'whitelabel_register_sidebar_settings' );
+function whitelabel_register_sidebar_settings() {
     // Register the settings section
     add_settings_section( 'sidebar_section', 'Add a new sidebar', '', 'sidebar_settings' );
 
     // Register the input fields
-    add_settings_field( 'sidebar_name', 'Sidebar Name', 'sidebar_name_callback', 'sidebar_settings', 'sidebar_section' );
-    add_settings_field( 'sidebar_id', 'Sidebar ID', 'sidebar_id_callback', 'sidebar_settings', 'sidebar_section' );
+    add_settings_field( 'sidebar_name', 'Sidebar Name', 'whitelabel_sidebar_name_callback', 'sidebar_settings', 'sidebar_section' );
+    add_settings_field( 'sidebar_id', 'Sidebar ID', 'whitelabel_sidebar_id_callback', 'sidebar_settings', 'sidebar_section' );
 
     // Register the settings
     register_setting( 'sidebar_settings', 'sidebar_name' );
@@ -64,19 +64,19 @@ function register_sidebar_settings() {
 }
 
 // Callback functions for the input fields
-function sidebar_name_callback() {
+function whitelabel_sidebar_name_callback() {
     ?>
     <input type="text" name="sidebar_name" value="" class="regular-text" placeholder="E.g. Main Sidebar" required/>
     <?php
 }
 
-function sidebar_id_callback() {
+function whitelabel_sidebar_id_callback() {
     ?>
     <input type="text" name="sidebar_id" value="" class="regular-text" placeholder="E.g. main-sidebar" required/>
     <?php
 }
 
-function sidebar_delete_callback() {
+function whitelabel_sidebar_delete_callback() {
     global $wp_registered_sidebars;
     ?>
     <h2>Delete a sidebar</h2>
@@ -92,8 +92,8 @@ function sidebar_delete_callback() {
 }
 
 // Handle sidebar registration
-add_action('widgets_init', 'handle_sidebar_registration');
-function handle_sidebar_registration() {
+add_action('widgets_init', 'whitelabel_handle_sidebar_registration');
+function whitelabel_handle_sidebar_registration() {
     $sidebars = get_option( 'whitelabel_custom_sidebars', array() );
 
     foreach ( $sidebars as $sidebar ) {
@@ -112,8 +112,8 @@ function handle_sidebar_registration() {
 }
 
 // Handle form submission
-add_action( 'admin_init', 'handle_sidebar_form_submission' );
-function handle_sidebar_form_submission() {
+add_action( 'admin_init', 'whitelabel_handle_sidebar_form_submission' );
+function whitelabel_handle_sidebar_form_submission() {
     if ( isset( $_POST['sidebar_name'] ) && isset( $_POST['sidebar_id'] ) && !empty( $_POST['sidebar_name'] ) && !empty( $_POST['sidebar_id'] ) ) {
         // Check if sidebar already exists
         global $wp_registered_sidebars;

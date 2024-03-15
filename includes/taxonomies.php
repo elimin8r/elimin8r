@@ -1,18 +1,18 @@
 <?php
 
 // Add a menu item under the "Settings" menu
-add_action( 'admin_menu', 'register_taxonomy_settings_menu' );
-function register_taxonomy_settings_menu() {
+add_action( 'admin_menu', 'whitelabel_register_taxonomy_settings_menu' );
+function whitelabel_register_taxonomy_settings_menu() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    add_options_page( 'Taxonomies', 'Taxonomies', 'manage_options', 'taxonomy_settings', 'taxonomy_settings_page' );
+    add_options_page( 'Taxonomies', 'Taxonomies', 'manage_options', 'taxonomy_settings', 'whitelabel_taxonomy_settings_page' );
 }
 
 // Render the settings page
-function taxonomy_settings_page() {
+function whitelabel_taxonomy_settings_page() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
@@ -31,7 +31,7 @@ function taxonomy_settings_page() {
 
         <form method="post">
             <?php
-            taxonomy_delete_callback();
+            whitelabel_taxonomy_delete_callback();
             submit_button( 'Delete', 'delete', 'delete', true, array( 'id' => 'delete-button' ) );
             ?>
         </form>
@@ -48,15 +48,15 @@ function taxonomy_settings_page() {
 }
 
 // Register the settings and fields
-add_action( 'admin_init', 'register_taxonomy_settings' );
-function register_taxonomy_settings() {
+add_action( 'admin_init', 'whitelabel_register_taxonomy_settings' );
+function whitelabel_register_taxonomy_settings() {
     // Register the settings section
     add_settings_section( 'taxonomy_section', 'Add a new taxonomy', '', 'taxonomy_settings' );
 
     // Register the input fields
-    add_settings_field( 'taxonomy_label', 'Taxonomy Label', 'taxonomy_label_callback', 'taxonomy_settings', 'taxonomy_section' );
-    add_settings_field( 'taxonomy_slug', 'Taxonomy Slug', 'taxonomy_slug_callback', 'taxonomy_settings', 'taxonomy_section' );
-    add_settings_field( 'taxonomy_post_type', 'Post Type', 'taxonomy_post_type_callback', 'taxonomy_settings', 'taxonomy_section' );
+    add_settings_field( 'taxonomy_label', 'Taxonomy Label', 'whitelabel_taxonomy_label_callback', 'taxonomy_settings', 'taxonomy_section' );
+    add_settings_field( 'taxonomy_slug', 'Taxonomy Slug', 'whitelabel_taxonomy_slug_callback', 'taxonomy_settings', 'taxonomy_section' );
+    add_settings_field( 'taxonomy_post_type', 'Post Type', 'whitelabel_taxonomy_post_type_callback', 'taxonomy_settings', 'taxonomy_section' );
 
     // Register the settings
     register_setting( 'taxonomy_settings', 'taxonomy_label' );
@@ -66,19 +66,19 @@ function register_taxonomy_settings() {
 }
 
 // Callback functions for the input fields
-function taxonomy_label_callback() {
+function whitelabel_taxonomy_label_callback() {
     ?>
     <input type="text" name="taxonomy_label" value="" class="regular-text" placeholder="E.g. Genres" require/>
     <?php
 }
 
-function taxonomy_slug_callback() {
+function whitelabel_taxonomy_slug_callback() {
     ?>
     <input type="text" name="taxonomy_slug" value="" class="regular-text" placeholder="E.g. genres" required/>
     <?php
 }
 
-function taxonomy_post_type_callback() {
+function whitelabel_taxonomy_post_type_callback() {
     $post_types = get_post_types( array( 'public' => true ), 'names' );
     ?>
     <select name="taxonomy_post_type" class="regular-text" required>
@@ -91,7 +91,7 @@ function taxonomy_post_type_callback() {
     <?php
 }
 
-function taxonomy_delete_callback() {
+function whitelabel_taxonomy_delete_callback() {
     $taxonomies = get_option( 'whitelabel_custom_taxonomies', array() );
     
     ?>
@@ -108,8 +108,8 @@ function taxonomy_delete_callback() {
 }
 
 // Handle taxonomy registration
-add_action('init', 'handle_taxonomy_registration');
-function handle_taxonomy_registration() {
+add_action('init', 'whitelabel_handle_taxonomy_registration');
+function whitelabel_handle_taxonomy_registration() {
     $taxonomies = get_option( 'whitelabel_custom_taxonomies', array() );
 
     foreach ( $taxonomies as $taxonomy ) {
@@ -125,8 +125,8 @@ function handle_taxonomy_registration() {
 }
 
 // Handle form submission
-add_action( 'admin_init', 'handle_taxonomy_form_submission' );
-function handle_taxonomy_form_submission() {
+add_action( 'admin_init', 'whitelabel_handle_taxonomy_form_submission' );
+function whitelabel_handle_taxonomy_form_submission() {
     if ( isset( $_POST['taxonomy_label'] ) && isset( $_POST['taxonomy_slug'] ) && isset( $_POST['taxonomy_post_type'] ) && !empty( $_POST['taxonomy_label'] ) && !empty( $_POST['taxonomy_slug'] ) && !empty( $_POST['taxonomy_post_type'] ) ) {
         // Check if taxonomy already exists
         $registered_taxonomies = get_taxonomies( array(), 'objects' );

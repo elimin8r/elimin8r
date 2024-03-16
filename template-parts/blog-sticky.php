@@ -40,6 +40,4 @@ $count = 0;
             </article><!-- .sticky-post -->
         <?php endforeach; ?>
     </section><!-- .sticky-posts -->
-
-    <hr>
 <?php endif; ?>

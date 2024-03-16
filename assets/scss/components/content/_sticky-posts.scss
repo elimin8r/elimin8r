@@ -1,4 +1,13 @@
 .sticky-posts {
+    border-bottom: solid 1px #ccc;
+    display: none;
+    margin-bottom: 30px;
+    padding-bottom: 8px;
+
+    @include media-tablet {
+        display: block;
+    }
+
     .sticky-post {
         display: none;
         margin-bottom: 15px;
@@ -52,9 +61,13 @@
     }
 
     &:has(.sticky-post-2) {
-        display: grid;
+        display: none;
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 30px;
+
+        @include media-tablet {
+            display: grid;
+        }
 
         .sticky-post-content {
             h2 {
@@ -68,9 +81,13 @@
     }
 
     &:has(.sticky-post-3) {
-        display: grid;
+        display: none;
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 30px;
+
+        @include media-tablet {
+            display: grid;
+        }
 
         .sticky-post-content {
             h2 {

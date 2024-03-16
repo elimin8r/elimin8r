@@ -69,14 +69,19 @@ function whitelabel_customizer_css() {
 
 		body .main-navigation .sub-menu { background: ' . $submenu_color . '; }
 		body .main-navigation ul li a { color: ' . $submenu_text_color . '; }
+
+		body .main-navigation li.menu-item-has-children>a:after { background: ' . $header_text_color . '; }
+		body .main-navigation li.menu-item-has-children ul li a:after { background: ' . $submenu_text_color . '; }
 		
 		@media screen and (max-width: 767px) {
 			body .main-navigation .menu-main-container { background: ' . $submenu_color . '; }
+			body .main-navigation li.menu-item-has-children>a:after { background: ' . $submenu_text_color . '; }
 		}
 		
 		@media screen and (min-width: 768px) {
 			body .main-navigation ul li a { color: ' . $header_text_color . '; }
 			body .site-page:has(.header-top) .main-navigation ul li ul li a { color: ' . $submenu_text_color . '; }
+			body:has(.header-side) .main-navigation li.menu-item-has-children ul li a:after { background: ' . $header_text_color . '; }
 		}
 
 		body .main-navigation #menu-bottom,

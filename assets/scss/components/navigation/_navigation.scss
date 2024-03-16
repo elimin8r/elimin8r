@@ -102,20 +102,18 @@
 
 		&.menu-item-has-children {
 			>a:after {
-				background: url(/wp-content/themes/whitelabel/dist/images/chevron.svg) no-repeat center center;
-				background-size: 40px;
+				// background: #fff;
+				clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
 				content: "";
 				display: inline-block;
-				filter: drop-shadow(0px 1px 0 #fff);
 				height: 15px;
 				margin-left: 5px;
 				transition: 0.3s ease-in-out;
 				width: 20px;
 
 				@include media-tablet {
-					background-size: unset;
 					height: 10px;
-					width: 10px;
+					width: 14px;
 				}
 			}
 

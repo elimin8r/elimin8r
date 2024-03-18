@@ -35,7 +35,7 @@
 			<?php
 			wp_list_comments(
 				array(
-					'style'      => 'ol',
+					'style'      => 'div',
 					'short_ping' => true,
 				)
 			);

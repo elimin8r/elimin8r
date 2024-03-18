@@ -1,7 +1,17 @@
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
+.comment-body {
+	border-bottom: solid 1px #ccc;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	
+	.comment-content a {
+		word-wrap: break-word;
+	}
+	
+	.bypostauthor {
+		display: block;
+	}
+	
+	.comment-respond small {
+		display: block;
+	}
 }

@@ -56,6 +56,7 @@ function whitelabel_preload_image() {
 }
 add_action( 'wp_head', 'whitelabel_preload_image', 0 );
 
+// Add featured image settings meta box
 function whitelabel_add_featured_image_settings_meta_box() {
     add_meta_box(
         'whitelabel_featured_image_settings', // Unique ID
@@ -67,6 +68,7 @@ function whitelabel_add_featured_image_settings_meta_box() {
 }
 add_action( 'add_meta_boxes', 'whitelabel_add_featured_image_settings_meta_box' );
 
+// Featured image settings meta box HTML
 function whitelabel_featured_image_settings_meta_box_html( $post ) {
     $value = get_post_meta( $post->ID, '_featured_image_checkbox', true );
     $checked = $value == '1' ? 'checked' : '';
@@ -74,6 +76,7 @@ function whitelabel_featured_image_settings_meta_box_html( $post ) {
     echo '<label for="featured_image_checkbox">Full width</label>';
 }
 
+// Save featured image settings
 function whitelabel_save_featured_image_checkbox( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
@@ -90,3 +93,53 @@ function whitelabel_save_featured_image_checkbox( $post_id ) {
     }
 }
 add_action( 'save_post', 'whitelabel_save_featured_image_checkbox' );
+
+// Get the width and height of an SVG file
+function getSvgSize($file) {
+    $svgContent = file_get_contents($file);
+    if ($svgContent === false) {
+        return [0, 0]; // Return default size if file can't be read
+    }
+
+    $svgElement = simplexml_load_string($svgContent);
+    if ($svgElement === false) {
+        return [0, 0]; // Return default size if SVG can't be parsed
+    }
+
+    $attributes = $svgElement->attributes();
+    $width = isset($attributes->width) ? (string)$attributes->width : 0;
+    $height = isset($attributes->height) ? (string)$attributes->height : 0;
+
+    return [$width, $height];
+}
+
+// Filter the_custom_logo() to add width and height attributes
+function whitelabel_custom_logo_output( $html ) {
+    // Get the ID
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+
+    if ( ! $custom_logo_id ) {
+        return $html;
+    }
+
+    // Get the url
+    $custom_logo_path = get_attached_file( $custom_logo_id );
+
+    // Get the MIME type of the file
+    $file_type = mime_content_type( $custom_logo_path );
+
+    // Get the width and height
+    if ( $file_type != 'image/svg+xml' ) {
+        return $html;
+    }
+    
+    $size = getSvgSize( $custom_logo_path );
+    $width = $size[0];
+    $height = $size[1];
+
+    // Add width and height attributes to the custom logo
+    $html = str_replace( '<img', '<img width="' . $width . '" height="' . $height . '"', $html );
+
+    return $html;
+}
+add_filter( 'get_custom_logo', 'whitelabel_custom_logo_output' );

@@ -31,7 +31,7 @@ function whitelabel_excerpt_length( $length ) {
     } elseif ( $current_template === 'blog-grid' ) {
         $length = 0;
     } elseif ( $current_template === 'blog-full' ) {
-        $length = 100;
+        $length = 55;
     } else {
         $length = 55;
     }

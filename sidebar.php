@@ -4,6 +4,9 @@ $post_type = get_post_type();
 
 global $wp_registered_sidebars;
 
+// Remove footer-1
+unset( $wp_registered_sidebars['footer-1'] );
+
 // Get the post types for each sidebar
 $sidebar_post_types = array();
 foreach ( $wp_registered_sidebars as $sidebar ) {

@@ -21,6 +21,10 @@ function whitelabel_sidebar_customize_register( $wp_customize ) {
 	global $wp_registered_sidebars;
 
 	foreach( $wp_registered_sidebars as $sidebar ) {
+		if ( $sidebar['id'] == 'footer-1' ) {
+			continue;
+		}
+
 		// Add the setting for the sidebar text
 		$wp_customize->add_setting( 'sidebar_post_types_' . $sidebar['id'] , array(
 			'default'   => array(),

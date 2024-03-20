@@ -31,7 +31,7 @@ function whitelabel_enable_infinite_scroll() {
         // Get the 'Blog pages show at most' option
         $posts_per_page = get_option( 'posts_per_page' );
 
-        echo '<script>
+        $script = '<script id="whitelabel-infinite-scroll" type="application/emcascript">
             let currentPage = 1;
             let noMorePosts = false;
 
@@ -119,6 +119,10 @@ function whitelabel_enable_infinite_scroll() {
                 });
             }
         </script>';
+
+        $script = whitelabel_minify_script( $script );
+
+        echo $script;
     }
 }
 add_action( 'wp_footer', 'whitelabel_enable_infinite_scroll' );

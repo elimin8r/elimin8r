@@ -26,7 +26,7 @@ $count = 0;
             <article class="sticky-post sticky-post-<?php echo $count; ?>">
                 <a href="<?php the_permalink(); ?>">
                     <div class="sticky-post-thumbnail">
-                        <?php the_post_thumbnail( 'large' ); ?>
+                        <?php whitelabel_post_thumbnail( 'medium' ); ?>
                     </div>
                 </a>
                 

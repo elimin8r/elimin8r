@@ -120,8 +120,6 @@ function whitelabel_enable_infinite_scroll() {
             }
         </script>';
 
-        // $script = whitelabel_minify_script( $script );
-
         echo $script;
     }
 }

@@ -31,7 +31,7 @@ function whitelabel_enable_infinite_scroll() {
         // Get the 'Blog pages show at most' option
         $posts_per_page = get_option( 'posts_per_page' );
 
-        $script = '<script id="whitelabel-infinite-scroll">
+        $script = '<script id="whitelabel-infinite-scroll" defer>
             let currentPage = 1;
             let noMorePosts = false;
 
@@ -96,6 +96,14 @@ function whitelabel_enable_infinite_scroll() {
                     fetch(post._links["wp:featuredmedia"][0].href)
                         .then(response => response.json())
                         .then(media => {
+                            let postExcerpt = post.excerpt.rendered
+                            if (postClass === "blog-compact") {
+                                let words = postExcerpt.split(" ");
+                                if (words.length > 35) {
+                                    postExcerpt = words.slice(0, 35).join(" ") + ` <a href="${post.link}">Continue reading</a>`;
+                                }
+                            }
+
                             postElement.innerHTML = `
                                 <a href="${post.link}" title="${post.title.rendered}">
                                     <figure class="post-thumbnail">
@@ -109,7 +117,7 @@ function whitelabel_enable_infinite_scroll() {
                                     </header>
 
                                     <div class="entry-content">
-                                        ${post.excerpt.rendered}
+                                        ${postExcerpt}
                                     </div>
                                 </div>
                             `;

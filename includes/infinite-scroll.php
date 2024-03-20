@@ -31,15 +31,15 @@ function whitelabel_enable_infinite_scroll() {
         // Get the 'Blog pages show at most' option
         $posts_per_page = get_option( 'posts_per_page' );
 
-        $script = '<script id="whitelabel-infinite-scroll" type="application/emcascript">
+        $script = '<script id="whitelabel-infinite-scroll">
             let currentPage = 1;
             let noMorePosts = false;
 
-            window.onscroll = function(ev) {
-                if (!noMorePosts && (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            window.addEventListener("scroll", function(ev) {
+                if (!noMorePosts && (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight) {
                     getNextPage();
                 }
-            };
+            });
             
             const getNextPage = async () => {
                 if (noMorePosts) return;
@@ -120,7 +120,7 @@ function whitelabel_enable_infinite_scroll() {
             }
         </script>';
 
-        $script = whitelabel_minify_script( $script );
+        // $script = whitelabel_minify_script( $script );
 
         echo $script;
     }

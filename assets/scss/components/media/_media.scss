@@ -12,11 +12,24 @@
 	display: inline-block;
 }
 
-.post-thumbnail img,
-.post-thumbnail svg {
-	display: block;
-	aspect-ratio: 16/9;
-	height: auto;
-	object-fit: cover;
-	width: 100%;
+.post-thumbnail {
+	img,
+	svg {
+		display: block;
+		aspect-ratio: 16/9;
+		height: auto;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	img {
+		&.featured-full-width {
+			display: none;
+
+			@include media-tablet {
+				display: block;
+				height: 300px;
+			}
+		}
+	}
 }

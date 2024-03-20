@@ -7,7 +7,14 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php whitelabel_post_thumbnail( 'large' ); ?>
+	<?php
+		$header_position = get_theme_mod( 'header_position', 'top' );
+
+		// If the featured image is not set to full width then display the featured image
+		if ( is_page() && ! get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) || $header_position != 'top') {
+			whitelabel_post_thumbnail( 'large' );
+		}
+	?>
 
 	<div class="entry-content">
 		<?php

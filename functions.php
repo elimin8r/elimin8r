@@ -141,7 +141,7 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	}
 endif;
 
-// define( 'WHITELABEL_STYLES', false );
+// define( 'DISABLE_CUSTOMIZER', true );
 
 // Include all files in the /includes directory
 foreach ( glob( __DIR__ . '/includes/*.php' ) as $file ) {

@@ -1,12 +1,10 @@
 <?php
 
-if ( defined( 'WHITELABEL_STYLES' ) && WHITELABEL_STYLES === false ) {
-	return;
-}
-
-// Include all files in the /customizer directory
-foreach ( glob( __DIR__ . '/customizer/*.php' ) as $file ) {
-	include $file;
+if ( ! defined( 'DISABLE_CUSTOMIZER' ) ) {
+	// Include all files in the /customizer directory
+	foreach ( glob( __DIR__ . '/customizer/*.php' ) as $file ) {
+		include $file;
+	}
 }
 
 // Handle customizer transparency

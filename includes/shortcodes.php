@@ -8,7 +8,7 @@ function whitelabel_register_shortcode_settings_menu() {
         return;
     }
 
-    add_options_page( 'Shortcodes', 'Shortcodes', 'manage_options', 'shortcode_settings', 'whitelabel_shortcode_settings_page' );
+    add_management_page( 'Shortcodes', 'Shortcodes', 'manage_options', 'shortcode_settings', 'whitelabel_shortcode_settings_page' );
 }
 
 // Render the settings page

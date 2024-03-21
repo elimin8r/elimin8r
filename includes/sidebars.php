@@ -8,7 +8,7 @@ function whitelabel_register_sidebar_settings_menu() {
         return;
     }
 
-    add_options_page( 'Sidebars', 'Sidebars', 'manage_options', 'sidebar_settings', 'whitelabel_sidebar_settings_page' );
+    add_management_page( 'Sidebars', 'Sidebars', 'manage_options', 'sidebar_settings', 'whitelabel_sidebar_settings_page' );
 }
 
 // Render the settings page
@@ -136,7 +136,7 @@ function whitelabel_handle_sidebar_form_submission() {
         update_option( 'whitelabel_custom_sidebars', $sidebars );
 
         // Refresh the page
-        wp_redirect( admin_url( 'options-general.php?page=sidebar_settings' ) );
+        wp_redirect( admin_url( 'tools.php?page=sidebar_settings' ) );
     }
 
     if ( isset( $_POST['sidebar_delete'] ) && !empty( $_POST['sidebar_delete'] ) ) {
@@ -152,6 +152,6 @@ function whitelabel_handle_sidebar_form_submission() {
         update_option( 'whitelabel_custom_sidebars', $sidebars );
 
         // Refresh the page
-        wp_redirect( admin_url( 'options-general.php?page=sidebar_settings' ) );
+        wp_redirect( admin_url( 'tools.php?page=sidebar_settings' ) );
     }
 }

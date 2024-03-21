@@ -8,7 +8,7 @@ function whitelabel_register_post_types_settings_menu() {
         return;
     }
 
-    add_options_page( 'Post Types', 'Post Types', 'manage_options', 'post_types_settings', 'whitelabel_post_types_settings_page' );
+    add_management_page( 'Post Types', 'Post Types', 'manage_options', 'post_types_settings', 'whitelabel_post_types_settings_page' );
 }
 
 // Render the settings page
@@ -211,7 +211,7 @@ function whitelabel_handle_form_submission() {
         set_transient( 'flush_rewrite_rules', true );
 
         // Refresh the page
-        wp_redirect( admin_url( 'options-general.php?page=post_types_settings' ) );
+        wp_redirect( admin_url( 'tools.php?page=post_types_settings' ) );
     }
 
     if ( isset( $_POST['post_type_delete'] ) && !empty( $_POST['post_type_delete'] ) ) {
@@ -244,7 +244,7 @@ function whitelabel_handle_form_submission() {
         update_option( 'whitelabel_custom_post_types', $post_types );
 
         // Refresh the page
-        wp_redirect( admin_url( 'options-general.php?page=post_types_settings' ) );
+        wp_redirect( admin_url( 'tools.php?page=post_types_settings' ) );
     }
 }
 

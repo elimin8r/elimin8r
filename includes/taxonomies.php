@@ -8,7 +8,7 @@ function whitelabel_register_taxonomy_settings_menu() {
         return;
     }
 
-    add_options_page( 'Taxonomies', 'Taxonomies', 'manage_options', 'taxonomy_settings', 'whitelabel_taxonomy_settings_page' );
+    add_management_page( 'Taxonomies', 'Taxonomies', 'manage_options', 'taxonomy_settings', 'whitelabel_taxonomy_settings_page' );
 }
 
 // Render the settings page
@@ -150,7 +150,7 @@ function whitelabel_handle_taxonomy_form_submission() {
         update_option( 'whitelabel_custom_taxonomies', $taxonomies );
 
         // Refresh the page
-        wp_redirect( admin_url( 'options-general.php?page=taxonomy_settings' ) );
+        wp_redirect( admin_url( 'tools.php?page=taxonomy_settings' ) );
     }
 
     if ( isset( $_POST['taxonomy_delete'] ) && !empty( $_POST['taxonomy_delete'] ) ) {
@@ -166,6 +166,6 @@ function whitelabel_handle_taxonomy_form_submission() {
         update_option( 'whitelabel_custom_taxonomies', $taxonomies );
 
         // Refresh the page
-        wp_redirect( admin_url( 'options-general.php?page=taxonomy_settings' ) );
+        wp_redirect( admin_url( 'tools.php?page=taxonomy_settings' ) );
     }
 }

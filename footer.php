@@ -1,7 +1,11 @@
+<?php
+$header_position = get_theme_mod( 'header_position', 'top' );
+?>
+
 </div><!-- #page -->
 
 <footer id="colophon" class="site-footer">
-	<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+	<?php if ( is_active_sidebar( 'footer-1' ) && $header_position == 'top' ) : ?>
 		<div class="footer-widgets">
 			<div class="footer-widget-area">
 				<?php dynamic_sidebar( 'footer-1' ); ?>

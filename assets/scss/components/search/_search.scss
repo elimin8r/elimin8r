@@ -28,14 +28,12 @@
             width: 35px;
         }
 
-        &:focus-within~form {
-            .search-field {
-                max-width: calc(100vw - 30px);
-                width: calc(100vw - 30px);
+        .search-field.search-active {
+            max-width: calc(100vw - 30px);
+            width: calc(100vw - 30px);
 
-                &::placeholder {
-                    color: #999;
-                }
+            &::placeholder {
+                color: #999;
             }
         }
     }
@@ -71,7 +69,7 @@
                 min-width: 35px;
             }
 
-            &:focus-within {
+            &.search-active {
                 max-width: calc(100vw - 30px);
                 width: calc(100vw - 30px);
 
@@ -121,7 +119,7 @@ body:has(.main-navigation.toggled) {
                 right: 5px;
 
                 &:focus-within ~ form {
-                    .search-field {
+                    .search-field.search-active {
                         max-width: 300px;
                         width: 300px;
                     }
@@ -131,7 +129,7 @@ body:has(.main-navigation.toggled) {
             .search-field {
                 text-indent: 5px;
 
-                &:focus-within {
+                &.search-active {
                     max-width: 300px;
                     width: 300px;
                 }
@@ -159,7 +157,7 @@ body:has(.main-navigation.toggled) {
                 left: 0;
 
                 &:focus-within ~ form {
-                    .search-field {
+                    .search-field.search-active {
                         max-width: 240px;
                         width: 240px;
                     }
@@ -169,7 +167,7 @@ body:has(.main-navigation.toggled) {
             .search-field {
                 text-indent: 35px;
 
-                &:focus-within {
+                &.search-active {
                     max-width: 240px;
                     width: 240px;
                 }

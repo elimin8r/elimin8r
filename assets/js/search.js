@@ -2,8 +2,9 @@ const search_icon = document.querySelector('.site-header .search-toggle');
 const search_bar = document.querySelector('.site-header .search-field');
 const search_field = document.querySelector('.site-header .search-field');
 
-// Focus on the search bar when search icon is clicked
+// Show on the search bar when search icon is clicked
 search_icon.onclick = () => {
+    search_field.classList.toggle('search-active');
     search_field.focus();
 }
 
@@ -15,10 +16,13 @@ window.onload = () => {
 // Hide results if clicked outside of element
 document.body.onclick = (evt) => {
     if (evt.target.classList[0] !== 'search-field') {
-        let search_results = document.querySelectorAll('.autocomplete-search-results');
+        search_field.value = '';
+        
+        const search_results = input.parentElement.querySelector('.search-autocomplete');
 
-        for (let i = 0; i < search_results.length; i++) {
-            search_results[i].style.display = 'none';
+        if (search_results) {
+            // search_results.style.display = 'none';
+            // search_results.innerHTML = '';
         }
     }
 };
@@ -55,26 +59,28 @@ const displayResults = (input, data) => {
     // Clear the results so we don't keep adding to the list
     search_results.innerHTML = '';
 
-    for (let i = 0; i < data.length; i++) {
-        if (input.value.length > 0) {
-            // Insert and display the results
-            search_results.style.display = 'block';
-            let list_item = document.createElement('li');
-            let list_link = document.createElement('a');
-            list_link.innerHTML += data[i].title;
-            list_link.href = data[i].url;
-            list_item.appendChild(list_link);
-            search_results.appendChild(list_item);
-        } else {
-            // Clear and hide the results if input field is empty
-            search_results.style.display = 'none';
-            search_results.innerHTML = '';
-        }
+    search_results.style.display = 'block';
 
-        // Clear and hide the results if input field not focused
-        input.onblur = () => {
-            search_results.style.display = 'none';
-            search_results.innerHTML = '';
+    if (data.length === 0) {
+        // Display no results found
+        let list_item = document.createElement('li');
+        list_item.innerHTML = 'No results found';
+        search_results.appendChild(list_item);
+    } else {
+        for (let i = 0; i < data.length; i++) {
+            if (input.value.length > 0) {
+                // Insert and display the results
+                let list_item = document.createElement('li');
+                let list_link = document.createElement('a');
+                list_link.innerHTML += data[i].title;
+                list_link.href = data[i].url;
+                list_item.appendChild(list_link);
+                search_results.appendChild(list_item);
+            } else {
+                // Clear and hide the results if input field is empty
+                search_results.style.display = 'none';
+                search_results.innerHTML = '';
+            }
         }
     }
 }

@@ -5,27 +5,17 @@ const search_field = document.querySelector('.site-header .search-field');
 // Show on the search bar when search icon is clicked
 search_icon.onclick = () => {
     search_field.classList.toggle('search-active');
-    search_field.focus();
+
+    // Focus on the search field if it's active
+    if (search_field.classList.contains('search-active')) {
+        search_field.focus();
+    }
 }
 
 // On page load clear the search bar
 window.onload = () => {
     search_field.value = '';
 }
-
-// Hide results if clicked outside of element
-document.body.onclick = (evt) => {
-    if (evt.target.classList[0] !== 'search-field') {
-        search_field.value = '';
-        
-        const search_results = input.parentElement.querySelector('.search-autocomplete');
-
-        if (search_results) {
-            // search_results.style.display = 'none';
-            // search_results.innerHTML = '';
-        }
-    }
-};
 
 const input = document.querySelector('.search-field');
 if (input) {

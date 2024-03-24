@@ -12,7 +12,12 @@
     }
 
     .blog-grid {
+        grid-column: 1;
         position: relative;
+
+        @include media-tablet {
+            grid-column: auto;
+        }
 
         > a {
             display: block;

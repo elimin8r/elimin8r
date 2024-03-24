@@ -21,7 +21,7 @@ function whitelabel_maintenance_mode_meta_box_callback() {
 add_action( 'wp_dashboard_setup', 'whitelabel_add_maintenance_mode_meta_box' );
 
 function whitelabel_add_maintenance_mode_checkbox() {
-    add_settings_field( 'maintenance_mode_checkbox', 'Enable Maintenance Mode', 'whitelabel_maintenance_mode_checkbox_callback', 'reading', 'default' );
+    add_settings_field( 'maintenance_mode_checkbox', 'Enable maintenance mode', 'whitelabel_maintenance_mode_checkbox_callback', 'reading', 'default' );
     register_setting( 'reading', 'maintenance_mode_checkbox' );
 }
 

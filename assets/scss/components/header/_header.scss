@@ -39,6 +39,7 @@ body:has(.header-top) {
 }
 
 .site-header {
+    background: $header-background-color;
     padding: 15px;
     z-index: 2;
 

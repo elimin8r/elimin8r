@@ -102,7 +102,7 @@
 
 		&.menu-item-has-children {
 			>a:after {
-				// background: #fff;
+				background: #000;
 				clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
 				content: "";
 				display: inline-block;
@@ -118,6 +118,7 @@
 			}
 
 			.sub-menu {
+				background: #fff;
 				max-height: 0;
 				overflow: hidden;
 				position: relative;
@@ -187,6 +188,7 @@
 	}
 
 	.menu-main-container {
+		background: #fff;
 		bottom: 0;
 		height: 100vh;
 		left: 0;

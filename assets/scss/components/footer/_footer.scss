@@ -18,6 +18,7 @@ body:has(.header-side) {
 }
 
 .site-footer {
+    background: $footer-background-color;
     width: 100%;
 
     .footer-widgets {

@@ -172,6 +172,10 @@
 }
 
 .main-navigation.toggled {
+	.menu-toggle {
+		mix-blend-mode: difference;
+	}
+
 	#menu-bottom {
 		transform: translate(-36%, 11px) rotate(-45deg);
 		transition: 0.3s;

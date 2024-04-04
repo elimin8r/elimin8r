@@ -1,6 +1,6 @@
 <?php
 
-function whitelabel_background_customize_register( $wp_customize ) {
+function lmn8r_background_customize_register( $wp_customize ) {
     // Change the section of the background color setting
     $background_color = $wp_customize->get_control( 'background_color' );
     if ( ! empty( $background_color ) ) {
@@ -15,7 +15,7 @@ function whitelabel_background_customize_register( $wp_customize ) {
 
 	// Add the control for enabling tint
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'background_tint', array(
-		'label'      => __( 'Enable Tint', 'whitelabel' ),
+		'label'      => __( 'Enable Tint', 'lmn8r' ),
 		'section'    => 'background_image',
 		'settings'   => 'background_tint',
 		'type'       => 'checkbox',
@@ -27,4 +27,4 @@ function whitelabel_background_customize_register( $wp_customize ) {
         $background_image_section->title = 'Background';
     }
 }
-add_action( 'customize_register', 'whitelabel_background_customize_register' );
+add_action( 'customize_register', 'lmn8r_background_customize_register' );

@@ -1,6 +1,6 @@
 <?php
 
-function whitelabel_pagination() {
+function lmn8r_pagination() {
     if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
         return;
     }

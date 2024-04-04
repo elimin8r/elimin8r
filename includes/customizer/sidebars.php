@@ -1,9 +1,9 @@
 <?php
 
-function whitelabel_sidebar_customize_register( $wp_customize ) {
+function lmn8r_sidebar_customize_register( $wp_customize ) {
 	// Add the sidebar section
-	$wp_customize->add_section( 'whitelabel_sidebar_options' , array(
-		'title'      => __( 'Sidebars', 'whitelabel' ),
+	$wp_customize->add_section( 'lmn8r_sidebar_options' , array(
+		'title'      => __( 'Sidebars', 'lmn8r' ),
 		'description' => 'Select the post types that you want to display each sidebar on',
 		'priority'   => 30,
 	) );
@@ -33,12 +33,12 @@ function whitelabel_sidebar_customize_register( $wp_customize ) {
 
 		// Add the control for the sidebar settings
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_post_types_' . $sidebar['id'], array(
-			'label'      => __( $sidebar['name'], 'whitelabel' ),
-			'section'    => 'whitelabel_sidebar_options',
+			'label'      => __( $sidebar['name'], 'lmn8r' ),
+			'section'    => 'lmn8r_sidebar_options',
 			'settings'   => 'sidebar_post_types_' . $sidebar['id'],
 			'type'       => 'select',
 			'choices'    => $choices,
 		) ) );
 	}
 }
-add_action( 'customize_register', 'whitelabel_sidebar_customize_register' );
+add_action( 'customize_register', 'lmn8r_sidebar_customize_register' );

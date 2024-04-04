@@ -13,6 +13,6 @@ $current_template = 'blog-grid';
 			</header><!-- .entry-header -->
 		</div>
 
-		<?php whitelabel_post_thumbnail( 'medium' ); ?>
+		<?php lmn8r_post_thumbnail( 'medium' ); ?>
 	</a>
 </article><!-- #post-<?php the_ID(); ?> -->

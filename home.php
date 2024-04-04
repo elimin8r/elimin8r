@@ -34,7 +34,7 @@ get_header();
 
 			endwhile;
 
-			whitelabel_pagination(); ?>
+			lmn8r_pagination(); ?>
 			</div>
 
 			<?php

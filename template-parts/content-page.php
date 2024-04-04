@@ -12,7 +12,7 @@
 
 		// If the featured image is not set to full width then display the featured image
 		if ( is_page() && ! get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) || $header_position != 'top') {
-			whitelabel_post_thumbnail( 'large' );
+			lmn8r_post_thumbnail( 'large' );
 		}
 	?>
 
@@ -22,7 +22,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'whitelabel' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lmn8r' ),
 				'after'  => '</div>',
 			)
 		);
@@ -36,7 +36,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'whitelabel' ),
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'lmn8r' ),
 						array(
 							'span' => array(
 								'class' => array(),

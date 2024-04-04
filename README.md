@@ -1,13 +1,13 @@
 
-# White Label
+# LMN8R
 
- `White Label` is an easy-to-use WordPress theme that is highly customisable.
+ `LMN8R` is an easy-to-use WordPress theme that is highly customisable.
 
 ## Installation
 
 ###  Dependencies
 
-If you are a web developer looking to tweak the code of the `White Label` theme, you will require the following tools:
+If you are a web developer looking to tweak the code of the `LMN8R` theme, you will require the following tools:
 
 - [Node.js](https://nodejs.org/)
 - [Gulp.js](https://gulpjs.com/)
@@ -15,7 +15,7 @@ If you are a web developer looking to tweak the code of the `White Label` theme,
 
 ###  Setup
 
-To start using all the tools that come with `White Label` you need to install the necessary dependencies:
+To start using all the tools that come with `LMN8R` you need to install the necessary dependencies:
 
 `$ composer install`
 
@@ -23,7 +23,7 @@ To start using all the tools that come with `White Label` you need to install th
 
 ###  CLI commands
 
-`White Label` comes with the following CLI commands:
+`LMN8R` comes with the following CLI commands:
 
 -  `npm run watch`: watches all SASS and JavaScript files, and recompiles them to CSS when they change.
 

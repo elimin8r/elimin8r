@@ -1,18 +1,18 @@
 <?php
 
 // Add a menu item under the "Settings" menu
-add_action( 'admin_menu', 'whitelabel_register_taxonomy_settings_menu' );
-function whitelabel_register_taxonomy_settings_menu() {
+add_action( 'admin_menu', 'lmn8r_register_taxonomy_settings_menu' );
+function lmn8r_register_taxonomy_settings_menu() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    add_management_page( 'Taxonomies', 'Taxonomies', 'manage_options', 'taxonomy_settings', 'whitelabel_taxonomy_settings_page' );
+    add_management_page( 'Taxonomies', 'Taxonomies', 'manage_options', 'taxonomy_settings', 'lmn8r_taxonomy_settings_page' );
 }
 
 // Render the settings page
-function whitelabel_taxonomy_settings_page() {
+function lmn8r_taxonomy_settings_page() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
@@ -31,7 +31,7 @@ function whitelabel_taxonomy_settings_page() {
 
         <form method="post">
             <?php
-            whitelabel_taxonomy_delete_callback();
+            lmn8r_taxonomy_delete_callback();
             submit_button( 'Delete', 'delete', 'delete', true, array( 'id' => 'delete-button' ) );
             ?>
         </form>
@@ -48,15 +48,15 @@ function whitelabel_taxonomy_settings_page() {
 }
 
 // Register the settings and fields
-add_action( 'admin_init', 'whitelabel_register_taxonomy_settings' );
-function whitelabel_register_taxonomy_settings() {
+add_action( 'admin_init', 'lmn8r_register_taxonomy_settings' );
+function lmn8r_register_taxonomy_settings() {
     // Register the settings section
     add_settings_section( 'taxonomy_section', 'Add a new taxonomy', '', 'taxonomy_settings' );
 
     // Register the input fields
-    add_settings_field( 'taxonomy_label', 'Taxonomy Label', 'whitelabel_taxonomy_label_callback', 'taxonomy_settings', 'taxonomy_section' );
-    add_settings_field( 'taxonomy_slug', 'Taxonomy Slug', 'whitelabel_taxonomy_slug_callback', 'taxonomy_settings', 'taxonomy_section' );
-    add_settings_field( 'taxonomy_post_type', 'Post Type', 'whitelabel_taxonomy_post_type_callback', 'taxonomy_settings', 'taxonomy_section' );
+    add_settings_field( 'taxonomy_label', 'Taxonomy Label', 'lmn8r_taxonomy_label_callback', 'taxonomy_settings', 'taxonomy_section' );
+    add_settings_field( 'taxonomy_slug', 'Taxonomy Slug', 'lmn8r_taxonomy_slug_callback', 'taxonomy_settings', 'taxonomy_section' );
+    add_settings_field( 'taxonomy_post_type', 'Post Type', 'lmn8r_taxonomy_post_type_callback', 'taxonomy_settings', 'taxonomy_section' );
 
     // Register the settings
     register_setting( 'taxonomy_settings', 'taxonomy_label' );
@@ -66,19 +66,19 @@ function whitelabel_register_taxonomy_settings() {
 }
 
 // Callback functions for the input fields
-function whitelabel_taxonomy_label_callback() {
+function lmn8r_taxonomy_label_callback() {
     ?>
     <input type="text" name="taxonomy_label" value="" class="regular-text" placeholder="E.g. Genres" require/>
     <?php
 }
 
-function whitelabel_taxonomy_slug_callback() {
+function lmn8r_taxonomy_slug_callback() {
     ?>
     <input type="text" name="taxonomy_slug" value="" class="regular-text" placeholder="E.g. genres" required/>
     <?php
 }
 
-function whitelabel_taxonomy_post_type_callback() {
+function lmn8r_taxonomy_post_type_callback() {
     $post_types = get_post_types( array( 'public' => true ), 'names' );
     ?>
     <select name="taxonomy_post_type" class="regular-text" required>
@@ -91,8 +91,8 @@ function whitelabel_taxonomy_post_type_callback() {
     <?php
 }
 
-function whitelabel_taxonomy_delete_callback() {
-    $taxonomies = get_option( 'whitelabel_custom_taxonomies', array() );
+function lmn8r_taxonomy_delete_callback() {
+    $taxonomies = get_option( 'lmn8r_custom_taxonomies', array() );
     
     ?>
     <h2>Delete a taxonomy</h2>
@@ -108,9 +108,9 @@ function whitelabel_taxonomy_delete_callback() {
 }
 
 // Handle taxonomy registration
-add_action('init', 'whitelabel_handle_taxonomy_registration');
-function whitelabel_handle_taxonomy_registration() {
-    $taxonomies = get_option( 'whitelabel_custom_taxonomies', array() );
+add_action('init', 'lmn8r_handle_taxonomy_registration');
+function lmn8r_handle_taxonomy_registration() {
+    $taxonomies = get_option( 'lmn8r_custom_taxonomies', array() );
 
     foreach ( $taxonomies as $taxonomy ) {
         if ( isset( $taxonomy['taxonomy_label'] ) && isset( $taxonomy['taxonomy_slug'] ) && isset( $taxonomy['taxonomy_post_type'] ) ) {
@@ -125,8 +125,8 @@ function whitelabel_handle_taxonomy_registration() {
 }
 
 // Handle form submission
-add_action( 'admin_init', 'whitelabel_handle_taxonomy_form_submission' );
-function whitelabel_handle_taxonomy_form_submission() {
+add_action( 'admin_init', 'lmn8r_handle_taxonomy_form_submission' );
+function lmn8r_handle_taxonomy_form_submission() {
     if ( isset( $_POST['taxonomy_label'] ) && isset( $_POST['taxonomy_slug'] ) && isset( $_POST['taxonomy_post_type'] ) && !empty( $_POST['taxonomy_label'] ) && !empty( $_POST['taxonomy_slug'] ) && !empty( $_POST['taxonomy_post_type'] ) ) {
         // Check if taxonomy already exists
         $registered_taxonomies = get_taxonomies( array(), 'objects' );
@@ -138,7 +138,7 @@ function whitelabel_handle_taxonomy_form_submission() {
             }
         }
         
-        $taxonomies = get_option( 'whitelabel_custom_taxonomies', array() );
+        $taxonomies = get_option( 'lmn8r_custom_taxonomies', array() );
 
         // Add the new taxonomy to the array
         $taxonomies[] = array(
@@ -147,14 +147,14 @@ function whitelabel_handle_taxonomy_form_submission() {
             'taxonomy_post_type' => sanitize_text_field( $_POST['taxonomy_post_type'] ),
         );
 
-        update_option( 'whitelabel_custom_taxonomies', $taxonomies );
+        update_option( 'lmn8r_custom_taxonomies', $taxonomies );
 
         // Refresh the page
         wp_redirect( admin_url( 'tools.php?page=taxonomy_settings' ) );
     }
 
     if ( isset( $_POST['taxonomy_delete'] ) && !empty( $_POST['taxonomy_delete'] ) ) {
-        $taxonomies = get_option( 'whitelabel_custom_taxonomies', array() );
+        $taxonomies = get_option( 'lmn8r_custom_taxonomies', array() );
 
         // Loop through the taxonomies and remove the one that was selected for deletion
         foreach ( $taxonomies as $key => $taxonomy ) {
@@ -163,7 +163,7 @@ function whitelabel_handle_taxonomy_form_submission() {
             }
         }
 
-        update_option( 'whitelabel_custom_taxonomies', $taxonomies );
+        update_option( 'lmn8r_custom_taxonomies', $taxonomies );
 
         // Refresh the page
         wp_redirect( admin_url( 'tools.php?page=taxonomy_settings' ) );

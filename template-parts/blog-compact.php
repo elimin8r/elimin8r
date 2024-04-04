@@ -7,7 +7,7 @@ $current_template = 'blog-compact';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		<?php whitelabel_post_thumbnail( 'medium' ); ?>
+		<?php lmn8r_post_thumbnail( 'medium' ); ?>
 	</a>
 
 	<div class="article-content">
@@ -21,7 +21,7 @@ $current_template = 'blog-compact';
 	
 				wp_link_pages(
 					array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'whitelabel' ),
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lmn8r' ),
 						'after'  => '</div>',
 					)
 				);

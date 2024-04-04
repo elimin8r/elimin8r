@@ -8,11 +8,11 @@ get_header();
 			<header class="page-header">
 				<span>404</span>
 				
-				<h1 class="page-title"><?php esc_html_e( 'Whoops! That page can&rsquo;t be found.', 'whitelabel' ); ?></h1>
+				<h1 class="page-title"><?php esc_html_e( 'Whoops! That page can&rsquo;t be found.', 'lmn8r' ); ?></h1>
 			</header><!-- .page-header -->
 
 			<div class="page-content">
-				<p><?php esc_html_e( 'Perhaps the search below will help you find what you\'re looking for?', 'whitelabel' ); ?></p>
+				<p><?php esc_html_e( 'Perhaps the search below will help you find what you\'re looking for?', 'lmn8r' ); ?></p>
 
 				<?php get_search_form(); ?>
 			</div><!-- .page-content -->
@@ -21,7 +21,7 @@ get_header();
 		<?php $pages = get_pages(); ?>
 			<?php if ( $pages ) : ?>
 				<section class="page-links">
-					<p><?php esc_html_e( 'Below are some of our other pages that may be useful?', 'whitelabel' ); ?></p>
+					<p><?php esc_html_e( 'Below are some of our other pages that may be useful?', 'lmn8r' ); ?></p>
 					<ul>
 						<?php foreach ( $pages as $page ) :	?>
 							<li><a href="<?php echo esc_url( get_page_link( $page->ID ) ); ?>"><?php echo esc_html( $page->post_title ); ?></a></li>

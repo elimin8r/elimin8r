@@ -8,7 +8,7 @@ if ( ! defined( 'DISABLE_CUSTOMIZER' ) ) {
 }
 
 // Handle customizer transparency
-function whitelabel_hex_opacity( $color, $opacity ) {
+function lmn8r_hex_opacity( $color, $opacity ) {
 	$opacity = absint( $opacity );
 	if ( $opacity > 100 ) {
 		$opacity = 100;
@@ -18,7 +18,7 @@ function whitelabel_hex_opacity( $color, $opacity ) {
 	return "rgba({$r}, {$g}, {$b}, {$opacity})";
 }
 
-function whitelabel_minify_css($css) {
+function lmn8r_minify_css($css) {
     // Remove comments
     $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
     // Remove space after colons
@@ -30,7 +30,7 @@ function whitelabel_minify_css($css) {
 }
 
 // Output customizer CSS
-function whitelabel_customizer_css() {
+function lmn8r_customizer_css() {
 	$background_tint = get_theme_mod( 'background_tint', 'false' );
 	$content_color = get_theme_mod( 'content_color', '#ffffff' );
 	$content_text_color = get_theme_mod( 'content_text_color', '#000000' );
@@ -49,7 +49,7 @@ function whitelabel_customizer_css() {
 	$css = '
 		body.custom-background { background-blend-mode: ' . ( $background_tint ? 'overlay' : 'initial' ) . ';}
 	
-		body .site-main { background-color: ' . whitelabel_hex_opacity( $content_color, $content_transparency ) . '; }
+		body .site-main { background-color: ' . lmn8r_hex_opacity( $content_color, $content_transparency ) . '; }
 		
 		body .site-main,
 		body .site-main h1, h1, h3, h4, h5, h6,
@@ -61,7 +61,7 @@ function whitelabel_customizer_css() {
 
 		body .site-main a { color: ' . $content_link_color . '; }
 		
-		body .site-header { background-color: ' . whitelabel_hex_opacity( $header_color, $header_transparency ) . '; }
+		body .site-header { background-color: ' . lmn8r_hex_opacity( $header_color, $header_transparency ) . '; }
 		
 		body .site-description { color: ' . $header_text_color . '; }
 
@@ -86,14 +86,14 @@ function whitelabel_customizer_css() {
 		body .main-navigation #menu-middle,
 		body .main-navigation #menu-top { fill: ' . $hamburger_color . '; }
 		
-		body .site-footer { background-color: ' . whitelabel_hex_opacity( $footer_color, $footer_transparency ) . '; }
+		body .site-footer { background-color: ' . lmn8r_hex_opacity( $footer_color, $footer_transparency ) . '; }
 		
 		body .site-footer { color: ' . $footer_text_color . '; }
 	';
 
 	// Output the styles
 	if ( ! empty( $css ) ) {
-		echo '<style>' . whitelabel_minify_css( $css ) . '</style>' . PHP_EOL;
+		echo '<style>' . lmn8r_minify_css( $css ) . '</style>' . PHP_EOL;
 	}
 }
-add_action( 'wp_head', 'whitelabel_customizer_css' );
+add_action( 'wp_head', 'lmn8r_customizer_css' );

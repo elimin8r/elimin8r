@@ -1,6 +1,6 @@
 <?php
 
-function lmn8r_get_sticky_posts( $post_type ) {
+function elimin8r_get_sticky_posts( $post_type ) {
     $sticky_posts = get_option( 'sticky_posts' );
 
     if ( ! $sticky_posts ) {

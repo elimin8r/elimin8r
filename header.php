@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div class="site-page">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'lmn8r' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'elimin8r' ); ?></a>
 
 	<header id="masthead" class="site-header header-<?php echo get_theme_mod( 'header_position', 'top' ); ?>">
 		<div class="header-content">
@@ -26,10 +26,10 @@
 					<?php endif; ?>
 				<?php endif;
 
-				$lmn8r_description = get_bloginfo( 'description', 'display' );
-				if ( $lmn8r_description || is_customize_preview() ) :
+				$elimin8r_description = get_bloginfo( 'description', 'display' );
+				if ( $elimin8r_description || is_customize_preview() ) :
 					?>
-					<p class="site-description"><?php echo $lmn8r_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+					<p class="site-description"><?php echo $elimin8r_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 
@@ -68,6 +68,6 @@
 
 		// If the featured image is set to full width then display the featured image
 		if ( is_page() && get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) && $header_position == 'top') {
-			lmn8r_post_thumbnail( 'large' );
+			elimin8r_post_thumbnail( 'large' );
 		}
 	?>

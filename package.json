@@ -1,8 +1,8 @@
 {
-  "name": "lmn8r",
+  "name": "elimin8r",
   "version": "1.0.0",
   "type": "module",
-  "description": "Build tool for the LMN8R WordPress theme.",
+  "description": "Build tool for the Elimin8r WordPress theme.",
   "main": "gulpfile.js",
   "scripts": {
     "watch": "gulp watch",

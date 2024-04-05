@@ -3,7 +3,7 @@
 
 // Get the sticky posts
 $post_type = get_post_type();
-$sticky_posts = lmn8r_get_sticky_posts( $post_type );
+$sticky_posts = elimin8r_get_sticky_posts( $post_type );
 
 $count = 0;
 ?>
@@ -26,7 +26,7 @@ $count = 0;
             <article class="sticky-post sticky-post-<?php echo $count; ?>">
                 <a href="<?php the_permalink(); ?>">
                     <div class="sticky-post-thumbnail">
-                        <?php lmn8r_post_thumbnail( 'medium' ); ?>
+                        <?php elimin8r_post_thumbnail( 'medium' ); ?>
                     </div>
                 </a>
                 

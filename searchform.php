@@ -1,4 +1,4 @@
-<form role="search" method="get" class="search-form" action="https://lmn8r.test/">
+<form role="search" method="get" class="search-form" action="https://elimin8r.test/">
     <label>
         <span class="screen-reader-text">Search for:</span>
         <input type="search" class="search-field" placeholder="Search…" value="" name="s">

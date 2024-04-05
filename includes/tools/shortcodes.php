@@ -1,18 +1,18 @@
 <?php
 
 // Add a menu item under the "Settings" menu
-add_action( 'admin_menu', 'lmn8r_register_shortcode_settings_menu' );
-function lmn8r_register_shortcode_settings_menu() {
+add_action( 'admin_menu', 'elimin8r_register_shortcode_settings_menu' );
+function elimin8r_register_shortcode_settings_menu() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    add_management_page( 'Shortcodes', 'Shortcodes', 'manage_options', 'shortcode_settings', 'lmn8r_shortcode_settings_page' );
+    add_management_page( 'Shortcodes', 'Shortcodes', 'manage_options', 'shortcode_settings', 'elimin8r_shortcode_settings_page' );
 }
 
 // Render the settings page
-function lmn8r_shortcode_settings_page() {
+function elimin8r_shortcode_settings_page() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
@@ -31,7 +31,7 @@ function lmn8r_shortcode_settings_page() {
 
         <form method="post">
             <?php
-            lmn8r_shortcode_delete_callback();
+            elimin8r_shortcode_delete_callback();
             submit_button( 'Delete', 'delete', 'delete', true, array( 'id' => 'delete-button' ) );
             ?>
         </form>
@@ -48,14 +48,14 @@ function lmn8r_shortcode_settings_page() {
 }
 
 // Register the settings and fields
-add_action( 'admin_init', 'lmn8r_register_shortcode_settings' );
-function lmn8r_register_shortcode_settings() {
+add_action( 'admin_init', 'elimin8r_register_shortcode_settings' );
+function elimin8r_register_shortcode_settings() {
     // Register the settings section
     add_settings_section( 'shortcode_section', 'Add a new shortcode', '', 'shortcode_settings' );
 
     // Register the input fields
-    add_settings_field( 'shortcode_name', 'Shortcode Name', 'lmn8r_shortcode_name_callback', 'shortcode_settings', 'shortcode_section' );
-    add_settings_field( 'shortcode_content', 'Shortcode Content', 'lmn8r_shortcode_content_callback', 'shortcode_settings', 'shortcode_section' );
+    add_settings_field( 'shortcode_name', 'Shortcode Name', 'elimin8r_shortcode_name_callback', 'shortcode_settings', 'shortcode_section' );
+    add_settings_field( 'shortcode_content', 'Shortcode Content', 'elimin8r_shortcode_content_callback', 'shortcode_settings', 'shortcode_section' );
 
     // Register the settings
     register_setting( 'shortcode_settings', 'shortcode_name' );
@@ -64,21 +64,21 @@ function lmn8r_register_shortcode_settings() {
 }
 
 // Callback functions for the input fields
-function lmn8r_shortcode_name_callback() {
+function elimin8r_shortcode_name_callback() {
     ?>
     <input type="text" name="shortcode_name" value="" class="regular-text" placeholder="E.g. my_shortcode" required/>
     <p class="description">Use the shortcode by adding <code>[my_shortcode]</code> to posts and pages.</p>
     <?php
 }
 
-function lmn8r_shortcode_content_callback() {
+function elimin8r_shortcode_content_callback() {
     ?>
     <textarea name="shortcode_content" class="large-text" rows="10" required></textarea>
     <?php
 }
 
-function lmn8r_shortcode_delete_callback() {
-    $shortcodes = get_option( 'lmn8r_custom_shortcodes', array() );
+function elimin8r_shortcode_delete_callback() {
+    $shortcodes = get_option( 'elimin8r_custom_shortcodes', array() );
     
     ?>
     <h2>Delete a shortcode</h2>
@@ -95,9 +95,9 @@ function lmn8r_shortcode_delete_callback() {
 }
 
 // Handle shortcode registration
-add_action('init', 'lmn8r_handle_shortcode_registration');
-function lmn8r_handle_shortcode_registration() {
-    $shortcodes = get_option( 'lmn8r_custom_shortcodes', array() );
+add_action('init', 'elimin8r_handle_shortcode_registration');
+function elimin8r_handle_shortcode_registration() {
+    $shortcodes = get_option( 'elimin8r_custom_shortcodes', array() );
 
     foreach ( $shortcodes as $shortcode ) {
         if ( isset( $shortcode['shortcode_name'] ) && isset( $shortcode['shortcode_content'] ) ) {
@@ -109,10 +109,10 @@ function lmn8r_handle_shortcode_registration() {
 }
 
 // Handle form submission
-add_action( 'admin_init', 'lmn8r_handle_shortcode_form_submission' );
-function lmn8r_handle_shortcode_form_submission() {
+add_action( 'admin_init', 'elimin8r_handle_shortcode_form_submission' );
+function elimin8r_handle_shortcode_form_submission() {
     if ( isset( $_POST['shortcode_name'] ) && isset( $_POST['shortcode_content'] ) && !empty( $_POST['shortcode_name'] ) && !empty( $_POST['shortcode_content'] ) ) {
-        $shortcodes = get_option( 'lmn8r_custom_shortcodes', array() );
+        $shortcodes = get_option( 'elimin8r_custom_shortcodes', array() );
         // Check if the shortcode already exists
         foreach ( $shortcodes as $shortcode ) {
             if ( $shortcode['shortcode_name'] === $_POST['shortcode_name'] ) {
@@ -128,11 +128,11 @@ function lmn8r_handle_shortcode_form_submission() {
             'shortcode_content' => wp_kses_post( $_POST['shortcode_content'] ), // Allow HTML in shortcode content
         );
 
-        update_option( 'lmn8r_custom_shortcodes', $shortcodes );
+        update_option( 'elimin8r_custom_shortcodes', $shortcodes );
     }
 
     if ( isset( $_POST['shortcode_delete'] ) && !empty( $_POST['shortcode_delete'] ) ) {
-        $shortcodes = get_option( 'lmn8r_custom_shortcodes', array() );
+        $shortcodes = get_option( 'elimin8r_custom_shortcodes', array() );
 
         // Loop through the shortcodes and remove the one that was selected for deletion
         foreach ( $shortcodes as $key => $shortcode ) {
@@ -141,6 +141,6 @@ function lmn8r_handle_shortcode_form_submission() {
             }
         }
 
-        update_option( 'lmn8r_custom_shortcodes', $shortcodes );
+        update_option( 'elimin8r_custom_shortcodes', $shortcodes );
     }
 }

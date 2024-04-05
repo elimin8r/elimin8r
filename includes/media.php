@@ -1,7 +1,7 @@
 <?php
 
 // If thumbnail is not present then add a placeholder image
-function lmn8r_post_thumbnail( $size ) {
+function elimin8r_post_thumbnail( $size ) {
     $header_position = get_theme_mod( 'header_position', 'top' );
 
     if ( get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) &&         $header_position == 'top' ) {
@@ -32,14 +32,14 @@ function lmn8r_post_thumbnail( $size ) {
 }
 
 // Add SVG support
-function lmn8r_mime_types( $mimes ) {
+function elimin8r_mime_types( $mimes ) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
-add_filter( 'upload_mimes', 'lmn8r_mime_types' );
+add_filter( 'upload_mimes', 'elimin8r_mime_types' );
 
 // Add preload for featured images
-function lmn8r_preload_image() {
+function elimin8r_preload_image() {
     if ( is_singular() && has_post_thumbnail() ) {
         // Get the featured image
         $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
@@ -54,22 +54,22 @@ function lmn8r_preload_image() {
         echo '<link rel="preload" href="' . esc_url( $image[0] ) . '" as="image" imagesrcset="' . esc_attr( $srcset ) . '" imagesizes="' . esc_attr( $sizes ) . '">';
     }
 }
-add_action( 'wp_head', 'lmn8r_preload_image', 0 );
+add_action( 'wp_head', 'elimin8r_preload_image', 0 );
 
 // Add featured image settings meta box
-function lmn8r_add_featured_image_settings_meta_box() {
+function elimin8r_add_featured_image_settings_meta_box() {
     add_meta_box(
-        'lmn8r_featured_image_settings', // Unique ID
+        'elimin8r_featured_image_settings', // Unique ID
         'Featured Image Settings', // Box title
-        'lmn8r_featured_image_settings_meta_box_html', // Content callback
+        'elimin8r_featured_image_settings_meta_box_html', // Content callback
         'page', // Post type
         'side' // Position
     );
 }
-add_action( 'add_meta_boxes', 'lmn8r_add_featured_image_settings_meta_box' );
+add_action( 'add_meta_boxes', 'elimin8r_add_featured_image_settings_meta_box' );
 
 // Featured image settings meta box HTML
-function lmn8r_featured_image_settings_meta_box_html( $post ) {
+function elimin8r_featured_image_settings_meta_box_html( $post ) {
     $value = get_post_meta( $post->ID, '_featured_image_checkbox', true );
     $checked = $value == '1' ? 'checked' : '';
     echo '<input type="checkbox" id="featured_image_checkbox" name="featured_image_checkbox" value="1" ' . $checked . '>';
@@ -77,7 +77,7 @@ function lmn8r_featured_image_settings_meta_box_html( $post ) {
 }
 
 // Save featured image settings
-function lmn8r_save_featured_image_checkbox( $post_id ) {
+function elimin8r_save_featured_image_checkbox( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
@@ -92,7 +92,7 @@ function lmn8r_save_featured_image_checkbox( $post_id ) {
         delete_post_meta( $post_id, '_featured_image_checkbox' );
     }
 }
-add_action( 'save_post', 'lmn8r_save_featured_image_checkbox' );
+add_action( 'save_post', 'elimin8r_save_featured_image_checkbox' );
 
 // Get the width and height of an SVG file
 function getSvgSize($file) {
@@ -114,7 +114,7 @@ function getSvgSize($file) {
 }
 
 // Filter the_custom_logo() to add width and height attributes
-function lmn8r_custom_logo_output( $html ) {
+function elimin8r_custom_logo_output( $html ) {
     // Get the ID
     $custom_logo_id = get_theme_mod( 'custom_logo' );
 
@@ -142,4 +142,4 @@ function lmn8r_custom_logo_output( $html ) {
 
     return $html;
 }
-add_filter( 'get_custom_logo', 'lmn8r_custom_logo_output' );
+add_filter( 'get_custom_logo', 'elimin8r_custom_logo_output' );

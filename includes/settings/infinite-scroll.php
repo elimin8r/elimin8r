@@ -1,20 +1,20 @@
 <?php
 
 // Add Enable infinite scroll checkbox to Reading settings
-function lmn8r_add_enable_infinite_scroll_checkbox() {
-    add_settings_field( 'enable_infinite_scroll_checkbox', 'Enable infinite scroll', 'lmn8r_enable_infinite_scroll_checkbox_callback', 'reading', 'default' );
+function elimin8r_add_enable_infinite_scroll_checkbox() {
+    add_settings_field( 'enable_infinite_scroll_checkbox', 'Enable infinite scroll', 'elimin8r_enable_infinite_scroll_checkbox_callback', 'reading', 'default' );
     register_setting( 'reading', 'enable_infinite_scroll_checkbox' );
 }
 
 // Enable infinite scroll checkbox callback
-function lmn8r_enable_infinite_scroll_checkbox_callback() {
+function elimin8r_enable_infinite_scroll_checkbox_callback() {
     $emojis = get_option( 'enable_infinite_scroll_checkbox' );
     echo '<input type="checkbox" name="enable_infinite_scroll_checkbox" value="1" ' . checked( 1, $emojis, false ) . ' />';
 }
-add_action( 'admin_init', 'lmn8r_add_enable_infinite_scroll_checkbox' );
+add_action( 'admin_init', 'elimin8r_add_enable_infinite_scroll_checkbox' );
 
 // Enable infinite scroll
-function lmn8r_enable_infinite_scroll() {
+function elimin8r_enable_infinite_scroll() {
     if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
         // Get the post type
         $post_type = get_post_type();
@@ -31,7 +31,7 @@ function lmn8r_enable_infinite_scroll() {
         // Get the 'Blog pages show at most' option
         $posts_per_page = get_option( 'posts_per_page' );
 
-        $script = '<script id="lmn8r-infinite-scroll" defer>
+        $script = '<script id="elimin8r-infinite-scroll" defer>
             let currentPage = 1;
             let noMorePosts = false;
 
@@ -131,4 +131,4 @@ function lmn8r_enable_infinite_scroll() {
         echo $script;
     }
 }
-add_action( 'wp_footer', 'lmn8r_enable_infinite_scroll' );
+add_action( 'wp_footer', 'elimin8r_enable_infinite_scroll' );

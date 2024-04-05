@@ -1,6 +1,6 @@
 <?php
 
-function lmn8r_pagination() {
+function elimin8r_pagination() {
     if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
         return;
     }

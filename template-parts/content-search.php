@@ -7,7 +7,7 @@ $current_template = 'blog-compact';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		<?php lmn8r_post_thumbnail( 'medium' ); ?>
+		<?php elimin8r_post_thumbnail( 'medium' ); ?>
 	</a>
 
 	<div class="article-content">
@@ -16,8 +16,8 @@ $current_template = 'blog-compact';
 	
 			<div class="entry-meta">
 				<?php
-					lmn8r_posted_on();
-					lmn8r_posted_by();
+					elimin8r_posted_on();
+					elimin8r_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->
@@ -28,7 +28,7 @@ $current_template = 'blog-compact';
 	
 				wp_link_pages(
 					array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lmn8r' ),
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'elimin8r' ),
 						'after'  => '</div>',
 					)
 				);

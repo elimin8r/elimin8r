@@ -34,7 +34,7 @@ get_header();
 
 			endwhile;
 
-			lmn8r_pagination(); ?>
+			elimin8r_pagination(); ?>
 			</div>
 
 			<?php

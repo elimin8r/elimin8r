@@ -7,7 +7,7 @@ $current_template = 'blog-full';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		<?php lmn8r_post_thumbnail( 'large' ); ?>
+		<?php elimin8r_post_thumbnail( 'large' ); ?>
 	</a>
 
 	<div class="article-content">
@@ -21,7 +21,7 @@ $current_template = 'blog-full';
 			
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lmn8r' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'elimin8r' ),
 					'after'  => '</div>',
 					)
 				);

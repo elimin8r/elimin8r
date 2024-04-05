@@ -1,18 +1,18 @@
 <?php
 
 // Add a menu item under the "Settings" menu
-add_action( 'admin_menu', 'lmn8r_register_sidebar_settings_menu' );
-function lmn8r_register_sidebar_settings_menu() {
+add_action( 'admin_menu', 'elimin8r_register_sidebar_settings_menu' );
+function elimin8r_register_sidebar_settings_menu() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    add_management_page( 'Sidebars', 'Sidebars', 'manage_options', 'sidebar_settings', 'lmn8r_sidebar_settings_page' );
+    add_management_page( 'Sidebars', 'Sidebars', 'manage_options', 'sidebar_settings', 'elimin8r_sidebar_settings_page' );
 }
 
 // Render the settings page
-function lmn8r_sidebar_settings_page() {
+function elimin8r_sidebar_settings_page() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
@@ -31,7 +31,7 @@ function lmn8r_sidebar_settings_page() {
 
         <form method="post">
             <?php
-            lmn8r_sidebar_delete_callback();
+            elimin8r_sidebar_delete_callback();
             submit_button( 'Delete', 'delete', 'delete', true, array( 'id' => 'delete-button' ) );
             ?>
         </form>
@@ -48,14 +48,14 @@ function lmn8r_sidebar_settings_page() {
 }
 
 // Register the settings and fields
-add_action( 'admin_init', 'lmn8r_register_sidebar_settings' );
-function lmn8r_register_sidebar_settings() {
+add_action( 'admin_init', 'elimin8r_register_sidebar_settings' );
+function elimin8r_register_sidebar_settings() {
     // Register the settings section
     add_settings_section( 'sidebar_section', 'Add a new sidebar', '', 'sidebar_settings' );
 
     // Register the input fields
-    add_settings_field( 'sidebar_name', 'Sidebar Name', 'lmn8r_sidebar_name_callback', 'sidebar_settings', 'sidebar_section' );
-    add_settings_field( 'sidebar_id', 'Sidebar ID', 'lmn8r_sidebar_id_callback', 'sidebar_settings', 'sidebar_section' );
+    add_settings_field( 'sidebar_name', 'Sidebar Name', 'elimin8r_sidebar_name_callback', 'sidebar_settings', 'sidebar_section' );
+    add_settings_field( 'sidebar_id', 'Sidebar ID', 'elimin8r_sidebar_id_callback', 'sidebar_settings', 'sidebar_section' );
 
     // Register the settings
     register_setting( 'sidebar_settings', 'sidebar_name' );
@@ -64,19 +64,19 @@ function lmn8r_register_sidebar_settings() {
 }
 
 // Callback functions for the input fields
-function lmn8r_sidebar_name_callback() {
+function elimin8r_sidebar_name_callback() {
     ?>
     <input type="text" name="sidebar_name" value="" class="regular-text" placeholder="E.g. Main Sidebar" required/>
     <?php
 }
 
-function lmn8r_sidebar_id_callback() {
+function elimin8r_sidebar_id_callback() {
     ?>
     <input type="text" name="sidebar_id" value="" class="regular-text" placeholder="E.g. main-sidebar" required/>
     <?php
 }
 
-function lmn8r_sidebar_delete_callback() {
+function elimin8r_sidebar_delete_callback() {
     global $wp_registered_sidebars;
     ?>
     <h2>Delete a sidebar</h2>
@@ -92,9 +92,9 @@ function lmn8r_sidebar_delete_callback() {
 }
 
 // Handle sidebar registration
-add_action('widgets_init', 'lmn8r_handle_sidebar_registration');
-function lmn8r_handle_sidebar_registration() {
-    $sidebars = get_option( 'lmn8r_custom_sidebars', array() );
+add_action('widgets_init', 'elimin8r_handle_sidebar_registration');
+function elimin8r_handle_sidebar_registration() {
+    $sidebars = get_option( 'elimin8r_custom_sidebars', array() );
 
     foreach ( $sidebars as $sidebar ) {
         if ( isset( $sidebar['sidebar_name'] ) && isset( $sidebar['sidebar_id'] ) ) {
@@ -112,8 +112,8 @@ function lmn8r_handle_sidebar_registration() {
 }
 
 // Handle form submission
-add_action( 'admin_init', 'lmn8r_handle_sidebar_form_submission' );
-function lmn8r_handle_sidebar_form_submission() {
+add_action( 'admin_init', 'elimin8r_handle_sidebar_form_submission' );
+function elimin8r_handle_sidebar_form_submission() {
     if ( isset( $_POST['sidebar_name'] ) && isset( $_POST['sidebar_id'] ) && !empty( $_POST['sidebar_name'] ) && !empty( $_POST['sidebar_id'] ) ) {
         // Check if sidebar already exists
         global $wp_registered_sidebars;
@@ -125,7 +125,7 @@ function lmn8r_handle_sidebar_form_submission() {
             }
         }
         
-        $sidebars = get_option( 'lmn8r_custom_sidebars', array() );
+        $sidebars = get_option( 'elimin8r_custom_sidebars', array() );
 
         // Add the new sidebar to the array
         $sidebars[] = array(
@@ -133,14 +133,14 @@ function lmn8r_handle_sidebar_form_submission() {
             'sidebar_id' => sanitize_text_field( $_POST['sidebar_id'] ),
         );
 
-        update_option( 'lmn8r_custom_sidebars', $sidebars );
+        update_option( 'elimin8r_custom_sidebars', $sidebars );
 
         // Refresh the page
         wp_redirect( admin_url( 'tools.php?page=sidebar_settings' ) );
     }
 
     if ( isset( $_POST['sidebar_delete'] ) && !empty( $_POST['sidebar_delete'] ) ) {
-        $sidebars = get_option( 'lmn8r_custom_sidebars', array() );
+        $sidebars = get_option( 'elimin8r_custom_sidebars', array() );
 
         // Loop through the sidebars and remove the one that was selected for deletion
         foreach ( $sidebars as $key => $sidebar ) {
@@ -149,7 +149,7 @@ function lmn8r_handle_sidebar_form_submission() {
             }
         }
 
-        update_option( 'lmn8r_custom_sidebars', $sidebars );
+        update_option( 'elimin8r_custom_sidebars', $sidebars );
 
         // Refresh the page
         wp_redirect( admin_url( 'tools.php?page=sidebar_settings' ) );

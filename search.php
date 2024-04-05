@@ -9,7 +9,7 @@ get_header();
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
-						printf( esc_html__( 'Search Results for: %s', 'lmn8r' ), '<span>' . get_search_query() . '</span>' );
+						printf( esc_html__( 'Search Results for: %s', 'elimin8r' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
@@ -31,7 +31,7 @@ get_header();
 
 				endwhile;
 
-				lmn8r_pagination(); ?>
+				elimin8r_pagination(); ?>
 			</div>
 
 			<?php

@@ -1,7 +1,7 @@
 <?php
 
 // Add blog-* class to the post_class for each blog template
-function lmn8r_blog_compact_class( $classes ) {
+function elimin8r_blog_compact_class( $classes ) {
     global $current_template;
 
     if ( $current_template === 'blog-compact' ) {
@@ -14,16 +14,16 @@ function lmn8r_blog_compact_class( $classes ) {
 
     return $classes;
 }	
-add_filter( 'post_class', 'lmn8r_blog_compact_class' );
+add_filter( 'post_class', 'elimin8r_blog_compact_class' );
 
 // Add link to end of excerpt
-function lmn8r_excerpt_more( $more ) {
-    return ' <a href="' . get_permalink() . '">' . __('Continue reading', 'lmn8r') . '</a>';
+function elimin8r_excerpt_more( $more ) {
+    return ' <a href="' . get_permalink() . '">' . __('Continue reading', 'elimin8r') . '</a>';
 }
-add_filter('excerpt_more', 'lmn8r_excerpt_more');
+add_filter('excerpt_more', 'elimin8r_excerpt_more');
 
 // Change excerpt length based on blog template
-function lmn8r_excerpt_length( $length ) {
+function elimin8r_excerpt_length( $length ) {
     global $current_template;
 
     if ( $current_template === 'blog-compact' ) {
@@ -38,4 +38,4 @@ function lmn8r_excerpt_length( $length ) {
 
     return $length;
 }
-add_filter( 'excerpt_length', 'lmn8r_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'elimin8r_excerpt_length', 999 );

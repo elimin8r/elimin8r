@@ -15,14 +15,14 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				lmn8r_posted_on();
-				lmn8r_posted_by();
+				elimin8r_posted_on();
+				elimin8r_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php lmn8r_post_thumbnail( 'large' ); ?>
+	<?php elimin8r_post_thumbnail( 'large' ); ?>
 
 	<div class="entry-content">
 		<?php
@@ -31,7 +31,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'lmn8r' ),
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'elimin8r' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -47,7 +47,7 @@
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lmn8r' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'elimin8r' ),
 					'after'  => '</div>',
 				)
 			);
@@ -55,6 +55,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php lmn8r_entry_footer(); ?>
+		<?php elimin8r_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

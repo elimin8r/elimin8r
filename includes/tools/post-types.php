@@ -1,18 +1,18 @@
 <?php
 
 // Add a menu item under the "Settings" menu
-add_action( 'admin_menu', 'lmn8r_register_post_types_settings_menu' );
-function lmn8r_register_post_types_settings_menu() {
+add_action( 'admin_menu', 'elimin8r_register_post_types_settings_menu' );
+function elimin8r_register_post_types_settings_menu() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
     }
 
-    add_management_page( 'Post Types', 'Post Types', 'manage_options', 'post_types_settings', 'lmn8r_post_types_settings_page' );
+    add_management_page( 'Post Types', 'Post Types', 'manage_options', 'post_types_settings', 'elimin8r_post_types_settings_page' );
 }
 
 // Render the settings page
-function lmn8r_post_types_settings_page() {
+function elimin8r_post_types_settings_page() {
     // Check if administrator
     if ( !current_user_can( 'manage_options' ) ) {
         return;
@@ -31,7 +31,7 @@ function lmn8r_post_types_settings_page() {
 
         <form method="post">
             <?php
-            lmn8r_post_type_delete_callback();
+            elimin8r_post_type_delete_callback();
             submit_button( 'Delete', 'delete', 'delete', true, array( 'id' => 'delete-button' ) );
             ?>
         </form>
@@ -48,16 +48,16 @@ function lmn8r_post_types_settings_page() {
 }
 
 // Register the settings and fields
-add_action( 'admin_init', 'lmn8r_register_post_types_settings' );
-function lmn8r_register_post_types_settings() {
+add_action( 'admin_init', 'elimin8r_register_post_types_settings' );
+function elimin8r_register_post_types_settings() {
     // Register the settings section
     add_settings_section( 'post_types_section', 'Add a new post type', '', 'post_types_settings' );
 
     // Register the input fields
-    add_settings_field( 'plural_label', 'Plural Label', 'lmn8r_plural_label_callback', 'post_types_settings', 'post_types_section' );
-    add_settings_field( 'singular_label', 'Singular Label', 'lmn8r_singular_label_callback', 'post_types_settings', 'post_types_section' );
-    add_settings_field( 'post_type_slug', 'Post Type Slug', 'lmn8r_post_type_slug_callback', 'post_types_settings', 'post_types_section' );
-    add_settings_field( 'taxonomies', 'Taxonomies', 'lmn8r_taxonomies_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'plural_label', 'Plural Label', 'elimin8r_plural_label_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'singular_label', 'Singular Label', 'elimin8r_singular_label_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'post_type_slug', 'Post Type Slug', 'elimin8r_post_type_slug_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'taxonomies', 'Taxonomies', 'elimin8r_taxonomies_callback', 'post_types_settings', 'post_types_section' );
 
     // Register the settings
     register_setting( 'post_types_settings', 'plural_label' );
@@ -69,26 +69,26 @@ function lmn8r_register_post_types_settings() {
 }
 
 // Callback functions for the input fields
-function lmn8r_plural_label_callback() {
+function elimin8r_plural_label_callback() {
     ?>
     <input type="text" name="plural_label" value="" class="regular-text" placeholder="E.g. Games" required/>
     <?php
 }
 
-function lmn8r_singular_label_callback() {
+function elimin8r_singular_label_callback() {
     ?>
     <input type="text" name="singular_label" value="" class="regular-text" placeholder="E.g. Game" required/>
     <?php
 }
 
-function lmn8r_post_type_slug_callback() {
+function elimin8r_post_type_slug_callback() {
     ?>
     <input type="text" name="post_type_slug" value="" class="regular-text" placeholder="E.g. games" required/>
     <?php
 }
 
-function lmn8r_post_type_delete_callback() {
-    $post_types = get_option( 'lmn8r_custom_post_types', array() );
+function elimin8r_post_type_delete_callback() {
+    $post_types = get_option( 'elimin8r_custom_post_types', array() );
     
     ?>
     <h2>Delete a post type</h2>
@@ -118,7 +118,7 @@ function lmn8r_post_type_delete_callback() {
     <?php
 }
 
-function lmn8r_taxonomies_callback() {
+function elimin8r_taxonomies_callback() {
     $taxonomies = get_taxonomies( array('public' => true ), 'names' );
     $selected_taxonomies = get_option( 'taxonomies' );
     $exclude_taxonomies = array( 'post_tag', 'post_format' );
@@ -143,29 +143,29 @@ function lmn8r_taxonomies_callback() {
 }
 
 // Handle post type registration
-add_action('init', 'lmn8r_handle_post_type_registration');
-function lmn8r_handle_post_type_registration() {
-    $post_types = get_option( 'lmn8r_custom_post_types', array() );
+add_action('init', 'elimin8r_handle_post_type_registration');
+function elimin8r_handle_post_type_registration() {
+    $post_types = get_option( 'elimin8r_custom_post_types', array() );
 
     foreach ( $post_types as $post_type ) {
         if ( isset( $post_type['plural_label'] ) && isset( $post_type['singular_label'] ) && isset( $post_type['post_type_slug'] ) ) {
             $plural = $post_type['plural_label'];
             $singular = $post_type['singular_label'];
             $labels = array(
-                'name' => _x( $plural, 'Post type general name', 'lmn8r' ),
-                'singular_name' => _x( $singular, 'Post type singular name', 'lmn8r' ),
-                'menu_name' => _x( $plural, 'Admin Menu text', 'lmn8r' ),
-                'name_admin_bar' => _x( $singular, 'Add New on Toolbar', 'lmn8r' ),
-                'add_new' => __( 'Add New', 'lmn8r' ),
-                'add_new_item' => __( 'Add New ' . $singular, 'lmn8r' ),
-                'new_item' => __( 'New ' . $singular, 'lmn8r' ),
-                'edit_item' => __( 'Edit ' . $singular, 'lmn8r' ),
-                'view_item' => __( 'View ' . $singular, 'lmn8r' ),
-                'all_items' => __( 'All ' . $plural, 'lmn8r' ),
-                'search_items' => __( 'Search ' . $plural, 'lmn8r' ),
-                'parent_item_colon' => __( 'Parent ' . $plural . ': ', 'lmn8r' ),
-                'not_found' => __( 'No ' . $plural . ' found.', 'lmn8r' ),
-                'not_found_in_trash' => __( 'No ' . $plural . ' found in Trash.', 'lmn8r' )
+                'name' => _x( $plural, 'Post type general name', 'elimin8r' ),
+                'singular_name' => _x( $singular, 'Post type singular name', 'elimin8r' ),
+                'menu_name' => _x( $plural, 'Admin Menu text', 'elimin8r' ),
+                'name_admin_bar' => _x( $singular, 'Add New on Toolbar', 'elimin8r' ),
+                'add_new' => __( 'Add New', 'elimin8r' ),
+                'add_new_item' => __( 'Add New ' . $singular, 'elimin8r' ),
+                'new_item' => __( 'New ' . $singular, 'elimin8r' ),
+                'edit_item' => __( 'Edit ' . $singular, 'elimin8r' ),
+                'view_item' => __( 'View ' . $singular, 'elimin8r' ),
+                'all_items' => __( 'All ' . $plural, 'elimin8r' ),
+                'search_items' => __( 'Search ' . $plural, 'elimin8r' ),
+                'parent_item_colon' => __( 'Parent ' . $plural . ': ', 'elimin8r' ),
+                'not_found' => __( 'No ' . $plural . ' found.', 'elimin8r' ),
+                'not_found_in_trash' => __( 'No ' . $plural . ' found in Trash.', 'elimin8r' )
             );
             $args = array(
                 'label' => $plural,
@@ -183,8 +183,8 @@ function lmn8r_handle_post_type_registration() {
 }
 
 // Handle form submission
-add_action( 'admin_init', 'lmn8r_handle_form_submission' );
-function lmn8r_handle_form_submission() {
+add_action( 'admin_init', 'elimin8r_handle_form_submission' );
+function elimin8r_handle_form_submission() {
     if ( isset( $_POST['plural_label'] ) && isset( $_POST['singular_label'] ) && isset( $_POST['post_type_slug'] ) && !empty( $_POST['plural_label'] ) && !empty( $_POST['singular_label'] ) && !empty( $_POST['post_type_slug'] ) ) {
         // Check if the post type already exists
         $registered_post_types = get_post_types( array(), 'objects' );
@@ -196,7 +196,7 @@ function lmn8r_handle_form_submission() {
             }
         }
 
-        $post_types = get_option( 'lmn8r_custom_post_types', array() );
+        $post_types = get_option( 'elimin8r_custom_post_types', array() );
 
         // Add the new post type to the array
         $post_types[] = array(
@@ -205,7 +205,7 @@ function lmn8r_handle_form_submission() {
             'post_type_slug' => sanitize_text_field( $_POST['post_type_slug'] ),
         );
 
-        update_option( 'lmn8r_custom_post_types', $post_types );
+        update_option( 'elimin8r_custom_post_types', $post_types );
 
         // Set a transient to indicate that the rewrite rules need to be flushed
         set_transient( 'flush_rewrite_rules', true );
@@ -215,7 +215,7 @@ function lmn8r_handle_form_submission() {
     }
 
     if ( isset( $_POST['post_type_delete'] ) && !empty( $_POST['post_type_delete'] ) ) {
-        $post_types = get_option( 'lmn8r_custom_post_types', array() );
+        $post_types = get_option( 'elimin8r_custom_post_types', array() );
 
         // if isset( $_POST['post_type_migrate'] ) then migrate the posts to the selected post type
         if ( isset( $_POST['post_type_migrate'] ) && !empty( $_POST['post_type_migrate'] ) ) {
@@ -241,14 +241,14 @@ function lmn8r_handle_form_submission() {
             }
         }
 
-        update_option( 'lmn8r_custom_post_types', $post_types );
+        update_option( 'elimin8r_custom_post_types', $post_types );
 
         // Refresh the page
         wp_redirect( admin_url( 'tools.php?page=post_types_settings' ) );
     }
 }
 
-function lmn8r_my_flush_rewrite_rules() {
+function elimin8r_my_flush_rewrite_rules() {
     // If the 'flush_rewrite_rules' transient is set flush the rewrite rules
     if ( get_transient( 'flush_rewrite_rules' ) ) {
         flush_rewrite_rules();
@@ -257,7 +257,7 @@ function lmn8r_my_flush_rewrite_rules() {
         delete_transient( 'flush_rewrite_rules' );
     }
 }
-add_action('wp_loaded', 'lmn8r_my_flush_rewrite_rules');
+add_action('wp_loaded', 'elimin8r_my_flush_rewrite_rules');
 
 // Remove Archives: prefix from archive titles
 add_filter( 'get_the_archive_title', function ( $title ) {

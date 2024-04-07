@@ -58,11 +58,14 @@ add_action( 'wp_head', 'elimin8r_preload_image', 0 );
 
 // Add featured image settings meta box
 function elimin8r_add_featured_image_settings_meta_box() {
+    $post_types = get_post_types( array( 'public' => true ) );
+    unset( $post_types['attachment'] );
+
     add_meta_box(
         'elimin8r_featured_image_settings', // Unique ID
         'Featured Image Settings', // Box title
         'elimin8r_featured_image_settings_meta_box_html', // Content callback
-        'page', // Post type
+        $post_types, // Post type
         'side' // Position
     );
 }

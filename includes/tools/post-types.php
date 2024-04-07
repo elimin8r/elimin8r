@@ -57,12 +57,14 @@ function elimin8r_register_post_types_settings() {
     add_settings_field( 'plural_label', 'Plural Label', 'elimin8r_plural_label_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'singular_label', 'Singular Label', 'elimin8r_singular_label_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'post_type_slug', 'Post Type Slug', 'elimin8r_post_type_slug_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'dashicon', 'Post Type Dashicon', 'elimin8r_dashicon_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'taxonomies', 'Taxonomies', 'elimin8r_taxonomies_callback', 'post_types_settings', 'post_types_section' );
 
     // Register the settings
     register_setting( 'post_types_settings', 'plural_label' );
     register_setting( 'post_types_settings', 'singular_label' );
     register_setting( 'post_types_settings', 'post_type_slug' );
+    register_setting( 'post_types_settings', 'dashicon' );
     register_setting( 'post_types_settings', 'post_type_delete' );
     register_setting( 'post_types_settings', 'post_type_migrate' );
     register_setting( 'post_types_settings', 'taxonomies' );
@@ -84,6 +86,12 @@ function elimin8r_singular_label_callback() {
 function elimin8r_post_type_slug_callback() {
     ?>
     <input type="text" name="post_type_slug" value="" class="regular-text" placeholder="E.g. games" required/>
+    <?php
+}
+
+function elimin8r_dashicon_callback() {
+    ?>
+    <input type="text" name="dashicon" value="" class="regular-text" placeholder="E.g. dashicons-portfolio"/>
     <?php
 }
 
@@ -151,6 +159,7 @@ function elimin8r_handle_post_type_registration() {
         if ( isset( $post_type['plural_label'] ) && isset( $post_type['singular_label'] ) && isset( $post_type['post_type_slug'] ) ) {
             $plural = $post_type['plural_label'];
             $singular = $post_type['singular_label'];
+            $dashicon = $post_type['dashicon'];
             $labels = array(
                 'name' => _x( $plural, 'Post type general name', 'elimin8r' ),
                 'singular_name' => _x( $singular, 'Post type singular name', 'elimin8r' ),
@@ -165,12 +174,13 @@ function elimin8r_handle_post_type_registration() {
                 'search_items' => __( 'Search ' . $plural, 'elimin8r' ),
                 'parent_item_colon' => __( 'Parent ' . $plural . ': ', 'elimin8r' ),
                 'not_found' => __( 'No ' . $plural . ' found.', 'elimin8r' ),
-                'not_found_in_trash' => __( 'No ' . $plural . ' found in Trash.', 'elimin8r' )
+                'not_found_in_trash' => __( 'No ' . $plural . ' found in Trash.', 'elimin8r' ),
             );
             $args = array(
                 'label' => $plural,
                 'labels' => $labels,
                 'public' => true,
+                'menu_icon' => $dashicon,
                 'has_archive' => true,
                 'show_in_rest' => true,
                 'supports' => array( 'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats' ),
@@ -198,11 +208,14 @@ function elimin8r_handle_form_submission() {
 
         $post_types = get_option( 'elimin8r_custom_post_types', array() );
 
+        $dashicon = empty( $_POST['dashicon'] ) ? 'dashicons-admin-post' : $_POST['dashicon'];
+
         // Add the new post type to the array
         $post_types[] = array(
             'plural_label' => sanitize_text_field( $_POST['plural_label'] ),
             'singular_label' => sanitize_text_field( $_POST['singular_label'] ),
             'post_type_slug' => sanitize_text_field( $_POST['post_type_slug'] ),
+            'dashicon' => sanitize_text_field( $dashicon ),
         );
 
         update_option( 'elimin8r_custom_post_types', $post_types );

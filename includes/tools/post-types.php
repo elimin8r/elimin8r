@@ -57,7 +57,7 @@ function elimin8r_register_post_types_settings() {
     add_settings_field( 'plural_label', 'Plural Label', 'elimin8r_plural_label_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'singular_label', 'Singular Label', 'elimin8r_singular_label_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'post_type_slug', 'Post Type Slug', 'elimin8r_post_type_slug_callback', 'post_types_settings', 'post_types_section' );
-    add_settings_field( 'dashicon', 'Post Type Dashicon', 'elimin8r_dashicon_callback', 'post_types_settings', 'post_types_section' );
+    add_settings_field( 'dashicon', 'Dashicon', 'elimin8r_dashicon_callback', 'post_types_settings', 'post_types_section' );
     add_settings_field( 'taxonomies', 'Taxonomies', 'elimin8r_taxonomies_callback', 'post_types_settings', 'post_types_section' );
 
     // Register the settings

@@ -11,6 +11,7 @@ function elimin8r_footer_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'footer_text' , array(
 		'default'   => '',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'wp_kses_post',
 	) );
 
 	// Add the control for the footer text
@@ -25,6 +26,7 @@ function elimin8r_footer_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'footer_transparency' , array(
 		'default'   => '0',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'absint',
 	) );
 
 	// Add the control for footer transparency
@@ -44,6 +46,7 @@ function elimin8r_footer_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'footer_color' , array(
         'default'     => '#ffffff',
         'transport'   => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
     // Add the control for the footer color picker
@@ -57,6 +60,7 @@ function elimin8r_footer_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'footer_text_color' , array(
         'default'     => '#000',
         'transport'   => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
     // Add the control for the footer text color picker

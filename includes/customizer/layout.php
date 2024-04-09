@@ -11,6 +11,7 @@ function elimin8r_layout_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'blog_layout' , array(
 		'default'   => 'full',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_key',
 	) );
 
 	// Add the control for the layout position
@@ -30,6 +31,7 @@ function elimin8r_layout_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'enable_sidebar' , array(
 		'default'   => false,
 		'transport' => 'refresh',
+		'sanitize_callback' => 'absint',
 	) );
 
 	// Add the control for enabling the sidebar
@@ -44,6 +46,7 @@ function elimin8r_layout_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'content_transparency' , array(
 		'default'   => '0',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'absint',
 	) );
 
 	// Add the control for content transparency
@@ -63,6 +66,7 @@ function elimin8r_layout_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'content_color', array(
 		'default'   => '#ffffff',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	// Add the color control. This will display the color picker.
@@ -76,6 +80,7 @@ function elimin8r_layout_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'content_text_color', array(
 		'default'   => '#000000',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	// Add the control for the content text color picker
@@ -89,6 +94,7 @@ function elimin8r_layout_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'content_link_color', array(
 		'default'   => '#000000',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
 	// Add the control for the content link color picker

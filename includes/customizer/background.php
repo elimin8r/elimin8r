@@ -11,6 +11,7 @@ function elimin8r_background_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'background_tint' , array(
 		'default'   => false,
 		'transport' => 'refresh',
+		'sanitize_callback' => 'absint',
 	) );
 
 	// Add the control for enabling tint

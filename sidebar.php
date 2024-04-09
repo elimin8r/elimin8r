@@ -7,8 +7,8 @@ global $wp_registered_sidebars;
 // Get the post types for each sidebar
 $sidebar_post_types = array();
 foreach ( $wp_registered_sidebars as $sidebar ) {
-	$sidebar_post_type = get_theme_mod( 'sidebar_post_types_' . $sidebar['id'] );
-    $sidebar_post_types[$sidebar_post_type] = $sidebar['id'];
+	$sidebar_post_type = get_theme_mod( 'sidebar_post_types_' . $post_type );
+    $sidebar_post_types[$post_type] = $sidebar_post_type;
 }
 
 // Return if the current post type is not in the array

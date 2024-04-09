@@ -14,7 +14,7 @@ $header_position = get_theme_mod( 'header_position', 'top' );
 	<?php endif; ?>
 
 	<div class="site-info">
-		<?php echo get_theme_mod( 'footer_text', '' ); ?>
+		<?php echo wp_kses_post( get_theme_mod( 'footer_text', '' ) ); ?>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
 

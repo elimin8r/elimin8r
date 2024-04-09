@@ -11,6 +11,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'header_position' , array(
 		'default'   => 'top',
 		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_key',
 	) );
 
 	// Add the control for the header position
@@ -29,6 +30,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'enable_search' , array(
 		'default'   => true,
 		'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
 	) );
 
 	// Add the control for enabling search
@@ -43,6 +45,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'header_transparency' , array(
 		'default'   => '0',
 		'transport' => 'refresh',
+        'sanitize_callback' => 'absint',
 	) );
 
 	// Add the control for header transparency
@@ -62,6 +65,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'header_color' , array(
         'default'     => '#ffffff',
         'transport'   => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
     // Add the control for the header color picker
@@ -75,6 +79,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'header_text_color' , array(
         'default'     => '#000000',
         'transport'   => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
     // Add the control for the header text color picker
@@ -88,6 +93,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'submenu_color' , array(
         'default'     => '#ffffff',
         'transport'   => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
     // Add the control for the sub menu color picker
@@ -101,6 +107,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'submenu_text_color' , array(
         'default'     => '#ffffff',
         'transport'   => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
     // Add the control for the sub menu text color picker
@@ -114,6 +121,7 @@ function elimin8r_header_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'hamburger_color' , array(
         'default'     => '#ffffff',
         'transport'   => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
     // Add the control for the hamburger color picker

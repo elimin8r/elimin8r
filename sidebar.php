@@ -19,6 +19,10 @@ if ( ! array_key_exists( $post_type, $sidebar_post_types ) ) {
 // Get the sidebar for the current post type
 $sidebar_id = $sidebar_post_types[$post_type];
 
+if ( ! is_active_sidebar( $sidebar_id ) ) {
+	return;
+}
+
 ?>
 
 <aside id="secondary" class="sidebar">

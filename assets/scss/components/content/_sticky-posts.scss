@@ -32,6 +32,7 @@
             position: relative;
 
             @include media-tablet {
+                background: rgba(0, 0, 0, 0.5);
                 bottom: 0;
                 left: 0;
                 padding: 30px;

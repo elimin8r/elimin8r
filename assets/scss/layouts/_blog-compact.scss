@@ -23,9 +23,11 @@ body.archive {
 
         .article-content {
             margin-top: 10px;
+            width: calc(100vw - 30px);
 
             @include media-tablet {
-                margin-top: -11px;
+                margin-top: -4px;
+                max-width: 378px;
             }
 
             .entry-content {

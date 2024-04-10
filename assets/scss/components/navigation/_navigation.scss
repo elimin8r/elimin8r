@@ -226,16 +226,45 @@
 	}
 
 	.nav-links {
-		display: flex;
-	}
+		display: block;
+		margin-top: 30px;
 
-	.nav-previous {
-		flex: 1 0 50%;
-	}
+		@include media-tablet {
+			display: flex;
+		}
+		
+		.nav-previous,
+		.nav-next {
+			a {
+				align-items: center;
+				border: 1px solid #ddd;
+				display: inline-flex;
+				height: 35px;
+				max-width: 300px;
+				padding: 0 10px;
+				text-decoration: none;
 
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
+				.nav-subtitle {
+					margin-right: 5px;
+				}
+				
+				.nav-title {
+					justify-content: center;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+		}
+
+		.nav-previous {
+			flex: 1 0 50%;
+			margin-bottom: 10px;
+
+			@include media-tablet {
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 

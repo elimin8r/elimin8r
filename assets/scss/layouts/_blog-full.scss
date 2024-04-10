@@ -11,5 +11,17 @@ body.blog {
         .entry-content {
             margin-top: 10px;
         }
+
+        .article-content {
+            width: calc(100vw - 30px);
+
+            @include media-tablet {
+                max-width: 708px;
+            }
+
+            @include media-desktop {
+                max-width: 920px;
+            }
+        }
     }
 }

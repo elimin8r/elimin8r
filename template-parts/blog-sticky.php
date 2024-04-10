@@ -12,10 +12,10 @@ $count = 0;
     <section class="sticky-posts">
         <?php foreach ( $sticky_posts as $post_id ) : ?>
             <?php
-                // Only display the first 3 sticky posts
+                // Only display the first 2 sticky posts
                 $count++;
 
-                if ( $count > 3 ) {
+                if ( $count > 2 ) {
                     break;
                 }
 

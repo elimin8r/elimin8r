@@ -18,14 +18,18 @@
         }
 
         .sticky-post-thumbnail {
-            img {
-                aspect-ratio: 16 / 9;
-                width: 100%;
+            figure {
+                margin: 0;
 
-                @include media-tablet {
-                    filter: brightness(0.5);
+                img {
+                    aspect-ratio: 16 / 9;
+                    width: 100%;
+    
+                    @include media-tablet {
+                        filter: brightness(0.5);
+                    }
                 }
-            }
+            }     
         }
 
         .sticky-post-content {

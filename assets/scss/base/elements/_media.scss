@@ -17,5 +17,13 @@ figure {
 .site-main {
 	figure {
 		margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
+
+		&.alignleft {
+			margin: 0 30px 30px 0;
+		}
+
+		&.alignright {
+			margin: 0 0 30px 30px;
+		}
 	}
 }

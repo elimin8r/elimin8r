@@ -115,6 +115,15 @@ function elimin8r_enable_infinite_scroll() {
 
                     const thumbnail = post.thumbnail ? post.thumbnail : "/wp-content/themes/elimin8r/dist/images/placeholder-image.svg";
 
+                    const readMore = ` <a href="${post.permalink}">Continue reading</a>`;
+
+                    // Cap the excerpt length to 35 words for blog-compact else 55
+                    if (postClass === "blog-compact") {
+                        post.excerpt = post.excerpt.split(" ").slice(0, 35).join(" ") + readMore;
+                    } else {
+                        post.excerpt = post.excerpt.split(" ").slice(0, 55).join(" ") + readMore;
+                    }
+
                     postElement.innerHTML = `
                         <a href="${post.permalink}" title="${post.title}">
                             <figure class="post-thumbnail">

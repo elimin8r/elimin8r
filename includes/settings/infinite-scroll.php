@@ -31,12 +31,6 @@ function elimin8r_enable_infinite_scroll() {
             
             const getNextPage = async () => {
                 if (noMorePosts) {
-                    // Remove the load-more button
-                    const loadMoreButton = document.querySelector("#load-more");
-                    if (loadMoreButton) {
-                        loadMoreButton.remove();
-                    }
-
                     return;
                 }
 
@@ -54,6 +48,13 @@ function elimin8r_enable_infinite_scroll() {
 
                 if (data.length === 0) {
                     noMorePosts = true;
+
+                    // Change load-more button text to "No more posts"
+                    const loadMoreButton = document.querySelector("#load-more");
+                    if (loadMoreButton) {
+                        loadMoreButton.textContent = "No more posts";
+                    }
+
                     return;
                 }
 

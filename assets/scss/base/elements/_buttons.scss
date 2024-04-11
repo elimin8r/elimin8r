@@ -23,3 +23,14 @@ input[type="submit"] {
 		border-color: $border-color-button-focus;
 	}
 }
+
+button#load-more {
+	background: #fff;
+	border: 1px solid #000;
+	color: #000;
+	cursor: pointer;
+	display: block;
+	margin: 30px auto 0 auto;
+	padding: 10px 20px;
+	text-align: center;
+}

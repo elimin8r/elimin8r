@@ -8,8 +8,8 @@ function elimin8r_add_enable_infinite_scroll_checkbox() {
 
 // Enable infinite scroll checkbox callback
 function elimin8r_enable_infinite_scroll_checkbox_callback() {
-    $emojis = get_option( 'enable_infinite_scroll_checkbox' );
-    echo '<input type="checkbox" name="enable_infinite_scroll_checkbox" value="1" ' . checked( 1, $emojis, false ) . ' />';
+    $ifs = get_option( 'enable_infinite_scroll_checkbox' );
+    echo '<input type="checkbox" name="enable_infinite_scroll_checkbox" value="1" ' . checked( 1, $ifs, false ) . ' />';
 }
 add_action( 'admin_init', 'elimin8r_add_enable_infinite_scroll_checkbox' );
 
@@ -18,12 +18,6 @@ function elimin8r_enable_infinite_scroll() {
     if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
         // Get the post type
         $post_type = get_post_type();
-
-        if ( $post_type === 'post' ) {
-            $post_type_slug = 'posts';
-        } else {
-            $post_type_slug = $post_type;
-        }
 
         // Get the URL
         $url = get_site_url();
@@ -34,18 +28,22 @@ function elimin8r_enable_infinite_scroll() {
         $script = '<script id="elimin8r-infinite-scroll" defer>
             let currentPage = 1;
             let noMorePosts = false;
-
-            window.addEventListener("scroll", function(ev) {
-                if (!noMorePosts && (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight) {
-                    getNextPage();
-                }
-            });
             
             const getNextPage = async () => {
-                if (noMorePosts) return;
+                if (noMorePosts) {
+                    // Remove the load-more button
+                    const loadMoreButton = document.querySelector("#load-more");
+                    if (loadMoreButton) {
+                        loadMoreButton.remove();
+                    }
+
+                    return;
+                }
 
                 const url = window.location.origin;
-                const response = await fetch("' . $url . '/wp-json/wp/v2/' . $post_type_slug . '?per_page=' . $posts_per_page . '&page=" + (++currentPage));
+                const response = await fetch("' . $url . '/wp-json/wp/v2/ifs/' . $post_type . '?page=" + (currentPage + 1) + "&per_page=' . $posts_per_page . '");
+
+                currentPage++;
 
                 if (!response.ok) {
                     noMorePosts = true;
@@ -67,7 +65,27 @@ function elimin8r_enable_infinite_scroll() {
                 displayNextPage(data);
             }
 
+            const addLoadMoreButtonEventListener = () => {
+                const loadMoreButton = document.querySelector("#load-more");
+                if (loadMoreButton) {
+                    loadMoreButton.addEventListener("click", getNextPage);
+                }
+            }
+
+            // Call this function when the page first loads
+            addLoadMoreButtonEventListener();
+
             const displayNextPage = (data) => {
+                // Remove the load-more button
+                const loadMoreButton = document.querySelector("#load-more");
+                if (loadMoreButton) {
+                    loadMoreButton.remove();
+                }
+
+                // Add - Page 2 to the browser title
+                document.title = document.title + " - Page " + currentPage;
+                document.title = document.title.replace(" - Page " + (currentPage - 1), "");
+
                 const posts = data;
                 const postsContainer = document.querySelector(".blog-content");
                 const article = postsContainer.querySelector(".post");
@@ -93,38 +111,37 @@ function elimin8r_enable_infinite_scroll() {
                     postElement.classList.add("post");
                     postElement.classList.add("ifs-post");
                     postElement.classList.add(postClass);
-                    fetch(post._links["wp:featuredmedia"][0].href)
-                        .then(response => response.json())
-                        .then(media => {
-                            let postExcerpt = post.excerpt.rendered
-                            if (postClass === "blog-compact") {
-                                let words = postExcerpt.split(" ");
-                                if (words.length > 35) {
-                                    postExcerpt = words.slice(0, 35).join(" ") + ` <a href="${post.link}">Continue reading</a>`;
-                                }
-                            }
 
-                            postElement.innerHTML = `
-                                <a href="${post.link}" title="${post.title.rendered}">
-                                    <figure class="post-thumbnail">
-                                        <img width="300" height="200" src="${media.source_url}" class="attachment-medium size-medium wp-post-image" alt="" decoding="async">
-                                    </figure>
-                                </a>
+                    const thumbnail = post.thumbnail ? post.thumbnail : "/wp-content/themes/elimin8r/dist/images/placeholder-image.svg";
 
-                                <div class="article-content">
-                                    <header class="entry-header">
-                                        <h2 class="entry-title"><a href="${post.link}" rel="bookmark">${post.title.rendered}</a></h2>
-                                    </header>
+                    postElement.innerHTML = `
+                        <a href="${post.permalink}" title="${post.title}">
+                            <figure class="post-thumbnail">
+                                <img width="300" height="200" src="${thumbnail}" class="attachment-medium size-medium wp-post-image" alt="" decoding="async">
+                            </figure>
+                        </a>
 
-                                    <div class="entry-content">
-                                        ${postExcerpt}
-                                    </div>
-                                </div>
-                            `;
-                        });
+                        <div class="article-content">
+                            <header class="entry-header">
+                                <h2 class="entry-title"><a href="${post.permalink}" rel="bookmark">${post.title}</a></h2>
+                            </header>
+
+                            <div class="entry-content">
+                                ${post.excerpt}
+                            </div>
+                        </div>
+                    `;
 
                     postsContainer.appendChild(postElement);
                 });
+
+                // Add the load-more button
+                const newLoadMoreButton = document.createElement("button");
+                newLoadMoreButton.id = "load-more";
+                newLoadMoreButton.textContent = "Load more";
+                postsContainer.appendChild(newLoadMoreButton);
+
+                addLoadMoreButtonEventListener();
             }
         </script>';
 

@@ -89,7 +89,7 @@ function elimin8r_enable_infinite_scroll() {
 
                 const posts = data;
                 const postsContainer = document.querySelector(".blog-content");
-                const article = postsContainer.querySelector(".post");
+                const article = postsContainer.querySelector("article.hentry");
 
                 let postClass = "";
                 if (article) {

@@ -41,21 +41,6 @@ class CustomizerLayout {
 			),
 		) ) );
 	
-		// Add the setting for enabling the sidebar
-		$wp_customize->add_setting( 'enable_sidebar' , array(
-			'default'   => false,
-			'transport' => 'refresh',
-			'sanitize_callback' => 'absint',
-		) );
-	
-		// Add the control for enabling the sidebar
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'enable_sidebar', array(
-			'label'      => __( 'Enable Sidebar', 'elimin8r' ),
-			'section'    => 'elimin8r_layout_options',
-			'settings'   => 'enable_sidebar',
-			'type'       => 'checkbox',
-		) ) );
-	
 		// Add the setting for content transparency
 		$wp_customize->add_setting( 'content_transparency' , array(
 			'default'   => '0',

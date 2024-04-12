@@ -26,9 +26,7 @@ get_header();
 		</main><!-- .site-content -->
 
 		<?php
-			if ( get_theme_mod( 'enable_sidebar', 'false' ) ) {
-				get_sidebar();
-			}
+			get_sidebar();
 		?>
 	</div><!-- .site-main -->
 

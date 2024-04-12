@@ -3,6 +3,8 @@
 /**
  * Customizer Header
  * 
+ * This class is used to add customizer settings for the header of the theme.
+ * 
  * @package elimin8r
  */
 

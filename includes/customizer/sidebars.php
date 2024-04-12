@@ -3,6 +3,8 @@
 /**
  * Customizer Sidebar
  * 
+ * This class is used to add customizer settings for the sidebar of the theme.
+ * 
  * @package elimin8r
  */
 

@@ -3,6 +3,8 @@
 /**
  * Customizer Default
  * 
+ * This class is used to add default customizer settings to the theme.
+ * 
  * @package elimin8r
  */
 

@@ -3,6 +3,8 @@
 /**
  * Customizer Footer
  * 
+ * This class is used to add customizer settings for the footer of the theme.
+ * 
  * @package elimin8r
  */
 

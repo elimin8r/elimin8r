@@ -31,13 +31,6 @@ function elimin8r_post_thumbnail( $size ) {
     <?php
 }
 
-// Add SVG support
-function elimin8r_mime_types( $mimes ) {
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-}
-add_filter( 'upload_mimes', 'elimin8r_mime_types' );
-
 // Add preload for featured images
 function elimin8r_preload_image() {
     if ( is_singular() && has_post_thumbnail() ) {

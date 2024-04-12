@@ -6,7 +6,7 @@
  * @package elimin8r
  */
 
-class Elimin8r_Maintenance_Mode {
+class MaintenanceMode {
     public function __construct()
     {
         add_action( 'wp', array( $this, 'enable_maintenance_mode' ) );
@@ -48,4 +48,4 @@ class Elimin8r_Maintenance_Mode {
     }
 }
 
-new Elimin8r_Maintenance_Mode();
+new MaintenanceMode();

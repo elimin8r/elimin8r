@@ -7,11 +7,13 @@
  */
 
 class CustomizerFooter {
-	public function __construct() {
+	public function __construct()
+	{
 		add_action( 'customize_register', array( $this, 'registerCustomizerSettings' ) );
 	}
 
-	public function registerCustomizerSettings( $wp_customize ) {
+	public function registerCustomizerSettings( $wp_customize )
+	{
 		// Add the footer section
 		$wp_customize->add_section( 'elimin8r_footer_options' , array(
 			'title'      => __( 'Footer', 'elimin8r' ),

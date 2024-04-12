@@ -7,11 +7,13 @@
  */
 
 class CustomizerBackground {
-	public function __construct() {
+	public function __construct()
+	{
 		add_action( 'customize_register', array( $this, 'registerCustomizerSettings' ) );
 	}
 
-	public function registerCustomizerSettings( $wp_customize ) {
+	public function registerCustomizerSettings( $wp_customize )
+	{
 		// Change the section of the background color setting
 		$background_color = $wp_customize->get_control( 'background_color' );
 		if ( ! empty( $background_color ) ) {

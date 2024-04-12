@@ -6,7 +6,7 @@
  * @package elimin8r
  */
 
-class InfiniteScrollSettings {
+class InfiniteScroll {
     public function __construct() {
         add_action( 'admin_init', array( $this, 'add_enable_infinite_scroll_checkbox' ) );
         add_action( 'wp_footer', array( $this, 'enable_infinite_scroll' ) );
@@ -171,4 +171,4 @@ class InfiniteScrollSettings {
     }
 }
 
-$infinite_scroll_settings = new InfiniteScrollSettings();
+$infinite_scroll_settings = new InfiniteScroll();

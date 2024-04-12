@@ -8,10 +8,10 @@
 
 class CustomizerBackground {
 	public function __construct() {
-		add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
+		add_action( 'customize_register', array( $this, 'registerCustomizerSettings' ) );
 	}
 
-	public function register_customizer_settings( $wp_customize ) {
+	public function registerCustomizerSettings( $wp_customize ) {
 		// Change the section of the background color setting
 		$background_color = $wp_customize->get_control( 'background_color' );
 		if ( ! empty( $background_color ) ) {
@@ -41,4 +41,4 @@ class CustomizerBackground {
 	}
 }
 
-$elimin8r_customizer = new CustomizerBackground();
+$customizer_background = new CustomizerBackground();

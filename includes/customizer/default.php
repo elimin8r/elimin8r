@@ -9,16 +9,16 @@
 class CustomizerDefault {
 	public function __construct()
 	{
-		add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ) );
-		add_action( 'customize_register', array( $this, 'customize_register' ) );
+		add_action( 'customize_preview_init', array( $this, 'enqueueCustomizerScripts' ) );
+		add_action( 'customize_register', array( $this, 'registerCustomizerSettings' ) );
 	}
 
-	public function customize_preview_js()
+	public function enqueueCustomizerScripts()
 	{
 		wp_enqueue_script( 'elimin8r-customizer', get_template_directory_uri() . '/includes/js/customizer.js', array( 'customize-preview' ), '', true );
 	}
 
-	public function customize_register( $wp_customize ) {
+	public function registerCustomizerSettings( $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -28,25 +28,25 @@ class CustomizerDefault {
 				'blogname',
 				array(
 					'selector'        => '.site-title a',
-					'render_callback' => array( $this, 'customize_partial_blogname' ),
+					'render_callback' => array( $this, 'customizerPartialBlogname' ),
 				)
 			);
 			$wp_customize->selective_refresh->add_partial(
 				'blogdescription',
 				array(
 					'selector'        => '.site-description',
-					'render_callback' => array( $this, 'customize_partial_blogdescription' ),
+					'render_callback' => array( $this, 'customizePartialBlogDescription' ),
 				)
 			);
 		}
 	}
 
-	public function customize_partial_blogname()
+	public function customizerPartialBlogname()
 	{
 		bloginfo( 'name' );
 	}
 
-	public function customize_partial_blogdescription()
+	public function customizePartialBlogDescription()
 	{
 		bloginfo( 'description' );
 	}

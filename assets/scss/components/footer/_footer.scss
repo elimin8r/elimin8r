@@ -33,11 +33,15 @@ body:has(.header-side) {
         ul {
             margin: 0;
             padding: 0 0 0 15px;
-        }
+        } 
     }
-
+    
     .site-info {
         @include content-width;
         padding: 30px;
+
+        p {
+            margin: 0;
+        }
     }
 }

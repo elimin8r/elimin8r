@@ -6,6 +6,10 @@
         display: block;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     .sticky-post {
         display: none;
         margin-bottom: 15px;
@@ -54,10 +58,10 @@
 
                 p {
                     margin: 0;
-                }
 
-                a {
-                    text-decoration: none;
+                    a {
+                        text-decoration: underline;
+                    }
                 }
             }
         }

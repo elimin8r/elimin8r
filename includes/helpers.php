@@ -5,6 +5,8 @@ namespace Elimin8r\Helpers;
 /**
  * Helper functions
  *
+ * This class is used to add helper functions to the theme.
+ * 
  * @package Elimin8r
  */
 

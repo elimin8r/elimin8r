@@ -12,6 +12,8 @@ class Setup {
     public function __construct()
     {
         add_action( 'after_setup_theme', array( $this, 'setup' ) );
+        add_action( 'wp_head', array( $this, 'pingback_header' ) );
+        $this->shims();
     }
 
     public function setup()
@@ -80,6 +82,24 @@ class Setup {
 
         // Add theme support for WooCommerce
         add_theme_support( 'woocommerce' );
+    }
+
+    // Add a pingback url auto-discovery header for single posts, pages, or attachments.
+    public function pingback_header()
+    {
+        if ( is_singular() && pings_open() ) {
+            printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+        }
+    }
+
+    public function shims()
+    {
+        // Shim for sites older than 5.2.
+        if ( ! function_exists( 'wp_body_open' ) ) :
+            function wp_body_open() {
+                do_action( 'wp_body_open' );
+            }
+        endif;
     }
 }
 

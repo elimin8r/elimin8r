@@ -14,6 +14,7 @@ class Setup {
         add_action( 'after_setup_theme', array( $this, 'setup' ) );
         add_action( 'wp_head', array( $this, 'pingback_header' ) );
         $this->shims();
+        add_action( 'wp_head', array( $this, 'javascript_site_data' ) );
     }
 
     public function setup()
@@ -100,6 +101,28 @@ class Setup {
                 do_action( 'wp_body_open' );
             }
         endif;
+    }
+
+    public function javascript_site_data()
+    {
+        // Get the post type
+        $post_type = get_post_type();
+
+        // Get the URL
+        $url = get_site_url();
+
+        // Get the 'Blog pages show at most' option
+        $posts_per_page = get_option( 'posts_per_page' );
+
+        $script = '<script id="elimin8r-data">
+            const elimin8r = {
+                url: "' . esc_url( $url ) . '",
+                post_type: "' . $post_type . '",
+                posts_per_page: "' . $posts_per_page . '"
+            };
+        </script>';
+
+        echo $script;
     }
 }
 

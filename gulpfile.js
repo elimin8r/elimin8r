@@ -102,10 +102,18 @@ gulp.task('sass', gulp.parallel('sass-frontend', 'sass-critical', 'sass-admin'))
 
 // Compile & minify JavaScript
 gulp.task("terser", function() {
-  return gulp.src(srcDir + '/js/*.js')
+  return gulp.src(srcDir + '/js/*.js', !srcDir + '/js/infinite-scroll.js')
   .pipe(concat('script.min.js'))
   .pipe(terser())
   .pipe(gulp.dest(destDir + '/js'));
+});
+
+// Compile & minify the infinite scroll JavaScript
+gulp.task("terser-ifs", function () {
+  return gulp.src(srcDir + '/js/infinite-scroll.js')
+    .pipe(concat('infinite-scroll.min.js'))
+    .pipe(terser())
+    .pipe(gulp.dest(destDir + '/js'));
 });
 
 // Compress images
@@ -136,7 +144,7 @@ gulp.task('clean:dist', function() {
 
 // Build assets for production
 gulp.task('build', function(callback) {
-  runSequence('clean:dist', ['sass', 'terser', 'images'], 'minify-css', function() {
+  runSequence('clean:dist', ['sass', 'terser', 'terser-ifs', 'images'], 'minify-css', function() {
     runSequence('cachebust', callback);
   });
 });

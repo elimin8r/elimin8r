@@ -1,9 +1,14 @@
 <?php
-// Template part for displaying sticky posts.
+
+/**
+ * Template part for displaying sticky posts.
+ *
+ * @package elimin8r
+ */
 
 // Get the sticky posts
 $post_type = get_post_type();
-$sticky_posts = elimin8r_get_sticky_posts( $post_type );
+$sticky_posts = Elimin8r\StickyPosts\StickyPosts::get_sticky_posts( $post_type );
 
 $count = 0;
 ?>

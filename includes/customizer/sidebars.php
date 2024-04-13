@@ -60,4 +60,4 @@ class CustomizerSidebar {
 	}
 }
 
-$customizer_sidebar = new CustomizerSidebar();
+new CustomizerSidebar();

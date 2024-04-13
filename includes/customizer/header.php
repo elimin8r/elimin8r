@@ -148,4 +148,4 @@ class CustomizerHeader {
     }
 }
 
-$customizer_header = new CustomizerHeader();
+new CustomizerHeader();

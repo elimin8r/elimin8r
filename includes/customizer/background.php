@@ -45,4 +45,4 @@ class CustomizerBackground {
 	}
 }
 
-$customizer_background = new CustomizerBackground();
+new CustomizerBackground();

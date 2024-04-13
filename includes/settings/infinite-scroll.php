@@ -171,4 +171,4 @@ class InfiniteScroll {
     }
 }
 
-$infinite_scroll_settings = new InfiniteScroll();
+new InfiniteScroll();

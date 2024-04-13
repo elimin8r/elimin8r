@@ -9,7 +9,8 @@ namespace Elimin8r\Media;
  */
 
  class Media {
-    public function __construct() {
+    public function __construct()
+    {
         add_action( 'wp_head', array( $this, 'preload_image' ), 0 );
         add_action( 'add_meta_boxes', array( $this, 'add_featured_image_settings_meta_box' ) );
         add_action( 'save_post', array( $this, 'save_featured_image_checkbox' ) );
@@ -17,7 +18,8 @@ namespace Elimin8r\Media;
     }
 
     // If thumbnail is not present then add a placeholder image
-    public static function post_thumbnail( $size ) {
+    public static function post_thumbnail( $size )
+    {
         $header_position = get_theme_mod( 'header_position', 'top' );
 
         if ( get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) && $header_position == 'top' ) {
@@ -48,7 +50,8 @@ namespace Elimin8r\Media;
     }
 
     // Add preload for featured images
-    public function preload_image() {
+    public function preload_image()
+    {
         if ( is_singular() && has_post_thumbnail() ) {
             // Get the featured image
             $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
@@ -65,7 +68,8 @@ namespace Elimin8r\Media;
     }
 
     // Add featured image settings meta box
-    public function add_featured_image_settings_meta_box() {
+    public function add_featured_image_settings_meta_box()
+    {
         $post_types = get_post_types( array( 'public' => true ) );
         unset( $post_types['attachment'] );
 
@@ -79,7 +83,8 @@ namespace Elimin8r\Media;
     }
 
     // Featured image settings meta box HTML
-    public function featured_image_settings_meta_box_html( $post ) {
+    public function featured_image_settings_meta_box_html( $post )
+    {
         $value = get_post_meta( $post->ID, '_featured_image_checkbox', true );
         $checked = $value == '1' ? 'checked' : '';
         echo '<input type="checkbox" id="featured_image_checkbox" name="featured_image_checkbox" value="1" ' . $checked . '>';
@@ -104,7 +109,8 @@ namespace Elimin8r\Media;
     }
 
     // Get the width and height of an SVG file
-    public function getSvgSize( $file ) {
+    public function getSvgSize( $file )
+    {
         $svgContent = file_get_contents( $file );
         if ( $svgContent === false ) {
             return [0, 0]; // Return default size if file can't be read
@@ -123,7 +129,8 @@ namespace Elimin8r\Media;
     }
 
     // Filter the_custom_logo() to add width and height attributes
-    public function custom_logo_output( $html ) {
+    public function custom_logo_output( $html )
+    {
         // Get the ID
         $custom_logo_id = get_theme_mod( 'custom_logo' );
 

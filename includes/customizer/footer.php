@@ -87,4 +87,4 @@ class CustomizerFooter {
 	}
 }
 
-$customizer_footer = new CustomizerFooter();
+new CustomizerFooter();

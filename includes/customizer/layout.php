@@ -105,4 +105,4 @@ class CustomizerLayout {
 	}
 }
 
-$customizer_layout = new CustomizerLayout();
+new CustomizerLayout();

@@ -54,4 +54,4 @@ class CustomizerDefault {
 	}
 }
 
-$customizer_default = new CustomizerDefault();
+new CustomizerDefault();

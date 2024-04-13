@@ -10,7 +10,8 @@ namespace Elimin8r\PostMeta;
 
 class PostMeta {
 	// Prints HTML with meta information for the current post-date/time.
-	public static function posted_on() {
+	public static function posted_on()
+	{
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -44,7 +45,8 @@ class PostMeta {
 	}
 
 	// Prints HTML with meta information for the current author.
-	public static function posted_by() {
+	public static function posted_by()
+	{
 		global $current_template;
 		if ( $current_template == 'blog-grid' ) {
 			$byline = sprintf(
@@ -66,7 +68,8 @@ class PostMeta {
 	}
 
 	// Prints HTML with meta information for the categories, tags and comments.
-	public static function entry_footer() {
+	public static function entry_footer()
+	{
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			// translators: used between list items, there is a space after the comma

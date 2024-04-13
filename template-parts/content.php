@@ -15,8 +15,8 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				elimin8r_posted_on();
-				elimin8r_posted_by();
+				Elimin8r\PostMeta\PostMeta::posted_on();
+				Elimin8r\PostMeta\PostMeta::posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -62,6 +62,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php elimin8r_entry_footer(); ?>
+		<?php Elimin8r\PostMeta\PostMeta::entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

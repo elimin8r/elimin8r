@@ -16,8 +16,8 @@ $current_template = 'blog-compact';
 	
 			<div class="entry-meta">
 				<?php
-					elimin8r_posted_on();
-					elimin8r_posted_by();
+					Elimin8r\PostMeta\PostMeta::posted_on();
+					Elimin8r\PostMeta\PostMeta::posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->

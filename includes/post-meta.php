@@ -1,10 +1,16 @@
 <?php
 
-if ( ! function_exists( 'elimin8r_posted_on' ) ) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 */
-	function elimin8r_posted_on() {
+namespace Elimin8r\PostMeta;
+
+/**
+ * Functions for displaying post meta
+ * 
+ * @package elimin8r
+ */
+
+class PostMeta {
+	// Prints HTML with meta information for the current post-date/time.
+	public static function posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -36,13 +42,9 @@ if ( ! function_exists( 'elimin8r_posted_on' ) ) :
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
-endif;
 
-if ( ! function_exists( 'elimin8r_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 */
-	function elimin8r_posted_by() {
+	// Prints HTML with meta information for the current author.
+	public static function posted_by() {
 		global $current_template;
 		if ( $current_template == 'blog-grid' ) {
 			$byline = sprintf(
@@ -62,26 +64,22 @@ if ( ! function_exists( 'elimin8r_posted_by' ) ) :
 		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
-endif;
 
-if ( ! function_exists( 'elimin8r_entry_footer' ) ) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function elimin8r_entry_footer() {
+	// Prints HTML with meta information for the categories, tags and comments.
+	public static function entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
+			// translators: used between list items, there is a space after the comma
 			$categories_list = get_the_category_list( esc_html__( ', ', 'elimin8r' ) );
 			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
+				// translators: 1: list of categories.
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'elimin8r' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
-			/* translators: used between list items, there is a space after the comma */
+			// translators: used between list items, there is a space after the comma
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'elimin8r' ) );
 			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
+				// translators: 1: list of tags.
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'elimin8r' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
@@ -91,7 +89,7 @@ if ( ! function_exists( 'elimin8r_entry_footer' ) ) :
 			comments_popup_link(
 				sprintf(
 					wp_kses(
-						/* translators: %s: post title */
+						// translators: %s: post title
 						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'elimin8r' ),
 						array(
 							'span' => array(
@@ -108,7 +106,7 @@ if ( ! function_exists( 'elimin8r_entry_footer' ) ) :
 		edit_post_link(
 			sprintf(
 				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
+					// translators: %s: Name of current post. Only visible to screen readers
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'elimin8r' ),
 					array(
 						'span' => array(
@@ -122,4 +120,4 @@ if ( ! function_exists( 'elimin8r_entry_footer' ) ) :
 			'</span>'
 		);
 	}
-endif;
+}

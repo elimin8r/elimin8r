@@ -3,8 +3,6 @@
 namespace Elimin8r\Pagination;
 
 /**
- * Pagination
- * 
  * This class is used to add pagination functionality to the theme.
  * 
  * @package elimin8r

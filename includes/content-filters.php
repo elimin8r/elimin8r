@@ -3,8 +3,6 @@
 namespace Elimin8r\ContentFilters;
 
 /**
- * Custom content filters
- *
  * This class is used to add custom content filters to the theme.
  * 
  * @package Elimin8r

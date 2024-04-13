@@ -3,7 +3,7 @@
 namespace Elimin8r\Settings\InfiniteScroll;
 
 /**
- * Infinite Scroll Settings
+ * This class is used to add a setting to enable infinite scroll.
  *
  * @package elimin8r
  */

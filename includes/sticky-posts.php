@@ -3,8 +3,6 @@
 namespace Elimin8r\StickyPosts;
 
 /**
- * Sticky posts
- *
  * This class is used to get sticky posts for a post type.
  * 
  * @package elimin8r

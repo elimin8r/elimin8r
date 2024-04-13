@@ -3,7 +3,7 @@
 namespace Elimin8r\Widgets;
 
 /**
- * Register widget areaa.
+ * This class is used to add widget functionality to the theme.
  *
  * @package elimin8r
  */

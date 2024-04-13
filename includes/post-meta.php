@@ -3,8 +3,6 @@
 namespace Elimin8r\PostMeta;
 
 /**
- * Functions for displaying post meta
- * 
  * This class is used to add functions for displaying post meta to the theme.
  * 
  * @package elimin8r

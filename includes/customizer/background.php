@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Customizer Background
- * 
  * This class is used to add customizer settings for the background of the theme.
  * 
  * @package elimin8r

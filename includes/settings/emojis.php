@@ -3,7 +3,7 @@
 namespace Elimin8r\Settings\EmojiDisabler;
 
 /**
- * Disable Emojis
+ * This class is used to add a setting to disable emojis.
  *
  * @package elimin8r
  */

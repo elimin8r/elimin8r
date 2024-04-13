@@ -3,8 +3,6 @@
 namespace Elimin8r\Endpoints;
 
 /**
- * Custom REST API endpoints
- *
  * This class is used to add custom REST API endpoints to the theme.
  * 
  * @package Elimin8r

@@ -3,8 +3,6 @@
 namespace Elimin8r\Media;
 
 /**
- * Media
- * 
  * This class is used to add media functionality to the theme.
  * 
  * @package elimin8r

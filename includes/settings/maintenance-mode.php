@@ -3,7 +3,7 @@
 namespace Elimin8r\Settings\MaintenanceMode;
 
 /**
- * Maintenance Mode
+ * This class is used to add a setting to enable maintenance mode.
  *
  * @package elimin8r
  */

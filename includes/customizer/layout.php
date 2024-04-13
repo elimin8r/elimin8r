@@ -1,8 +1,6 @@
 <?php
 
 /**
- * Customizer Layout
- * 
  * This class is used to add customizer settings for the layout of the
  * main content area.
  * 

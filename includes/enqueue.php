@@ -3,7 +3,7 @@
 namespace Elimin8r\Enqueue;
 
 /**
- * Enqueue scripts and styles.
+ * This class is used to enqueue scripts and styles.
  *
  * @package elimin8r
  */

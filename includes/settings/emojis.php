@@ -1,6 +1,6 @@
 <?php
 
-namespace Elimin8r\EmojiDisabler;
+namespace Elimin8r\Settings\EmojiDisabler;
 
 /**
  * Disable Emojis

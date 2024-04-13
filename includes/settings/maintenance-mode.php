@@ -1,6 +1,6 @@
 <?php
 
-namespace Elimin8r\MaintenanceMode;
+namespace Elimin8r\Settings\MaintenanceMode;
 
 /**
  * Maintenance Mode

@@ -1,6 +1,6 @@
 <?php
 
-namespace Elimin8r\InfiniteScroll;
+namespace Elimin8r\Settings\InfiniteScroll;
 
 /**
  * Infinite Scroll Settings

@@ -12,7 +12,7 @@
 
 		// If the featured image is not set to full width then display the featured image
 		if ( is_page() && ! get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) || $header_position != 'top') {
-			elimin8r_post_thumbnail( 'large' );
+			Elimin8r\Media\Media::post_thumbnail( 'large' );
 		}
 	?>
 

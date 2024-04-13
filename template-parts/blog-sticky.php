@@ -31,7 +31,7 @@ $count = 0;
             <article class="sticky-post sticky-post-<?php echo $count; ?>">
                 <a href="<?php the_permalink(); ?>">
                     <div class="sticky-post-thumbnail">
-                        <?php elimin8r_post_thumbnail( 'medium' ); ?>
+                        <?php Elimin8r\Media\Media::post_thumbnail( 'medium' ); ?>
                     </div>
                 </a>
                 

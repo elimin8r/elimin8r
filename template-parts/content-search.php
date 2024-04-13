@@ -7,7 +7,7 @@ $current_template = 'blog-compact';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		<?php elimin8r_post_thumbnail( 'medium' ); ?>
+		<?php Elimin8r\Media\Media::post_thumbnail( 'medium' ); ?>
 	</a>
 
 	<div class="article-content">

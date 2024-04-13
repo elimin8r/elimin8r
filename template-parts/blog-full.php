@@ -7,7 +7,7 @@ $current_template = 'blog-full';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		<?php elimin8r_post_thumbnail( 'large' ); ?>
+		<?php Elimin8r\Media\Media::post_thumbnail( 'large' ); ?>
 	</a>
 
 	<div class="article-content">

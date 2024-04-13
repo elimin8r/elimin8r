@@ -4,6 +4,8 @@ namespace Elimin8r\Pagination;
 
 /**
  * Pagination
+ * 
+ * @package elimin8r
  */
 
 class Pagination {

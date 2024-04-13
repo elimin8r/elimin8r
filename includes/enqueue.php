@@ -18,7 +18,8 @@ class Enqueue {
     }
 
     // Enqueue scripts and styles.
-    function scripts() {
+    function scripts()
+    {
         $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
         wp_enqueue_style( 'elimin8r-style', get_template_directory_uri() . '/dist/css/' . $manifest['style.min.css'], array(), '' );
 
@@ -30,20 +31,23 @@ class Enqueue {
     }
 
     // Enqueue admin scripts and styles.
-    function admin_scripts() {
+    function admin_scripts()
+    {
         $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
         wp_enqueue_style( 'elimin8r-admin-style', get_template_directory_uri() . '/dist/css/' . $manifest['admin.min.css'], array(), '' );
     }
 
     // Add critical CSS to the head
-    function critical_css() {
+    function critical_css()
+    {
         $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
         $css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['critical.min.css'] );
         echo '<style id="elimin8r-critical-style">' . $css . '</style>' . PHP_EOL;
     }
 
     // Dequeue scripts and styles.
-    function dequeue_scripts() {
+    function dequeue_scripts()
+    {
         wp_dequeue_style( 'wp-block-library' );
         wp_dequeue_style( 'wp-block-library-theme' );
     }

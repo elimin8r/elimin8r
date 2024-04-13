@@ -17,7 +17,8 @@ class Endpoints {
     }
 
     // Endpoint URL: /wp-json/wp/v2/ifs/{post_type}?page={page}&per_page={per_page}
-    public function register_ifs_endpoints() {
+    public function register_ifs_endpoints()
+    {
         register_rest_route( 'wp/v2', '/ifs/(?P<post_type>[a-zA-Z0-9-]+)', array(
             'methods' => 'GET',
             'callback' => function ( \WP_REST_Request $request ) {

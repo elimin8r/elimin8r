@@ -25,7 +25,8 @@ class Helpers {
     }
 
     // Handle customizer transparency
-    public static function hex_opacity( $color, $opacity ) {
+    public static function hex_opacity( $color, $opacity )
+    {
         $opacity = absint( $opacity );
         if ( $opacity > 100 ) {
             $opacity = 100;
@@ -35,13 +36,14 @@ class Helpers {
         return "rgba({$r}, {$g}, {$b}, {$opacity})";
     }
 
-    public static function minify_css($css) {
+    public static function minify_css( $css )
+    {
         // Remove comments
-        $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+        $css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );
         // Remove space after colons
-        $css = str_replace(': ', ':', $css);
+        $css = str_replace( ': ', ':', $css );
         // Remove whitespace
-        $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $css);
+        $css = str_replace( array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $css );
         
         return $css;
     }

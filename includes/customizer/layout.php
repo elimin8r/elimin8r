@@ -10,11 +10,13 @@
  */
 
 class CustomizerLayout {
-	public function __construct() {
+	public function __construct()
+	{
 		add_action( 'customize_register', array( $this, 'registerCustomizerSettings' ) );
 	}
 	
-	public function registerCustomizerSettings( $wp_customize ) {
+	public function registerCustomizerSettings( $wp_customize )
+	{
 		// Add the layout section
 		$wp_customize->add_section( 'elimin8r_layout_options' , array(
 			'title'      => __( 'Content', 'elimin8r' ),

@@ -19,7 +19,8 @@ class ContentFilters {
     }
 
     // Add blog-* class to the post_class for each blog template
-    public function blog_compact_class( $classes ) {
+    public function blog_compact_class( $classes )
+    {
         global $current_template;
     
         if ( $current_template === 'blog-compact' ) {
@@ -34,12 +35,14 @@ class ContentFilters {
     }
     
     // Add link to end of excerpt
-    public function excerpt_more( $more ) {
+    public function excerpt_more( $more )
+    {
         return ' <a href="' . get_permalink() . '">' . __('Continue reading', 'elimin8r') . '</a>';
     }
     
     // Change excerpt length based on blog template
-    public function excerpt_length( $length ) {
+    public function excerpt_length( $length )
+    {
         global $current_template;
     
         if ( $current_template === 'blog-compact' ) {
@@ -55,6 +58,5 @@ class ContentFilters {
         return $length;
     }
 }
-
 
 new ContentFilters();

@@ -97,7 +97,8 @@ namespace Elimin8r\Media;
     }
 
     // Save featured image settings
-    public function save_featured_image_checkbox( $post_id ) {
+    public function save_featured_image_checkbox( $post_id )
+    {
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
             return;
         }

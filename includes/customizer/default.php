@@ -21,7 +21,8 @@ class CustomizerDefault {
 		wp_enqueue_script( 'elimin8r-customizer', get_template_directory_uri() . '/includes/js/customizer.js', array( 'customize-preview' ), '', true );
 	}
 
-	public function registerCustomizerSettings( $wp_customize ) {
+	public function registerCustomizerSettings( $wp_customize )
+	{
 		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -55,7 +56,8 @@ class CustomizerDefault {
 	}
 
 	// Output customizer CSS
-	public function elimin8r_customizer_css() {
+	public function elimin8r_customizer_css()
+	{
 		$background_tint = get_theme_mod( 'background_tint', 'false' );
 		$content_color = get_theme_mod( 'content_color', '#ffffff' );
 		$content_text_color = get_theme_mod( 'content_text_color', '#000000' );

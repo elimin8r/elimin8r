@@ -15,21 +15,24 @@ namespace Elimin8r\Media;
         add_action( 'add_meta_boxes', array( $this, 'add_featured_image_settings_meta_box' ) );
         add_action( 'save_post', array( $this, 'save_featured_image_checkbox' ) );
         add_filter( 'get_custom_logo', array( $this, 'custom_logo_output' ) );
+        add_filter( 'wp_get_attachment_image_attributes', array( $this, 'add_featured_full_width_class' ) );
+    }
+
+    // Add class 'featured-full-width' to the post thumbnail
+    function add_featured_full_width_class( $attr )
+    {
+        $header_position = get_theme_mod( 'header_position', 'top' );
+    
+        if ( get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) && $header_position == 'top' ) {
+            $attr['class'] .= ' featured-full-width';
+        }
+
+        return $attr;
     }
 
     // If thumbnail is not present then add a placeholder image
     public static function post_thumbnail( $size )
     {
-        $header_position = get_theme_mod( 'header_position', 'top' );
-
-        if ( get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) && $header_position == 'top' ) {
-            // Add class 'featured-full-width' to the post thumbnail
-            function add_featured_full_width_class( $attr ) {
-                $attr['class'] .= ' featured-full-width';
-                return $attr;
-            }
-            add_filter( 'wp_get_attachment_image_attributes', 'add_featured_full_width_class' );
-        }
         ?>
         <figure class="post-thumbnail">
             <?php

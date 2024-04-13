@@ -4,6 +4,3 @@
 foreach ( glob( __DIR__ . '/includes/*.php' ) as $file ) {
 	require_once $file;
 }
-
-// Disable customizer settings
-// define( 'DISABLE_CUSTOMIZER', true );

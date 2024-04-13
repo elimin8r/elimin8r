@@ -21,4 +21,26 @@ class Helpers {
     
         return $new_input;
     }
+
+    // Handle customizer transparency
+    public static function hex_opacity( $color, $opacity ) {
+        $opacity = absint( $opacity );
+        if ( $opacity > 100 ) {
+            $opacity = 100;
+        }
+        $opacity = 1 - ( $opacity / 100 );
+        list( $r, $g, $b ) = sscanf( $color, "#%02x%02x%02x" );
+        return "rgba({$r}, {$g}, {$b}, {$opacity})";
+    }
+
+    public static function minify_css($css) {
+        // Remove comments
+        $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+        // Remove space after colons
+        $css = str_replace(': ', ':', $css);
+        // Remove whitespace
+        $css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $css);
+        
+        return $css;
+    }
 }

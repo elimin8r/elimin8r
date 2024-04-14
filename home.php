@@ -6,7 +6,6 @@ get_header();
 
 		<?php
 		if ( have_posts() ) :
-
 			if ( is_home() && ! is_front_page() ) :
 				?>
 				<header>
@@ -14,9 +13,9 @@ get_header();
 				</header>
 				<?php
 			endif;
-
-			?> <div class="blog-content"> <?php
-			
+		?>
+		
+		<div class="blog-content"> <?php	
 			get_template_part( 'template-parts/blog', 'sticky' );
 
 			while ( have_posts() ) :
@@ -32,18 +31,19 @@ get_header();
 					get_template_part( 'template-parts/blog', 'full' );
 				}
 
-			endwhile;
+			endwhile; ?>
 
-			Elimin8r\Pagination\Pagination::getPagination(); ?>
-			</div>
-
-			<?php
-
+		</div>
+		
+		<?php
+		
 		else :
-
+			
 			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
+			
+			endif;
+			
+			Elimin8r\Pagination\Pagination::getPagination();
 		?>
 
 	</main><!-- #main -->

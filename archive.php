@@ -26,9 +26,7 @@ get_header();
 						get_template_part( 'template-parts/blog', 'full' );
 					}
 
-				endwhile;
-
-				Elimin8r\Pagination\Pagination::getPagination(); ?>
+				endwhile; ?>
 			</div>
 
 			<?php
@@ -37,6 +35,8 @@ get_header();
 				get_template_part( 'template-parts/content', 'none' );
 
 			endif;
+
+			Elimin8r\Pagination\Pagination::getPagination();
 			?>
 		</div>
 	</main><!-- #main -->

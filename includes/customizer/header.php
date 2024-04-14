@@ -38,6 +38,15 @@ class CustomizerHeader {
                 'side' => 'Side',
             ),
         ) ) );
+        $wp_customize->get_setting( 'header_position' )->transport = 'postMessage';
+        if ( isset( $wp_customize->selective_refresh ) ) {
+            $wp_customize->selective_refresh->add_partial(
+                'header_position',
+                array(
+                    'selector'        => '.site-header',
+                )
+            );
+        }
     
         // Add the setting for enabling search
         $wp_customize->add_setting( 'enable_search' , array(

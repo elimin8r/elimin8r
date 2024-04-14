@@ -28,14 +28,21 @@ class CustomizerFooter {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'wp_kses_post',
 		) );
-
-		// Add the control for the footer text
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'footer_text', array(
 			'label'      => __( 'Footer Text', 'elimin8r' ),
 			'section'    => 'elimin8r_footer_options',
 			'settings'   => 'footer_text',
 			'type'       => 'textarea',
 		) ) );
+        $wp_customize->get_setting( 'footer_text' )->transport = 'postMessage';
+        if ( isset( $wp_customize->selective_refresh ) ) {
+            $wp_customize->selective_refresh->add_partial(
+                'footer_text',
+                array(
+                    'selector'        => '.site-footer',
+                )
+            );
+        }
 
 		// Add the setting for footer transparency
 		$wp_customize->add_setting( 'footer_transparency' , array(
@@ -43,8 +50,6 @@ class CustomizerFooter {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'absint',
 		) );
-
-		// Add the control for footer transparency
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'footer_transparency', array(
 			'label'      => __( 'Footer Transparency', 'elimin8r' ),
 			'section'    => 'elimin8r_footer_options',
@@ -63,8 +68,6 @@ class CustomizerFooter {
 			'transport'   => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
-
-		// Add the control for the footer color picker
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
 			'label'        => __( 'Footer Colour', 'elimin8r' ),
 			'section'      => 'elimin8r_footer_options',
@@ -77,8 +80,6 @@ class CustomizerFooter {
 			'transport'   => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
-
-		// Add the control for the footer text color picker
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'footer_text_color', array(
 			'label'        => __( 'Footer Text Colour', 'elimin8r' ),
 			'section'      => 'elimin8r_footer_options',

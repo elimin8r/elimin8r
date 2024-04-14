@@ -47,8 +47,6 @@ class CustomizerSidebar {
 				'transport' => 'refresh',
 				'sanitize_callback' => 'sanitize_key',
 			) );
-
-			// Add the control for the sidebar settings
 			$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'sidebar_post_types_' . $post_type->name, array(
 				'label'      => sprintf( __( '%s', 'elimin8r' ), $post_type->label ),
 				'section'    => 'elimin8r_sidebar_options',

@@ -29,8 +29,6 @@ class CustomizerLayout {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'sanitize_key',
 		) );
-	
-		// Add the control for the layout position
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'blog_layout', array(
 			'label'      => __( 'Blog Layout', 'elimin8r' ),
 			'section'    => 'elimin8r_layout_options',
@@ -42,6 +40,15 @@ class CustomizerLayout {
 				'grid' => 'Grid',
 			),
 		) ) );
+        $wp_customize->get_setting( 'blog_layout' )->transport = 'postMessage';
+        if ( isset( $wp_customize->selective_refresh ) ) {
+            $wp_customize->selective_refresh->add_partial(
+                'blog_layout',
+                array(
+                    'selector'        => '.site-main',
+                )
+            );
+        }
 	
 		// Add the setting for content transparency
 		$wp_customize->add_setting( 'content_transparency' , array(
@@ -49,8 +56,6 @@ class CustomizerLayout {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'absint',
 		) );
-	
-		// Add the control for content transparency
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'content_transparency', array(
 			'label'      => __( 'Content Transparency', 'elimin8r' ),
 			'section'    => 'elimin8r_layout_options',
@@ -69,8 +74,6 @@ class CustomizerLayout {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
-	
-		// Add the color control. This will display the color picker.
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'elimin8r_color_control', array(
 			'label'    => __( 'Content Area Colour', 'elimin8r' ),
 			'section'  => 'elimin8r_layout_options',
@@ -83,8 +86,6 @@ class CustomizerLayout {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
-	
-		// Add the control for the content text color picker
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'content_text_color', array(
 			'label'    => __( 'Content Area Text Colour', 'elimin8r' ),
 			'section'  => 'elimin8r_layout_options',
@@ -97,8 +98,6 @@ class CustomizerLayout {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
-	
-		// Add the control for the content link color picker
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'content_link_color', array(
 			'label'    => __( 'Content Area Link Colour', 'elimin8r' ),
 			'section'  => 'elimin8r_layout_options',

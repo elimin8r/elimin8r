@@ -28,8 +28,6 @@ class CustomizerBackground {
 			'transport' => 'refresh',
 			'sanitize_callback' => 'absint',
 		) );
-
-		// Add the control for enabling tint
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'background_tint', array(
 			'label'      => __( 'Enable Tint', 'elimin8r' ),
 			'section'    => 'background_image',

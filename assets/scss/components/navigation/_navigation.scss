@@ -17,7 +17,7 @@
 		transition: 0.3s;
 	}
 
-	.menu-main-container {
+	> div {
 		bottom: 0;
 		height: 100vh;
 		left: -100%;
@@ -190,7 +190,7 @@
 		transition: 0.3s;
 	}
 
-	.menu-main-container {
+	> div {
 		background: #fff;
 		bottom: 0;
 		height: 100vh;

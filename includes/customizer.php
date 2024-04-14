@@ -46,10 +46,12 @@ class Customizer {
 		$footer_transparency = get_theme_mod( 'footer_transparency', '0' );
 
 		$css = '
-			body.custom-background { background-blend-mode: ' . ( $background_tint ? 'overlay' : 'initial' ) . ';
+			body.custom-background {
+				background-blend-mode: ' . ( $background_tint ? 'overlay' : 'initial' ) . ';
 			}
 		
-			body .site-main { background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $content_color, $content_transparency ) . ';
+			body .site-main {
+				background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $content_color, $content_transparency ) . ';
 			}
 			
 			body .site-main,
@@ -86,8 +88,8 @@ class Customizer {
 			}
 			
 			@media screen and (max-width: 767px) {
-				body .main-navigation.toggled .menu-main-container,
-				body .main-navigation .menu-main-container {
+				body .main-navigation.toggled > div,
+				body .main-navigation > div {
 					background: ' . $mobile_menu_color . ';
 				}
 				body .main-navigation ul li a {

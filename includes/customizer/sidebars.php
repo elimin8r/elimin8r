@@ -1,5 +1,7 @@
 <?php
 
+namespace elimin8r\Customizer;
+
 /**
  * This class is used to add customizer settings for the sidebar of the theme.
  * 
@@ -47,7 +49,7 @@ class CustomizerSidebar {
 			) );
 
 			// Add the control for the sidebar settings
-			$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_post_types_' . $post_type->name, array(
+			$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'sidebar_post_types_' . $post_type->name, array(
 				'label'      => sprintf( __( '%s', 'elimin8r' ), $post_type->label ),
 				'section'    => 'elimin8r_sidebar_options',
 				'settings'   => sprintf( 'sidebar_post_types_%s', $post_type->name ),

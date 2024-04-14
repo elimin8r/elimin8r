@@ -1,5 +1,7 @@
 <?php
 
+namespace elimin8r\Customizer;
+
 /**
  * This class is used to add customizer settings for the header of the theme.
  * 
@@ -28,7 +30,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for the header position
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_position', array(
+        $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'header_position', array(
             'label'      => __( 'Header Position', 'elimin8r' ),
             'section'    => 'elimin8r_header_options',
             'settings'   => 'header_position',
@@ -47,7 +49,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for enabling search
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'enable_search', array(
+        $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'enable_search', array(
             'label'      => __( 'Enable Search', 'elimin8r' ),
             'section'    => 'elimin8r_header_options',
             'settings'   => 'enable_search',
@@ -62,7 +64,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for header transparency
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_transparency', array(
+        $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'header_transparency', array(
             'label'      => __( 'Header Transparency', 'elimin8r' ),
             'section'    => 'elimin8r_header_options',
             'settings'   => 'header_transparency',
@@ -82,7 +84,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for the header color picker
-        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
+        $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'header_color', array(
             'label'        => __( 'Header Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
             'settings'     => 'header_color',
@@ -96,7 +98,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for the header text color picker
-        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_text_color', array(
+        $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'header_text_color', array(
             'label'        => __( 'Header Text Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
             'settings'     => 'header_text_color',
@@ -110,7 +112,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for the sub menu color picker
-        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'submenu_color', array(
+        $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'submenu_color', array(
             'label'        => __( 'Submenu Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
             'settings'     => 'submenu_color',
@@ -124,7 +126,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for the sub menu text color picker
-        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'submenu_text_color', array(
+        $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'submenu_text_color', array(
             'label'        => __( 'Submenu Text Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
             'settings'     => 'submenu_text_color',
@@ -138,7 +140,7 @@ class CustomizerHeader {
         ) );
     
         // Add the control for the hamburger color picker
-        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'hamburger_color', array(
+        $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'hamburger_color', array(
             'label'        => __( 'Hamburger Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
             'settings'     => 'hamburger_color',

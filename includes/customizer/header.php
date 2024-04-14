@@ -9,12 +9,12 @@ namespace Elimin8r\Customizer;
  */
 
 class CustomizerHeader {
-    function __construct()
+    public function __construct()
     {
         add_action( 'customize_register', array( $this, 'registerCustomizerSettings' ) );
     }
 
-    function registerCustomizerSettings( $wp_customize )
+    public function registerCustomizerSettings( $wp_customize )
     {
         // Add the header section
         $wp_customize->add_section( 'elimin8r_header_options' , array(

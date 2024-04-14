@@ -1,6 +1,6 @@
 <?php
 
-namespace elimin8r\Customizer;
+namespace Elimin8r\Customizer;
 
 /**
  * This class is used to add customizer settings for the sidebar of the theme.

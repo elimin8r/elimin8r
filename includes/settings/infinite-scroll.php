@@ -33,8 +33,11 @@ class InfiniteScroll {
     public function enable_infinite_scroll()
     {
         if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
+            //  Get manifest file
+            $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
+            
             // Enqueue infinite scroll script
-            wp_enqueue_script( 'elimin8r-infinite-scroll', get_template_directory_uri() . '/dist/js/infinite-scroll.min.js', '', '1.0', true );
+            wp_enqueue_script( 'elimin8r-infinite-scroll', get_template_directory_uri() . '/dist/js/' . $manifest['infinitescroll.min.js'], '', '1.0', true );
         }
     }
 }

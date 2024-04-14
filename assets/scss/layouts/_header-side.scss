@@ -12,5 +12,53 @@
 
     .site-main {
         @include content-width;
+
+        @media (min-width: 768px) and (max-width: 1070px) {
+            max-width: 470px;
+            width: 470px;
+
+            article.hentry {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(1, 1fr);
+                grid-column-gap: 15px;
+
+                .article-content {
+                    margin-top: 10px;
+                }
+            }
+
+            .sticky-posts:has(.sticky-post-2) {
+                p {
+                    display: block;
+                    margin-top: 5px;
+                }
+            }
+
+            .sticky-posts,
+            .sticky-posts:has(.sticky-post-2) {
+                display: block;
+
+                .sticky-post {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(1, 1fr);
+                    grid-column-gap: 15px;
+                    
+                    .sticky-post-content {
+                        background: transparent;
+                        margin-top: 10px;
+                        padding: 0;
+                        pointer-events: auto;
+                        position: relative;
+    
+                        h2,
+                        p,
+                        a {
+                            color: inherit;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

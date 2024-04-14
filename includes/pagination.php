@@ -9,7 +9,7 @@ namespace Elimin8r\Pagination;
  */
 
 class Pagination {
-    public static function get_pagination()
+    public static function getPagination()
     {
         if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
             // Add button to load next page

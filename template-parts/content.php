@@ -15,8 +15,8 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				Elimin8r\PostMeta\PostMeta::posted_on();
-				Elimin8r\PostMeta\PostMeta::posted_by();
+				Elimin8r\PostMeta\PostMeta::postedOn();
+				Elimin8r\PostMeta\PostMeta::postedBy();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -27,7 +27,7 @@
 
 		// If the featured image is not set to full width then display the featured image
 		if ( is_single() && ! get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) || $header_position != 'top') {
-			Elimin8r\Media\Media::post_thumbnail( 'large' );
+			Elimin8r\Media\Media::postThumbnail( 'large' );
 		}
 	?>
 
@@ -62,6 +62,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php Elimin8r\PostMeta\PostMeta::entry_footer(); ?>
+		<?php Elimin8r\PostMeta\PostMeta::EntryFooter(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

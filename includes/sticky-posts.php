@@ -9,7 +9,7 @@ namespace Elimin8r\StickyPosts;
  */
 
 class StickyPosts {
-    static public function get_sticky_posts( $post_type )
+    static public function getStickyPosts( $post_type )
     {
         $sticky_posts = get_option( 'sticky_posts' );
     

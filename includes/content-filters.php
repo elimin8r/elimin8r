@@ -11,13 +11,13 @@ namespace Elimin8r\ContentFilters;
 class ContentFilters {
     public function __construct()
     {
-        add_filter( 'post_class', array( $this, 'blog_compact_class' ) );
-        add_filter('excerpt_more',  array( $this, 'excerpt_more' ) );
-        add_filter( 'excerpt_length',  array( $this, 'excerpt_length' ), 999 );
+        add_filter( 'post_class', array( $this, 'blogCompactClass' ) );
+        add_filter('excerpt_more',  array( $this, 'excerptMore' ) );
+        add_filter( 'excerpt_length',  array( $this, 'excerptLength' ), 999 );
     }
 
     // Add blog-* class to the post_class for each blog template
-    public function blog_compact_class( $classes )
+    public function blogCompactClass( $classes )
     {
         global $current_template;
     
@@ -33,13 +33,13 @@ class ContentFilters {
     }
     
     // Add link to end of excerpt
-    public function excerpt_more( $more )
+    public function excerptMore( $more )
     {
         return ' <a href="' . get_permalink() . '">' . __('Continue reading', 'elimin8r') . '</a>';
     }
     
     // Change excerpt length based on blog template
-    public function excerpt_length( $length )
+    public function excerptLength( $length )
     {
         global $current_template;
     

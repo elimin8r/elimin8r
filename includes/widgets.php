@@ -11,11 +11,11 @@ namespace Elimin8r\Widgets;
 class Widgets {
     public function __construct()
     {
-        add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+        add_action( 'widgets_init', array( $this, 'widgetsInit' ) );
     }
 
     // Register widget area.
-    public function widgets_init()
+    public function widgetsInit()
     {
         register_sidebar(
             array(

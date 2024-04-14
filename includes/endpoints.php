@@ -11,11 +11,11 @@ namespace Elimin8r\Endpoints;
 class Endpoints {
     public function __construct()
     {
-        add_action( 'rest_api_init', array( $this, 'register_ifs_endpoints' ) );
+        add_action( 'rest_api_init', array( $this, 'registerIfsEndpoints' ) );
     }
 
     // Endpoint URL: /wp-json/wp/v2/ifs/{post_type}?page={page}&per_page={per_page}
-    public function register_ifs_endpoints()
+    public function registerIfsEndpoints()
     {
         register_rest_route( 'wp/v2', '/ifs/(?P<post_type>[a-zA-Z0-9-]+)', array(
             'methods' => 'GET',

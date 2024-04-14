@@ -12,9 +12,9 @@ class Setup {
     public function __construct()
     {
         add_action( 'after_setup_theme', array( $this, 'setup' ) );
-        add_action( 'wp_head', array( $this, 'pingback_header' ) );
+        add_action( 'wp_head', array( $this, 'pingbackHeader' ) );
         $this->shims();
-        add_action( 'wp_head', array( $this, 'javascript_site_data' ) );
+        add_action( 'wp_head', array( $this, 'javascriptSiteData' ) );
     }
 
     public function setup()
@@ -86,7 +86,7 @@ class Setup {
     }
 
     // Add a pingback url auto-discovery header for single posts, pages, or attachments.
-    public function pingback_header()
+    public function pingbackHeader()
     {
         if ( is_singular() && pings_open() ) {
             printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
@@ -103,7 +103,7 @@ class Setup {
         endif;
     }
 
-    public function javascript_site_data()
+    public function javascriptSiteData()
     {
         // Get the post type
         $post_type = get_post_type();

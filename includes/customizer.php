@@ -16,17 +16,17 @@ if ( DISABLE_CUSTOMIZER !== true ) {
 class Customizer {
 	public function __construct()
 	{
-		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ) );
-		add_action( 'wp_head', array( $this, 'add_customizer_css' ) );
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueueCustomizerScripts' ) );
+		add_action( 'wp_head', array( $this, 'addCustomizerCss' ) );
 	}
 
-	public function enqueue_customizer_scripts()
+	public function enqueueCustomizerScripts()
 	{
 		wp_enqueue_script( 'elimin8r-customizer', get_template_directory_uri() . '/includes/customizer/js/customizer.js', array( 'customize-preview' ), '', true );
 	}
 
 	// Output customizer CSS
-	public function add_customizer_css()
+	public function addCustomizerCss()
 	{
 		$background_tint = get_theme_mod( 'background_tint', 'false' );
 		$content_color = get_theme_mod( 'content_color', '#ffffff' );
@@ -46,7 +46,7 @@ class Customizer {
 		$css = '
 			body.custom-background { background-blend-mode: ' . ( $background_tint ? 'overlay' : 'initial' ) . ';}
 		
-			body .site-main { background-color: ' . Elimin8r\Helpers\Helpers::hex_opacity( $content_color, $content_transparency ) . '; }
+			body .site-main { background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $content_color, $content_transparency ) . '; }
 			
 			body .site-main,
 			body .site-main h1, h1, h3, h4, h5, h6,
@@ -58,7 +58,7 @@ class Customizer {
 
 			body .site-main a { color: ' . $content_link_color . '; }
 			
-			body .site-header { background-color: ' . Elimin8r\Helpers\Helpers::hex_opacity( $header_color, $header_transparency ) . '; }
+			body .site-header { background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $header_color, $header_transparency ) . '; }
 			
 			body .site-description { color: ' . $header_text_color . '; }
 
@@ -83,14 +83,14 @@ class Customizer {
 			body .main-navigation #menu-middle,
 			body .main-navigation #menu-top { fill: ' . $hamburger_color . '; }
 			
-			body .site-footer { background-color: ' . Elimin8r\Helpers\Helpers::hex_opacity( $footer_color, $footer_transparency ) . '; }
+			body .site-footer { background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $footer_color, $footer_transparency ) . '; }
 			
 			body .site-footer { color: ' . $footer_text_color . '; }
 		';
 
 		// Output the styles
 		if ( ! empty( $css ) ) {
-			echo '<style>' . Elimin8r\Helpers\Helpers::minify_css( $css ) . '</style>' . PHP_EOL;
+			echo '<style>' . Elimin8r\Helpers\Helpers::minifyCss( $css ) . '</style>' . PHP_EOL;
 		}
 	}
 }

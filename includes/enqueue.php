@@ -12,9 +12,9 @@ class Enqueue {
     public function __construct()
     {
         add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
-        add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-        add_action( 'wp_head', array( $this, 'critical_css' ) );
-        add_action( 'wp_enqueue_scripts', array( $this, 'dequeue_scripts' ), 100 );
+        add_action( 'admin_enqueue_scripts', array( $this, 'adminScripts' ) );
+        add_action( 'wp_head', array( $this, 'criticalCss' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'dequeueScripts' ), 100 );
     }
 
     // Enqueue scripts and styles.
@@ -31,14 +31,14 @@ class Enqueue {
     }
 
     // Enqueue admin scripts and styles.
-    function admin_scripts()
+    function adminScripts()
     {
         $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
         wp_enqueue_style( 'elimin8r-admin-style', get_template_directory_uri() . '/dist/css/' . $manifest['admin.min.css'], array(), '' );
     }
 
     // Add critical CSS to the head
-    function critical_css()
+    function criticalCss()
     {
         $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
         $css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['critical.min.css'] );
@@ -46,7 +46,7 @@ class Enqueue {
     }
 
     // Dequeue scripts and styles.
-    function dequeue_scripts()
+    function dequeueScripts()
     {
         wp_dequeue_style( 'wp-block-library' );
         wp_dequeue_style( 'wp-block-library-theme' );

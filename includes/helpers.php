@@ -9,7 +9,7 @@ namespace Elimin8r\Helpers;
  */
 
 class Helpers {
-    public static function sanitize_array( $input )
+    public static function sanitizeArray( $input )
     {
         // Initialize the new array that will hold the sanitize values
         $new_input = array();
@@ -23,7 +23,7 @@ class Helpers {
     }
 
     // Handle customizer transparency
-    public static function hex_opacity( $color, $opacity )
+    public static function hexOpacity( $color, $opacity )
     {
         $opacity = absint( $opacity );
         if ( $opacity > 100 ) {
@@ -34,7 +34,7 @@ class Helpers {
         return "rgba({$r}, {$g}, {$b}, {$opacity})";
     }
 
-    public static function minify_css( $css )
+    public static function minifyCss( $css )
     {
         // Remove comments
         $css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );

@@ -10,7 +10,7 @@ namespace Elimin8r\PostMeta;
 
 class PostMeta {
 	// Prints HTML with meta information for the current post-date/time.
-	public static function posted_on()
+	public static function postedOn()
 	{
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -27,25 +27,25 @@ class PostMeta {
 
 		global $current_template;
 		if ( $current_template == 'blog-grid' ) {
-			$posted_on = sprintf(
+			$postedOn = sprintf(
 				/* translators: %s: post date. */
 				esc_html_x( 'Posted on %s', 'post date', 'elimin8r' ),
 				'<span>' . $time_string . '</span>'
 			);
 		} else {
-			$posted_on = sprintf(
+			$postedOn = sprintf(
 				/* translators: %s: post date. */
 				esc_html_x( 'Posted on %s', 'post date', 'elimin8r' ),
 				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 			);
 		}
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<span class="posted-on">' . $postedOn . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	}
 
 	// Prints HTML with meta information for the current author.
-	public static function posted_by()
+	public static function postedBy()
 	{
 		global $current_template;
 		if ( $current_template == 'blog-grid' ) {
@@ -68,7 +68,7 @@ class PostMeta {
 	}
 
 	// Prints HTML with meta information for the categories, tags and comments.
-	public static function entry_footer()
+	public static function EntryFooter()
 	{
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {

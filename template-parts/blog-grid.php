@@ -13,6 +13,6 @@ $current_template = 'blog-grid';
 			</header><!-- .entry-header -->
 		</div>
 
-		<?php Elimin8r\Media\Media::post_thumbnail( 'medium' ); ?>
+		<?php Elimin8r\Media\Media::postThumbnail( 'medium' ); ?>
 	</a>
 </article><!-- #post-<?php the_ID(); ?> -->

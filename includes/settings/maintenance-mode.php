@@ -11,12 +11,12 @@ namespace Elimin8r\Settings\MaintenanceMode;
 class MaintenanceMode {
     public function __construct()
     {
-        add_action( 'wp', array( $this, 'enable_maintenance_mode' ) );
-        add_action( 'wp_dashboard_setup', array( $this, 'add_maintenance_mode_meta_box' ) );
-        add_action( 'admin_init', array( $this, 'add_maintenance_mode_checkbox' ) );
+        add_action( 'wp', array( $this, 'enableMaintenanceMode' ) );
+        add_action( 'wp_dashboard_setup', array( $this, 'addMaintenanceModeMetaBox' ) );
+        add_action( 'admin_init', array( $this, 'addMaintenanceModeCheckbox' ) );
     }
 
-    public function enable_maintenance_mode()
+    public function enableMaintenanceMode()
     {
         if ( ! get_option( 'maintenance_mode_checkbox' ) === false ) {
             if ( ! current_user_can( 'edit_themes' ) || ! is_user_logged_in() ) {
@@ -25,25 +25,25 @@ class MaintenanceMode {
         }
     }
 
-    public function add_maintenance_mode_meta_box()
+    public function addMaintenanceModeMetaBox()
     {
         if ( ! get_option( 'maintenance_mode_checkbox' ) === false ) {
-            add_meta_box( 'maintenance_mode', 'Maintenance Mode', array( $this, 'maintenance_mode_meta_box_callback' ), 'dashboard', 'side', 'high' );
+            add_meta_box( 'maintenance_mode', 'Maintenance Mode', array( $this, 'maintenanceModeMetaBoxCallback' ), 'dashboard', 'side', 'high' );
         }
     }
 
-    public function maintenance_mode_meta_box_callback()
+    public function maintenanceModeMetaBoxCallback()
     {
         echo '<p><span class="dashicons dashicons-hammer"></span> WordPress is currently in maintenance mode.</p>';
     }
 
-    public function add_maintenance_mode_checkbox()
+    public function addMaintenanceModeCheckbox()
     {
-        add_settings_field( 'maintenance_mode_checkbox', 'Enable maintenance mode', array( $this, 'maintenance_mode_checkbox_callback' ), 'reading', 'default' );
+        add_settings_field( 'maintenance_mode_checkbox', 'Enable maintenance mode', array( $this, 'maintenanceModeCheckboxCallback' ), 'reading', 'default' );
         register_setting( 'reading', 'maintenance_mode_checkbox' );
     }
 
-    public function maintenance_mode_checkbox_callback()
+    public function maintenanceModeCheckboxCallback()
     {
         $maintenance_mode = get_option( 'maintenance_mode_checkbox' );
         echo '<input type="checkbox" name="maintenance_mode_checkbox" value="1" ' . checked( 1, $maintenance_mode, false ) . ' />';

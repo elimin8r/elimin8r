@@ -7,7 +7,7 @@ $current_template = 'blog-compact';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-		<?php Elimin8r\Media\Media::post_thumbnail( 'medium' ); ?>
+		<?php Elimin8r\Media\Media::postThumbnail( 'medium' ); ?>
 	</a>
 
 	<div class="article-content">
@@ -16,8 +16,8 @@ $current_template = 'blog-compact';
 	
 			<div class="entry-meta">
 				<?php
-					Elimin8r\PostMeta\PostMeta::posted_on();
-					Elimin8r\PostMeta\PostMeta::posted_by();
+					Elimin8r\PostMeta\PostMeta::postedOn();
+					Elimin8r\PostMeta\PostMeta::postedBy();
 				?>
 			</div><!-- .entry-meta -->
 		</header><!-- .entry-header -->

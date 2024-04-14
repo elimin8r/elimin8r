@@ -5,10 +5,18 @@
 ## Layouts
     - Header side
     - Header top
+    - Blog grid
+    - Blog compact
+    - Blog full
+    - Sidebar
 # Components
     - Header
 	- Navigation
 	- Posts and pages
+    - Sticky posts
+    - Search
+# Utilities
+    - Accessibility
 
 --------------------------------------------------------------*/
 
@@ -44,4 +52,13 @@
 
 /* Search
 --------------------------------------------- */
+
 @import "components/search/search";
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+@import "utilities/accessibility";

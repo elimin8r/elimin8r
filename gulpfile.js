@@ -104,7 +104,7 @@ gulp.task('sass', gulp.parallel('sass-frontend', 'sass-critical', 'sass-admin'))
 
 // Compile & minify JavaScript
 gulp.task("terser", function() {
-    return gulp.src([srcDir + '/js/*.js', '!' + srcDir + '/js/infinite-scroll.js'])
+    return gulp.src([srcDir + '/js/*.js', '!' + srcDir + '/js/infinitescroll.js'])
     .pipe(concat('script.min.js'))
     .pipe(terser())
     .pipe(gulp.dest(destDir + '/js'));

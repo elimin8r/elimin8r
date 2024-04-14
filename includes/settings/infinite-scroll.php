@@ -37,7 +37,7 @@ class InfiniteScroll {
             $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
             
             // Enqueue infinite scroll script
-            wp_enqueue_script( 'elimin8r-infinite-scroll', get_template_directory_uri() . '/dist/js/' . $manifest['infinitescroll.min.js'], '', '1.0', true );
+            wp_enqueue_script( 'elimin8r-infinite-scroll', get_template_directory_uri() . '/dist/js/' . $manifest['infinitescroll.min.js'], '', ELIMIN8R_VERSION, true );
         }
     }
 }

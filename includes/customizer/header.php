@@ -28,8 +28,6 @@ class CustomizerHeader {
             'transport' => 'refresh',
             'sanitize_callback' => 'sanitize_key',
         ) );
-    
-        // Add the control for the header position
         $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'header_position', array(
             'label'      => __( 'Header Position', 'elimin8r' ),
             'section'    => 'elimin8r_header_options',
@@ -47,8 +45,6 @@ class CustomizerHeader {
             'transport' => 'refresh',
             'sanitize_callback' => 'absint',
         ) );
-    
-        // Add the control for enabling search
         $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'enable_search', array(
             'label'      => __( 'Enable Search', 'elimin8r' ),
             'section'    => 'elimin8r_header_options',
@@ -62,8 +58,6 @@ class CustomizerHeader {
             'transport' => 'refresh',
             'sanitize_callback' => 'absint',
         ) );
-    
-        // Add the control for header transparency
         $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'header_transparency', array(
             'label'      => __( 'Header Transparency', 'elimin8r' ),
             'section'    => 'elimin8r_header_options',
@@ -82,8 +76,6 @@ class CustomizerHeader {
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
-    
-        // Add the control for the header color picker
         $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'header_color', array(
             'label'        => __( 'Header Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
@@ -96,8 +88,6 @@ class CustomizerHeader {
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
-    
-        // Add the control for the header text color picker
         $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'header_text_color', array(
             'label'        => __( 'Header Text Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
@@ -110,8 +100,6 @@ class CustomizerHeader {
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
-    
-        // Add the control for the sub menu color picker
         $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'submenu_color', array(
             'label'        => __( 'Submenu Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
@@ -124,8 +112,6 @@ class CustomizerHeader {
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
-    
-        // Add the control for the sub menu text color picker
         $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'submenu_text_color', array(
             'label'        => __( 'Submenu Text Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
@@ -138,12 +124,34 @@ class CustomizerHeader {
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
-    
-        // Add the control for the hamburger color picker
         $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'hamburger_color', array(
             'label'        => __( 'Hamburger Colour', 'elimin8r' ),
             'section'      => 'elimin8r_header_options',
             'settings'     => 'hamburger_color',
+        ) ) );
+
+        // Add the setting for the mobile menu color picker
+        $wp_customize->add_setting( 'mobile_menu_color' , array(
+            'default'     => '#ffffff',
+            'transport'   => 'refresh',
+            'sanitize_callback' => 'sanitize_hex_color',
+        ) );
+        $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'mobile_menu_color', array(
+            'label'        => __( 'Mobile Menu Colour', 'elimin8r' ),
+            'section'      => 'elimin8r_header_options',
+            'settings'     => 'mobile_menu_color',
+        ) ) );
+
+        // Add the setting for the mobile menu text color picker
+        $wp_customize->add_setting( 'mobile_menu_text_color' , array(
+            'default'     => '#000000',
+            'transport'   => 'refresh',
+            'sanitize_callback' => 'sanitize_hex_color',
+        ) );
+        $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'mobile_menu_text_color', array(
+            'label'        => __( 'Mobile Menu Text Colour', 'elimin8r' ),
+            'section'      => 'elimin8r_header_options',
+            'settings'     => 'mobile_menu_text_color',
         ) ) );
     }
 }

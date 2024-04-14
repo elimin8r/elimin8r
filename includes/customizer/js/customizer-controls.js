@@ -1,9 +1,8 @@
 /* global wp, jQuery */
 
 /**
- * Theme Customizer enhancements for a better user experience.
- *
- * Contains handlers for the Customizer controls.
+ * Contains handlers for displaying the Customizer controls based
+ * on the device selected.
  */
 
 (function($) {
@@ -11,8 +10,12 @@
 		function checkDevice() {
 			var device = wp.customize.previewedDevice.get();
 			
-			// Header
+			// Header controls
+			wp.customize.control('mobile_menu_color').container.toggle(device !== 'desktop');
+			wp.customize.control('mobile_menu_text_color').container.toggle(device !== 'desktop');
 			wp.customize.control('hamburger_color').container.toggle(device !== 'desktop');
+			wp.customize.control('submenu_color').container.toggle(device === 'desktop');
+			wp.customize.control('submenu_text_color').container.toggle(device === 'desktop');
 		}
 
 		checkDevice(); // Check the device on page load

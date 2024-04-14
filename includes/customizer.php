@@ -16,7 +16,13 @@ if ( DISABLE_CUSTOMIZER !== true ) {
 class Customizer {
 	public function __construct()
 	{
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_customizer_scripts' ) );
 		add_action( 'wp_head', array( $this, 'add_customizer_css' ) );
+	}
+
+	public function enqueue_customizer_scripts()
+	{
+		wp_enqueue_script( 'elimin8r-customizer', get_template_directory_uri() . '/includes/customizer/js/customizer.js', array( 'customize-preview' ), '', true );
 	}
 
 	// Output customizer CSS

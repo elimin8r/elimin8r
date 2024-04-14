@@ -11,13 +11,7 @@ namespace Elimin8r\Customizer;
 class CustomizerDefault {
 	public function __construct()
 	{
-		add_action( 'customize_preview_init', array( $this, 'enqueueCustomizerScripts' ) );
 		add_action( 'customize_register', array( $this, 'registerCustomizerSettings' ) );
-	}
-
-	public function enqueueCustomizerScripts()
-	{
-		wp_enqueue_script( 'elimin8r-customizer', get_template_directory_uri() . '/includes/js/customizer.js', array( 'customize-preview' ), '', true );
 	}
 
 	public function registerCustomizerSettings( $wp_customize )

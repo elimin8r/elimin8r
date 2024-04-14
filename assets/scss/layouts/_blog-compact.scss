@@ -30,6 +30,10 @@ body.archive {
                 max-width: 378px;
             }
 
+            @include media-desktop {
+                max-width: 590px;
+            }
+
             .entry-content {
                 p {
                     margin-bottom: 0;

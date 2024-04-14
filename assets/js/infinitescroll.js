@@ -1,13 +1,18 @@
 (function () {
     let currentPage = 1;
     let noMorePosts = false;
-
+    
     const getNextPage = async () => {
         if (noMorePosts) {
             return;
         }
 
-        console.log("infinite scroll", "Fetching next page...");
+        const loadMoreButton = document.querySelector("#load-more");
+
+        // Change load-more button text to "Loading..."
+        if (loadMoreButton) {
+            loadMoreButton.textContent = "Loading...";
+        }
 
         const response = await fetch( elimin8r.url + "/wp-json/wp/v2/ifs/" + elimin8r.post_type + "?page=" + (currentPage + 1) + "&per_page=" + elimin8r.posts_per_page );
 
@@ -23,19 +28,13 @@
         if (data.length === 0) {
             noMorePosts = true;
 
-            // Change load-more button text to "No more posts"
-            const loadMoreButton = document.querySelector("#load-more");
+            // Change load-more button text to "No more posts"      
             if (loadMoreButton) {
                 loadMoreButton.textContent = "No more posts";
             }
 
             return;
         }
-
-        const postsContainer = document.querySelector(".blog-content");
-        const loadingSpinner = document.createElement("div");
-        loadingSpinner.classList.add("loading-spinner");
-        postsContainer.appendChild(loadingSpinner);
 
         displayNextPage(data);
     }
@@ -51,8 +50,9 @@
     addLoadMoreButtonEventListener();
 
     const displayNextPage = (data) => {
-        // Remove the load-more button
         const loadMoreButton = document.querySelector("#load-more");
+
+        // Remove the load-more button
         if (loadMoreButton) {
             loadMoreButton.remove();
         }
@@ -76,9 +76,8 @@
             }
         }
 
-        const loadingSpinner = postsContainer.querySelector(".loading-spinner");
-        if (loadingSpinner) {
-            loadingSpinner.remove();
+        if (loadMoreButton) {
+            loadMoreButton.textContent = "Load more";
         }
 
         posts.forEach(post => {

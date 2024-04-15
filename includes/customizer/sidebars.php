@@ -19,7 +19,7 @@ class CustomizerSidebar {
 		// Add the sidebar section
 		$wp_customize->add_section( 'sidebar_options' , array(
 			'title'      => __( 'Sidebars', 'elimin8r' ),
-			'description' => 'Select the sidebar for each post type',
+			'description' => 'Select which sidebar to display on each post type.',
 			'priority'   => 30,
 		) );
 

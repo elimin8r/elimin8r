@@ -119,10 +119,11 @@
         });
 
         // Add the load-more button
+        const siteContainer = document.querySelector(".site-main");
         const newLoadMoreButton = document.createElement("button");
         newLoadMoreButton.id = "load-more";
         newLoadMoreButton.textContent = "Load more";
-        postsContainer.appendChild(newLoadMoreButton);
+        siteContainer.appendChild(newLoadMoreButton);
 
         addLoadMoreButtonEventListener();
     }

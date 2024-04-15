@@ -4,6 +4,8 @@ get_header();
 
 	<div id="primary" class="site-main">
 		<main class="site-content">
+			<?php Elimin8r\Breadcrumbs\Breadcrumbs::getBreadcrumbs(); ?>
+			
 			<?php
 				while ( have_posts() ) :
 					the_post();

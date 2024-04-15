@@ -1,7 +1,7 @@
 {
-  "admin.min.css": "admin.min.99ab8107.css",
-  "critical.min.css": "critical.min.2bfe8517.css",
-  "style.min.css": "style.min.890f4038.css",
   "infinitescroll.min.js": "infinitescroll.min.6d140a9d.js",
-  "script.min.js": "script.min.2c852780.js"
+  "script.min.js": "script.min.2c852780.js",
+  "admin.min.css": "admin.min.99ab8107.css",
+  "critical.min.css": "critical.min.90e60dc1.css",
+  "style.min.css": "style.min.890f4038.css"
 }

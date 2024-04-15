@@ -1,0 +1,14 @@
+.breadcrumbs {
+    font-size: 14px;
+    margin-bottom: 30px;
+
+    .separator {
+        background: black;
+        clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
+        display: inline-block;
+        height: 7px;
+        margin: 0 5px;
+        transform: rotate(-90deg);
+        width: 10px;
+    }
+}

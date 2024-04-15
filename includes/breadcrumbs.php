@@ -31,7 +31,7 @@ class Breadcrumbs {
             }
 
             // Add the current page/post
-            $breadcrumbs .= get_the_title();
+            $breadcrumbs .= '<span class="current-page">' . get_the_title() . '</span>';
             $breadcrumbs .= '</nav>';
 
             echo $breadcrumbs;

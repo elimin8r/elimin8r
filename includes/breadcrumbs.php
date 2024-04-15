@@ -11,7 +11,7 @@ namespace Elimin8r\Breadcrumbs;
 class Breadcrumbs {
     public static function getBreadcrumbs()
     {
-        if ( is_single() || is_page() ) {
+        if ( is_single() || is_page() && ! is_front_page() ) {
             $breadcrumbs = '<nav class="breadcrumbs">';
             $breadcrumbs .= '<a href="' . home_url() . '">' . __( 'Home', 'elimin8r' ) . '</a>';
             $breadcrumbs .= '<span class="separator"></span>';

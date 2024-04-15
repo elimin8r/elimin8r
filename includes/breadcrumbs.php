@@ -26,7 +26,7 @@ class Breadcrumbs {
                 // For each ancestor, add a breadcrumb
                 foreach ( $ancestors as $ancestor ) {
                     $breadcrumbs .= '<a href="' . get_permalink( $ancestor ) . '">' . get_the_title( $ancestor ) . '</a>';
-                    $breadcrumbs .= '<span class="separator"> / </span>';
+                    $breadcrumbs .= '<span class="separator"></span>';
                 }
             }
 

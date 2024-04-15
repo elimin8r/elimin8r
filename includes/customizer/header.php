@@ -43,7 +43,7 @@ class CustomizerHeader {
             $wp_customize->selective_refresh->add_partial(
                 'header_position',
                 array(
-                    'selector'        => '.site-header',
+                    'selector'        => '.site-search',
                 )
             );
         }

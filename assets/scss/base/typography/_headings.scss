@@ -7,7 +7,6 @@ h6 {
 	clear: both;
 	margin-top: 0;
 	word-wrap: break-word;
-	word-break: break-all;
 
 	a {
 		text-decoration: none;
@@ -20,4 +19,15 @@ h1 {
 
 h2 {
 	line-height: 25px;
+}
+
+.single {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		word-break: break-all;
+	}
 }

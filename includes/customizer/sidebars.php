@@ -27,7 +27,7 @@ class CustomizerSidebar {
 		$post_types = get_post_types( array( 'public' => true ), 'objects' );
 		unset( $post_types['attachment'] );
 		$choices = array();
-		$choices[''] = 'Select a post type';
+		$choices[''] = 'Select a sidebar';
 
 		// Get all registered sidebars
 		global $wp_registered_sidebars;
@@ -43,7 +43,7 @@ class CustomizerSidebar {
 
 			// Add the setting for the sidebar text
 			$wp_customize->add_setting( 'sidebar_post_types_' . $post_type->name , array(
-				'default'   => array(),
+				'default'   => '',
 				'transport' => 'refresh',
 				'sanitize_callback' => 'sanitize_key',
 			) );

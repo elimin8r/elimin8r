@@ -18,7 +18,7 @@ class CustomizerLayout {
 	public function registerCustomizerSettings( $wp_customize )
 	{
 		// Add the layout section
-		$wp_customize->add_section( 'elimin8r_layout_options' , array(
+		$wp_customize->add_section( 'layout_options' , array(
 			'title'      => __( 'Content', 'elimin8r' ),
 			'priority'   => 30,
 		) );
@@ -31,7 +31,7 @@ class CustomizerLayout {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'blog_layout', array(
 			'label'      => __( 'Blog Layout', 'elimin8r' ),
-			'section'    => 'elimin8r_layout_options',
+			'section'    => 'layout_options',
 			'settings'   => 'blog_layout',
 			'type'       => 'select',
 			'choices'    => array(
@@ -58,7 +58,7 @@ class CustomizerLayout {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'content_transparency', array(
 			'label'      => __( 'Content Transparency', 'elimin8r' ),
-			'section'    => 'elimin8r_layout_options',
+			'section'    => 'layout_options',
 			'settings'   => 'content_transparency',
 			'type'       => 'range',
 			'input_attrs' => array(
@@ -76,7 +76,7 @@ class CustomizerLayout {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'elimin8r_color_control', array(
 			'label'    => __( 'Content Area Colour', 'elimin8r' ),
-			'section'  => 'elimin8r_layout_options',
+			'section'  => 'layout_options',
 			'settings' => 'content_color',
 		) ) );
 	
@@ -88,7 +88,7 @@ class CustomizerLayout {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'content_text_color', array(
 			'label'    => __( 'Content Area Text Colour', 'elimin8r' ),
-			'section'  => 'elimin8r_layout_options',
+			'section'  => 'layout_options',
 			'settings' => 'content_text_color',
 		) ) );
 	
@@ -100,7 +100,7 @@ class CustomizerLayout {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'content_link_color', array(
 			'label'    => __( 'Content Area Link Colour', 'elimin8r' ),
-			'section'  => 'elimin8r_layout_options',
+			'section'  => 'layout_options',
 			'settings' => 'content_link_color',
 		) ) );
 	}

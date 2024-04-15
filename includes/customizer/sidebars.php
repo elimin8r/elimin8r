@@ -17,7 +17,7 @@ class CustomizerSidebar {
 	public function registerCustomizerSettings( $wp_customize )
 	{
 		// Add the sidebar section
-		$wp_customize->add_section( 'elimin8r_sidebar_options' , array(
+		$wp_customize->add_section( 'sidebar_options' , array(
 			'title'      => __( 'Sidebars', 'elimin8r' ),
 			'description' => 'Select the sidebar for each post type',
 			'priority'   => 30,
@@ -49,7 +49,7 @@ class CustomizerSidebar {
 			) );
 			$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'sidebar_post_types_' . $post_type->name, array(
 				'label'      => sprintf( __( '%s', 'elimin8r' ), $post_type->label ),
-				'section'    => 'elimin8r_sidebar_options',
+				'section'    => 'sidebar_options',
 				'settings'   => sprintf( 'sidebar_post_types_%s', $post_type->name ),
 				'type'       => 'select',
 				'choices'    => $choices,

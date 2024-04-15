@@ -17,7 +17,7 @@ class CustomizerFooter {
 	public function registerCustomizerSettings( $wp_customize )
 	{
 		// Add the footer section
-		$wp_customize->add_section( 'elimin8r_footer_options' , array(
+		$wp_customize->add_section( 'footer_options' , array(
 			'title'      => __( 'Footer', 'elimin8r' ),
 			'priority'   => 30,
 		) );
@@ -30,7 +30,7 @@ class CustomizerFooter {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'footer_text', array(
 			'label'      => __( 'Footer Text', 'elimin8r' ),
-			'section'    => 'elimin8r_footer_options',
+			'section'    => 'footer_options',
 			'settings'   => 'footer_text',
 			'type'       => 'textarea',
 		) ) );
@@ -52,7 +52,7 @@ class CustomizerFooter {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'footer_transparency', array(
 			'label'      => __( 'Footer Transparency', 'elimin8r' ),
-			'section'    => 'elimin8r_footer_options',
+			'section'    => 'footer_options',
 			'settings'   => 'footer_transparency',
 			'type'       => 'range',
 			'input_attrs' => array(
@@ -70,7 +70,7 @@ class CustomizerFooter {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
 			'label'        => __( 'Footer Colour', 'elimin8r' ),
-			'section'      => 'elimin8r_footer_options',
+			'section'      => 'footer_options',
 			'settings'     => 'footer_color',
 		) ) );
 
@@ -82,7 +82,7 @@ class CustomizerFooter {
 		) );
 		$wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'footer_text_color', array(
 			'label'        => __( 'Footer Text Colour', 'elimin8r' ),
-			'section'      => 'elimin8r_footer_options',
+			'section'      => 'footer_options',
 			'settings'     => 'footer_text_color',
 		) ) );
 	}

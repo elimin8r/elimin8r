@@ -23,7 +23,3 @@
 		width: 980px;
 	}
 }
-
-@mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $column-margin * ( $numberColumns - 1 ) ) / $numberColumns );
-}

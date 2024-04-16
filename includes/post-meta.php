@@ -25,20 +25,11 @@ class PostMeta {
 			esc_html( get_the_modified_date() )
 		);
 
-		global $current_template;
-		if ( $current_template == 'blog-grid' ) {
-			$postedOn = sprintf(
-				/* translators: %s: post date. */
-				esc_html_x( 'Posted on %s', 'post date', 'elimin8r' ),
-				'<span>' . $time_string . '</span>'
-			);
-		} else {
-			$postedOn = sprintf(
-				/* translators: %s: post date. */
-				esc_html_x( 'Posted on %s', 'post date', 'elimin8r' ),
-				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-			);
-		}
+		$postedOn = sprintf(
+			/* translators: %s: post date. */
+			esc_html_x( 'Posted on %s', 'post date', 'elimin8r' ),
+			'<span>' . $time_string . '</span>'
+		);
 
 		echo '<span class="posted-on">' . $postedOn . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 

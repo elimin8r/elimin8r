@@ -6,11 +6,9 @@
  * @package elimin8r
  */
 
-if ( DISABLE_CUSTOMIZER !== true ) {
-	// Include all files in the /customizer directory
-	foreach ( glob( __DIR__ . '/customizer/*.php' ) as $file ) {
-		require_once $file;
-	}
+// Include all files in the /customizer directory
+foreach ( glob( __DIR__ . '/customizer/*.php' ) as $file ) {
+	require_once $file;
 }
 
 class Customizer {

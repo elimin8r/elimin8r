@@ -112,7 +112,7 @@ class Setup {
         $post_type = get_post_type();
 
         // Get the URL
-        $url = get_site_url();
+        $url = home_url();
 
         // Get the 'Blog pages show at most' option
         $posts_per_page = get_option( 'posts_per_page' );

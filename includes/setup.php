@@ -83,6 +83,9 @@ class Setup {
 
         // Add theme support for WooCommerce
         add_theme_support( 'woocommerce' );
+
+        // Add theme support for responsive embeds
+        add_theme_support( "responsive-embeds" );
     }
 
     // Add a pingback url auto-discovery header for single posts, pages, or attachments.

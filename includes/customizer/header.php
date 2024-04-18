@@ -47,6 +47,23 @@ class CustomizerHeader {
                 )
             );
         }
+
+        // If header_position is set to top, show the header_width setting
+        $wp_customize->add_setting( 'header_width' , array(
+            'default'   => 'contained',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'sanitize_key',
+        ) );
+        $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'header_width', array(
+            'label'      => __( 'Header Width', 'elimin8r' ),
+            'section'    => 'header_options',
+            'settings'   => 'header_width',
+            'type'       => 'select',
+            'choices'    => array(
+                'full' => 'Full',
+                'contained' => 'Contained',
+            ),
+        ) ) );
     
         // Add the setting for enabling search
         $wp_customize->add_setting( 'enable_search' , array(

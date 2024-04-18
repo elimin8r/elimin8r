@@ -21,19 +21,25 @@ body:has(.header-top) {
                 grid-template-columns: 200px 1fr 30px;
                 padding: 0 30px;
             }
-
+            
+            
             h1 {
                 margin-bottom: 0;
             }
-    
+            
             .site-branding,
             .main-navigation {
                 display: flex;
             }
-
+            
             .main-navigation {
                 align-items: center;
             }
+        }
+
+        &.header-full .header-content {
+            max-width: 100%;
+            width: 100%;
         }
     }
 }

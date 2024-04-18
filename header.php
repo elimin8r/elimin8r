@@ -13,7 +13,7 @@
 <div class="site-page">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'elimin8r' ); ?></a>
 
-	<header id="masthead" class="site-header header-<?php echo esc_html( get_theme_mod( 'header_position', 'top' ) ); ?>">
+	<header id="masthead" class="site-header header-<?php echo esc_html( get_theme_mod( 'header_position', 'top' ) ); ?> header-<?php echo esc_html( get_theme_mod( 'header_width', 'contained' ) ); ?>">
 		<div class="header-content">
 			<div class="site-branding">
 				<?php the_custom_logo(); ?>

@@ -48,7 +48,7 @@ class CustomizerHeader {
             );
         }
 
-        // If header_position is set to top, show the header_width setting
+        // Add the setting for the header width
         $wp_customize->add_setting( 'header_width' , array(
             'default'   => 'contained',
             'transport' => 'refresh',

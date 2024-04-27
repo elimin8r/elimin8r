@@ -41,10 +41,6 @@ class CustomizerSidebar {
 		}
 
 		foreach( $post_types as $post_type ) {
-			if ( $post_type->name == 'footer-1' ) {
-				continue;
-			}
-
 			// Add the setting for the sidebar text
 			$wp_customize->add_setting( 'sidebar_post_types_' . $post_type->name , array(
 				'default'   => '',

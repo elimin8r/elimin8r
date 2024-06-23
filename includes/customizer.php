@@ -29,7 +29,6 @@ class Customizer {
 		$background_tint = get_theme_mod( 'background_tint', 'false' );
 		$header_color = get_theme_mod( 'header_color', '#ffffff' );
 		$header_text_color = get_theme_mod( 'header_text_color', '#000000' );
-		$header_transparency = get_theme_mod( 'header_transparency', '0' );
 		$mobile_menu_color = get_theme_mod( 'mobile_menu_color', '#ffffff' );
 		$mobile_menu_text_color = get_theme_mod( 'mobile_menu_text_color', '#000000' );
 		$submenu_color = get_theme_mod( 'submenu_color', '#ffffff' );
@@ -37,7 +36,6 @@ class Customizer {
 		$hamburger_color = get_theme_mod( 'hamburger_color', '#000000' );
 		$footer_color = get_theme_mod( 'footer_color', '#ffffff' );
 		$footer_text_color = get_theme_mod( 'footer_text_color', '#000000' );
-		$footer_transparency = get_theme_mod( 'footer_transparency', '0' );
 
 		$css = '
 			body.custom-background {
@@ -45,7 +43,7 @@ class Customizer {
 			}
 			
 			body .site-header {
-				background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $header_color, $header_transparency ) . ';
+				background-color: ' . $header_color . ';
 			}
 			
 			body .site-description {
@@ -98,7 +96,7 @@ class Customizer {
 			}
 			
 			body .site-footer {
-				background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $footer_color, $footer_transparency ) . ';
+				background-color: ' . $footer_color . ';
 			}
 			
 			body .site-footer {

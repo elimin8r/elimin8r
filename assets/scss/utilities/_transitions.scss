@@ -1,0 +1,51 @@
+@keyframes grow-from {
+    from {
+        transform: scale(0);
+    }
+}
+
+@keyframes grow-to {
+    to {
+        transform: scale(0);
+    }
+}
+
+::view-transition-old(root) {
+    animation: 3s;
+}
+
+::view-transition-new(root) {
+    animation: 3s;
+}
+
+::view-transition-old(header) {
+    animation: 0s;
+}
+
+::view-transition-new(header) {
+    animation: 0;
+}
+
+::view-transition-old(thumbnail) {
+    animation: 0.3s both grow-to;
+}
+
+::view-transition-new(thumbnail) {
+    animation: 0.3s both grow-from;
+}
+
+.site-header {
+    view-transition-name: header;
+    contain: layout;
+}
+
+.site-footer {
+    view-transition-name: footer;
+    contain: layout;
+}
+
+.hentry>a>figure>img,
+.hentry>figure>img {
+    view-transition-name: thumbnail;
+    contain: layout;
+}

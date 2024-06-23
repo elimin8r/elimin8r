@@ -20,6 +20,11 @@
 
 --------------------------------------------------------------*/
 
+// Enable view transitions
+@view-transition {
+    navigation: auto;
+}
+
 // Import variables and mixins.
 @import "abstracts/abstracts";
 
@@ -59,6 +64,7 @@
 /*--------------------------------------------------------------
 # Utilities
 --------------------------------------------------------------*/
+@import "utilities/transitions";
 
 /* Accessibility
 --------------------------------------------- */

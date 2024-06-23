@@ -6,7 +6,7 @@
     grid-row-gap: 0px;
 
     @include media-tablet {
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: minmax(300px, 300px) 1fr;
         height: 100vh;
     }
 

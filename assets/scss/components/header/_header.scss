@@ -1,5 +1,10 @@
 body:has(.header-side) {
     .site-header {
+        @include media-tablet {
+            min-width: 300px;
+            width: 300px;
+        }
+
         .header-content {
             padding: 0;
             top: 30px;

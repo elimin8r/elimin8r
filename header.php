@@ -67,7 +67,7 @@
 		$header_position = get_theme_mod( 'header_position', 'top' );
 
 		// If the featured image is set to full width then display the featured image
-		if (  get_post_meta( get_the_ID(), '_featured_image_fullwidth', true ) && $header_position == 'top') {
+		if ( is_singular() && get_post_meta( get_the_ID(), '_featured_image_fullwidth', true ) && $header_position == 'top') {
 			Elimin8r\Media\Media::postThumbnail( 'large' );
 		}
 	?>

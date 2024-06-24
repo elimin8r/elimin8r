@@ -23,7 +23,7 @@ namespace Elimin8r\Media;
     {
         $header_position = get_theme_mod( 'header_position', 'top' );
     
-        if ( get_post_meta( get_the_ID(), '_featured_image_fullwidth', true ) && $header_position == 'top' ) {
+        if ( is_singular() && get_post_meta( get_the_ID(), '_featured_image_fullwidth', true ) && $header_position == 'top' ) {
             $attr['class'] .= ' featured-full-width';
         }
 

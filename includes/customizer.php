@@ -34,6 +34,7 @@ class Customizer {
 		$submenu_color = get_theme_mod( 'submenu_color', '#ffffff' );
 		$submenu_text_color = get_theme_mod( 'submenu_text_color', '#000000' );
 		$hamburger_color = get_theme_mod( 'hamburger_color', '#000000' );
+		$content_link_color = get_theme_mod( 'content_link_color', '#4169e1' );
 		$footer_color = get_theme_mod( 'footer_color', '#ffffff' );
 		$footer_text_color = get_theme_mod( 'footer_text_color', '#000000' );
 
@@ -59,6 +60,10 @@ class Customizer {
 			}
 			body .main-navigation li.menu-item-has-children ul li a:after {
 				background: ' . $submenu_text_color . ';
+			}
+
+			body .site-main a {
+				color: ' . $content_link_color . ';
 			}
 			
 			@media screen and (max-width: 767px) {

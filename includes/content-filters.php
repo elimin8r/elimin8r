@@ -12,7 +12,7 @@ class ContentFilters {
     public function __construct()
     {
         add_filter( 'post_class', array( $this, 'blogCompactClass' ) );
-        add_filter('excerpt_more',  array( $this, 'excerptMore' ) );
+        add_filter( 'excerpt_more',  array( $this, 'excerptMore' ) );
         add_filter( 'excerpt_length',  array( $this, 'excerptLength' ), 999 );
     }
 

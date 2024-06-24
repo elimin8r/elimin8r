@@ -11,10 +11,10 @@ namespace Elimin8r\BlockStyles;
 class BlockStyles {
     public function __construct()
     {
-        add_action( 'init', array( $this, 'register_block_styles' ) );
+        add_action( 'init', array( $this, 'registerBlockStyles' ) );
     }
 
-    public function register_block_styles()
+    public function registerBlockStyles()
     {
         register_block_style(
             'core/image',

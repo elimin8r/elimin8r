@@ -31,7 +31,7 @@ get_header();
 
 				endwhile;
 
-				elimin8r_pagination(); ?>
+				Elimin8r\Pagination\Pagination::getPagination(); ?>
 			</div>
 
 			<?php

@@ -33,3 +33,16 @@
 		}
 	}
 }
+
+.alignwide,
+.alignfull {
+	left: -15px;
+	max-width: 100vw;
+	position: relative;
+	width: calc(100% + 30px);
+
+	@include media-tablet {
+		left: -30px;
+		width: calc(100% + 60px);
+	}
+}

@@ -20,13 +20,13 @@ class CustomizerDesigns {
 	
 	public function registerCustomizerSettings( $wp_customize )
 	{
-		// Add the layout section
+		// Add the design section
 		$wp_customize->add_section( 'design_options' , array(
 			'title'      => __( 'Designs', 'elimin8r' ),
 			'priority'   => 30,
 		) );
 	
-		// Add the setting for the layout position
+		// Add the setting for the design choices
 		$wp_customize->add_setting( 'designs' , array(
 			'default'   => 'none',
 			'transport' => 'refresh',

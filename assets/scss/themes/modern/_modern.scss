@@ -1,11 +1,5 @@
-/* Blog Compact
---------------------------------------------- */
-@import "layouts/blog-compact";
-
-/* Blog Full
+/* Layouts
 --------------------------------------------- */
 @import "layouts/blog-full";
-
-/* Sticky Posts
---------------------------------------------- */
-@import "components/content/sticky-posts";
+@import "layouts/blog-compact";
+@import "layouts/blog-grid";

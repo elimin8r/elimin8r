@@ -46,7 +46,7 @@ class ContentFilters {
         if ( $current_template === 'blog-compact' ) {
             $length = 35;
         } elseif ( $current_template === 'blog-grid' ) {
-            $length = 0;
+            $length = 20;
         } elseif ( $current_template === 'blog-full' ) {
             $length = 55;
         } else {

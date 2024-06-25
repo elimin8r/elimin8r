@@ -41,13 +41,7 @@ namespace Elimin8r\Media;
         <figure class="post-thumbnail">
             <?php
                 if ( ! has_post_thumbnail() && ! is_singular() ) {
-                    global $current_template;
-
-                    if ( $current_template == 'blog-grid' ) {
-                        echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-square.svg' );
-                    } else {
-                        echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' );
-                    }
+                    echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' );
                 } else {
                     the_post_thumbnail( $size );
                 }

@@ -14,6 +14,7 @@ class Enqueue {
         add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'adminScripts' ) );
         add_action( 'wp_head', array( $this, 'criticalCss' ) );
+        add_action( 'wp_head', array( $this, 'designs' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'dequeueScripts' ), 100 );
     }
 
@@ -43,6 +44,20 @@ class Enqueue {
         $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
         $css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['critical.min.css'] );
         echo '<style id="elimin8r-critical-style">' . $css . '</style>' . PHP_EOL;
+    }
+
+    // Add design CSS to the head
+    function designs()
+    {
+        $design = get_theme_mod( 'designs', '' );
+
+        if ( $design == 'none' ) {
+            return;
+        } else if ( $design == 'modern' ) {
+            $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true ); 
+            $css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['design.min.css'] );
+            echo '<style id="elimin8r-design-style">' . $css . '</style>' . PHP_EOL;
+        }
     }
 
     // Dequeue scripts and styles.

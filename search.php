@@ -16,32 +16,31 @@ get_header();
 
 			<div class="blog-content">
 				<?php
-				while ( have_posts() ) :
-					the_post();
+					while ( have_posts() ) :
+						the_post();
 
-					$theme = get_theme_mod( 'blog_layout', '' );
+						$theme = get_theme_mod( 'blog_layout', '' );
 
-					if ( $theme == 'grid' ) {
-						get_template_part( 'template-parts/blog', 'grid' );
-					} elseif ( $theme == 'compact' ) {
-						get_template_part( 'template-parts/blog', 'compact' );
-					} else {
-						get_template_part( 'template-parts/blog', 'full' );
-					}
+						if ( $theme == 'grid' ) {
+							get_template_part( 'template-parts/blog', 'grid' );
+						} elseif ( $theme == 'compact' ) {
+							get_template_part( 'template-parts/blog', 'compact' );
+						} else {
+							get_template_part( 'template-parts/blog', 'full' );
+						}
 
-				endwhile;
-
-				Elimin8r\Pagination\Pagination::getPagination(); ?>
+					endwhile; ?>
 			</div>
+			
+		<?php
+			else :
+				
+				get_template_part( 'template-parts/content', 'none' );
+				
+			endif;
 
-			<?php
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
+			Elimin8r\Pagination\Pagination::getPagination();
 		?>
-
 	</main><!-- #main -->
 
 <?php

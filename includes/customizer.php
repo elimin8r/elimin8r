@@ -104,7 +104,8 @@ class Customizer {
 				background-color: ' . $footer_color . ';
 			}
 			
-			body .site-footer {
+			body .site-footer,
+			body .site-footer a {
 				color: ' . $footer_text_color . ';
 			}
 		';

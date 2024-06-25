@@ -27,15 +27,5 @@ h2 {
 .search-results {
 	h1 {
 		word-break: break-all;
-
-		&:after {
-			background: #000;
-			background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
-			content: "";
-			display: block;
-			height: 2px;
-			margin-top: 15px;
-			width: 150px;
-		}
 	}
 }

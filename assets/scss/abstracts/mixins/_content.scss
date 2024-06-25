@@ -13,13 +13,13 @@
 
 	@include media-tablet {
 		max-width: 768px;
-		padding: 30px;
+		padding: 60px 30px;
 		width: 768px;
 	}
 
 	@include media-desktop {
 		max-width: 980px;
-		padding: 30px;
+		padding: 60px 30px;
 		width: 980px;
 	}
 }

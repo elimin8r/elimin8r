@@ -1,6 +1,38 @@
 .comment-list {
 	margin: 0;
 	padding: 0;
+
+	.comment {
+		.comment-meta {
+			display: flex;
+			flex-direction: column-reverse;
+
+			.comment-metadata {
+				font-size: 13px;
+				left: 60px;
+				position: relative;
+				top: 16px;
+			}
+
+			.comment-author {
+				img {
+					height: 50px;
+					width: 50px;
+				}
+
+				b {
+					font-size: 20px;
+					margin-left: 5px;
+					position: relative;
+					top: -2px;
+				}
+
+				span {
+					display: none;
+				}
+			}
+		}
+	}
 	
 	.comment-body {
 		border-bottom: solid 1px #ccc;

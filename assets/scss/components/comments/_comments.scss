@@ -12,6 +12,12 @@
 				left: 60px;
 				position: relative;
 				top: 16px;
+
+				a {
+					color: $font-color-main;
+					pointer-events: none;
+					text-decoration: none;
+				}
 			}
 
 			.comment-author {

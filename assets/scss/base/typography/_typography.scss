@@ -1,3 +1,10 @@
+@font-face {
+	font-display: swap;
+	font-family: "Nunito Sans";
+	src: url("/wp-content/themes/elimin8r/includes/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype"), url("wp-content/themes/elimin8r/includes/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+	font-weight: 200 900;
+}
+
 body,
 button,
 input,
@@ -6,9 +13,14 @@ optgroup,
 textarea {
 	color: $font-color-main;
 	font-family: $font-primary;
-	font-size: 1rem;
-	font-weight: 200;
+	font-size: 1.2rem;
+	font-weight: 300;
+	letter-spacing: 0.8px;
 	line-height: $line-height-body;
+
+	@include media-tablet {
+		font-size: 1rem;
+	}
 }
 
 @import "headings";

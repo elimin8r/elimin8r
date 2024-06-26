@@ -48,24 +48,6 @@ class CustomizerFooter {
             );
         }
 
-		// Add the setting for footer transparency
-		$wp_customize->add_setting( 'footer_transparency' , array(
-			'default'   => '0',
-			'transport' => 'refresh',
-			'sanitize_callback' => 'absint',
-		) );
-		$wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'footer_transparency', array(
-			'label'      => __( 'Footer Transparency', 'elimin8r' ),
-			'section'    => 'footer_options',
-			'settings'   => 'footer_transparency',
-			'type'       => 'range',
-			'input_attrs' => array(
-				'min' => 0,
-				'max' => 100,
-				'step' => 1,
-			),
-		) ) );
-
 		// Add the setting for the footer color picker
 		$wp_customize->add_setting( 'footer_color' , array(
 			'default'     => '#ffffff',

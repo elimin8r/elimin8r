@@ -27,47 +27,24 @@ class Customizer {
 	public function addCustomizerCss()
 	{
 		$background_tint = get_theme_mod( 'background_tint', 'false' );
-		$content_color = get_theme_mod( 'content_color', '#ffffff' );
-		$content_text_color = get_theme_mod( 'content_text_color', '#000000' );
-		$content_link_color = get_theme_mod( 'content_link_color', '#4169e1' );
-		$content_transparency = get_theme_mod( 'content_transparency', '0' );
 		$header_color = get_theme_mod( 'header_color', '#ffffff' );
 		$header_text_color = get_theme_mod( 'header_text_color', '#000000' );
-		$header_transparency = get_theme_mod( 'header_transparency', '0' );
 		$mobile_menu_color = get_theme_mod( 'mobile_menu_color', '#ffffff' );
 		$mobile_menu_text_color = get_theme_mod( 'mobile_menu_text_color', '#000000' );
 		$submenu_color = get_theme_mod( 'submenu_color', '#ffffff' );
 		$submenu_text_color = get_theme_mod( 'submenu_text_color', '#000000' );
 		$hamburger_color = get_theme_mod( 'hamburger_color', '#000000' );
+		$content_link_color = get_theme_mod( 'content_link_color', '#4169e1' );
 		$footer_color = get_theme_mod( 'footer_color', '#ffffff' );
 		$footer_text_color = get_theme_mod( 'footer_text_color', '#000000' );
-		$footer_transparency = get_theme_mod( 'footer_transparency', '0' );
 
 		$css = '
 			body.custom-background {
 				background-blend-mode: ' . ( $background_tint ? 'overlay' : 'initial' ) . ';
 			}
-		
-			body .site-main {
-				background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $content_color, $content_transparency ) . ';
-			}
-			
-			body .site-main,
-			body .site-main h1, h1, h3, h4, h5, h6,
-			body .site-main p,
-			body .site-main ol,
-			body .site-main ul,
-			body .site-main caption,
-			body .site-main td {
-				color: ' . $content_text_color . ';
-			}
-
-			body .site-main a {
-				color: ' . $content_link_color . ';
-			}
 			
 			body .site-header {
-				background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $header_color, $header_transparency ) . ';
+				background-color: ' . $header_color . ';
 			}
 			
 			body .site-description {
@@ -83,6 +60,10 @@ class Customizer {
 			}
 			body .main-navigation li.menu-item-has-children ul li a:after {
 				background: ' . $submenu_text_color . ';
+			}
+
+			body .site-main a {
+				color: ' . $content_link_color . ';
 			}
 			
 			@media screen and (max-width: 767px) {
@@ -120,10 +101,11 @@ class Customizer {
 			}
 			
 			body .site-footer {
-				background-color: ' . Elimin8r\Helpers\Helpers::hexOpacity( $footer_color, $footer_transparency ) . ';
+				background-color: ' . $footer_color . ';
 			}
 			
-			body .site-footer {
+			body .site-footer,
+			body .site-footer a {
 				color: ' . $footer_text_color . ';
 			}
 		';

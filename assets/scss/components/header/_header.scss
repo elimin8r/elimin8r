@@ -61,6 +61,7 @@ body:has(.header-top) {
 
     .header-content {
         @include content-width;
+        align-items: center;
         display: grid;
         grid-template-areas: "last first second";
         grid-template-columns: 30px 1fr 40px;
@@ -90,6 +91,11 @@ body:has(.header-top) {
 
         @include media-tablet {
             align-items: flex-start;
+        }
+
+        .custom-logo {
+            max-height: 100px;
+            width: 100%;
         }
 
         h1 {

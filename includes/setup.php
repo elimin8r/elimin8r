@@ -31,6 +31,9 @@ class Setup {
         // Enable support for Post Thumbnails on posts and pages.
         add_theme_support( 'post-thumbnails' );
 
+        // Enable wide alignment
+        add_theme_support( 'align-wide' );
+
         // Disable the theme / plugin text editor
         define( 'DISALLOW_FILE_EDIT', true );
 

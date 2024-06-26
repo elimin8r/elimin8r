@@ -82,24 +82,6 @@ class CustomizerHeader {
             'type'       => 'checkbox',
         ) ) );
     
-        // Add the setting for header transparency
-        $wp_customize->add_setting( 'header_transparency' , array(
-            'default'   => '0',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'absint',
-        ) );
-        $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'header_transparency', array(
-            'label'      => __( 'Header Transparency', 'elimin8r' ),
-            'section'    => 'header_options',
-            'settings'   => 'header_transparency',
-            'type'       => 'range',
-            'input_attrs' => array(
-                'min' => 0,
-                'max' => 100,
-                'step' => 1,
-            ),
-        ) ) );
-    
         // Add the setting for the header color picker
         $wp_customize->add_setting( 'header_color' , array(
             'default'     => '#ffffff',

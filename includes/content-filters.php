@@ -12,7 +12,7 @@ class ContentFilters {
     public function __construct()
     {
         add_filter( 'post_class', array( $this, 'blogCompactClass' ) );
-        add_filter('excerpt_more',  array( $this, 'excerptMore' ) );
+        add_filter( 'excerpt_more',  array( $this, 'excerptMore' ) );
         add_filter( 'excerpt_length',  array( $this, 'excerptLength' ), 999 );
     }
 
@@ -46,7 +46,7 @@ class ContentFilters {
         if ( $current_template === 'blog-compact' ) {
             $length = 35;
         } elseif ( $current_template === 'blog-grid' ) {
-            $length = 0;
+            $length = 20;
         } elseif ( $current_template === 'blog-full' ) {
             $length = 55;
         } else {

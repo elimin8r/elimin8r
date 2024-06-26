@@ -23,7 +23,7 @@ namespace Elimin8r\Media;
     {
         $header_position = get_theme_mod( 'header_position', 'top' );
     
-        if ( get_post_meta( get_the_ID(), '_featured_image_checkbox', true ) && $header_position == 'top' ) {
+        if ( is_singular() && get_post_meta( get_the_ID(), '_featured_image_fullwidth', true ) && $header_position == 'top' ) {
             $attr['class'] .= ' featured-full-width';
         }
 
@@ -33,17 +33,15 @@ namespace Elimin8r\Media;
     // If thumbnail is not present then add a placeholder image
     public static function postThumbnail( $size )
     {
+        if ( is_singular() && get_post_meta( get_the_ID(), '_featured_image_hidden', true ) ) {
+            return;
+        }
+
         ?>
         <figure class="post-thumbnail">
             <?php
                 if ( ! has_post_thumbnail() && ! is_singular() ) {
-                    global $current_template;
-
-                    if ( $current_template == 'blog-grid' ) {
-                        echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-square.svg' );
-                    } else {
-                        echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' );
-                    }
+                    echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' );
                 } else {
                     the_post_thumbnail( $size );
                 }
@@ -88,10 +86,17 @@ namespace Elimin8r\Media;
     // Featured image settings meta box HTML
     public function featuredImageSettingsMetaBoxHtml( $post )
     {
-        $value = get_post_meta( $post->ID, '_featured_image_checkbox', true );
+        // Make the featured image full width
+        $value = get_post_meta( $post->ID, '_featured_image_fullwidth', true );
         $checked = $value == '1' ? 'checked' : '';
-        echo '<input type="checkbox" id="featured_image_checkbox" name="featured_image_checkbox" value="1" ' . $checked . '>';
-        echo '<label for="featured_image_checkbox">Full width</label>';
+        echo '<input type="checkbox" id="featured_image_fullwidth" name="featured_image_fullwidth" value="1" ' . $checked . '>';
+        echo '<label for="featured_image_fullwidth">Full width</label><br>';
+
+        // Hide the featured image
+        $value = get_post_meta( $post->ID, '_featured_image_hidden', true );
+        $checked = $value == '1' ? 'checked' : '';
+        echo '<input type="checkbox" id="featured_image_hidden" name="featured_image_hidden" value="1" ' . $checked . '>';
+        echo '<label for="featured_image_hidden">Hidden</label>';
     }
 
     // Save featured image settings
@@ -105,10 +110,16 @@ namespace Elimin8r\Media;
             return;
         }
 
-        if ( isset( $_POST['featured_image_checkbox'] ) ) {
-            update_post_meta( $post_id, '_featured_image_checkbox', $_POST['featured_image_checkbox'] );
+        if ( isset( $_POST['featured_image_fullwidth'] ) ) {
+            update_post_meta( $post_id, '_featured_image_fullwidth', $_POST['featured_image_fullwidth'] );
         } else {
-            delete_post_meta( $post_id, '_featured_image_checkbox' );
+            delete_post_meta( $post_id, '_featured_image_fullwidth' );
+        }
+
+        if ( isset( $_POST['featured_image_hidden'] ) ) {
+            update_post_meta( $post_id, '_featured_image_hidden', $_POST['featured_image_hidden'] );
+        } else {
+            delete_post_meta( $post_id, '_featured_image_hidden' );
         }
     }
 

@@ -34,6 +34,28 @@
 	}
 }
 
+.sticky .post-thumbnail {
+	position: relative;
+
+	&:before {
+		background: #fff;
+		color: $font-color-main;
+		content: "Featured";
+		font-size: 14px;
+		font-weight: 400;
+		left: 5px;
+		top: 5px;
+		padding: 2.5px 5px;
+		position: absolute;
+		z-index: 3;
+
+		@include media-tablet {
+			left: -5px;
+			top: -5px;
+		}
+	}
+}
+
 .alignwide,
 .alignfull {
 	left: -15px;

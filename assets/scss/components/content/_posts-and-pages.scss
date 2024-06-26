@@ -26,10 +26,15 @@
 }
 
 .blog,
-.archive {
+.archive,
+.search-results {
 	.entry-header {
 		.entry-title {
 			margin-bottom: 5px;
+			
+			a {
+				color: $font-color-main;
+			}
 		}
 	}
 

@@ -35,18 +35,20 @@ namespace Elimin8r\Media;
     {
         if ( is_singular() && get_post_meta( get_the_ID(), '_featured_image_hidden', true ) ) {
             return;
-        }
+        } ?>
 
-        ?>
-        <figure class="post-thumbnail">
-            <?php
-                if ( ! has_post_thumbnail() && ! is_singular() ) {
-                    echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' );
-                } else {
-                    the_post_thumbnail( $size );
-                }
-            ?>
-        </figure><!-- .post-thumbnail -->
+            <?php if ( ! has_post_thumbnail() && ! is_singular() ): ?>
+                <figure class="post-thumbnail">
+                    <?php echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' ); ?>
+                </figure>
+            <?php endif; ?>
+
+            <?php if ( has_post_thumbnail( ) ): ?>
+                <figure class="post-thumbnail">
+                    <?php the_post_thumbnail( $size ); ?>
+                </figure>
+            <?php endif; ?>
+        
         <?php
     }
 

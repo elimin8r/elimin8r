@@ -38,13 +38,13 @@ namespace Elimin8r\Media;
         } ?>
 
             <?php if ( ! has_post_thumbnail() && ! is_singular() ): ?>
-                <figure class="post-thumbnail">
+                <figure class="post-thumbnail" style="view-transition-name: thumbnail-<?php echo the_ID(); ?>">
                     <?php echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' ); ?>
                 </figure>
             <?php endif; ?>
 
             <?php if ( has_post_thumbnail( ) ): ?>
-                <figure class="post-thumbnail">
+                <figure class="post-thumbnail" style="view-transition-name: thumbnail-<?php echo the_ID(); ?>">
                     <?php the_post_thumbnail( $size ); ?>
                 </figure>
             <?php endif; ?>

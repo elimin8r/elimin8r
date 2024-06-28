@@ -53,8 +53,7 @@ body.archive {
                     }
                 }
 
-                .post-thumbnail img,
-                .post-thumbnail svg {
+                .post-thumbnail {
                     position: relative;
 
                     @include media-tablet {

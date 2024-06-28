@@ -1,0 +1,15 @@
+.blog-content .post-thumbnail {
+    @include media-tablet {
+        overflow: hidden;
+        transform: scale(1);
+        
+        img,
+        svg {
+            transition: 1s ease-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

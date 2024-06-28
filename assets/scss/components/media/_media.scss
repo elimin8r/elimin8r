@@ -48,11 +48,6 @@
 		padding: 2.5px 5px;
 		position: absolute;
 		z-index: 3;
-
-		@include media-tablet {
-			left: -5px;
-			top: -5px;
-		}
 	}
 }
 

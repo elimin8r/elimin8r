@@ -13,28 +13,69 @@
         border: 1px solid #ddd;
         color: $font-color-main;
         display: none;
-        height: 30px;
+        height: 40px;
         justify-content: center;
         text-decoration: none;
         width: 30px;
+
+        @include media-tablet {
+            display: inline-flex;
+            height: 30px;
+        }
 
         &.current {
             background: #eee;
             color: #000;
         }
-
-        @include media-tablet {
-            display: inline-flex;
-        }
         
         &.next {
             display: inline-flex;
-            width: 70px;
-        }
+            width: 90px;
+            
+            @include media-tablet {
+                width: 70px;
+            }
 
+            &:after {
+                background: #000;
+                clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
+                content: "";
+                display: inline-block;
+                height: 10px;
+                margin-left: 5px;
+                transform: rotate(-90deg);
+                width: 15px;
+
+                @include media-tablet {
+                    height: 7px;
+                    width: 11px;
+                }
+            }
+        }
+        
         &.prev {
             display: inline-flex;
-            width: 100px;
+            width: 120px;
+
+            @include media-tablet {
+                width: 100px;
+            }
+
+            &:before {
+                background: #000;
+                clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
+                content: "";
+                display: inline-block;
+                height: 10px;
+                margin-right: 5px;
+                transform: rotate(90deg);
+                width: 15px;
+
+                @include media-tablet {
+                    height: 7px;
+                    width: 11px;
+                }
+            }
         }
     }
 }

@@ -26,6 +26,8 @@ class Pagination {
                 'total' => $wp_query->max_num_pages,
                 'end_size' => 1,
                 'mid_size' => 1,
+                'prev_text' => 'Previous',
+                'next_text' => 'Next'
             ) ) . '</div>';
         }
     }

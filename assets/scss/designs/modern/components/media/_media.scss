@@ -13,3 +13,11 @@
         }
     }
 }
+
+.sticky .post-thumbnail {
+    &:before {
+        box-shadow: 2px 2px 0px #fff;
+        border-bottom: solid 2px #000;
+        border-right: solid 2px #000;
+    }
+}

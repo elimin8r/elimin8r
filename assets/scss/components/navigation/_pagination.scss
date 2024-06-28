@@ -1,11 +1,18 @@
 .pagination {
+    display: flex;
+    justify-content: space-between;
     margin-top: 30px;
+
+    @include media-tablet {
+        display: block;
+        justify-content: unset;
+    }
 
     .page-numbers {
         align-items: center;
         border: 1px solid #ddd;
         color: $font-color-main;
-        display: inline-flex;
+        display: none;
         height: 30px;
         justify-content: center;
         text-decoration: none;
@@ -16,11 +23,17 @@
             color: #000;
         }
 
+        @include media-tablet {
+            display: inline-flex;
+        }
+        
         &.next {
+            display: inline-flex;
             width: 70px;
         }
 
         &.prev {
+            display: inline-flex;
             width: 100px;
         }
     }

@@ -1,4 +1,6 @@
 .blog-content .post-thumbnail {
+    border: solid 1px #ccc;
+
     @include media-tablet {
         overflow: hidden;
         transform: scale(1);

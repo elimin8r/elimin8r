@@ -17,6 +17,7 @@ class Patterns {
     // Remove core block patterns
     public function removeCoreBlockPatterns()
     {
+        # Note: This does not currently remove the core block patterns from the inserter, which is a known issue -  https://github.com/WordPress/gutenberg/issues/55107
         remove_theme_support( 'core-block-patterns' );
     }
 }

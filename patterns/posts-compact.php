@@ -4,7 +4,7 @@
  * Slug: twentytwentythree/my-block-pattern
  * Post Types: post
  * Categories: posts
- * Viewport Width: 800
+ * Viewport Width: 1400
  * Keywords: posts, compact, elimin8r
  * Block Types: core/posts
  */
@@ -32,4 +32,12 @@
         <!-- /wp:columns -->
     <!-- /wp:post-template -->
     </div>
+
+    <!-- wp:query-pagination -->
+    <!-- wp:query-pagination-previous /-->
+
+    <!-- wp:query-pagination-numbers /-->
+
+    <!-- wp:query-pagination-next /-->
+    <!-- /wp:query-pagination -->
 <!-- /wp:query -->

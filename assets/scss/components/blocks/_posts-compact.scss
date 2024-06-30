@@ -38,16 +38,21 @@
                 }
 
                 .wp-block-post-title {
-                    margin-bottom: 5px;
+                    margin: 0 0 5px 0;
 
                     a {
                         color: $font-color-main;
                     }
                 }
 
-                p {
-                    margin-bottom: 0;
+                .wp-block-post-excerpt {
+                    margin: 0;
+
+                    p {
+                        margin-bottom: 0;
+                    }
                 }
+
             }
         }
     }

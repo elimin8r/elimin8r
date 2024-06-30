@@ -1,0 +1,54 @@
+.block-posts-compact {
+    .wp-block-post-template {
+        margin-left: 0;
+
+        .wp-block-post {
+            margin-bottom: 30px;
+
+            .wp-block-columns {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(1, 1fr);
+                grid-row-gap: 15px;
+                margin-bottom: 30px;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+                
+                @include media-tablet {
+                    grid-template-columns: 300px 1fr;
+                    grid-column-gap: 30px;
+                }
+
+                @media (min-width: 768px) and (max-width: 1070px) {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(1, 1fr);
+                    grid-row-gap: 15px;
+                }
+
+                figure {
+                    margin: 0px;
+
+                    img,
+                    svg {
+                        aspect-ratio: 16 / 9;
+                        object-fit: cover;
+                    }
+                }
+
+                .wp-block-post-title {
+                    margin-bottom: 5px;
+
+                    a {
+                        color: $font-color-main;
+                    }
+                }
+
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

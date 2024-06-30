@@ -12,7 +12,6 @@ class Patterns {
     public function __construct()
     {
         add_action( 'init', array( $this, 'disableCoreBlockPatterns' ) );
-        add_action( 'init', array( $this, 'removeCoreBlockPatternCategory' ) );
         add_action( 'init', array( $this, 'removeCoreBlockPatterns' ) );
     }
 
@@ -37,11 +36,6 @@ class Patterns {
         foreach ( $patterns as $pattern ) {
             unregister_block_pattern( 'core/' . $pattern );
         }
-    }
-
-    // Remove core block pattern categories
-    public function removeCoreBlockPatternCategory() {
-        unregister_block_pattern_category( 'posts' );
     }
 }
 

@@ -53,6 +53,21 @@
 
                 figure {
                     position: relative;
+                    border: solid 1px #ccc;
+
+                    @include media-tablet {
+                        overflow: hidden;
+                        transform: scale(1);
+
+                        img,
+                        svg {
+                            transition: 1s ease-out;
+
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
 
                     @include media-tablet {
                         left: -10px;

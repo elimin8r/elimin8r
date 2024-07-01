@@ -31,53 +31,16 @@ body .wp-block-query-pagination {
         }
     }
 
-    .wp-block-query-pagination-next {
-        display: inline-flex;
-        width: 140px;
-
-        @include media-tablet {
-            width: 120px;
-        }
-
-        &:after {
-            background: #000;
-            clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
-            content: "";
-            display: inline-block;
-            height: 10px;
-            margin-left: 5px;
-            transform: rotate(-90deg);
-            width: 15px;
-
-            @include media-tablet {
-                height: 7px;
-                width: 11px;
-            }
-        }
-    }
-
+    .wp-block-query-pagination-next,
     .wp-block-query-pagination-previous {
         display: inline-flex;
-        width: 170px;
+        gap: 10px;
+        min-width: 50px;
+        padding: 0 15px;
+        width: auto;
 
-        @include media-tablet {
-            width: 140px;
-        }
-
-        &:before {
-            background: #000;
-            clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
-            content: "";
-            display: inline-block;
-            height: 10px;
-            margin-right: 5px;
-            transform: rotate(90deg);
-            width: 15px;
-
-            @include media-tablet {
-                height: 7px;
-                width: 11px;
-            }
+        span {
+            margin: 0;
         }
     }
 }

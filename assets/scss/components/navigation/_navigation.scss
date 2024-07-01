@@ -236,7 +236,8 @@
 		.nav-next {
 			a {
 				align-items: center;
-				border: 1px solid #ddd;
+				border: solid 1px #ddd;
+				color: $font-color-main;
 				display: inline-flex;
 				height: 35px;
 				max-width: 300px;

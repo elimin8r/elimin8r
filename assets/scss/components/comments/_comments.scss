@@ -2,6 +2,13 @@
 	border: 1px solid #ddd;
 	padding: 30px;
 
+	&:has(.comment-respond) {
+		.comment-respond {
+			border: none;
+			padding: 0;
+		}
+	}
+
 	.comment-list {
 		margin: 0;
 		padding: 0;

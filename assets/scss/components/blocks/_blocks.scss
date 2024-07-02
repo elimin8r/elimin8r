@@ -1,22 +1,7 @@
 @import "patterns/posts-compact";
+@import "buttons";
 @import "comments";
+@import "media";
 @import "pagination";
 @import "posts";
 @import "search";
-
-/* Generic styles for blocks */
-body .wp-block-image .is-style-rounded img,
-body .wp-block-image.is-style-circle-mask img,
-body .wp-block-image.is-style-rounded img {
-    border-radius: 15px;
-}
-
-.wp-block-image .is-style-image-border img,
-.wp-block-image.is-style-image-border img {
-    border: solid 5px #ccc;
-}
-
-body .site-main .wp-block-file__button,
-body .site-main .wp-element-button {
-    color: #fff;
-}

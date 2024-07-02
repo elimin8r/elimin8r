@@ -44,3 +44,19 @@ body .wp-block-query-pagination {
         }
     }
 }
+
+body .site-main .post-navigation-link-next,
+body .site-main .post-navigation-link-previous {
+    a {
+        align-items: center;
+        border: 1px solid #ddd;
+        color: $font-color-main;
+        display: inline-flex;
+        height: 40px;
+        justify-content: center;
+        margin-bottom: 15px;
+        padding: 0 10px;
+        text-decoration: none;
+        width: auto;
+    }
+}

@@ -10,7 +10,16 @@ i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	border-left: 2px solid #bbb;
+	font-style: italic;
+	margin-left: 30px;
+	margin-right: 30px;
+	padding: 0 20px;
+
+	&.has-text-align-right {
+		border-left: none;
+		border-right: 2px solid #bbb;
+	}
 }
 
 address {

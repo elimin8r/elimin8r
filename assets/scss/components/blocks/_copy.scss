@@ -1,0 +1,7 @@
+.wp-block-pullquote {
+    &.has-background {
+        blockquote {
+            border: none;
+        }
+    }
+}

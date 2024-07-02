@@ -1,0 +1,18 @@
+{
+    "name": "sketching-pixels/elimin8r",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "description": "A starter theme for WordPress.",
+    "homepage": "https://www.elimin8r.com",
+    "authors": [
+        {
+            "name": "Ryan Andrews"
+        }
+    ],
+    "keywords": [
+        "services"
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

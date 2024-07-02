@@ -1,4 +1,26 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    align-items: center;
+    background: #eee;
+    border: solid 1px #ddd;
+    border-radius: 0;;
+    box-shadow: 2px 2px 0 #000;
+    color: $font-color-main;
+    display: inline-flex;
+    height: 40px;
+    max-width: 300px;
+    padding: 0 10px;
+    text-decoration: none;
+
+    &:hover {
+        border: solid 1px #ddd;
+    }
+}
+
 button#load-more {
+    background: #eee;
     border: solid 1px #ddd;
     border-radius: 0;
     box-shadow: 2px 2px 0 #000;

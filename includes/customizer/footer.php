@@ -50,7 +50,7 @@ class CustomizerFooter {
 
 		// Add the setting for the footer color picker
 		$wp_customize->add_setting( 'footer_color' , array(
-			'default'     => '#ffffff',
+			'default'     => '#eeeeee',
 			'transport'   => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );

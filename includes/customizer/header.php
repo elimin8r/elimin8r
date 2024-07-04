@@ -84,7 +84,7 @@ class CustomizerHeader {
     
         // Add the setting for the header color picker
         $wp_customize->add_setting( 'header_color' , array(
-            'default'     => '#ffffff',
+            'default'     => '#eeeeee',
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );

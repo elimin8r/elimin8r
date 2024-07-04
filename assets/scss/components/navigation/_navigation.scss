@@ -165,9 +165,14 @@
 	background: none;
 	border: none;
 	border-radius: 0;
+	box-shadow: none;
 	padding: 0;
 	position: relative;
 	z-index: 20;
+
+	&:hover {
+		border: 0;
+	}
 }
 
 .main-navigation.toggled {

@@ -27,16 +27,16 @@ class Customizer {
 	public function addCustomizerCss()
 	{
 		$background_tint = get_theme_mod( 'background_tint', 'false' );
-		$header_color = get_theme_mod( 'header_color', '#ffffff' );
-		$header_text_color = get_theme_mod( 'header_text_color', '#000000' );
-		$mobile_menu_color = get_theme_mod( 'mobile_menu_color', '#ffffff' );
-		$mobile_menu_text_color = get_theme_mod( 'mobile_menu_text_color', '#000000' );
-		$submenu_color = get_theme_mod( 'submenu_color', '#ffffff' );
-		$submenu_text_color = get_theme_mod( 'submenu_text_color', '#000000' );
-		$hamburger_color = get_theme_mod( 'hamburger_color', '#000000' );
-		$content_link_color = get_theme_mod( 'content_link_color', '#4169e1' );
-		$footer_color = get_theme_mod( 'footer_color', '#ffffff' );
-		$footer_text_color = get_theme_mod( 'footer_text_color', '#000000' );
+		$header_color = get_theme_mod( 'header_color', '#282839' );
+		$header_text_color = get_theme_mod( 'header_text_color', '#ffffff' );
+		$mobile_menu_color = get_theme_mod( 'mobile_menu_color', '#1c1c2b' );
+		$mobile_menu_text_color = get_theme_mod( 'mobile_menu_text_color', '#ffffff' );
+		$submenu_color = get_theme_mod( 'submenu_color', '#1c1c2b' );
+		$submenu_text_color = get_theme_mod( 'submenu_text_color', '#ffffff' );
+		$hamburger_color = get_theme_mod( 'hamburger_color', '#ffffff' );
+		$content_link_color = get_theme_mod( 'content_link_color', '#EC0DFA' );
+		$footer_color = get_theme_mod( 'footer_color', '#282839' );
+		$footer_text_color = get_theme_mod( 'footer_text_color', '#ffffff' );
 
 		$css = '
 			body.custom-background {
@@ -47,7 +47,8 @@ class Customizer {
 				background-color: ' . $header_color . ';
 			}
 			
-			body .site-description {
+			body .site-description,
+			body .site-title a {
 				color: ' . $header_text_color . ';
 			}
 

@@ -84,7 +84,7 @@ class CustomizerHeader {
     
         // Add the setting for the header color picker
         $wp_customize->add_setting( 'header_color' , array(
-            'default'     => '#eeeeee',
+            'default'     => '#282839',
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
@@ -96,7 +96,7 @@ class CustomizerHeader {
     
         // Add the setting for the header text color picker
         $wp_customize->add_setting( 'header_text_color' , array(
-            'default'     => '#000000',
+            'default'     => '#ffffff',
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
@@ -108,7 +108,7 @@ class CustomizerHeader {
     
         // Add the setting for the sub menu color picker
         $wp_customize->add_setting( 'submenu_color' , array(
-            'default'     => '#ffffff',
+            'default'     => '#1c1c2b',
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
@@ -144,7 +144,7 @@ class CustomizerHeader {
 
         // Add the setting for the mobile menu color picker
         $wp_customize->add_setting( 'mobile_menu_color' , array(
-            'default'     => '#ffffff',
+            'default'     => '#1c1c2b',
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );
@@ -156,7 +156,7 @@ class CustomizerHeader {
 
         // Add the setting for the mobile menu text color picker
         $wp_customize->add_setting( 'mobile_menu_text_color' , array(
-            'default'     => '#000000',
+            'default'     => '#ffffff',
             'transport'   => 'refresh',
             'sanitize_callback' => 'sanitize_hex_color',
         ) );

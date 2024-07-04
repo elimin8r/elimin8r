@@ -28,7 +28,7 @@ class CustomizerDesigns {
 	
 		// Add the setting for the design choices
 		$wp_customize->add_setting( 'designs' , array(
-			'default'   => 'modern',
+			'default'   => 'none',
 			'transport' => 'refresh',
 			'sanitize_callback' => 'sanitize_key',
 		) );

@@ -56,7 +56,7 @@ class CustomizerLayout {
 
 		// Add the setting for the content link color picker
 		$wp_customize->add_setting( 'content_link_color', array(
-			'default'   => '#000000',
+			'default'   => '#EC0DFA',
 			'transport' => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );

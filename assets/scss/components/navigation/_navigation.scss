@@ -165,9 +165,14 @@
 	background: none;
 	border: none;
 	border-radius: 0;
+	box-shadow: none;
 	padding: 0;
 	position: relative;
 	z-index: 20;
+
+	&:hover {
+		border: 0;
+	}
 }
 
 .main-navigation.toggled {
@@ -227,7 +232,7 @@
 	.nav-links {
 		display: block;
 		margin-top: 30px;
-
+		
 		@include media-tablet {
 			display: flex;
 		}
@@ -236,7 +241,8 @@
 		.nav-next {
 			a {
 				align-items: center;
-				border: 1px solid #ddd;
+				border: solid 1px #ddd;
+				color: $font-color-main;
 				display: inline-flex;
 				height: 35px;
 				max-width: 300px;
@@ -306,6 +312,18 @@
 							}
 						}
 					}
+				}
+			}
+		}
+
+		.nav-links {
+			@media (min-width: 768px) and (max-width: 1070px) {
+				display: block;
+			}
+	
+			.nav-previous {
+				@media (min-width: 768px) and (max-width: 1070px) {
+					margin-bottom: 10px;
 				}
 			}
 		}

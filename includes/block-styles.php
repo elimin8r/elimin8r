@@ -23,6 +23,22 @@ class BlockStyles {
                 'label' => __( 'Border', 'elimin8r' ),
             )
         );
+
+        register_block_style(
+            'core/group',
+            array(
+                'name'  => 'column-padded',
+                'label' => __( 'Padded', 'elimin8r' ),
+            )
+        );
+
+        register_block_style(
+            'core/column',
+            array(
+                'name'  => 'column-padded',
+                'label' => __( 'Padded', 'elimin8r' ),
+            )
+        );
     }
 }
 

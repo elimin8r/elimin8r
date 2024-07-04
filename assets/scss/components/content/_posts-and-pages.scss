@@ -71,3 +71,27 @@
 .wp-block-pullquote {
 	padding: 0;
 }
+
+.post-password-form {
+	label,
+	input {
+		align-items: center;
+		display: inline-flex;
+	}
+
+	input {
+		border-radius: 0;
+		height: 40px;
+		margin-left: 5px;
+		padding: 0 10px;
+	}
+
+	input[type="submit"] {
+		border-radius: 0;
+		margin: 10px 0 0 0;
+
+		@include media-tablet {
+			margin: 0;
+		}
+	}
+}

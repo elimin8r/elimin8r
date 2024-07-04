@@ -1,10 +1,9 @@
-body .wp-block-image .is-style-rounded img,
-body .wp-block-image.is-style-circle-mask img,
-body .wp-block-image.is-style-rounded img {
-    border-radius: 15px;
-}
-
-.wp-block-image .is-style-image-border img,
-.wp-block-image.is-style-image-border img {
-    border: solid 5px #ccc;
-}
+@import "patterns/posts-compact";
+@import "buttons";
+@import "columns";
+@import "comments";
+@import "copy";
+@import "media";
+@import "pagination";
+@import "posts";
+@import "search";

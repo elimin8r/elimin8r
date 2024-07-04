@@ -1,20 +1,43 @@
 .gallery {
-	margin-bottom: 1.5em;
+	margin-bottom: 10px;
 	display: grid;
-	grid-gap: 1.5em;
+	grid-gap: 10px;
+	
+	.gallery-item {
+		display: inline-block;
+		margin: 0;
+		text-align: center;
+		width: 100%;
+
+		img {
+			aspect-ratio: 16 / 9;
+			display: block;
+			object-fit: cover;
+		}
+
+		.gallery-caption {
+			margin-top: 5px;
+		}
+	}
 }
 
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	width: 100%;
-}
 
 // Loops to enumerate the classes for gallery columns.
 @for $i from 2 through 9 {
-
 	.gallery-columns-#{$i} {
-		grid-template-columns: repeat($i, 1fr);
+		grid-template-columns: 1fr 1fr;
+
+		@include media-tablet {
+			grid-template-columns: repeat($i, 1fr);
+		}
+	}
+	
+	.site-page:has(.header-side) {
+		.gallery-columns-#{$i} {
+			@media (min-width: 768px) and (max-width: 1070px) {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
 	}
 }
 

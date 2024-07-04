@@ -1,0 +1,20 @@
+body .wp-block-query-pagination {
+    .page-numbers,
+    .wp-block-query-pagination-previous,
+    .wp-block-query-pagination-next {
+        background: #eee;
+        box-shadow: 2px 2px 0 #000;
+
+        &.current {
+            background: #ddd;
+        }
+    }
+}
+
+body .site-main .post-navigation-link-next,
+body .site-main .post-navigation-link-previous {
+    a {
+        background: #eee;
+        box-shadow: 2px 2px 0 #000;
+    }
+}

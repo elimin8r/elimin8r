@@ -1,0 +1,25 @@
+.blog-content .post-thumbnail {
+    border: solid 1px #ccc;
+
+    @include media-tablet {
+        overflow: hidden;
+        transform: scale(1);
+        
+        img,
+        svg {
+            transition: 1s ease-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.sticky .post-thumbnail {
+    &:before {
+        box-shadow: 2px 2px 0px #fff;
+        border-bottom: solid 2px #000;
+        border-right: solid 2px #000;
+    }
+}

@@ -49,7 +49,7 @@ class Enqueue {
     // Add design CSS to the head
     function designs()
     {
-        $design = get_theme_mod( 'designs', '' );
+        $design = get_theme_mod( 'designs', 'modern' );
 
         if ( $design == 'none' ) {
             return;

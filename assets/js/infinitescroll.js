@@ -84,6 +84,7 @@
             const postElement = document.createElement("article");
             postElement.classList.add("post");
             postElement.classList.add("ifs-post");
+            postElement.classList.add("hentry");
             postElement.classList.add(postClass);
 
             const thumbnail = post.thumbnail ? post.thumbnail : "/wp-content/themes/elimin8r/dist/images/placeholder-image.svg";

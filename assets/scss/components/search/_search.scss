@@ -83,34 +83,48 @@
         input.search-submit {
             display: none;
         }
-
-        .search-autocomplete {
-            background: #fff;
-            border-top: 1px solid #ddd;
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-            left: 15px;
-            list-style: none;
-            margin: 0;
-            padding: 15px;
-            position: absolute;
-            right: 15px;
-
-            li {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-
-                a {
-                    color: $font-color-main;
-                }
-            }
-        }
     }
 }
 
 body:has(.main-navigation.toggled) {
     .site-search {
         z-index: 0;
+    }
+}
+
+.search-autocomplete {
+    background: #fff;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    left: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    position: absolute;
+    right: 15px;
+
+    li {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        a {
+            color: $font-color-main;
+        }
+    }
+}
+
+.wp-block-search__inside-wrapper {
+    position: relative;
+
+    .wp-block-search__button {
+        width: 80px;
+    }
+
+    .search-autocomplete {
+        left: 0;
+        right: 0;
+        width: calc(100% - 90px);
     }
 }
 

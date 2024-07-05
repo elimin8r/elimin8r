@@ -1,9 +1,32 @@
-@import "patterns/posts-compact";
-@import "buttons";
-@import "columns";
-@import "comments";
-@import "copy";
-@import "media";
-@import "pagination";
+/* Posts
+--------------------------------------------- */
 @import "posts";
+@import "patterns/posts-compact";
+
+/* Buttons
+--------------------------------------------- */
+@import "buttons";
+
+/* Columns
+--------------------------------------------- */
+@import "columns";
+
+/* Comments
+--------------------------------------------- */
+@import "comments";
+
+/* Copy
+--------------------------------------------- */
+@import "copy";
+
+/* Media
+--------------------------------------------- */
+@import "media";
+
+/* Pagination
+--------------------------------------------- */
+@import "pagination";
+
+/* Search
+--------------------------------------------- */
 @import "search";

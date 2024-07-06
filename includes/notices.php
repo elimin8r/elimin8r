@@ -20,6 +20,11 @@ class Notices {
         // Get the elimin8r logo from the theme directory
         $logo = get_template_directory_uri() . '/dist/images/elimin8r-logo.svg';
 
+        // Check if logo exists
+        if ( ! file_exists( get_template_directory() . '/dist/images/elimin8r-logo.svg' ) ) {
+            $logo = false;
+        }
+
         ?>
         
         <div class="notice notice-info is-dismissible">

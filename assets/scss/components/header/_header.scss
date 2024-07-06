@@ -64,7 +64,7 @@ body:has(.header-top) {
         align-items: center;
         display: grid;
         grid-template-areas: "last first second";
-        grid-template-columns: 30px 1fr 40px;
+        grid-template-columns: 40px 1fr 40px;
         grid-template-rows: repeat(1, 1fr);
         grid-column-gap: 30px;
         grid-row-gap: 0px;

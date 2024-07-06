@@ -56,7 +56,7 @@ class Notices {
 
             <p>Stay up-to-date with the latest news and theme updates by visiting <a href="https://www.elimin8r.com" target="_blank" rel="nofollow noreferrer">elimin8r.com</a>.</p>
             
-            <a href="https://buymeacoffee.com/elimin8r" target="_blank" rel="nofollow noreferrer" style="align-items:center;color:#fff;display:flex;background:linear-gradient(135deg,rgb(20,236,224) 0%,rgb(81,112,254) 50%,rgb(236,13,250) 100%);height:40px;width:140px;justify-content:center;text-decoration:none;border-radius:40px;margin:20px 0 0 0;">Buy me a coffee</a>
+            <a href="https://buymeacoffee.com/elimin8r" target="_blank" rel="nofollow noreferrer" style="align-items:center;color:#fff;display:flex;background:linear-gradient(135deg,rgb(20,236,224) 0%,rgb(81,112,254) 50%,rgb(236,13,250) 100%);height:40px;width:140px;justify-content:center;text-decoration:none;border-radius:40px;margin:20px 0 -15px 0;">Buy me a coffee</a>
 
             <a href="?elimin8r-notice-dismissed" style="display:block;width:100%;text-align:right;margin:0 0 10px 0;">Don't show me again</a>
         </div>

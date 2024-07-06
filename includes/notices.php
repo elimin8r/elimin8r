@@ -52,9 +52,9 @@ class Notices {
 
             <h2>Thank you for choosing Elimin8r!</h2>
 
-            <p>We hope you're enjoying Elimin8r. If you are, please feel free to buy me a coffee to help support further development of Elimin8r.</p>
+            <p>I hope you're enjoying Elimin8r. If you are, please feel free to buy me a coffee to help support the theme's development.</p>
 
-            <p>Stay up-to-date with the latest news and theme updates by visiting <a href="https://www.elimin8r.com" target="_blank" rel="nofollow noreferrer">elimin8r.com</a>.</p>
+            <p>Don't forget to visit <a href="https://www.elimin8r.com" target="_blank" rel="nofollow noreferrer">elimin8r.com</a> to stay up-to-date with the latest news and theme updates.</p>
             
             <a href="https://buymeacoffee.com/elimin8r" target="_blank" rel="nofollow noreferrer" style="align-items:center;color:#fff;display:flex;background:linear-gradient(135deg,rgb(20,236,224) 0%,rgb(81,112,254) 50%,rgb(236,13,250) 100%);height:40px;width:140px;justify-content:center;text-decoration:none;border-radius:40px;margin:20px 0 -15px 0;">Buy me a coffee</a>
 

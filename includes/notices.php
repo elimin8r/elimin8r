@@ -32,9 +32,9 @@ class Notices {
                 <img src="<?php echo esc_url( $logo ); ?>" alt="Elimin8r Logo" style="max-width:200px;height:auto;margin-top:10px;">
             <?php endif; ?>
 
-            <h2>Thank you for choosing the Elimin8r WordPress theme!</h2>
+            <h2>Thank you for choosing the <span style="color:#ec0dfa;">Elimin8r free WordPress theme!</span></h2>
 
-            <p>Stay up-to-date with the latest news and updates by visiting <a href="https://www.elimin8r.com" target="_blank" rel="nofollow noreferrer">elimin8r.com</a>.</p>
+            <p>Stay up-to-date with the latest news and theme updates by visiting <a href="https://www.elimin8r.com" target="_blank" rel="nofollow noreferrer">elimin8r.com</a>.</p>
         </div>
 
         <?php 

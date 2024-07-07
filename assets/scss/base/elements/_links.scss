@@ -13,7 +13,11 @@ a {
 	}
 
 	&:focus {
-		outline: thin dotted;
+		outline: 0;
+	}
+
+	&:focus-visible {
+		outline: dotted 1px;
 	}
 
 	&:hover,

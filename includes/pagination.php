@@ -11,7 +11,7 @@ namespace Elimin8r\Pagination;
 class Pagination {
     public static function getPagination()
     {
-        if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
+        if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' && get_option( 'enable_infinite_scroll_checkbox' ) !== false ) {
             // Add button to load next page
             echo '<button id="load-more">Load more</button>';
         } else {

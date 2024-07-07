@@ -32,7 +32,7 @@ class InfiniteScroll {
     // Enable infinite scroll
     public function enableInfiniteScroll()
     {
-        if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' ) {
+        if ( get_option( 'enable_infinite_scroll_checkbox' ) !== '' && get_option( 'enable_infinite_scroll_checkbox' ) !== false ) {
             //  Get manifest file
             $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
             

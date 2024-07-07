@@ -112,7 +112,7 @@ gulp.task('sass', gulp.parallel('sass-frontend', 'sass-critical', 'sass-admin', 
 
 // Compile & minify JavaScript
 gulp.task("terser", function() {
-    return gulp.src([srcDir + '/js/*.js', '!' + srcDir + '/js/infinitescroll.js'])
+    return gulp.src([srcDir + '/js/*.js', '!' + srcDir + '/js/loadmore.js'])
     .pipe(concat('script.min.js'))
     .pipe(terser())
     .pipe(gulp.dest(destDir + '/js'));
@@ -120,8 +120,8 @@ gulp.task("terser", function() {
 
 // Compile & minify the infinite scroll JavaScript
 gulp.task("terser-ifs", function () {
-    return gulp.src(srcDir + '/js/infinitescroll.js')
-    .pipe(concat('infinitescroll.min.js'))
+    return gulp.src(srcDir + '/js/loadmore.js')
+    .pipe(concat('loadmore.min.js'))
     .pipe(terser())
     .pipe(gulp.dest(destDir + '/js'));
 });

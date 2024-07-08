@@ -15,6 +15,7 @@ class Notices {
     {
         add_action( 'admin_init', array( $this, 'noticeDismissed' ) );
         add_action( 'admin_notices', array( $this, 'addNotice' ) );
+        add_action( 'admin_head', array( $this, 'noticeStyles' ) );
     }
 
     // Dismiss notice
@@ -47,7 +48,7 @@ class Notices {
         
         <div class="notice notice-info">
             <?php if ( $logo ): ?>
-                <img src="<?php echo esc_url( $logo ); ?>" alt="Elimin8r Logo" style="max-width:200px;height:auto;margin-top:10px;">
+                <img src="<?php echo esc_url( $logo ); ?>" alt="Elimin8r Logo">
             <?php endif; ?>
 
             <h2>Thank you for choosing Elimin8r!</h2>
@@ -56,12 +57,56 @@ class Notices {
 
             <p>Don't forget to visit <a href="https://www.elimin8r.com" target="_blank" rel="nofollow noreferrer">elimin8r.com</a> to stay up-to-date with the latest news and theme updates.</p>
             
-            <a href="https://buymeacoffee.com/elimin8r" target="_blank" rel="nofollow noreferrer" style="align-items:center;color:#fff;display:flex;background:linear-gradient(135deg,rgb(20,236,224) 0%,rgb(81,112,254) 50%,rgb(236,13,250) 100%);height:40px;width:140px;justify-content:center;text-decoration:none;border-radius:40px;margin:20px 0 -15px 0;">Buy me a coffee</a>
+            <a href="https://buymeacoffee.com/elimin8r" target="_blank" rel="nofollow noreferrer" class="notice-button">Buy me a coffee</a>
 
-            <a href="?elimin8r-notice-dismissed" style="display:block;width:100%;text-align:right;margin:0 0 10px 0;">Don't show me again</a>
+            <a href="?elimin8r-notice-dismissed" class="notice-close">Don't show me again</a>
         </div>
 
         <?php 
+    }
+
+    public function noticeStyles()
+    {
+        ?>
+        <style>
+            .notice-info {
+                position: relative;
+            }
+
+            .notice-info img {
+                height: auto;
+                margin-top: 10px;
+                max-width: 200px;
+            }
+
+            .notice-button {
+                align-items: center;
+                background: linear-gradient(135deg,rgb(20,236,224) 0%,rgb(81,112,254) 50%,rgb(236,13,250) 100%);
+                border-radius: 40px;
+                color: #fff;
+                display: flex;
+                height: 40px;
+                justify-content: center;
+                margin: 20px 0 12px 0;
+                position: relative;
+                text-decoration: none;
+                width: 140px;
+                z-index: 20;
+            }
+
+            .notice-button:hover,
+            .notice-button:focus,
+            .notice-button:active {
+                color: #fff;
+            }
+
+            .notice-close {
+                bottom: 15px;
+                position: absolute;
+                right: 15px;
+            }
+        </style>
+        <?php
     }
 }
 

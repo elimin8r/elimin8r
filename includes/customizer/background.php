@@ -8,10 +8,6 @@ namespace Elimin8r\Customizer;
  * @package elimin8r
  */
 
-if ( defined( 'DISABLE_CUSTOMIZER' ) && DISABLE_CUSTOMIZER === true ) {
-	return;
-}
-
 class CustomizerBackground {
 	public function __construct()
 	{

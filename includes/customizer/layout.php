@@ -9,10 +9,6 @@ namespace Elimin8r\Customizer;
  * @package elimin8r
  */
 
-if ( defined( 'DISABLE_CUSTOMIZER' ) && DISABLE_CUSTOMIZER === true ) {
-	return;
-}
-
 class CustomizerLayout {
 	public function __construct()
 	{

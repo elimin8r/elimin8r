@@ -22,7 +22,7 @@ class Enqueue {
     // Enqueue scripts and styles.
     public function scripts()
     {
-        $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
+        $manifest = json_decode( file_get_contents( get_template_directory() . '/dist/manifest.json' ), true );
         wp_enqueue_style( 'elimin8r-style', get_template_directory_uri() . '/dist/css/' . $manifest['style.min.css'], array(), ELIMIN8R_VERSION );
 
         wp_enqueue_script( 'elimin8r-script', get_template_directory_uri() . '/dist/js/' . $manifest['script.min.js'], array(), ELIMIN8R_VERSION, true );
@@ -35,15 +35,15 @@ class Enqueue {
     // Enqueue admin scripts and styles.
     public function adminScripts()
     {
-        $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
+        $manifest = json_decode( file_get_contents( get_template_directory() . '/dist/manifest.json' ), true );
         wp_enqueue_style( 'elimin8r-admin-style', get_template_directory_uri() . '/dist/css/' . $manifest['admin.min.css'], array(), '' );
     }
 
     // Add critical CSS to the head
     public function criticalCss()
     {
-        $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
-        $css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['critical.min.css'] );
+        $manifest = json_decode( file_get_contents( get_template_directory() . '/dist/manifest.json' ), true );
+        $css = file_get_contents( get_template_directory() . '/dist/css/' . $manifest['critical.min.css'] );
         echo '<style id="elimin8r-critical-style">' . $css . '</style>' . PHP_EOL;
     }
 
@@ -55,8 +55,8 @@ class Enqueue {
         if ( $design == 'none' ) {
             return;
         } else if ( $design == 'modern' ) {
-            $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true ); 
-            $css = file_get_contents( get_template_directory_uri() . '/dist/css/' . $manifest['design.min.css'] );
+            $manifest = json_decode( file_get_contents( get_template_directory() . '/dist/manifest.json' ), true ); 
+            $css = file_get_contents( get_template_directory() . '/dist/css/' . $manifest['design.min.css'] );
             echo '<style id="elimin8r-design-style">' . $css . '</style>' . PHP_EOL;
         }
     }

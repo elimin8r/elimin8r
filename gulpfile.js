@@ -100,15 +100,7 @@ gulp.task('sass-admin', function() {
     .pipe(gulp.dest(destDir + '/css'));
 });
 
-gulp.task('sass-design', function () {
-    return gulp.src(srcDir + '/scss/design.scss')
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(concat('design.min.css'))
-        .pipe(gulp.dest(destDir + '/css'));
-});
-
-gulp.task('sass', gulp.parallel('sass-frontend', 'sass-critical', 'sass-admin', 'sass-design'));
+gulp.task('sass', gulp.parallel('sass-frontend', 'sass-critical', 'sass-admin'));
 
 // Compile & minify JavaScript
 gulp.task("terser", function() {

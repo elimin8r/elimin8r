@@ -220,6 +220,8 @@
 		
 		@include media-tablet {
 			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
 		}
 		
 		.nav-previous,

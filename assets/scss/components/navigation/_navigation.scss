@@ -73,7 +73,7 @@
 				width: 100%;
 
 				@include media-tablet {
-					width: 200px;
+					width: max-content;
 				}
 			}
 		}
@@ -84,36 +84,38 @@
 	}
 
 	li {
-		font-size: 1.5rem;
-		position: relative;
 		margin-bottom: 10px;
+		position: relative;
 
 		&:last-of-type {
 			margin-bottom: 0;
 		}
 
 		@include media-tablet {
-			font-size: 1rem;
 			margin-bottom: 0;
 		}
 
+		&.page_item_has_children,
 		&.menu-item-has-children {
-			>a:after {
-				background: #000;
-				clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
-				content: "";
-				display: inline-block;
-				height: 15px;
-				margin-left: 5px;
-				transition: 0.1s;
-				width: 20px;
+			> a {
+				&:after {
+					background: #000;
+					clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
+					content: "";
+					display: inline-block;
+					height: 15px;
+					margin-left: 5px;
+					transition: 0.1s;
+					width: 20px;
 
-				@include media-tablet {
-					height: 10px;
-					width: 14px;
+					@include media-tablet {
+						height: 10px;
+						width: 14px;
+					}
 				}
 			}
 
+			.children,
 			.sub-menu {
 				max-height: 0;
 				overflow: hidden;
@@ -128,6 +130,7 @@
 			}
 			
 			&.focus {
+				>ul.children,
 				>ul.sub-menu {
 					margin-top: 10px;
 					max-height: 1000px !important;
@@ -138,11 +141,20 @@
 				}
 			}
 		}
-	}
 
-	a {
-		display: block;
-		text-decoration: none;
+		a {
+			display: block;
+			font-size: 1.5rem;
+			line-height: 25px;
+			padding: 10px 0;
+			text-decoration: none;
+
+			@include media-tablet {
+				font-size: 1rem;
+				line-height: 18px;
+				padding: 0;
+			}
+		}
 	}
 }
 
@@ -265,17 +277,20 @@
 		.main-navigation {
 			margin-top: 30px;
 
-			ul.menu {
+			ul.nav-menu {
 				flex-direction: column;
 
+				li.page_item,
 				li.menu-item {
 					margin-bottom: 10px;
 
+					&.page_item_has_children,
 					&.menu-item-has-children {
 						display: flex;
 						flex-direction: column;
 						margin-bottom: 0px;
 
+						ul.children,
 						ul.sub-menu {
 							background: transparent;
 							box-shadow: none;
@@ -313,7 +328,8 @@
 @include media-tablet {
 	.site-page:has(.header-top) {
 		.main-navigation {
-			ul.menu {
+			ul.nav-menu {
+				li.page_item,
 				li.menu-item {
 					margin-right: 0;
 
@@ -321,10 +337,12 @@
 						margin-right: 20px;
 					}
 
+					&.page_item_has_children,
 					&.menu-item-has-children {
 						display: flex;
 						flex-direction: column;
 
+						ul.children,
 						ul.sub-menu {
 							box-sizing: border-box;
 							flex-direction: column;
@@ -346,7 +364,8 @@
 									height: 35px;
 									padding: 0 15px;
 								}
-	
+								
+								ul.children,
 								ul.sub-menu {
 									box-shadow: none;
 									position: relative;

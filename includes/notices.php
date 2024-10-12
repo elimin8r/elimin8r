@@ -53,7 +53,7 @@ class Notices {
 
             <h2>Thank you for choosing Elimin8r!</h2>
 
-            <p>I hope you're enjoying Elimin8r. If you are, please feel free to buy me a coffee to help support the theme's development.</p>
+            <p>I hope you're enjoying the Elimin8r starter theme. If you are, please feel free to buy me a coffee to help support the theme's development.</p>
 
             <p>Don't forget to visit <a href="https://www.elimin8r.com" target="_blank" rel="nofollow noreferrer">elimin8r.com</a> to stay up-to-date with the latest news and theme updates.</p>
             

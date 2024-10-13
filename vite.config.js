@@ -9,6 +9,7 @@ export default defineConfig({
         assetsDir: 'build/',
         emptyOutDir: true,
         manifest: true,
+        sourcemap: 'inline',
         rollupOptions: {
             input: {
                 styles: 'resources/scss/style.scss',

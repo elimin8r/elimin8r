@@ -27,7 +27,6 @@ body:has(.header-top) {
                 padding: 0 30px;
             }
             
-            
             h1 {
                 margin-bottom: 0;
             }
@@ -60,7 +59,6 @@ body:has(.header-top) {
     }
 
     .header-content {
-        @include content-width;
         align-items: center;
         display: grid;
         grid-template-areas: "last first second";
@@ -69,6 +67,7 @@ body:has(.header-top) {
         grid-column-gap: 30px;
         grid-row-gap: 0px;
         padding: 0;
+        @include content-width;
     }
 
     .site-branding {

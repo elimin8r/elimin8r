@@ -25,8 +25,8 @@ body:has(.header-side) {
         background: rgba(0, 0, 0, 0.2);
 
         .footer-widget-area {
-            @include content-width;
             padding: 30px;
+            @include content-width;
         }
 
         ol,
@@ -37,8 +37,8 @@ body:has(.header-side) {
     }
     
     .site-info {
-        @include content-width;
         padding: 30px;
+        @include content-width;
 
         p {
             font-size: 14px;

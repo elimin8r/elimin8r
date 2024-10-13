@@ -1,5 +1,7 @@
 <?php
 
+use Elimin8r\Helpers\Helpers;
+
 /**
  * This class is used to add default customizer settings to the theme.
  * 
@@ -120,7 +122,7 @@ class Customizer {
 
 		// Output the styles
 		if ( ! empty( $css ) ) {
-			echo '<style>' . Elimin8r\Helpers\Helpers::minifyCss( $css ) . '</style>' . PHP_EOL;
+			echo '<style>' . Helpers::minifyCss( $css ) . '</style>' . PHP_EOL;
 		}
 	}
 }

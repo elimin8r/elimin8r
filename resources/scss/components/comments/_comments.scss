@@ -1,0 +1,73 @@
+.comments-area {
+	border: 1px solid #ddd;
+	margin-top: 30px;
+	padding: 30px;
+
+	&:has(.comment-respond) {
+		.comment-respond {
+			border: none;
+			padding: 0;
+		}
+	}
+
+	.comment-list {
+		margin: 0;
+		padding: 0;
+
+		.comment {
+			.comment-meta {
+				display: flex;
+				flex-direction: column-reverse;
+
+				.comment-metadata {
+					font-size: 13px;
+					left: 60px;
+					position: relative;
+					top: 16px;
+
+					a {
+						color: $font-color-main;
+						pointer-events: none;
+						text-decoration: none;
+					}
+				}
+
+				.comment-author {
+					img {
+						height: 50px;
+						width: 50px;
+					}
+
+					b {
+						font-size: 20px;
+						margin-left: 5px;
+						position: relative;
+						top: -2px;
+					}
+
+					span {
+						display: none;
+					}
+				}
+			}
+		}
+		
+		.comment-body {
+			border-bottom: solid 1px #ccc;
+			padding-bottom: 30px;
+			margin-bottom: 30px;
+			
+			.comment-content a {
+				word-wrap: break-word;
+			}
+			
+			.bypostauthor {
+				display: block;
+			}
+			
+			.comment-respond small {
+				display: block;
+			}
+		}
+	}
+}

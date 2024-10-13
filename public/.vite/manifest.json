@@ -1,0 +1,29 @@
+{
+  "resources/js/loadmore.js": {
+    "file": "build/loadmore-CvKX9PnR.js",
+    "name": "loadmore",
+    "src": "resources/js/loadmore.js",
+    "isEntry": true
+  },
+  "resources/js/scripts.js": {
+    "file": "build/scripts-AG3Go-U4.js",
+    "name": "scripts",
+    "src": "resources/js/scripts.js",
+    "isEntry": true
+  },
+  "resources/scss/admin.scss": {
+    "file": "build/admin-BFwT7lBX.css",
+    "src": "resources/scss/admin.scss",
+    "isEntry": true
+  },
+  "resources/scss/critical.scss": {
+    "file": "build/critical-IFDYFSIn.css",
+    "src": "resources/scss/critical.scss",
+    "isEntry": true
+  },
+  "resources/scss/style.scss": {
+    "file": "build/styles-cL2Xb3V8.css",
+    "src": "resources/scss/style.scss",
+    "isEntry": true
+  }
+}

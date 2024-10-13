@@ -1,0 +1,28 @@
+.site-main:has(.sidebar) {
+    display: block;
+
+    .sidebar {
+        display: none;
+    }
+    
+    @include media-tablet {
+        display: grid;
+        grid-template-columns: 428px 250px;
+        grid-column-gap: 30px;
+        
+        .sidebar {
+            display: block;
+        }
+    }
+
+    @include media-desktop {
+        display: grid;
+        grid-template-columns: 640px 250px;
+        grid-column-gap: 30px;
+    }
+
+    .sidebar-content {
+        position: sticky;
+        top: 30px;
+    }
+}

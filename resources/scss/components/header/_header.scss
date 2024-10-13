@@ -1,0 +1,120 @@
+body:has(.header-side) {
+    .site-header {
+        @include media-tablet {
+            min-width: 300px;
+            width: 300px;
+        }
+
+        .header-content {
+            padding: 0;
+            top: 30px;
+            width: 100%;
+
+            @include media-tablet {
+                display: block;
+                position: sticky;
+            }
+        }
+    }
+}
+
+body:has(.header-top) {
+    .site-header {
+        .header-content {
+            @include media-tablet {
+                grid-template-areas: "first second last";
+                grid-template-columns: 200px 1fr 30px;
+                padding: 0 30px;
+            }
+            
+            
+            h1 {
+                margin-bottom: 0;
+            }
+            
+            .site-branding,
+            .main-navigation {
+                display: flex;
+            }
+            
+            .main-navigation {
+                align-items: center;
+            }
+        }
+
+        &.header-full .header-content {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.site-header {
+    background: $header-background-color;
+    padding: 15px;
+    z-index: 2;
+
+    @include media-tablet {
+        padding: 30px;
+        position: relative;
+    }
+
+    .header-content {
+        @include content-width;
+        align-items: center;
+        display: grid;
+        grid-template-areas: "last first second";
+        grid-template-columns: 40px 1fr 40px;
+        grid-template-rows: repeat(1, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 0px;
+        padding: 0;
+    }
+
+    .site-branding {
+        grid-area: first;
+    }
+
+    .main-navigation {
+        grid-area: second;
+    }
+
+    .site-search {
+        grid-area: last;
+    }
+    
+    .site-branding {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media-tablet {
+            align-items: flex-start;
+        }
+
+        .custom-logo {
+            max-height: 100px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-top: 0;
+
+            &.title-hidden {
+                height: 0;
+                margin: 0;
+                text-indent: -8000px
+            }
+        }
+
+        .site-description {
+            display: none;
+            margin: 0;
+
+            @include media-tablet {
+                display: block;
+            }
+        }
+    }
+}

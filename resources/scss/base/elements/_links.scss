@@ -1,0 +1,27 @@
+a {
+	color: $font-color-link;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+	&:visited {
+		color: $font-color-link-visited;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $font-color-link-hover;
+	}
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:focus-visible {
+		outline: dotted 1px;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}

@@ -1,0 +1,32 @@
+.wp-block-post-template {
+    margin-left: 0;
+
+    figure.wp-block-post-featured-image {
+        margin: 0;
+    }
+
+    h2.wp-block-post-title {
+        margin-bottom: 0;
+        margin-top: 15px;
+    }
+
+    .wp-block-post {
+        &:first-of-type {
+            h2.wp-block-post-title {
+                margin-top: 0;
+            }
+        }
+
+        &:has(.wp-block-post-featured-image) {
+            h2.wp-block-post-title {
+                margin-bottom: 30px;
+                margin-top: 2px;
+            }
+        }
+    }
+
+    .wp-block-post-date,
+    .wp-block-post-excerpt__excerpt {
+        margin-top: 5px;
+    }
+}

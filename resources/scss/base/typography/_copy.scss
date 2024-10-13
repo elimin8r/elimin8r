@@ -1,0 +1,67 @@
+p {
+	margin-bottom: 1.5em;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	border-left: 2px solid #bbb;
+	font-style: italic;
+	margin-left: 30px;
+	margin-right: 30px;
+	padding: 0 20px;
+
+	&.has-text-align-right {
+		border-left: none;
+		border-right: 2px solid #bbb;
+	}
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: $background-color-pre;
+	color: #fff;
+	font-family: $font-pre;
+	line-height: $line-height-pre;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+	white-space: pre-wrap;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: $font-code;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted $border-color-abbr;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: $background-color-ins;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}

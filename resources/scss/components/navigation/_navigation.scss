@@ -1,0 +1,384 @@
+.main-navigation {
+	display: flex;
+	width: 100%;
+
+	#menu-bottom {
+		transform: translate(0, 0) rotate(0);
+		transition: 0.3s;
+	}
+
+	#menu-middle {
+		transform: translateX(0);
+		transition: 0.3s;
+	}
+
+	#menu-top {
+		transform: translate(0, 0) rotate(0);
+		transition: 0.3s;
+	}
+
+	> div {
+		bottom: 0;
+		height: 100vh;
+		left: -100%;
+		padding: 35px;
+		position: fixed;
+		top: 0;
+		transition: left 0.3s ease-in-out;
+		width: 100%;
+		z-index: 1;
+
+		@include media-tablet {
+			background: none;
+			bottom: auto;
+			height: auto;
+			left: 0;
+			padding: 0;
+			position: relative;
+			top: auto;
+			transition: unset;
+			z-index: 0;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			top: 100%;
+
+			@include media-tablet {
+				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+				position: absolute;
+				top: calc(100% + 3px);
+				left: -999em;
+				z-index: 99999;
+			}
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+				&.focus > ul {
+					display: block;
+					left: auto;
+				}
+			}
+
+			a {
+				width: 100%;
+
+				@include media-tablet {
+					width: max-content;
+				}
+			}
+		}
+
+		li.focus > ul {
+			left: auto;
+		}
+	}
+
+	li {
+		margin-bottom: 10px;
+		position: relative;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		@include media-tablet {
+			margin-bottom: 0;
+		}
+
+		&.page_item_has_children,
+		&.menu-item-has-children {
+			> a {
+				&:after {
+					background: #000;
+					clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
+					content: "";
+					display: inline-block;
+					height: 15px;
+					margin-left: 5px;
+					transition: 0.1s;
+					width: 20px;
+
+					@include media-tablet {
+						height: 10px;
+						width: 14px;
+					}
+				}
+			}
+
+			.children,
+			.sub-menu {
+				max-height: 0;
+				overflow: hidden;
+				position: relative;
+				left: 30px;
+
+				@include media-tablet {
+					left: 0;
+					overflow: visible;
+					position: absolute;
+				}
+			}
+			
+			&.focus {
+				>ul.children,
+				>ul.sub-menu {
+					margin-top: 10px;
+					max-height: 1000px !important;
+				}
+
+				>a:after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		a {
+			display: block;
+			font-size: 1.5rem;
+			line-height: 25px;
+			padding: 10px 0;
+			text-decoration: none;
+
+			@include media-tablet {
+				font-size: 1rem;
+				line-height: 18px;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.menu-toggle {
+	background: none;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	padding: 0;
+	position: relative;
+	z-index: 20;
+
+	&:hover {
+		border: 0;
+	}
+}
+
+.main-navigation.toggled {
+	.menu-toggle {
+		mix-blend-mode: difference;
+	}
+
+	#menu-bottom {
+		transform: translate(-36%, 11px) rotate(-45deg);
+		transition: 0.3s;
+	}
+	
+	#menu-middle {
+		transform: translateX(100px);
+		transition: 0.3s;
+	}
+	
+	#menu-top {
+		transform: translate(31%, 0) rotate(45deg);
+		transition: 0.3s;
+	}
+
+	> div {
+		background: #fff;
+		bottom: 0;
+		height: 100vh;
+		left: 0;
+		padding: 35px;
+		position: fixed;
+		top: 0;
+	}
+}
+
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@include media-tablet {
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: flex;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+	}
+
+	.nav-links {
+		display: block;
+		margin-top: 30px;
+		
+		@include media-tablet {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+		
+		.nav-previous,
+		.nav-next {
+			a {
+				align-items: center;
+				border: solid 1px #ddd;
+				color: $font-color-main;
+				display: inline-flex;
+				height: 35px;
+				max-width: 300px;
+				padding: 0 10px;
+				text-decoration: none;
+
+				.nav-subtitle {
+					margin-right: 5px;
+				}
+				
+				.nav-title {
+					justify-content: center;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+		}
+
+		.nav-previous {
+			flex: 1 0 50%;
+			margin-bottom: 10px;
+
+			@include media-tablet {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+@include media-tablet {
+	.site-page:has(.header-side) {
+		.main-navigation {
+			margin-top: 30px;
+
+			ul.nav-menu {
+				flex-direction: column;
+
+				li.page_item,
+				li.menu-item {
+					margin-bottom: 10px;
+
+					&.page_item_has_children,
+					&.menu-item-has-children {
+						display: flex;
+						flex-direction: column;
+						margin-bottom: 0px;
+
+						ul.children,
+						ul.sub-menu {
+							background: transparent;
+							box-shadow: none;
+							flex-direction: column;
+							left: 30px;
+							margin-top: 10px;
+							max-height: 0;
+							overflow: hidden;
+							position: relative;
+							-webkit-transition: max-height 0s;
+							-moz-transition: max-height 0s;
+							-ms-transition: max-height 0s;
+							-o-transition: max-height 0s;
+							transition: max-height 0s;
+						}
+					}
+				}
+			}
+		}
+
+		.nav-links {
+			@media (min-width: 768px) and (max-width: 1070px) {
+				display: block;
+			}
+	
+			.nav-previous {
+				@media (min-width: 768px) and (max-width: 1070px) {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+
+@include media-tablet {
+	.site-page:has(.header-top) {
+		.main-navigation {
+			ul.nav-menu {
+				li.page_item,
+				li.menu-item {
+					margin-right: 0;
+
+					@include media-tablet {
+						margin-right: 20px;
+					}
+
+					&.page_item_has_children,
+					&.menu-item-has-children {
+						display: flex;
+						flex-direction: column;
+
+						ul.children,
+						ul.sub-menu {
+							box-sizing: border-box;
+							flex-direction: column;
+							max-height: 0;
+							overflow-y: hidden;
+							-webkit-transition: max-height 0s;
+							-moz-transition: max-height 0s;
+							-ms-transition: max-height 0s;
+							-o-transition: max-height 0s;
+							transition: max-height 0s;
+
+							li {
+								margin-right: 0;
+								border-top: 1px solid rgba(211, 211, 211, 0.3);
+
+								a {
+									align-items: center;
+									display: flex;
+									height: 35px;
+									padding: 0 15px;
+								}
+								
+								ul.children,
+								ul.sub-menu {
+									box-shadow: none;
+									position: relative;
+
+									li {
+										padding-left: 20px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

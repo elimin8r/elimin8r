@@ -5,13 +5,13 @@
   "description": "Build tool for the Elimin8r WordPress theme.",
   "main": "vite.config.js",
   "scripts": {
-    "dev": "vite",
+    "watch": "vite build --watch",
     "build": "vite build"
   },
   "author": "Ryan Andrews",
   "license": "ISC",
   "devDependencies": {
-    "sass": "^1.71.0",
+    "sass": "^1.79.5",
     "sharp": "^0.33.5",
     "svgo": "^3.3.2",
     "vite": "^5.4.8",

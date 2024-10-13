@@ -87,7 +87,7 @@
             postElement.classList.add("hentry");
             postElement.classList.add(postClass);
 
-            const thumbnail = post.thumbnail ? post.thumbnail : "/wp-content/themes/elimin8r/dist/images/placeholder-image.svg";
+            const thumbnail = post.thumbnail ? post.thumbnail : "/wp-content/themes/elimin8r/public/images/placeholder-image.svg";
 
             const readMore = ` <a href="${post.permalink}">Continue reading</a>`;
 

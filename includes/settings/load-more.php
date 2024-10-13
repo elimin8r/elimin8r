@@ -2,6 +2,8 @@
 
 namespace Elimin8r\Settings\LoadMore;
 
+use Elimin8r\Helpers\Helpers;
+
 /**
  * This class is used to add a setting to enable the load more posts button.
  *
@@ -32,11 +34,9 @@ class LoadMore {
     // Enable load more
     public function enableLoadMore()
     {
-        if ( get_option( 'enable_load_more_checkbox' ) !== '' && get_option( 'enable_load_more_checkbox' ) !== false ) {
-            //  Get manifest file
-            $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/public/.vite/manifest.json' ), true );
-            
-            // Enqueue load more script
+        $manifest = Helpers::getManifest();
+
+        if ( get_option( 'enable_load_more_checkbox' ) !== '' && get_option( 'enable_load_more_checkbox' ) !== false ) {            
             wp_enqueue_script( 'elimin8r-load-more', get_template_directory_uri() . '/public/' . $manifest['resources/js/loadmore.js']['file'], '', ELIMIN8R_VERSION, true );
         }
     }

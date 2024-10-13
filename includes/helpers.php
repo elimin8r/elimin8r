@@ -9,6 +9,20 @@ namespace Elimin8r\Helpers;
  */
 
 class Helpers {
+    public static function getManifest()
+    {
+        $manifest_path = get_template_directory() . '/public/.vite/manifest.json';
+
+        if ( ! file_exists( $manifest_path ) ) {
+            return false;
+        }
+
+        $manifest_content = file_get_contents( $manifest_path );
+        $manifest = json_decode( $manifest_content, true );
+
+        return is_array( $manifest ) ? $manifest : [];
+    } 
+
     public static function sanitizeArray( $input )
     {
         // Initialize the new array that will hold the sanitize values

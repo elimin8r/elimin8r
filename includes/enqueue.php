@@ -15,16 +15,16 @@ class Enqueue {
         add_action( 'admin_enqueue_scripts', array( $this, 'adminScripts' ) );
         add_action( 'wp_head', array( $this, 'criticalCss' ) );
         add_action( 'wp_head', array( $this, 'enableTransitions' ) );
-        add_action( 'wp_enqueue_scripts', array( $this, 'dequeueScripts' ), 100 );
+        // add_action( 'wp_enqueue_scripts', array( $this, 'dequeueScripts' ), 100 );
     }
 
     // Enqueue scripts and styles.
     public function scripts()
     {
-        $manifest = json_decode( file_get_contents( get_template_directory() . '/dist/manifest.json' ), true );
-        wp_enqueue_style( 'elimin8r-style', get_template_directory_uri() . '/dist/css/' . $manifest['style.min.css'], array(), ELIMIN8R_VERSION );
+        $manifest = json_decode( file_get_contents( get_template_directory() . '/public/.vite/manifest.json' ), true );
+        wp_enqueue_style( 'elimin8r-style', get_template_directory_uri() . '/public/' . $manifest['resources/scss/style.scss']['file'], array(), ELIMIN8R_VERSION );
 
-        wp_enqueue_script( 'elimin8r-script', get_template_directory_uri() . '/dist/js/' . $manifest['script.min.js'], array(), ELIMIN8R_VERSION, true );
+        wp_enqueue_script( 'elimin8r-script', get_template_directory_uri() . '/public/' . $manifest['resources/js/scripts.js']['file'], array(), ELIMIN8R_VERSION, true );
 
         if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
             wp_enqueue_script( 'comment-reply' );
@@ -34,16 +34,16 @@ class Enqueue {
     // Enqueue admin scripts and styles.
     public function adminScripts()
     {
-        $manifest = json_decode( file_get_contents( get_template_directory() . '/dist/manifest.json' ), true );
-        wp_enqueue_style( 'elimin8r-admin-style', get_template_directory_uri() . '/dist/css/' . $manifest['admin.min.css'], array(), '' );
+        $manifest = json_decode( file_get_contents( get_template_directory() . '/public/.vite/manifest.json' ), true );
+        wp_enqueue_style( 'elimin8r-admin-style', get_template_directory_uri() . '/public/' . $manifest['resources/scss/admin.scss']['file'], array(), '' );
     }
 
     // Add critical CSS to the head
     public function criticalCss()
     {
-        $manifest = json_decode( file_get_contents( get_template_directory() . '/dist/manifest.json' ), true );
-        $css = file_get_contents( get_template_directory() . '/dist/css/' . $manifest['critical.min.css'] );
-        echo '<style id="elimin8r-critical-style">' . $css . '</style>' . PHP_EOL;
+        $manifest = json_decode( file_get_contents( get_template_directory() . '/public/.vite/manifest.json' ), true );
+        $css = file_get_contents( get_template_directory() . '/public/' . $manifest['resources/scss/critical.scss']['file'] );
+        // echo '<style id="elimin8r-critical-style">' . $css . '</style>' . PHP_EOL;
     }
 
     public function enableTransitions()

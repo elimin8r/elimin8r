@@ -1,0 +1,36 @@
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: fixed !important;
+	width: 1px;
+	word-wrap: normal !important; // Many screen reader and browser combinations announce broken words as they would appear visually.
+
+	&:focus {
+		align-items: center;
+		background-color: #f1f1f1;
+		box-shadow: 7px 3px 15px 0px rgba(0, 0, 0, 0.5);
+		color: #000;
+		display: flex;
+		font-size: 14px;
+		font-weight: 700;
+		height: 40px;
+		left: 5px;
+		line-height: normal;
+		padding: 0 20px;
+		text-decoration: none;
+		top: 0px;
+		width: auto;
+		z-index: 100000; // Above WP toolbar.
+	}
+}
+
+/* Do not show the outline on the skip link target. */
+#primary[tabindex="-1"]:focus {
+	outline: 0;
+}

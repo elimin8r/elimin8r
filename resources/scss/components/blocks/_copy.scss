@@ -1,0 +1,11 @@
+.wp-block-pullquote {
+    &.has-background {
+        blockquote {
+            border: none;
+        }
+    }
+}
+
+.wp-block-embed {
+    word-break: break-all;
+}

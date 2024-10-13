@@ -1,0 +1,27 @@
+.alignleft {
+
+	/*rtl:ignore*/
+	float: left;
+
+	/*rtl:ignore*/
+	margin-right: 30px;
+	margin-bottom: 30px;
+}
+
+.alignright {
+
+	/*rtl:ignore*/
+	float: right;
+
+	/*rtl:ignore*/
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+.aligncenter {
+	clear: both;
+
+	@include center-block;
+
+	margin-bottom: 30px;
+}

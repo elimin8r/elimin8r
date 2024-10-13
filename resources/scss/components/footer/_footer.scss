@@ -1,0 +1,48 @@
+body:has(.header-side) {
+    .site-footer {
+        z-index: 3;
+        
+        @include media-tablet {
+            background: transparent !important;
+            bottom: 0;
+            padding: 0 30px 30px 30px;
+            position: fixed;
+            width: 300px;
+
+            .site-info {
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.site-footer {
+    background: $footer-background-color;
+    width: 100%;
+
+    .footer-widgets {
+        background: rgba(0, 0, 0, 0.2);
+
+        .footer-widget-area {
+            @include content-width;
+            padding: 30px;
+        }
+
+        ol,
+        ul {
+            margin: 0;
+            padding: 0 0 0 15px;
+        } 
+    }
+    
+    .site-info {
+        @include content-width;
+        padding: 30px;
+
+        p {
+            font-size: 14px;
+            margin: 0;
+        }
+    }
+}

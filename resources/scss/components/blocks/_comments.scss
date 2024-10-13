@@ -1,0 +1,21 @@
+.wp-block-comments {
+    border: 1px solid #ddd;
+    padding: 30px;
+
+    .wp-block-comment-template {
+        margin-left: 0;
+    }
+
+    &:has(.comment-respond) {
+        .comment-respond {
+            border: none;
+            padding: 0;
+        }
+    }
+}
+
+.comment-respond {
+    border: 1px solid #ddd;
+    padding: 30px;
+    margin-top: 30px;
+}

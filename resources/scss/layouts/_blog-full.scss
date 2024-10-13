@@ -1,0 +1,27 @@
+body.blog {
+    article.blog-full {
+        border-bottom: 1px solid #e5e5e5;
+        margin-bottom: 30px;
+        padding-bottom: 0;
+
+        .post-thumbnail {
+            margin-top: 11px;
+        }
+
+        .entry-content {
+            margin-top: 10px;
+        }
+
+        .article-content {
+            width: calc(100vw - 30px);
+
+            @include media-tablet {
+                max-width: 708px;
+            }
+
+            @include media-desktop {
+                max-width: 920px;
+            }
+        }
+    }
+}

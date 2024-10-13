@@ -34,10 +34,10 @@ class LoadMore {
     {
         if ( get_option( 'enable_load_more_checkbox' ) !== '' && get_option( 'enable_load_more_checkbox' ) !== false ) {
             //  Get manifest file
-            $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/dist/manifest.json' ), true );
+            $manifest = json_decode( file_get_contents( get_template_directory_uri() . '/public/.vite/manifest.json' ), true );
             
             // Enqueue load more script
-            wp_enqueue_script( 'elimin8r-load-more', get_template_directory_uri() . '/dist/js/' . $manifest['loadmore.min.js'], '', ELIMIN8R_VERSION, true );
+            wp_enqueue_script( 'elimin8r-load-more', get_template_directory_uri() . '/public/' . $manifest['resources/js/loadmore.js']['file'], '', ELIMIN8R_VERSION, true );
         }
     }
 }

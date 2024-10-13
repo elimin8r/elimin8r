@@ -39,7 +39,7 @@ namespace Elimin8r\Media;
 
             <?php if ( ! has_post_thumbnail() && ! is_singular() ): ?>
                 <figure class="post-thumbnail" style="view-transition-name: thumbnail-<?php echo the_ID(); ?>">
-                    <?php echo file_get_contents( get_template_directory_uri() . '/dist/images/placeholder-image.svg' ); ?>
+                    <?php echo file_get_contents( get_template_directory_uri() . '/public/images/placeholder-image.svg' ); ?>
                 </figure>
             <?php endif; ?>
 

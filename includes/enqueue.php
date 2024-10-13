@@ -16,7 +16,6 @@ class Enqueue {
         add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'adminScripts' ) );
         add_action( 'wp_head', array( $this, 'criticalCss' ) );
-        add_action( 'wp_head', array( $this, 'enableTransitions' ) );
         // add_action( 'wp_enqueue_scripts', array( $this, 'dequeueScripts' ), 100 );
     }
     
@@ -49,15 +48,6 @@ class Enqueue {
 
         $css = file_get_contents( get_template_directory() . '/public/' . $manifest['resources/scss/critical.scss']['file'] );
         echo '<style id="elimin8r-critical-style">' . $css . '</style>' . PHP_EOL;
-    }
-
-    public function enableTransitions()
-    {
-        $enable_transitions = get_theme_mod( 'enable_transitions', true );
-
-        if ( $enable_transitions == true ) {
-            echo '<style>@view-transition{navigation:auto;}</style>' . PHP_EOL;
-        }
     }
 
     // Dequeue scripts and styles.

@@ -61,19 +61,6 @@ class CustomizerLayout {
 			'section'  => 'layout_options',
 			'settings' => 'content_link_color',
 		) ) );
-
-        // Add the setting for enabling view transitions
-        $wp_customize->add_setting( 'enable_transitions' , array(
-            'default'   => true,
-            'transport' => 'refresh',
-            'sanitize_callback' => 'absint',
-        ) );
-        $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'enable_transitions', array(
-            'label'      => __( 'Enable View Transitions', 'elimin8r' ),
-            'section'    => 'layout_options',
-            'settings'   => 'enable_transitions',
-            'type'       => 'checkbox',
-        ) ) );
 	}
 }
 

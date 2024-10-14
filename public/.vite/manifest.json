@@ -1,4 +1,8 @@
 {
+  "includes/fonts/nunito-sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf": {
+    "file": "build/NunitoSans-VariableFont_YTLC_opsz_wdth_wght-DD6HJfH_.ttf",
+    "src": "includes/fonts/nunito-sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf"
+  },
   "resources/js/loadmore.js": {
     "file": "build/loadmore-CvKX9PnR.js",
     "name": "loadmore",
@@ -22,7 +26,7 @@
     "isEntry": true
   },
   "resources/scss/style.scss": {
-    "file": "build/styles-D_GTLoHe.css",
+    "file": "build/styles-P6KzZAw_.css",
     "src": "resources/scss/style.scss",
     "isEntry": true
   }

@@ -1,1 +1,0 @@
-Elimin8r is an easy-to-use WordPress theme that is highly customisable.

@@ -1,4 +1,3 @@
-
 # Elimin8r
 
 `Elimin8r` is an free WordPress starter theme that utilzes Vite as a build tool.

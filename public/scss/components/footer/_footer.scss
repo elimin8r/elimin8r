@@ -20,21 +20,6 @@ body:has(.header-side) {
 .site-footer {
     background: $footer-background-color;
     width: 100%;
-
-    .footer-widgets {
-        background: rgba(0, 0, 0, 0.2);
-
-        .footer-widget-area {
-            padding: 30px;
-            @include content-width;
-        }
-
-        ol,
-        ul {
-            margin: 0;
-            padding: 0 0 0 15px;
-        } 
-    }
     
     .site-info {
         padding: 30px;

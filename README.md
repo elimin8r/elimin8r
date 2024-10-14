@@ -35,4 +35,4 @@ All of the raw, uncompressed assets are located in the theme’s **/resources** 
 
 Upon running the build tool, all assets in the **/resources** directory will be compressed and placed into the theme’s **/public** directory.
 
-### Need to know more? [View the docs](https://elimin8r.test/docs/).
+### Want to know more? [View the docs](https://elimin8r.test/docs/).

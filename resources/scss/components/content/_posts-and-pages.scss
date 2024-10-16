@@ -57,6 +57,8 @@
 }
 
 .entry-footer {
+	@include container-width;
+	
 	.tags-links {
 		display: block;
 		margin-top: 15px;

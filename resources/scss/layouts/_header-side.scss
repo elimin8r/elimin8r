@@ -16,7 +16,8 @@
 
         @media (min-width: 768px) and (max-width: 1070px) {
             .wp-block-group.is-style-content-container,
-            .entry-header {
+            .entry-header,
+            .breadcrumbs {
                 max-width: 470px;
                 width: 470px;
             }

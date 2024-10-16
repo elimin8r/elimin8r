@@ -67,7 +67,7 @@ body:has(.header-top) {
         grid-column-gap: 30px;
         grid-row-gap: 0px;
         padding: 0;
-        @include content-width;
+        @include container-width;
     }
 
     .site-branding {

@@ -16,17 +16,17 @@
     "isEntry": true
   },
   "resources/scss/admin.scss": {
-    "file": "build/admin-BFwT7lBX.css",
+    "file": "build/admin-zYBljnpN.css",
     "src": "resources/scss/admin.scss",
     "isEntry": true
   },
   "resources/scss/critical.scss": {
-    "file": "build/critical-DLLyqf5W.css",
+    "file": "build/critical-DOquvcjV.css",
     "src": "resources/scss/critical.scss",
     "isEntry": true
   },
   "resources/scss/style.scss": {
-    "file": "build/styles-BJPcQdyX.css",
+    "file": "build/styles-B6ZeVaYW.css",
     "src": "resources/scss/style.scss",
     "isEntry": true
   }

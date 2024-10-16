@@ -1,0 +1,4 @@
+.wp-block-group.is-style-content-container {
+    box-sizing: border-box;
+    @include container-width;
+}

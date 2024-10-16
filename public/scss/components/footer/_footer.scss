@@ -19,11 +19,11 @@ body:has(.header-side) {
 
 .site-footer {
     background: $footer-background-color;
+    padding: 30px 0;
     width: 100%;
     
     .site-info {
-        padding: 30px;
-        @include content-width;
+        @include container-width;
 
         p {
             font-size: 14px;

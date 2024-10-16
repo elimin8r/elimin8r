@@ -28,6 +28,10 @@
 .blog,
 .archive,
 .search-results {
+	.site-main {
+		@include container-width;
+	}
+
 	.entry-header {
 		.entry-title {
 			margin-bottom: 5px;
@@ -45,6 +49,11 @@
 			margin-top: 0;
 		}
 	}
+}
+
+.page > .entry-header {
+	padding: 0 30px;
+	@include container-width;
 }
 
 .entry-footer {

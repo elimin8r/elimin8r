@@ -11,11 +11,15 @@
     }
 
     .site-main {
-        @include content-width;
+        padding-bottom: 60px;
+        padding-top: 60px;
 
         @media (min-width: 768px) and (max-width: 1070px) {
-            max-width: 470px;
-            width: 470px;
+            .wp-block-group.is-style-content-container,
+            .entry-header {
+                max-width: 470px;
+                width: 470px;
+            }
 
             article.hentry {
                 grid-template-columns: 1fr;

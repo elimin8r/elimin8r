@@ -1,5 +1,6 @@
 .site-page:has(.header-top) {
     .site-main {
-        @include content-width;
+        padding-bottom: 60px;
+        padding-top: 60px;
     }
 }

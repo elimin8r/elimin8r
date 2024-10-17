@@ -19,10 +19,6 @@ get_header();
 			endwhile;
 			?>
 		</main><!-- .site-content -->
-		
-		<?php
-			get_sidebar();
-		?>
 	</div><!-- .site-main -->
 
 <?php

@@ -72,3 +72,13 @@
         }
     }
 }
+
+.single .site-page:has(.header-side) {
+    @media (min-width: 768px) and (max-width: 1070px) {
+        .post-thumbnail,
+        .page .post-thumbnail {
+            max-width: 470px;
+            width: 470px;
+        }
+    }
+}

@@ -12,6 +12,18 @@
 	display: flex;
 }
 
+.single .post-thumbnail,
+.page .post-thumbnail {
+	@include container-width;
+}
+
+.site-page:has(.header-side) {
+	.single .post-thumbnail,
+	.page .post-thumbnail {
+		@include container-width;
+	}
+}
+
 .post-thumbnail {
 	img,
 	svg {

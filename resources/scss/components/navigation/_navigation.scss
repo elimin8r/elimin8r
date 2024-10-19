@@ -1,3 +1,6 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/variables/colors";
+
 .main-navigation {
 	display: flex;
 	width: 100%;
@@ -28,7 +31,7 @@
 		width: 100%;
 		z-index: 1;
 
-		@include media-tablet {
+		@include breakpoints.media-tablet {
 			background: none;
 			bottom: auto;
 			height: auto;
@@ -49,7 +52,7 @@
 		ul {
 			top: 100%;
 
-			@include media-tablet {
+			@include breakpoints.media-tablet {
 				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 				position: absolute;
 				top: calc(100% + 3px);
@@ -72,7 +75,7 @@
 			a {
 				width: 100%;
 
-				@include media-tablet {
+				@include breakpoints.media-tablet {
 					width: max-content;
 				}
 			}
@@ -91,7 +94,7 @@
 			margin-bottom: 0;
 		}
 
-		@include media-tablet {
+		@include breakpoints.media-tablet {
 			margin-bottom: 0;
 		}
 
@@ -108,7 +111,7 @@
 					transition: 0.1s;
 					width: 20px;
 
-					@include media-tablet {
+					@include breakpoints.media-tablet {
 						height: 10px;
 						width: 14px;
 					}
@@ -122,7 +125,7 @@
 				position: relative;
 				left: 30px;
 
-				@include media-tablet {
+				@include breakpoints.media-tablet {
 					left: 0;
 					overflow: visible;
 					position: absolute;
@@ -149,7 +152,7 @@
 			padding: 10px 0;
 			text-decoration: none;
 
-			@include media-tablet {
+			@include breakpoints.media-tablet {
 				font-size: 1rem;
 				line-height: 18px;
 				padding: 0;
@@ -208,7 +211,7 @@
 	display: block;
 }
 
-@include media-tablet {
+@include breakpoints.media-tablet {
 	.menu-toggle {
 		display: none;
 	}
@@ -230,7 +233,7 @@
 		display: block;
 		margin-top: 30px;
 		
-		@include media-tablet {
+		@include breakpoints.media-tablet {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 10px;
@@ -241,7 +244,7 @@
 			a {
 				align-items: center;
 				border: solid 1px #ddd;
-				color: $font-color-main;
+				color: colors.$font-color-main;
 				display: inline-flex;
 				height: 35px;
 				max-width: 300px;
@@ -265,14 +268,14 @@
 			flex: 1 0 50%;
 			margin-bottom: 10px;
 
-			@include media-tablet {
+			@include breakpoints.media-tablet {
 				margin-bottom: 0;
 			}
 		}
 	}
 }
 
-@include media-tablet {
+@include breakpoints.media-tablet {
 	.site-page:has(.header-side) {
 		.main-navigation {
 			margin-top: 30px;
@@ -325,7 +328,7 @@
 	}
 }
 
-@include media-tablet {
+@include breakpoints.media-tablet {
 	.site-page:has(.header-top) {
 		.main-navigation {
 			ul.nav-menu {
@@ -333,7 +336,7 @@
 				li.menu-item {
 					margin-right: 0;
 
-					@include media-tablet {
+					@include breakpoints.media-tablet {
 						margin-right: 20px;
 					}
 

@@ -1,3 +1,5 @@
+@use "breakpoints";
+
 @mixin center-block {
 	display: block;
 	margin-left: auto;
@@ -12,14 +14,14 @@
 	padding-right: 15px;
 	width: 100%;
 
-	@include media-tablet {
+	@include breakpoints.media-tablet {
 		max-width: 768px;
 		padding-left: 30px;
 		padding-right: 30px;
 		width: 768px;
 	}
 
-	@include media-desktop {
+	@include breakpoints.media-desktop {
 		max-width: 980px;
 		padding-left: 30px;
 		padding-right: 30px;

@@ -1,16 +1,16 @@
-@import "abstracts/abstracts";
+@forward "abstracts/abstracts";
 
-@import "layouts/header-side";
-@import "layouts/header-top";
-@import "layouts/blog-grid";
-@import "layouts/blog-compact";
-@import "layouts/blog-full";
-@import "layouts/sidebar";
+@use "layouts/header-side";
+@use "layouts/header-top";
+@use "layouts/blog-grid";
+@use "layouts/blog-compact";
+@use "layouts/blog-full";
+@use "layouts/sidebar";
 
-@import "components/header/header";
-@import "components/navigation/navigation";
-@import "components/navigation/breadcrumbs";
-@import "components/content/posts-and-pages";
-@import "components/search/search";
+@use "components/header/header";
+@use "components/navigation/navigation";
+@use "components/navigation/breadcrumbs";
+@use "components/content/posts-and-pages";
+@use "components/search/search";
 
-@import "utilities/accessibility";
+@use "utilities/accessibility";

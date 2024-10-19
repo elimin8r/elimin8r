@@ -1,5 +1,5 @@
-@import "mixins/media-queries";
-@import "mixins/containers";
+@forward "mixins/breakpoints";
+@forward "mixins/containers";
 
-@import "variables/colors";
-@import "variables/typography";
+@forward "variables/colors";
+@forward "variables/typography";

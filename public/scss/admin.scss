@@ -1,6 +1,6 @@
-@import "abstracts/abstracts";
+@forward "abstracts/abstracts";
 
-@import "blocks/blocks"; 
+@use "blocks/blocks"; 
 
 #elimin8r_featured_image_settings .handle-actions {
     .handle-order-higher,

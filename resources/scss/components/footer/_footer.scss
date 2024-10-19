@@ -1,8 +1,12 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/mixins/containers";
+@use "../../abstracts/variables/colors";
+
 body:has(.header-side) {
     .site-footer {
         z-index: 3;
         
-        @include media-tablet {
+        @include breakpoints.media-tablet {
             background: transparent !important;
             bottom: 0;
             padding: 0 30px 30px 30px;
@@ -18,12 +22,12 @@ body:has(.header-side) {
 }
 
 .site-footer {
-    background: $footer-background-color;
+    background: colors.$footer-background-color;
     padding: 30px 0;
     width: 100%;
     
     .site-info {
-        @include container-width;
+        @include containers.container-width;
 
         p {
             font-size: 14px;

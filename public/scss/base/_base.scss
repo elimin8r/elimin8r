@@ -1,12 +1,14 @@
-@import "typography/typography";
+@use "typography/copy";
+@use "typography/elements";
+@use "typography/headings";
 
-@import "elements/body";
-@import "elements/hr";
-@import "elements/lists";
-@import "elements/media";
-@import "elements/tables";
+@use "elements/body";
+@use "elements/hr";
+@use "elements/lists";
+@use "elements/media";
+@use "elements/tables";
 
-@import "elements/links";
+@use "elements/links";
 
-@import "elements/buttons";
-@import "elements/fields";
+@use "elements/buttons";
+@use "elements/fields";

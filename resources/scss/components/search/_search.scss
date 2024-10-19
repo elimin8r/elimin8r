@@ -1,10 +1,13 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/variables/colors";
+
 .site-search {
     display: flex;
     margin-top: 0;
     position: relative;
     z-index: 30;
 
-    @include media-tablet {
+    @include breakpoints.media-tablet {
         margin-top: 30px;
     }
 
@@ -24,7 +27,7 @@
         width: 40px;
         z-index: 1;
 
-        @include media-tablet {
+        @include breakpoints.media-tablet {
             height: 35px;
             width: 35px;
         }
@@ -65,7 +68,7 @@
                 display: none;
             }
 
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 height: 35px;
                 min-width: 35px;
             }
@@ -109,7 +112,7 @@ body:has(.main-navigation.toggled) {
         text-overflow: ellipsis;
 
         a {
-            color: $font-color-main;
+            color: colors.$font-color-main;
         }
     }
 }
@@ -128,7 +131,7 @@ body:has(.main-navigation.toggled) {
     }
 }
 
-@include media-tablet {
+@include breakpoints.media-tablet {
     body:has(.header-top) {
         .site-search {
             align-items: center;
@@ -166,7 +169,7 @@ body:has(.main-navigation.toggled) {
     }
 }
 
-@include media-tablet {
+@include breakpoints.media-tablet {
     body:has(.header-side) {
         .site-search {
             align-items: center;
@@ -215,7 +218,7 @@ body:has(.main-navigation.toggled) {
             padding: 0 10px;
             width: 240px;
             
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 width: 300px;
             }
         }

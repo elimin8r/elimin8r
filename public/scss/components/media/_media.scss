@@ -1,3 +1,7 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/mixins/containers";
+@use "../../abstracts/variables/colors";
+
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {
@@ -14,13 +18,13 @@
 
 body.single .post-thumbnail:not(:has(.featured-full-width)),
 body.page .post-thumbnail:not(:has(.featured-full-width)) {
-	@include container-width;
+	@include containers.container-width;
 }
 
 .site-page:has(.header-side) {
 	.single .post-thumbnail,
 	.page .post-thumbnail {
-		@include container-width;
+		@include containers.container-width;
 	}
 }
 
@@ -38,7 +42,7 @@ body.page .post-thumbnail:not(:has(.featured-full-width)) {
 		&.featured-full-width {
 			display: none;
 
-			@include media-tablet {
+			@include breakpoints.media-tablet {
 				display: block;
 				height: 300px;
 			}
@@ -51,7 +55,7 @@ body.page .post-thumbnail:not(:has(.featured-full-width)) {
 
 	&:before {
 		background: #fff;
-		color: $font-color-main;
+		color: colors.$font-color-main;
 		content: "Featured";
 		font-size: 14px;
 		font-weight: 400;
@@ -70,7 +74,7 @@ body.page .post-thumbnail:not(:has(.featured-full-width)) {
 	position: relative;
 	width: calc(100% + 30px);
 
-	@include media-tablet {
+	@include breakpoints.media-tablet {
 		left: -30px;
 		width: calc(100% + 60px);
 	}

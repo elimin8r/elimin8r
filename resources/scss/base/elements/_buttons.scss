@@ -1,12 +1,14 @@
+@use "../../abstracts/variables/colors";
+
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	align-items: center;
 	border: 1px solid;
-	border-color: $border-color-button;
+	border-color: colors.$border-color-button;
 	border-radius: 3px;
-	background: $background-color-button;
+	background: colors.$background-color-button;
 	color: rgba(0, 0, 0, 0.8);
 	display: flex;
 	height: 40px;
@@ -15,12 +17,12 @@ input[type="submit"] {
 	padding: 0 15px;
 
 	&:hover {
-		border-color: $border-color-button-hover;
+		border-color: colors.$border-color-button-hover;
 	}
 
 	&:active,
 	&:focus {
-		border-color: $border-color-button-focus;
+		border-color: colors.$border-color-button-focus;
 	}
 }
 

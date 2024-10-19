@@ -1,10 +1,13 @@
+@use "../abstracts/mixins/breakpoints";
+@use "../abstracts/variables/colors";
+
 body .wp-block-query-pagination {
     display: flex;
     gap: 0;
     justify-content: space-between;
     margin-top: 30px;
 
-    @include media-tablet {
+    @include breakpoints.media-tablet {
         justify-content: unset;
     }
 
@@ -13,14 +16,14 @@ body .wp-block-query-pagination {
     .wp-block-query-pagination-next {
         align-items: center;
         border: 1px solid #ddd;
-        color: $font-color-main;
+        color: colors.$font-color-main;
         display: none;
         height: 40px;
         justify-content: center;
         text-decoration: none;
         width: 30px;
 
-        @include media-tablet {
+        @include breakpoints.media-tablet {
             display: inline-flex;
             height: 30px;
         }
@@ -50,7 +53,7 @@ body .site-main .post-navigation-link-previous {
     a {
         align-items: center;
         border: 1px solid #ddd;
-        color: $font-color-main;
+        color: colors.$font-color-main;
         display: inline-flex;
         height: 40px;
         justify-content: center;

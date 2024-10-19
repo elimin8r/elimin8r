@@ -1,9 +1,12 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/variables/colors";
+
 .pagination {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
 
-    @include media-tablet {
+    @include breakpoints.media-tablet {
         display: block;
         justify-content: unset;
     }
@@ -11,14 +14,14 @@
     .page-numbers {
         align-items: center;
         border: 1px solid #ddd;
-        color: $font-color-main;
+        color: colors.$font-color-main;
         display: none;
         height: 40px;
         justify-content: center;
         text-decoration: none;
         width: 30px;
 
-        @include media-tablet {
+        @include breakpoints.media-tablet {
             display: inline-flex;
             height: 30px;
         }
@@ -32,7 +35,7 @@
             display: inline-flex;
             width: 90px;
             
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 width: 70px;
             }
 
@@ -46,7 +49,7 @@
                 transform: rotate(-90deg);
                 width: 15px;
 
-                @include media-tablet {
+                @include breakpoints.media-tablet {
                     height: 7px;
                     width: 11px;
                 }
@@ -57,7 +60,7 @@
             display: inline-flex;
             width: 120px;
 
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 width: 100px;
             }
 
@@ -71,7 +74,7 @@
                 transform: rotate(90deg);
                 width: 15px;
 
-                @include media-tablet {
+                @include breakpoints.media-tablet {
                     height: 7px;
                     width: 11px;
                 }

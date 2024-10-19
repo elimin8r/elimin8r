@@ -1,6 +1,10 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/mixins/containers";
+@use "../../abstracts/variables/colors";
+
 body:has(.header-side) {
     .site-header {
-        @include media-tablet {
+        @include breakpoints.media-tablet {
             min-width: 300px;
             width: 300px;
         }
@@ -10,7 +14,7 @@ body:has(.header-side) {
             top: 30px;
             width: 100%;
 
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 display: block;
                 position: sticky;
             }
@@ -21,7 +25,7 @@ body:has(.header-side) {
 body:has(.header-top) {
     .site-header {
         .header-content {
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 grid-template-areas: "first second last";
                 grid-template-columns: 200px 1fr 30px;
                 padding: 0 30px;
@@ -49,11 +53,11 @@ body:has(.header-top) {
 }
 
 .site-header {
-    background: $header-background-color;
+    background: colors.$header-background-color;
     padding: 15px;
     z-index: 2;
 
-    @include media-tablet {
+    @include breakpoints.media-tablet {
         padding: 30px;
         position: relative;
     }
@@ -67,7 +71,7 @@ body:has(.header-top) {
         grid-column-gap: 30px;
         grid-row-gap: 0px;
         padding: 0;
-        @include container-width;
+        @include containers.container-width;
     }
 
     .site-branding {
@@ -88,7 +92,7 @@ body:has(.header-top) {
         flex-direction: column;
         justify-content: center;
 
-        @include media-tablet {
+        @include breakpoints.media-tablet {
             align-items: flex-start;
         }
 
@@ -111,7 +115,7 @@ body:has(.header-top) {
             display: none;
             margin: 0;
 
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 display: block;
             }
         }

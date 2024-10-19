@@ -1,15 +1,17 @@
+@use "../../abstracts/variables/colors";
+
 a {
-	color: $font-color-link;
+	color: colors.$font-color-link;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
 	&:visited {
-		color: $font-color-link-visited;
+		color: colors.$font-color-link-visited;
 	}
 
 	&:hover,
 	&:focus,
 	&:active {
-		color: $font-color-link-hover;
+		color: colors.$font-color-link-hover;
 	}
 
 	&:focus {

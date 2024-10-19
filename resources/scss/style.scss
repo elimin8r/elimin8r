@@ -1,15 +1,15 @@
-@import "abstracts/abstracts";
+@forward "abstracts/abstracts";
 
-@import "generic/normalize";
-@import "generic/box-sizing";
+@use "generic/normalize";
+@use "generic/box-sizing";
 
-@import "base/base";
+@use "base/base";
 
-@import "blocks/blocks";
+@use "blocks/blocks";
 
-@import "components/components";
+@use "components/components";
 
-@import "plugins/plugins";
+@use "plugins/plugins";
 
-@import "utilities/alignments";
-@import "utilities/infinite-scroll";
+@use "utilities/alignments";
+@use "utilities/infinite-scroll";

@@ -1,3 +1,6 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/variables/colors";
+
 .block-posts-compact {
     .wp-block-post-template {
         margin-left: 0;
@@ -16,7 +19,7 @@
                     margin-bottom: 0;
                 }
                 
-                @include media-tablet {
+                @include breakpoints.media-tablet {
                     grid-template-columns: 300px 1fr;
                     grid-column-gap: 30px;
                 }
@@ -41,7 +44,7 @@
                     margin: 0 0 5px 0;
 
                     a {
-                        color: $font-color-main;
+                        color: colors.$font-color-main;
                     }
                 }
 

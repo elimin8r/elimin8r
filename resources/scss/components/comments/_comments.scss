@@ -1,3 +1,5 @@
+@use "../../abstracts/variables/colors";
+
 .comments-area {
 	border: 1px solid #ddd;
 	margin-top: 30px;
@@ -26,7 +28,7 @@
 					top: 16px;
 
 					a {
-						color: $font-color-main;
+						color: colors.$font-color-main;
 						pointer-events: none;
 						text-decoration: none;
 					}

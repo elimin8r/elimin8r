@@ -1,17 +1,17 @@
-@import "posts";
+@use "posts";
 
-@import "patterns/posts-compact";
+@use "patterns/posts-compact";
 
-@import "buttons";
+@use "buttons";
 
-@import "containers";
+@use "containers";
 
-@import "comments";
+@use "comments";
 
-@import "copy";
+@use "copy";
 
-@import "media";
+@use "media";
 
-@import "pagination";
+@use "pagination";
 
-@import "search";
+@use "search";

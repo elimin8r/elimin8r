@@ -1,4 +1,6 @@
+@use "../abstracts/mixins/containers";
+
 .wp-block-group.is-style-content-container {
     box-sizing: border-box;
-    @include container-width;
+    @include containers.container-width;
 }

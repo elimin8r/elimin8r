@@ -1,3 +1,5 @@
+@use "../abstracts/mixins/breakpoints";
+
 .site-main:has(.sidebar) {
     display: block;
 
@@ -5,7 +7,7 @@
         display: none;
     }
     
-    @include media-tablet {
+    @include breakpoints.media-tablet {
         display: grid;
         grid-template-columns: 1fr 250px;
         grid-column-gap: 30px;
@@ -15,7 +17,7 @@
         }
     }
 
-    @include media-desktop {
+    @include breakpoints.media-desktop {
         display: grid;
         grid-template-columns: 1fr 250px;
         grid-column-gap: 30px;

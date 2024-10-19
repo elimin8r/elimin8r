@@ -1,3 +1,7 @@
+@use "../../abstracts/mixins/breakpoints";
+@use "../../abstracts/mixins/containers";
+@use "../../abstracts/variables/colors";
+
 .site-main {
 	background: #fff;
 }
@@ -29,7 +33,7 @@
 .archive,
 .search-results {
 	.site-main {
-		@include container-width;
+		@include containers.container-width;
 	}
 
 	.entry-header {
@@ -37,7 +41,7 @@
 			margin-bottom: 5px;
 			
 			a {
-				color: $font-color-main;
+				color: colors.$font-color-main;
 			}
 		}
 	}
@@ -54,11 +58,11 @@
 .single .entry-header,
 .page > .entry-header {
 	padding: 0 30px;
-	@include container-width;
+	@include containers.container-width;
 }
 
 .entry-footer {
-	@include container-width;
+	@include containers.container-width;
 	
 	.tags-links {
 		display: block;
@@ -102,7 +106,7 @@
 		border-radius: 0;
 		margin: 10px 0 0 0;
 
-		@include media-tablet {
+		@include breakpoints.media-tablet {
 			margin: 0;
 		}
 	}

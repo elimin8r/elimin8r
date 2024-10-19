@@ -1,3 +1,5 @@
+@use "../abstracts/mixins/breakpoints";
+
 body.blog,
 body.search-results,
 body.archive {
@@ -12,7 +14,7 @@ body.archive {
             margin-bottom: 0;
         }
 
-        @include media-tablet {
+        @include breakpoints.media-tablet {
             grid-template-columns: 300px 1fr;
             grid-column-gap: 30px;
         }
@@ -25,12 +27,12 @@ body.archive {
             margin-top: 10px;
             width: calc(100vw - 30px);
 
-            @include media-tablet {
+            @include breakpoints.media-tablet {
                 margin-top: -4px;
                 max-width: 378px;
             }
 
-            @include media-desktop {
+            @include breakpoints.media-desktop {
                 max-width: 590px;
             }
 

@@ -1,3 +1,5 @@
+@use "../../abstracts/variables/colors";
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -14,18 +16,18 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: $font-color-input;
-	border: 1px solid $border-color-input;
+	color: colors.$font-color-input;
+	border: 1px solid colors.$border-color-input;
 	border-radius: 3px;
 	padding: 3px;
 
 	&:focus {
-		color: $font-color-input-focus;
+		color: colors.$font-color-input-focus;
 	}
 }
 
 select {
-	border: 1px solid $border-color-input;
+	border: 1px solid colors.$border-color-input;
 }
 
 textarea {

@@ -1,11 +1,11 @@
-@import "comments/comments";
+@use "comments/comments";
 
-@import "widgets/widgets";
+@use "widgets/widgets";
 
-@import "media/media";
-@import "media/captions";
-@import "media/galleries";
+@use "media/media";
+@use "media/captions";
+@use "media/galleries";
 
-@import "footer/footer";
+@use "footer/footer";
 
-@import "navigation/pagination";
+@use "navigation/pagination";

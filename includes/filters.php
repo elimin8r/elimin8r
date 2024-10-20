@@ -1,14 +1,14 @@
 <?php
 
-namespace Elimin8r\ContentFilters;
+namespace Elimin8r\Filters;
 
 /**
- * This class is used to add custom content filters to the theme.
+ * This class is used to apply filters to the theme.
  * 
  * @package Elimin8r
  */
 
-class ContentFilters {
+class Filters {
     public function __construct()
     {
         add_filter( 'post_class', array( $this, 'blogCompactClass' ) );
@@ -57,4 +57,4 @@ class ContentFilters {
     }
 }
 
-new ContentFilters();
+new Filters();

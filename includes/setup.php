@@ -34,8 +34,8 @@ class Setup {
         // Enable wide alignment
         add_theme_support( 'align-wide' );
 
-        // Disable the theme / plugin text editor
-        define( 'DISALLOW_FILE_EDIT', true );
+        // Enable support for block styles
+        add_theme_support( 'wp-block-styles' );
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(

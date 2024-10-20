@@ -1,10 +1,10 @@
 ![Elimin8r](https://elimin8r.com/elimin8r-logo.svg)
 
-`Elimin8r` is an free WordPress starter theme that utilzes Vite as a build tool.
+`Elimin8r` is a WordPress starter theme that utilizes Vite as a build tool.
 
 ## Getting started
 
-Elimin8r has been tested with WordPress version 6.6+. Any version’s below this may result in Elimin8r not working as intended.
+Elimin8r has been tested with WordPress version 6.6+. Any versions below this may result in Elimin8r not working as intended.
 
 The theme uses Vite to compress images, minify JavaScript and compile Sass stylesheets. You will therefore need to ensure you have the following tools installed:
 

@@ -56,6 +56,8 @@
 }
 
 .single .entry-header,
+.single .entry-content,
+.single .comments-area,
 .page > .entry-header {
 	padding: 0 30px;
 	@include containers.container-width;

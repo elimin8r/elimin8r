@@ -1,5 +1,3 @@
-![Elimin8r](https://elimin8r.com/elimin8r-logo.svg)
-
 `Elimin8r` is a WordPress starter theme that utilizes Vite as a build tool.
 
 ## Getting started

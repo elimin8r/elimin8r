@@ -4,6 +4,32 @@
 
 .site-main {
 	background: #fff;
+	
+	.site-content {
+		@include containers.container-width;
+	}
+	
+	&:has(.sidebar) {
+		.site-content {
+			@include breakpoints.media-tablet {
+				padding: 0;
+				width: unset;
+			}
+		}
+	}
+}
+
+.site-page:has(.header-side) {
+	.site-main:has(.sidebar) {
+		@media (min-width: 768px) and (max-width: 1070px) {
+			grid-template-columns: 1fr;
+			width: 100%;
+
+			.site-content {
+				width: 428px;
+			}
+		}
+	}
 }
 
 .sticky {
@@ -55,18 +81,12 @@
 	}
 }
 
-.single .entry-header,
-.single .entry-content,
-.single .comments-area,
-.error404 .site-main,
-.page > .entry-header {
+.error404 .site-main {
 	padding: 0 30px;
 	@include containers.container-width;
 }
 
 .entry-footer {
-	@include containers.container-width;
-	
 	.tags-links {
 		display: block;
 		margin-top: 15px;

@@ -2,6 +2,7 @@
 
 .site-main:has(.sidebar) {
     display: block;
+    justify-content: center;
 
     .sidebar {
         display: none;
@@ -9,7 +10,7 @@
     
     @include breakpoints.media-tablet {
         display: grid;
-        grid-template-columns: 1fr 250px;
+        grid-template-columns: 428px 250px;
         grid-column-gap: 30px;
         
         .sidebar {
@@ -19,7 +20,7 @@
 
     @include breakpoints.media-desktop {
         display: grid;
-        grid-template-columns: 1fr 250px;
+        grid-template-columns: 640px 250px;
         grid-column-gap: 30px;
     }
 

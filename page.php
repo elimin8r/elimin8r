@@ -2,24 +2,28 @@
 get_header();
 ?>
 
-	<div id="primary" class="site-main">
-		<main class="site-content">
-			<?php Elimin8r\Breadcrumbs\Breadcrumbs::getBreadcrumbs(); ?>
-			
-			<?php
-			while ( have_posts() ) :
-				the_post();
+<div id="primary" class="site-main">
+	<main class="site-content">
+		<?php Elimin8r\Breadcrumbs\Breadcrumbs::getBreadcrumbs(); ?>
 
-				get_template_part( 'template-parts/content', 'page' );
+		<?php
+		while (have_posts()) :
+			the_post();
 
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+			get_template_part('template-parts/content', 'page');
 
-			endwhile;
-			?>
-		</main><!-- .site-content -->
-	</div><!-- .site-main -->
+			if (comments_open() || get_comments_number()) :
+				comments_template();
+			endif;
+
+		endwhile;
+		?>
+	</main><!-- .site-content -->
+
+	<?php
+		get_sidebar();
+	?>
+</div><!-- .site-main -->
 
 <?php
 get_footer();

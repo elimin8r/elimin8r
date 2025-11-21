@@ -16,11 +16,6 @@
 	display: flex;
 }
 
-body.single .post-thumbnail:not(:has(.featured-full-width)),
-body.page .post-thumbnail:not(:has(.featured-full-width)) {
-	@include containers.container-width;
-}
-
 .post-thumbnail {
 	img,
 	svg {

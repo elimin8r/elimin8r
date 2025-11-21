@@ -43,9 +43,6 @@
         }
 
         .search-field.search-active {
-            max-width: calc(100vw - 30px);
-            width: calc(100vw - 30px);
-
             &::placeholder {
                 color: #999;
             }
@@ -89,8 +86,8 @@
             }
 
             &.search-active {
-                max-width: calc(100vw - 30px);
-                width: calc(100vw - 30px);
+                max-width: calc(100vw - 60px);
+                width: calc(100vw - 60px);
 
                 @include breakpoints.media-tablet {
                     max-width: 300px;

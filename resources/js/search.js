@@ -19,15 +19,15 @@ window.onload = () => {
 
 const input = document.querySelector('.search-field');
 if (input) {
-    input.addEventListener('keyup', () => gameSearch(input));
+    input.addEventListener('keyup', () => search(input));
 }
 
 const block_input = document.querySelector('.wp-block-search__input');
 if (block_input) {
-    block_input.addEventListener('keyup', () => gameSearch(block_input));
+    block_input.addEventListener('keyup', () => search(block_input));
 }
 
-const gameSearch = async (input) => {
+const search = async (input) => {
     const url = window.location.origin;
     const response = await fetch(url + '/wp-json/wp/v2/search/?search=' + input.value);
     const data = await response.json();

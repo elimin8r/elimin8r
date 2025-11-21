@@ -4,6 +4,8 @@
 
 .site-main {
 	background: #fff;
+	padding-bottom: 60px;
+	padding-top: 60px;
 	
 	.site-content {
 		@include containers.container-width;
@@ -14,19 +16,6 @@
 			@include breakpoints.media-tablet {
 				padding: 0;
 				width: unset;
-			}
-		}
-	}
-}
-
-.site-page:has(.header-side) {
-	.site-main:has(.sidebar) {
-		@media (min-width: 768px) and (max-width: 1070px) {
-			grid-template-columns: 1fr;
-			width: 100%;
-
-			.site-content {
-				width: 428px;
 			}
 		}
 	}

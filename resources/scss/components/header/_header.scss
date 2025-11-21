@@ -2,56 +2,6 @@
 @use "../../abstracts/mixins/containers";
 @use "../../abstracts/variables/colors";
 
-body:has(.header-side) {
-    .site-header {
-        @include breakpoints.media-tablet {
-            min-width: 300px;
-            width: 300px;
-        }
-
-        .header-content {
-            padding: 0;
-            top: 30px;
-            width: 100%;
-
-            @include breakpoints.media-tablet {
-                display: block;
-                position: sticky;
-            }
-        }
-    }
-}
-
-body:has(.header-top) {
-    .site-header {
-        .header-content {
-            @include breakpoints.media-tablet {
-                grid-template-areas: "first second last";
-                grid-template-columns: 200px 1fr 30px;
-                padding: 0 30px;
-            }
-            
-            h1 {
-                margin-bottom: 0;
-            }
-            
-            .site-branding,
-            .main-navigation {
-                display: flex;
-            }
-            
-            .main-navigation {
-                align-items: center;
-            }
-        }
-
-        &.header-full .header-content {
-            max-width: 100%;
-            width: 100%;
-        }
-    }
-}
-
 .site-header {
     background: colors.$header-background-color;
     padding: 15px;
@@ -72,52 +22,70 @@ body:has(.header-top) {
         grid-row-gap: 0px;
         padding: 0;
         @include containers.container-width;
-    }
-
-    .site-branding {
-        grid-area: first;
-    }
-
-    .main-navigation {
-        grid-area: second;
-    }
-
-    .site-search {
-        grid-area: last;
-    }
-    
-    .site-branding {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
 
         @include breakpoints.media-tablet {
-            align-items: flex-start;
+            grid-template-areas: "first second last";
+            grid-template-columns: 200px 1fr 30px;
+            padding: 0 30px;
         }
-
-        .custom-logo {
-            max-height: 100px;
-            width: 100%;
-        }
-
+        
         h1 {
-            margin-top: 0;
-
-            &.title-hidden {
-                height: 0;
-                margin: 0;
-                text-indent: -8000px
-            }
+            margin-bottom: 0;
+        }
+        
+        .site-branding,
+        .main-navigation {
+            display: flex;
         }
 
-        .site-description {
-            display: none;
-            margin: 0;
+        .site-branding {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            grid-area: first;
+            justify-content: center;
 
             @include breakpoints.media-tablet {
-                display: block;
+                align-items: flex-start;
+            }
+
+            .custom-logo {
+                max-height: 100px;
+                width: 100%;
+            }
+
+            h1 {
+                margin-top: 0;
+
+                &.title-hidden {
+                    height: 0;
+                    margin: 0;
+                    text-indent: -8000px
+                }
+            }
+
+            .site-description {
+                display: none;
+                margin: 0;
+
+                @include breakpoints.media-tablet {
+                    display: block;
+                }
             }
         }
+        
+        .main-navigation {
+            align-items: center;
+            grid-area: second;
+        }
+
+        .site-search {
+            grid-area: last;
+        }
+    }
+
+    &.header-full .header-content {
+        max-width: 100%;
+        width: 100%;
     }
 }

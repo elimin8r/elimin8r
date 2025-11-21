@@ -8,7 +8,9 @@
     z-index: 30;
 
     @include breakpoints.media-tablet {
-        margin-top: 30px;
+        align-items: center;
+        display: flex;
+        margin-top: 0 !important;
     }
 
     .search-toggle {
@@ -29,7 +31,15 @@
 
         @include breakpoints.media-tablet {
             height: 35px;
+            right: 5px;
             width: 35px;
+
+            &:focus-within~form {
+                .search-field.search-active {
+                    max-width: 300px;
+                    width: 300px;
+                }
+            }
         }
 
         .search-field.search-active {
@@ -45,6 +55,10 @@
     form.search-form {
         position: absolute;
 
+        @include breakpoints.media-tablet {
+            right: 0;
+        }
+
         .search-field {
             border: none;
             border-radius: 25px;
@@ -55,6 +69,12 @@
             transition: width 0.3s ease-in-out;
             width: 0;
             z-index: 30;
+
+            @include breakpoints.media-tablet {
+                height: 35px;
+                text-indent: 5px;
+                min-width: 35px;
+            }
 
             &::placeholder {
                 color: transparent;
@@ -68,14 +88,14 @@
                 display: none;
             }
 
-            @include breakpoints.media-tablet {
-                height: 35px;
-                min-width: 35px;
-            }
-
             &.search-active {
                 max-width: calc(100vw - 30px);
                 width: calc(100vw - 30px);
+
+                @include breakpoints.media-tablet {
+                    max-width: 300px;
+                    width: 300px;
+                }
 
                 &::placeholder {
                     color: #999;
@@ -128,82 +148,6 @@ body:has(.main-navigation.toggled) {
         left: 0;
         right: 0;
         width: calc(100% - 90px);
-    }
-}
-
-@include breakpoints.media-tablet {
-    body:has(.header-top) {
-        .site-search {
-            align-items: center;
-            display: flex;
-            margin-top: 0 !important;
-
-            .search-toggle {
-                right: 5px;
-
-                &:focus-within ~ form {
-                    .search-field.search-active {
-                        max-width: 300px;
-                        width: 300px;
-                    }
-                }
-            }
-
-            .search-field {
-                text-indent: 5px;
-
-                &.search-active {
-                    max-width: 300px;
-                    width: 300px;
-                }
-            }
-
-            form.search-form {
-                right: 0;
-
-                &.search-active {
-                    display: block;
-                }
-            }
-        }
-    }
-}
-
-@include breakpoints.media-tablet {
-    body:has(.header-side) {
-        .site-search {
-            align-items: center;
-            display: flex;
-            margin-top: 30px;
-
-            .search-toggle {
-                left: 0;
-
-                &:focus-within ~ form {
-                    .search-field.search-active {
-                        max-width: 240px;
-                        width: 240px;
-                    }
-                }
-            }
-
-            .search-field {
-                text-indent: 35px;
-
-                &.search-active {
-                    max-width: 240px;
-                    width: 240px;
-                }
-            }
-
-            form.search-form {
-                left: 0;
-
-                &.search-active {
-                    display: block;
-                }
-            }
-        }
     }
 }
 

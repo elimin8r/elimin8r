@@ -21,13 +21,6 @@ body.page .post-thumbnail:not(:has(.featured-full-width)) {
 	@include containers.container-width;
 }
 
-.site-page:has(.header-side) {
-	.single .post-thumbnail,
-	.page .post-thumbnail {
-		@include containers.container-width;
-	}
-}
-
 .post-thumbnail {
 	img,
 	svg {

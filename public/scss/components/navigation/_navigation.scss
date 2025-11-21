@@ -96,10 +96,16 @@
 
 		@include breakpoints.media-tablet {
 			margin-bottom: 0;
+			margin-right: 20px;
 		}
 
 		&.page_item_has_children,
 		&.menu-item-has-children {
+			@include breakpoints.media-tablet {
+				display: flex;
+				flex-direction: column;
+			}
+			
 			> a {
 				&:after {
 					background: #000;
@@ -120,15 +126,46 @@
 
 			.children,
 			.sub-menu {
+				box-sizing: border-box;
+				flex-direction: column;
+				left: 30px;
 				max-height: 0;
 				overflow: hidden;
 				position: relative;
-				left: 30px;
 
 				@include breakpoints.media-tablet {
 					left: 0;
-					overflow: visible;
 					position: absolute;
+					transition: max-height 0s;
+					-moz-transition: max-height 0s;
+					-ms-transition: max-height 0s;
+					-o-transition: max-height 0s;
+					-webkit-transition: max-height 0s;
+
+					li {
+						margin-right: 0;
+	
+						a {
+							align-items: center;
+							display: flex;
+							height: 35px;
+							padding: 0 15px;
+						}
+	
+						ul.children,
+						ul.sub-menu {
+							box-shadow: none;
+							position: relative;
+	
+							li {
+								padding-left: 20px;
+							}
+						}
+
+						ul.sub-menu {
+							margin-top: 0;
+						}
+					}
 				}
 			}
 			
@@ -224,7 +261,6 @@
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-
 	.site-main & {
 		margin: 0 0 1.5em;
 	}
@@ -270,117 +306,6 @@
 
 			@include breakpoints.media-tablet {
 				margin-bottom: 0;
-			}
-		}
-	}
-}
-
-@include breakpoints.media-tablet {
-	.site-page:has(.header-side) {
-		.main-navigation {
-			margin-top: 30px;
-
-			ul.nav-menu {
-				flex-direction: column;
-
-				li.page_item,
-				li.menu-item {
-					margin-bottom: 10px;
-
-					&.page_item_has_children,
-					&.menu-item-has-children {
-						display: flex;
-						flex-direction: column;
-						margin-bottom: 0px;
-
-						ul.children,
-						ul.sub-menu {
-							background: transparent;
-							box-shadow: none;
-							flex-direction: column;
-							left: 30px;
-							margin-top: 10px;
-							max-height: 0;
-							overflow: hidden;
-							position: relative;
-							-webkit-transition: max-height 0s;
-							-moz-transition: max-height 0s;
-							-ms-transition: max-height 0s;
-							-o-transition: max-height 0s;
-							transition: max-height 0s;
-						}
-					}
-				}
-			}
-		}
-
-		.nav-links {
-			@media (min-width: 768px) and (max-width: 1070px) {
-				display: block;
-			}
-	
-			.nav-previous {
-				@media (min-width: 768px) and (max-width: 1070px) {
-					margin-bottom: 10px;
-				}
-			}
-		}
-	}
-}
-
-@include breakpoints.media-tablet {
-	.site-page:has(.header-top) {
-		.main-navigation {
-			ul.nav-menu {
-				li.page_item,
-				li.menu-item {
-					margin-right: 0;
-
-					@include breakpoints.media-tablet {
-						margin-right: 20px;
-					}
-
-					&.page_item_has_children,
-					&.menu-item-has-children {
-						display: flex;
-						flex-direction: column;
-
-						ul.children,
-						ul.sub-menu {
-							box-sizing: border-box;
-							flex-direction: column;
-							max-height: 0;
-							overflow-y: hidden;
-							-webkit-transition: max-height 0s;
-							-moz-transition: max-height 0s;
-							-ms-transition: max-height 0s;
-							-o-transition: max-height 0s;
-							transition: max-height 0s;
-
-							li {
-								margin-right: 0;
-								border-top: 1px solid rgba(211, 211, 211, 0.3);
-
-								a {
-									align-items: center;
-									display: flex;
-									height: 35px;
-									padding: 0 15px;
-								}
-								
-								ul.children,
-								ul.sub-menu {
-									box-shadow: none;
-									position: relative;
-
-									li {
-										padding-left: 20px;
-									}
-								}
-							}
-						}
-					}
-				}
 			}
 		}
 	}

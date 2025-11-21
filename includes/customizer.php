@@ -91,12 +91,8 @@ class Customizer {
 				body .main-navigation ul li a {
 					color: ' . $header_text_color . ';
 				}
-				body .site-page:has(.header-top) .main-navigation ul li ul li a {
+				body .site-page .main-navigation ul li ul li a {
 					color: ' . $submenu_text_color . ';
-				}
-				body:has(.header-side) .main-navigation li.page_item_has_children ul li a:after,
-				body:has(.header-side) .main-navigation li.menu-item-has-children ul li a:after {
-					background: ' . $header_text_color . ';
 				}
 				body .main-navigation .children,
 				body .main-navigation .sub-menu {

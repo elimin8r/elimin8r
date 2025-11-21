@@ -21,32 +21,6 @@ class CustomizerHeader {
             'title'      => __( 'Header', 'elimin8r' ),
             'priority'   => 30,
         ) );
-    
-        // Add the setting for the header position
-        $wp_customize->add_setting( 'header_position' , array(
-            'default'   => 'top',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'sanitize_key',
-        ) );
-        $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'header_position', array(
-            'label'      => __( 'Header Position', 'elimin8r' ),
-            'section'    => 'header_options',
-            'settings'   => 'header_position',
-            'type'       => 'select',
-            'choices'    => array(
-                'top' => 'Top',
-                'side' => 'Side',
-            ),
-        ) ) );
-        $wp_customize->get_setting( 'header_position' )->transport = 'postMessage';
-        if ( isset( $wp_customize->selective_refresh ) ) {
-            $wp_customize->selective_refresh->add_partial(
-                'header_position',
-                array(
-                    'selector'        => '.site-search',
-                )
-            );
-        }
 
         // Add the setting for the header width
         $wp_customize->add_setting( 'header_width' , array(

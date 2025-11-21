@@ -34,14 +34,6 @@
 			grid-template-columns: repeat($i, 1fr);
 		}
 	}
-	
-	.site-page:has(.header-side) {
-		.gallery-columns-#{$i} {
-			@media (min-width: 768px) and (max-width: 1070px) {
-				grid-template-columns: 1fr 1fr;
-			}
-		}
-	}
 }
 
 .gallery-caption {

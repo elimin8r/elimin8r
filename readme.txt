@@ -2,7 +2,7 @@
 
 ## Getting started
 
-Elimin8r has been tested with WordPress version 6.6+. Any versions below this may result in Elimin8r not working as intended.
+Elimin8r has been tested with WordPress version 6.8+. Any versions below this may result in Elimin8r not working as intended.
 
 The theme uses Vite to compress images, minify JavaScript and compile Sass stylesheets. You will therefore need to ensure you have the following tools installed:
 
@@ -10,7 +10,7 @@ The theme uses Vite to compress images, minify JavaScript and compile Sass style
 
 ### Setup
 
-To start using the build tools that come with Elimin8r, you need to install the necessary dependencies. Run the following command in the root of the Elimin8r theme directory:
+To start using the build tools that come with Elimin8r, you will need to install the necessary dependencies. Run the following command in the root of the Elimin8r theme directory:
 
 `$ npm install`
 

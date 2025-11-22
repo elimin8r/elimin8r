@@ -112,14 +112,18 @@
 					clip-path: polygon(100% 0, 100% 30%, 50% 100%, 0 30%, 0 0, 50% 70%);
 					content: "";
 					display: inline-block;
-					height: 15px;
-					margin-left: 5px;
+					height: 10px;
+					margin-left: 10px;
+					position: relative;
+					top: -3px;
 					transition: 0.1s;
-					width: 20px;
+					width: 15px;
 
 					@include breakpoints.media-tablet {
-						height: 10px;
-						width: 14px;
+						height: 6px;
+						margin-left: 5px;
+						top: -2px;
+						width: 10px;
 					}
 				}
 			}
